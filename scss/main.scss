@@ -1,0 +1,456 @@
+// ===================================
+// KUNYO - Main SCSS File
+// ===================================
+
+// Utils
+@import 'utils/variables';
+@import 'utils/mixins';
+
+// Bootstrap (Import from CDN in HTML or install via npm)
+// If using npm: @import '~bootstrap/scss/bootstrap';
+
+// Base
+@import 'base/reset';
+@import 'base/typography';
+
+// Layout
+@import 'layout/navbar';
+@import 'layout/footer';
+
+// Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/hero-carousel';
+@import 'components/preferences-modal';
+
+
+// Pages
+@import 'pages/homepage';
+@import 'pages/angled-box';
+@import 'pages/popular-categories';
+@import 'pages/trust-badges';
+
+// ===================================
+// Utility Classes
+// ===================================
+
+.section {
+    padding: $spacing-2xl 0;
+
+    @include respond-to('md') {
+        padding: $spacing-xl 0;
+    }
+}
+
+.section-header {
+    @include flex-between;
+    margin-bottom: $spacing-xl;
+
+    &.centered {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    @include respond-to('md') {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+.section-title {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: $font-weight-bold;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: $text-secondary;
+}
+
+
+
+.main-sec-title {
+    font-size: 32px;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, $primary-red 0%, rgba(220, 20, 60, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.main-sec-subtitle {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.link-arrow {
+    @include flex-center;
+    gap: 0.5rem;
+    color: $primary-red;
+    font-weight: $font-weight-semibold;
+    font-size: 0.875rem;
+    text-decoration: none;
+
+    &:hover {
+        color: $deep-red;
+    }
+}
+
+// Grids
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    @include respond-to('md') {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+
+    @include respond-to('sm') {
+        grid-template-columns: 1fr;
+    }
+}
+
+.giftcards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    @include respond-to('sm') {
+        grid-template-columns: 1fr;
+    }
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    @include respond-to('lg') {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('md') {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+// How It Works Section
+.how-it-works {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 30% 50%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 70% 50%, rgba(0, 56, 147, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.steps-grid {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(220, 20, 60, 0.3) 20%,
+            rgba(0, 56, 147, 0.3) 80%,
+            transparent 100%
+        );
+        z-index: 0;
+
+        @include respond-to('md') {
+            display: none;
+        }
+    }
+}
+
+// Step Cards
+.step-card {
+    position: relative;
+    padding: 2.5rem 2rem 2rem;
+    background: linear-gradient(135deg, rgba(0, 45, 102, 0.3) 0%, rgba(0, 34, 77, 0.5) 100%);
+    border: 1px solid rgba(0, 56, 147, 0.3);
+    border-radius: $radius-xl;
+    transition: all $transition-base;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+
+    &:hover {
+        transform: translateY(-8px);
+        border-color: rgba(220, 20, 60, 0.5);
+        box-shadow: 0 12px 40px rgba(220, 20, 60, 0.2);
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 56, 147, 0.2) 100%);
+
+        .step-number {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .step-icon {
+            transform: scale(1.1);
+            color: $primary-red;
+        }
+    }
+
+    .step-number {
+        position: absolute;
+        top: -1.25rem;
+        left: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        @include flex-center;
+        justify-content: center;
+        background: $gradient-hero;
+        border-radius: 50%;
+        font-size: 1.25rem;
+        font-weight: $font-weight-extrabold;
+        box-shadow: 0 4px 20px rgba(220, 20, 60, 0.4);
+        transition: all $transition-base;
+        border: 3px solid rgba(0, 13, 31, 0.8);
+    }
+
+    .step-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1.5rem;
+        @include flex-center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(0, 56, 147, 0.1) 100%);
+        border: 2px solid rgba(0, 56, 147, 0.3);
+        border-radius: $radius-lg;
+        color: $text-secondary;
+        transition: all $transition-base;
+
+        svg {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .step-title {
+        font-size: 1.375rem;
+        font-weight: $font-weight-bold;
+        margin-bottom: 0.75rem;
+        text-align: center;
+        color: $text-primary;
+    }
+
+    .step-description {
+        color: $text-secondary;
+        line-height: 1.7;
+        text-align: center;
+        font-size: 0.9375rem;
+    }
+}
+
+
+// Testimonials
+.testimonials {
+    position: relative;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(220, 20, 60, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(0, 56, 147, 0.06) 0%, transparent 40%),
+        $bg-secondary;
+}
+
+.testimonial-card {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(0, 45, 102, 0.25) 0%, rgba(0, 34, 77, 0.35) 100%);
+    border: 1px solid rgba(0, 56, 147, 0.3);
+    border-radius: $radius-xl;
+    backdrop-filter: blur(10px);
+    transition: all $transition-base;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '"';
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 6rem;
+        line-height: 1;
+        color: rgba(220, 20, 60, 0.1);
+        font-family: Georgia, serif;
+        font-weight: bold;
+        pointer-events: none;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(220, 20, 60, 0.5);
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 56, 147, 0.25) 100%);
+        box-shadow: 0 12px 32px rgba(220, 20, 60, 0.2);
+
+        .author-avatar {
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(220, 20, 60, 0.4);
+        }
+
+        .testimonial-stars {
+            svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .testimonial-stars {
+        display: flex;
+        gap: 0.35rem;
+        margin-bottom: 1.25rem;
+        color: $accent-warning;
+
+        svg {
+            transition: transform $transition-base;
+        }
+    }
+
+    .testimonial-text {
+        font-size: 1.0625rem;
+        line-height: 1.8;
+        color: $text-secondary;
+        margin-bottom: 1.75rem;
+        position: relative;
+        z-index: 1;
+        font-style: italic;
+
+        &::before {
+            content: '"';
+            color: $primary-red;
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        &::after {
+            content: '"';
+            color: $primary-red;
+            font-size: 1.5rem;
+            margin-left: 0.25rem;
+            font-style: normal;
+            font-weight: bold;
+        }
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0, 56, 147, 0.3);
+    }
+
+    .author-avatar {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $gradient-hero;
+        border-radius: 50%;
+        font-weight: $font-weight-extrabold;
+        font-size: 1.125rem;
+        transition: all $transition-base;
+        box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .author-info {
+        flex: 1;
+    }
+
+    .author-name {
+        font-weight: $font-weight-bold;
+        font-size: 1.0625rem;
+        margin-bottom: 0.25rem;
+        color: $text-primary;
+    }
+
+    .author-game {
+        font-size: 0.875rem;
+        color: $text-muted;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: $primary-red;
+            border-radius: 50%;
+        }
+    }
+}
+
+// CTA Banner
+.cta-banner {
+    background: $gradient-hero;
+    padding: $spacing-2xl 0;
+
+    .cta-content {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .cta-title {
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        font-weight: $font-weight-bold;
+        margin-bottom: 1rem;
+    }
+
+    .cta-description {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+}
+
+// Spacing utilities
+.mt-1 { margin-top: $spacing-sm; }
+.mt-2 { margin-top: $spacing-md; }
+.mt-3 { margin-top: $spacing-lg; }
+.mb-1 { margin-bottom: $spacing-sm; }
+.mb-2 { margin-bottom: $spacing-md; }
+.mb-3 { margin-bottom: $spacing-lg; }

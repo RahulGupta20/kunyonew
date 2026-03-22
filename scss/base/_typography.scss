@@ -1,0 +1,66 @@
+// ===================================
+// Typography
+// ===================================
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    margin-bottom: $spacing-md;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-bottom: $spacing-sm;
+    line-height: 1.7;
+}
+
+.text-gradient {
+    @include gradient-text($gradient-hero);
+}
+
+.text-primary {
+    color: $text-primary !important;
+}
+
+.text-secondary {
+    color: $text-secondary !important;
+}
+
+.text-muted {
+    color: $text-muted !important;
+}
+
+.fw-medium {
+    font-weight: $font-weight-medium;
+}
+
+.fw-semibold {
+    font-weight: $font-weight-semibold;
+}
+
+.fw-extrabold {
+    font-weight: $font-weight-extrabold;
+}

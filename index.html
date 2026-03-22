@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUNYO - Game Top Up & Digital Gift Cards | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Header Styles (Original) -->
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <a href="#" class="logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                            <span>/</span>
+                            <span>Register</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <i class="bi bi-x"></i>
+                </button>
+                <ul class="main-nav ms-4">
+                    
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Preferences Modal -->
+    <div class="modal fade" id="preferencesModal" tabindex="-1" aria-labelledby="preferencesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered preferences-modal-dialog">
+            <div class="modal-content preferences-modal-content">
+                <div class="modal-header preferences-modal-header">
+                    <h5 class="modal-title" id="preferencesModalLabel">Preferences</h5>
+                    <button type="button" class="btn-close preferences-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body preferences-modal-body">
+                    <!-- Country Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Country</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#countryCollapse">
+                            <img src="https://flagcdn.com/w20/us.png" alt="USA Flag" class="preference-flag">
+                            <span class="preference-text">USA</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="countryCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-country="us" data-flag="https://flagcdn.com/w20/us.png">
+                                    <img src="https://flagcdn.com/w20/us.png" alt="USA Flag">
+                                    <span>USA</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="ca" data-flag="https://flagcdn.com/w20/ca.png">
+                                    <img src="https://flagcdn.com/w20/ca.png" alt="Canada Flag">
+                                    <span>Canada</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="gb" data-flag="https://flagcdn.com/w20/gb.png">
+                                    <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag">
+                                    <span>United Kingdom</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="np" data-flag="https://flagcdn.com/w20/np.png">
+                                    <img src="https://flagcdn.com/w20/np.png" alt="Nepal Flag">
+                                    <span>Nepal</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Language</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#languageCollapse">
+                            <span class="preference-text">English</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="languageCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-language="en" data-language-name="English">
+                                    <span>English</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="es" data-language-name="Spanish">
+                                    <span>Spanish</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="fr" data-language-name="French">
+                                    <span>French</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="ne" data-language-name="Nepali">
+                                    <span>Nepali</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Currency Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Payment currency</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#currencyCollapse">
+                            <span class="preference-icon">$</span>
+                            <span class="preference-text">USD - US Dollar</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="currencyCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-currency="USD" data-currency-name="USD - US Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>USD - US Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="CAD" data-currency-name="CAD - Canadian Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>CAD - Canadian Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="GBP" data-currency-name="GBP - British Pound" data-currency-symbol="£">
+                                    <span class="preference-icon">£</span>
+                                    <span>GBP - British Pound</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="EUR" data-currency-name="EUR - Euro" data-currency-symbol="€">
+                                    <span class="preference-icon">€</span>
+                                    <span>EUR - Euro</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="NPR" data-currency-name="NPR - Nepali Rupee" data-currency-symbol="₨">
+                                    <span class="preference-icon">₨</span>
+                                    <span>NPR - Nepali Rupee</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer preferences-modal-footer">
+                    <button type="button" class="btn preferences-save-btn" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-carousel">
+            <div class="owl-carousel owl-theme hero-sec-carousel" role="region" aria-label="Hero Carousel" aria-roledescription="carousel">
+                <div class="hero-item" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                    <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fbanner%2F11f3dc151d7309856f525c3fefd8e20c_uper%20banner.jpg&w=2048&q=75" alt="Gaming Banner 1">
+                </div>
+                <div class="hero-item" role="group" aria-roledescription="slide" aria-label="2 of 5">
+                    <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fbanner%2F155f28aa9ae0d5fe255a6459c4737b3e_uper%20banner%203.png&w=2048&q=75" alt="Gaming Banner 2">
+                </div>
+                <div class="hero-item" role="group" aria-roledescription="slide" aria-label="3 of 5">
+                    <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fbanner%2F5858d86dfe0bae69a34084ecab432c4e_uper%20banner%202.jpg&w=2048&q=75" alt="Gaming Banner 3">
+                </div>
+                <div class="hero-item" role="group" aria-roledescription="slide" aria-label="4 of 5">
+                    <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fbanner%2Fd283dd36879f56e520d75dfb222c5998_Webp.net-compress-image%20(1).jpg&w=2048&q=75" alt="Gaming Banner 4">
+                </div>
+                <div class="hero-item" role="group" aria-roledescription="slide" aria-label="5 of 5">
+                    <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fbanner%2F46ad3946c080253d658cf8dd96dabc15_uper%20banner%204.jpg&w=2048&q=75" alt="Gaming Banner 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular categories Section -->
+    <section class="popular-categories">
+        <div class="container-fluid">
+            <div class="categories-carousel owl-carousel owl-theme">
+                <!-- Category Item 1 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Steam_Sprite-200x113.webp" alt="Steam Wallet" class="category-image">
+                        <h3 class="category-title">Steam Wallet</h3>
+                    </a>
+                </div>
+
+                <!-- Category Item 2 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Roblox-Sprite-200x113.webp" alt="Roblox" class="category-image">
+                        <h3 class="category-title">Roblox</h3>
+                    </a>
+                </div>
+
+                <!-- Category Item 3 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Fortnite_Sprite_20250729.webp" alt="Fortnite" class="category-image">
+                        <h3 class="category-title">Fortnite</h3>
+                    </a>
+                </div>
+
+                <!-- Category Item 4 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Googleplay_New_Sprite-200x113.webp" alt="Google Play" class="category-image">
+                        <h3 class="category-title">Google Play</h3>
+                    </a>
+                </div>
+
+                <!-- Category Item 5 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Amazon_Sprite-200x113.webp" alt="Amazon" class="category-image">
+                        <h3 class="category-title">Amazon</h3>
+                    </a>
+                </div>
+
+                <!-- Category Item 6 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Apple-Gift-Cards-Sprite-200x113.webp" alt="Apple Gift Cards" class="category-image">
+                        <h3 class="category-title">Apple Gift Cards</h3>
+                    </a>
+                </div>
+
+                <!-- Category Item 7 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Playstation-Store-Sprite-200x113.webp" alt="PlayStation Store" class="category-image">
+                        <h3 class="category-title">PlayStation Store</h3>
+                    </a>
+                </div>
+
+                <!-- Category Item 8 -->
+                <div class="popular-category-item">
+                    <a href="#" class="category-card">
+                        <img src="assets/images/Paysafe.webp" alt="Paysafe" class="category-image">
+                        <h3 class="category-title">Paysafe</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Section - Angled Box Demo Section -->
+    <section class="section angled-box-demo">
+        <div class="container-fluid">
+            <div class="section-header">
+                <div>
+                    <h2 class="main-sec-title">Special Offer</h2>
+                    <p class="main-sec-subtitle">Get the best deals with special prices for your favorite games.</p>
+                </div>
+                <a href="#" class="link-arrow">
+                    View All
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- SVG for clip-path with rounded corners -->
+            <svg width="0" height="0" style="position: absolute;">
+                <defs>
+                    <clipPath id="diagonalClip" clipPathUnits="objectBoundingBox">
+                        <path d="M 0.05,0.25 Q 0,0.25 0,0.3 L 0,0.92 Q 0,1 0.05,1 L 0.95,1 Q 1,1 1,0.92 L 1,0.08 Q 1,0 0.95,0 L 0.05,0.25 Z" />
+                    </clipPath>
+                </defs>
+            </svg>
+
+            <div class="angled-boxes-wrapper">
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box promo-card">
+                    <div class="angled-box-content">
+                        <header class="promo-header">
+                            <figure class="promo-figure">
+                                <img src="assets/images/Free_Fire_Promo1.webp" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                            <div class="promo-title">
+                                <h3>Free Fire 1050 Diamond</h3>
+                                <p class="game-name">Free Fire</p>
+                            </div>
+                        </header>
+                        
+                        <footer class="promo-footer">
+                            <span class="badge promo-discount" aria-label="10% discount">Promo 10%</span>
+                            <div class="pricing" role="group" aria-label="Product pricing">
+                                <data class="price price--original" value="520000">
+                                    <del>$520,000</del>
+                                </data>
+                                <data class="price price--sale" value="468000">
+                                    <strong>$468,000</strong>
+                                </data>
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two Columns -- TopUps and Gift-Cards -->
+    <section class="section topups-n-giftcards-cols pt-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                                <h3 class="card-title mb-0">Top-Ups</h3>
+                                <a href="#" class="link-arrow">
+                                    View more
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="row g-1">
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2Fb9970762b98ea91b8a6ac16c47c28f14_kunyo%20gears%20gift%20naruto.jpg&w=1080&q=75" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Nintendo Eshop Card </h4>
+                                            <p class="item-game">US</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F22d321f06f43fea2d79a5e5e3132b0d5_TOP%20UP%202.jpg&w=1080&q=75" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Clash Of Clans - Top up Via Player Tag</h4>
+                                            <p class="item-game">Clash Of Clans</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F84f6ec44f6c9f980ec1d2f0540a7fc54_100%24.jpg&w=1080&q=75" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Itunes Gift Card</h4>
+                                            <p class="item-game">US</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2Fbec4600a5f198d00711581fa4bb9d563_Steam%20only.png&w=1080&q=75" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Steam Wallet Codes</h4>
+                                            <p class="item-game">Global</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                                <h3 class="card-title mb-0">Gift Cards</h3>
+                                <a href="#" class="link-arrow">
+                                    View more
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="row g-1">
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="#" class="parent-item">
+                                        <div class="img-wrap">
+                                            <img src="assets/images/Free_Fire_Promo1.webp" alt="Free Fire 1050 Diamond">
+                                        </div>
+                                        <div class="desc-wrap">
+                                            <h4 class="item-title">Free Fire 1050 Diamond</h4>
+                                            <p class="item-game">Free Fire</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+    <!-- Trust Badges Section -->
+    <section class="trust-badges">
+        <div class="container-fluid">
+            <div class="trust-badges-wrapper">
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4 class="trust-badge-title">Secure Payment</h4>
+                        <p class="trust-badge-desc">Bank-level encryption</p>
+                    </div>
+                </div>
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4 class="trust-badge-title">Instant Delivery</h4>
+                        <p class="trust-badge-desc">Within 1-24 hours</p>
+                    </div>
+                </div>
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4 class="trust-badge-title">24/7 Support</h4>
+                        <p class="trust-badge-desc">Always here to help</p>
+                    </div>
+                </div>
+
+                <div class="trust-badge-item">
+                    <div class="trust-badge-icon">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="trust-badge-content">
+                        <h4 class="trust-badge-title">Trusted Platform</h4>
+                        <p class="trust-badge-desc">50K+ happy customers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products Section -->
+    <section class="section popular-products">
+        <div class="container-fluid">
+            <div class="section-header">
+                <div>
+                    <h2 class="main-sec-title">Popular Products</h2>
+                    <p class="main-sec-subtitle">Get the best deals with special prices for your favorite games.</p>
+                </div>
+                <a href="#" class="link-arrow">
+                    View All
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="popular-products-grid">
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F87c9ac1ee7fbc89bf4567e572ccb78c8_Bibek%208.jpg&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F31d4eafaa20588961ce955d58cbeae0e_TOP%20UP%203.jpg&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F0a2a170a12465e3805badfb409d122d7_TOP%20UP%205.jpg&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F85792062037b78356822549c8b30d177_steam%20wallet%20design%20.png&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F5765753ae1ebfc71221bc3ce1f9b6556_325.png&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F5765753ae1ebfc71221bc3ce1f9b6556_325.png&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F85792062037b78356822549c8b30d177_steam%20wallet%20design%20.png&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F87c9ac1ee7fbc89bf4567e572ccb78c8_Bibek%208.jpg&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F31d4eafaa20588961ce955d58cbeae0e_TOP%20UP%203.jpg&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F126b1f3f8fb0770d7931309f8a11b5ac_15%24.png&w=1080&q=75" 
+                                    class="img-fluid" 
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Itunes Gift Card 15$ (US)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Featured Promotion Banner -->
+    <section class="section featured-promotion">
+        <div class="container-fluid">
+            <div class="promo-card">
+                <div class="promo-badge d-none">
+                    <i class="bi bi-fire"></i>
+                    <span>Hot Deal</span>
+                </div>
+
+                <div class="promo-content">
+                    <div class="promo-tag">
+                        <i class="bi bi-controller"></i>
+                        FEATURED PROMOTION
+                    </div>
+                    <h2 class="promo-title">Get 20% Extra UC on All PUBG Top-Ups</h2>
+                    <p class="promo-description">Limited time offer! Top up now and get instant delivery with bonus UC credits. Valid for all payment methods.</p>
+
+                    <div class="promo-features">
+                        <div class="promo-feature-item">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                            <span>Instant Delivery</span>
+                        </div>
+                        <div class="promo-feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Secure Payment</span>
+                        </div>
+                        <div class="promo-feature-item">
+                            <i class="bi bi-gift-fill"></i>
+                            <span>Bonus Credits</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-large btn-promo">
+                        <span>Claim Offer Now</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="promo-visual">
+                    <div class="promo-icon-wrapper">
+                        <i class="bi bi-trophy-fill"></i>
+                    </div>
+                    <div class="promo-discount">
+                        <span class="discount-percent">20%</span>
+                        <span class="discount-text">Extra</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works">
+        <div class="container">
+            <div class="section-header centered">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Get your game top-up in 3 simple steps</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Select Game & Package</h3>
+                    <p class="step-description">Choose your favorite game and the top-up package you want</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Enter Details & Pay</h3>
+                    <p class="step-description">Fill in your player ID and complete secure payment</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Receive Instantly</h3>
+                    <p class="step-description">Get your top-up delivered within 1-24 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container-fluid">
+            <div class="section-header centered">
+                <h2 class="section-title">What Gamers Say</h2>
+                <p class="section-subtitle">Join thousands of happy gamers</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Best place for PUBG UC top-up in Nepal. Instant delivery and great customer service. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">BK</div>
+                        <div class="author-info">
+                            <div class="author-name">Bikash Khadka</div>
+                            <div class="author-game">PUBG Mobile Player</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Reliable and fast! Got my Free Fire diamonds in less than an hour. Will definitely use again."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RA</div>
+                        <div class="author-info">
+                            <div class="author-name">Rohan Adhikari</div>
+                            <div class="author-game">Free Fire Player</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">"Amazing service! Steam wallet codes delivered instantly. The prices are competitive too."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SA</div>
+                        <div class="author-info">
+                            <div class="author-name">Suman Aryal</div>
+                            <div class="author-game">PC Gamer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">Stay Updated with Latest Offers</h2>
+                    <p class="newsletter-description">Subscribe to our newsletter and never miss exclusive gaming deals and promotions</p>
+                </div>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="m3 7 9 6 9-6"/>
+                        </svg>
+                        <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+                        <button type="submit" class="btn btn-primary">
+                            Subscribe →
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Top Up Your Game?</h2>
+                <p class="cta-description">Join 50,000+ gamers who trust KUNYO for instant top-ups</p>
+                <button class="btn btn-large btn-white">
+                    <span>Get Started Now</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+
+                        
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Close button functionality for category dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeBtn = document.querySelector('.close-menu');
+            const dropdownElement = document.getElementById('categoryDropdownBtn');
+
+            if (closeBtn && dropdownElement) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const dropdown = bootstrap.Dropdown.getInstance(dropdownElement);
+                    if (dropdown) {
+                        dropdown.hide();
+                    }
+                });
+            }
+
+            // Close when clicking category items and update button text
+            const categoryItems = document.querySelectorAll('.category-item');
+            categoryItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const selectedText = this.textContent.trim();
+
+                    // Update the button text
+                    const buttonText = dropdownElement.childNodes[0];
+                    if (buttonText) {
+                        buttonText.textContent = selectedText + ' ';
+                    }
+
+                    const dropdown = bootstrap.Dropdown.getInstance(dropdownElement);
+                    if (dropdown) {
+                        dropdown.hide();
+                    }
+                });
+            });
+
+            // Mobile sidebar menu overlay toggle
+            const mainNav = document.getElementById('mainNav');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const sidebarCloseBtn = document.querySelector('.sidebar-close-btn');
+
+            if (mainNav && overlay) {
+                // Show overlay when menu opens
+                mainNav.addEventListener('show.bs.collapse', function() {
+                    overlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                // Hide overlay when menu closes
+                mainNav.addEventListener('hide.bs.collapse', function() {
+                    overlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+
+                // Close menu when clicking overlay
+                overlay.addEventListener('click', function() {
+                    const bsCollapse = new bootstrap.Collapse(mainNav, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

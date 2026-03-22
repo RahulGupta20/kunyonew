@@ -1,0 +1,115 @@
+// ===================================
+// KUNYO - SCSS Mixins
+// ===================================
+
+// Flexbox utilities
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == 'sm' {
+        @media (max-width: #{$breakpoint-sm - 1}) { @content; }
+    }
+    @else if $breakpoint == 'md' {
+        @media (max-width: #{$breakpoint-md - 1}) { @content; }
+    }
+    @else if $breakpoint == 'lg' {
+        @media (max-width: #{$breakpoint-lg - 1}) { @content; }
+    }
+    @else if $breakpoint == 'xl' {
+        @media (max-width: #{$breakpoint-xl - 1}) { @content; }
+    }
+}
+
+// Button mixin
+@mixin button-variant($bg, $shadow: null) {
+    background: $bg;
+    color: $text-primary;
+    @if $shadow {
+        box-shadow: $shadow;
+    }
+    transition: all $transition-base;
+
+    &:hover {
+        transform: translateY(-2px);
+        @if $shadow {
+            box-shadow: 0 12px 40px rgba(220, 20, 60, 0.4);
+        }
+    }
+}
+
+// Card styling
+@mixin card {
+    background: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+    padding: $spacing-lg;
+    transition: all $transition-base;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-md;
+    }
+}
+
+// Gradient text
+@mixin gradient-text($gradient) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// Glass morphism effect
+@mixin glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid $border-color;
+}
+
+// Animation
+@mixin animate($name, $duration: $transition-base) {
+    animation: $name $duration ease-in-out;
+}
+
+// Text truncate
+@mixin truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Absolute center
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Cover background
+@mixin cover-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+    aspect-ratio: #{$width} / #{$height};
+}

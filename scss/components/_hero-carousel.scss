@@ -1,0 +1,238 @@
+@import "variables";
+@import "mixins";
+
+// Hero Section
+.hero-section {
+    width: 100%;
+    padding: 24px 0;
+    background: transparent;
+    position: relative;
+}
+
+.hero-carousel {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-item {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+// Carousel item effects
+.hero-sec-carousel .owl-item {
+    opacity: 0.7;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(1px) brightness(0.85);
+    transform: scale(0.95);
+}
+
+.hero-sec-carousel .owl-item.center {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: scale(1);
+}
+
+// Navigation buttons
+.hero-sec-carousel .owl-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(220, 20, 60, 0.15) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(220, 20, 60, 0.3) !important;
+    font-size: 22px !important;
+    line-height: 42px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hero-sec-carousel .owl-nav button:hover {
+    background: rgba(220, 20, 60, 0.3) !important;
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
+    transform: translateY(-50%) scale(1.08);
+    color: rgba(255, 255, 255, 1) !important;
+    border-color: rgba(220, 20, 60, 0.5) !important;
+}
+
+.hero-sec-carousel:hover .owl-nav button.owl-prev {
+    opacity: 0.7;
+    visibility: visible;
+}
+
+.hero-sec-carousel:hover .owl-nav button.owl-next {
+    opacity: 0.7;
+    visibility: visible;
+}
+
+.hero-sec-carousel.hover-left .owl-nav button.owl-next {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hero-sec-carousel.hover-right .owl-nav button.owl-prev {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hero-sec-carousel .owl-nav button:hover {
+    opacity: 1;
+}
+
+.hero-sec-carousel .owl-nav button:active {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.hero-sec-carousel .owl-nav button:focus {
+    outline: 3px solid rgba(220, 20, 60, 0.6);
+    outline-offset: 3px;
+}
+
+.hero-sec-carousel .owl-nav button.owl-prev {
+    left: 20px;
+}
+
+.hero-sec-carousel .owl-nav button.owl-next {
+    right: 20px;
+}
+
+.hero-sec-carousel .owl-nav button span {
+    position: relative;
+}
+
+// Dots
+.hero-sec-carousel .owl-dots {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-sec-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 2px;
+    margin: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.hero-sec-carousel .owl-dot.active {
+    width: 60px;
+}
+
+.hero-sec-carousel .owl-dot span {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-sec-carousel .owl-dot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: $primary-red;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.hero-sec-carousel .owl-dot.animating::before {
+    animation: heroProgressBar 3s linear forwards;
+}
+
+@keyframes heroProgressBar {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+// Responsive
+@include respond-to('md') {
+    .hero-section {
+        padding: 40px 0;
+    }
+
+    .hero-item img {
+        height: 350px;
+    }
+
+    .hero-sec-carousel .owl-nav button {
+        width: 40px;
+        height: 40px;
+        font-size: 24px !important;
+        line-height: 40px !important;
+    }
+
+    .hero-sec-carousel .owl-nav button.owl-prev {
+        left: 10px;
+    }
+
+    .hero-sec-carousel .owl-nav button.owl-next {
+        right: 10px;
+    }
+}
+
+@include respond-to('sm') {
+    .hero-section {
+        padding: 30px 0;
+    }
+
+    .hero-item img {
+        height: 250px;
+    }
+
+    .hero-sec-carousel .owl-dot {
+        width: 30px;
+    }
+
+    .hero-sec-carousel .owl-dot.active {
+        width: 50px;
+    }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+    .hero-sec-carousel .owl-item,
+    .hero-item,
+    .hero-sec-carousel .owl-nav button,
+    .hero-sec-carousel .owl-dot {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .hero-sec-carousel .owl-dot.active::before {
+        animation: none !important;
+    }
+}

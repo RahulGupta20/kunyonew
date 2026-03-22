@@ -1,0 +1,45 @@
+// Color Variables
+$primary-color: #000;
+$secondary-color: #666;
+$accent-color: #ff4444;
+$border-color: #e5e5e5;
+$white: #fff;
+$light-bg: #f8f9fa;
+$light-gray: #f0f0f0;
+
+// Font Sizes
+$font-size-xs: 10px;
+$font-size-sm: 11px;
+$font-size-base: 12px;
+$font-size-md: 13px;
+$font-size-lg: 14px;
+$font-size-xl: 20px;
+$font-size-logo: 26px;
+
+// Spacing
+$spacing-xs: 5px;
+$spacing-sm: 8px;
+$spacing-md: 10px;
+$spacing-lg: 12px;
+$spacing-xl: 15px;
+$spacing-xxl: 20px;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 12px;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 991px;
+
+// Transitions
+$transition-base: all 0.3s;
+$transition-sidebar: left 0.3s ease-in-out;
+
+// Shadow
+$box-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+$box-shadow-sidebar: 2px 0 15px rgba(0, 0, 0, 0.2);
+
+// Other
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;

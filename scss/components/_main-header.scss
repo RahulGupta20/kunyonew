@@ -1,0 +1,200 @@
+@import "variables";
+@import "mixins";
+
+// Main Header
+.main-header {
+    padding: $spacing-xl 0;
+    position: relative;
+    z-index: 1000;
+
+    @include desktop {
+        padding: $spacing-xl 0;
+    }
+
+    @include tablet {
+        padding: $spacing-md 0;
+    }
+}
+
+// Logo
+.logo {
+    display: flex;
+    text-decoration: none;
+
+    img {
+        height: 32px;
+        width: auto;
+        display: block;
+
+        @include desktop {
+            height: 36px;
+        }
+
+        @include tablet {
+            height: 32px;
+        }
+
+        @include mobile {
+            height: 28px;
+        }
+    }
+}
+
+// Search Wrapper
+.search-wrapper {
+    display: flex;
+    border: 1px solid rgba(220, 20, 60, 0.2);
+    border-radius: 14px;
+    overflow: visible;
+    max-width: 600px;
+    position: relative;
+    background: rgba(0, 45, 102, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    &:focus-within {
+        border-color: rgba(220, 20, 60, 0.4);
+        box-shadow: 0 4px 16px rgba(220, 20, 60, 0.2);
+        background: rgba(0, 45, 102, 0.4);
+    }
+
+    .dropdown {
+        position: static;
+        border-radius: 14px 0 0 14px;
+        overflow: hidden;
+    }
+
+    @include desktop {
+        max-width: 100%;
+        margin: $spacing-lg 0 0;
+    }
+}
+
+.category-dropdown {
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: $spacing-sm $spacing-xl;
+    color: $text-primary;
+    font-size: $font-size-md;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: $font-weight-medium;
+    transition: all 0.2s ease;
+    border-radius: 14px 0 0 14px;
+
+    &:hover {
+        background: rgba(220, 20, 60, 0.08);
+    }
+
+    @include tablet {
+        font-size: $font-size-base;
+        padding: $spacing-sm $spacing-lg;
+    }
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-md;
+    outline: none;
+    background: transparent;
+    color: $text-primary;
+    font-weight: $font-weight-medium;
+
+    &::placeholder {
+        color: rgba(180, 184, 197, 0.7);
+    }
+
+    @include tablet {
+        font-size: $font-size-base;
+        padding: $spacing-sm $spacing-md;
+    }
+}
+
+.search-btn {
+    background: linear-gradient(135deg, $primary-red 0%, $deep-red 100%);
+    border: none;
+    padding: 0 $spacing-xl;
+    color: $text-primary;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0 12px 12px 0;
+
+    &:hover {
+        background: linear-gradient(135deg, $deep-red 0%, $primary-red 100%);
+        transform: translateX(-2px);
+    }
+
+    &:active {
+        transform: translateX(0);
+    }
+
+    i {
+        font-size: 1.125rem;
+    }
+
+    @include tablet {
+        padding: 0 $spacing-md;
+    }
+}
+
+// Header Icons
+.header-icons {
+    @include flex-center;
+    gap: 18px;
+
+    @include desktop {
+        gap: $spacing-lg;
+    }
+}
+
+.header-icon {
+    position: relative;
+    color: $text-primary;
+    text-decoration: none;
+    @include flex-center;
+    gap: 6px;
+    font-size: $font-size-base;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: $font-weight-medium;
+    transition: all 0.3s ease;
+    line-height: 20px;
+
+    &:hover {
+        color: $text-primary;
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(220, 20, 60, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    i {
+        font-size: 18px;
+
+        @include tablet {
+            font-size: 16px;
+        }
+    }
+
+    span {
+        @include desktop {
+            display: none;
+        }
+    }
+}
+
+.login-register-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

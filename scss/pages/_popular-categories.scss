@@ -1,0 +1,51 @@
+// Popular Categories Section
+.popular-categories {
+    padding: $spacing-xxl 0;
+}
+
+.categories-carousel {
+    margin: 2rem 0;
+
+    .owl-nav,
+    .owl-dots {
+        display: none !important;
+    }
+}
+
+.category-item {
+    padding: 0.5rem;
+}
+
+.category-image {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-md;
+    margin-bottom: 0.75rem;
+    transition: all $transition-base;
+    display: block;
+}
+
+.category-title {
+    font-size: 0.9rem;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin: 0;
+    transition: all $transition-base;
+
+    @include respond-to('lg') {
+        font-size: 0.875rem;
+    }
+}
+
+.popular-category-item {
+    .category-image {
+        margin-bottom: 0;
+    }
+    .category-title {
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5;
+        opacity: 0.9;
+    }
+}

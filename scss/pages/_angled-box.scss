@@ -1,0 +1,218 @@
+// Angled Box Demo Section
+.angled-box-demo {
+    padding: $spacing-xxl 0;
+    background: $bg-secondary;
+    background: radial-gradient(circle at 15% 85%, rgba(220, 20, 60, 0.12) 0%, transparent 50%), radial-gradient(circle at 85% 15%, rgba(0, 56, 147, 0.12) 0%, transparent 50%), rgba(0, 13, 31, 0.6);
+    border-top: 1px solid rgba(220, 20, 60, 0.15);
+    border-bottom: 1px solid rgba(220, 20, 60, 0.15);
+}
+
+.angled-boxes-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+
+    @include respond-to('md') {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Popular Products Grid
+.popular-products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+
+    @include respond-to('xl') {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include respond-to('lg') {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+
+    @include respond-to('md') {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    @include respond-to('sm') {
+        grid-template-columns: 1fr;
+    }
+}
+
+.angled-box {
+    position: relative;
+    min-height: 120px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    transition: all $transition-base;
+    overflow: hidden;
+
+    // SVG background with diagonal slope and rounded corners
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 56, 147, 0.15) 100%);
+        clip-path: url(#diagonalClip);
+        z-index: -1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, rgba(220, 20, 60, 0.05) 0%, transparent 100%);
+        opacity: 0;
+        transition: opacity $transition-base;
+        z-index: 1;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(220, 20, 60, 0.25);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+// SVG definition for clip-path with rounded corners
+.angled-boxes-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.angled-box-content {
+    padding: 0;
+    position: relative;
+    z-index: 1;
+
+    h3 {
+        font-size: 0.875rem;
+        font-weight: $font-weight-bold;
+        line-height: 1;
+        color: $primary-red;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+        color: $text-secondary;
+        line-height: 1.5;
+        margin-bottom: 0;
+    }
+}
+
+.angled-box-content {
+    .promo-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        .promo-title {
+            text-align: right;
+            padding: 2rem 0 1rem;
+        }
+        .promo-figure {
+            width: 60px;
+            height: 80px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    .promo-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.25rem 1rem;
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 56, 147, 0.15) 100%);
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+
+        .badge {
+            &.promo-discount {
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 1.25;
+                background-color: #87e64c;
+                padding: 2px 6px;
+                border-radius: 4px;
+                color: #001333;
+            }
+        }
+
+        .pricing {
+            .price {
+                color: #fff;
+                font-weight: 500;
+                font-size: 14px;
+
+                &--original {
+                    opacity: 0.6;
+                }
+
+                strong {
+                    font-weight: 500;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+
+
+.angled-box {
+    &.promo-card {
+        margin-bottom: 1rem;
+    }
+}
+
+
+.angled-box {
+    &.popular-product-item {
+        margin-bottom: 1rem;
+        .angled-box-content {
+            .image-wrap {
+                padding: 0 1rem;
+
+                .promo-figure {
+                    margin: 0;
+                    overflow: hidden;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }
+            }
+            .pack-footer {
+                padding: 0.875rem 1rem;
+                background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 56, 147, 0.15) 100%);
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+                
+                h3 {
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    color: #fff;
+                    margin-bottom: 8px;
+                }
+                .prices-range {
+                    font-size: 0.875rem;
+                    line-height: 1.5;
+                    color: #fff;
+                    opacity: 0.85;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

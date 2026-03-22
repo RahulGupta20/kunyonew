@@ -1,0 +1,90 @@
+// ===================================
+// KUNYO - SCSS Variables
+// Nepal Flag Color Theme (Blue & Red)
+// ===================================
+
+// Nepal Flag Colors
+$primary-red: #DC143C;
+$primary-blue: #003893;
+$deep-red: #C41230;
+$light-blue: #1E5BC6;
+$dark-blue: #001F4D;
+$darker-blue: #001333;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $primary-red 0%, $deep-red 100%);
+$gradient-secondary: linear-gradient(135deg, $primary-blue 0%, $light-blue 100%);
+$gradient-hero: linear-gradient(135deg, #DC143C 0%, #003893 100%);
+$gradient-bg: linear-gradient(180deg, $darker-blue 0%, $dark-blue 100%);
+
+// Modern Blue Dark Theme Colors
+$bg-primary: #000D1F;
+$bg-secondary: #001333;
+$bg-tertiary: #002252;
+$bg-card: #002D66;
+$bg-elevated: #003D85;
+
+// Text Colors
+$text-primary: #FFFFFF;
+$text-secondary: #B4B8C5;
+$text-muted: #6C7086;
+
+// Accent Colors
+$accent-success: #00D9A5;
+$accent-warning: #FFB800;
+$accent-error: #FF4757;
+
+// Border & Shadows
+$border-color: rgba(255, 255, 255, 0.08);
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+$shadow-red: 0 8px 32px rgba(220, 20, 60, 0.3);
+$shadow-blue: 0 8px 32px rgba(0, 56, 147, 0.3);
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-2xl: 4rem;
+
+// Typography
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Border Radius
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 350ms ease;
+
+// Breakpoints (matching Bootstrap)
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Bootstrap Overrides
+$primary: $primary-red;
+$secondary: $primary-blue;
+$success: $accent-success;
+$warning: $accent-warning;
+$danger: $accent-error;
+$dark: $bg-primary;
+$body-bg: $bg-primary;
+$body-color: $text-primary;
+$link-color: $primary-red;
+$border-radius: $radius-md;
+$font-family-base: $font-family;

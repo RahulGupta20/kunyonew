@@ -1,0 +1,44 @@
+@import "variables";
+
+// Flexbox Mixin
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Responsive Mixins
+@mixin mobile {
+    @media (max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (max-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+// Button Reset
+@mixin button-reset {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+// Transition
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
