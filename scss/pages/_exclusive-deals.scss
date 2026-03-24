@@ -1,0 +1,525 @@
+// Exclusive Deals Section
+.exclusive-deals {
+    background: $bg-secondary;
+    position: relative;
+    overflow: hidden;
+
+    .exclusive-deals-banner {
+        background: linear-gradient(135deg, rgba(220, 20, 60, 0.9) 0%, rgba(0, 56, 147, 0.9) 100%);
+        border-radius: $radius-xl;
+        padding: 4rem 3rem;
+        position: relative;
+        overflow: hidden;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+
+        @include respond-to('lg') {
+            padding: 3rem 2rem;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        @include respond-to('md') {
+            padding: 2.5rem 1.5rem;
+            min-height: 400px;
+        }
+    }
+
+    // Particles
+    .exclusive-deals-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float-particle 15s ease-in-out infinite;
+
+            &.particle-1 { top: 10%; left: 15%; animation-delay: 0s; }
+            &.particle-2 { top: 25%; left: 35%; animation-delay: 2s; }
+            &.particle-3 { top: 40%; left: 55%; animation-delay: 4s; }
+            &.particle-4 { top: 55%; left: 25%; animation-delay: 6s; }
+            &.particle-5 { top: 70%; left: 45%; animation-delay: 1s; }
+            &.particle-6 { top: 85%; left: 65%; animation-delay: 3s; }
+            &.particle-7 { top: 15%; left: 75%; animation-delay: 5s; }
+            &.particle-8 { top: 60%; left: 85%; animation-delay: 7s; }
+        }
+    }
+
+    // Shapes
+    .exclusive-deals-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .shape {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+
+            &.shape-circle-1 {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                top: 15%;
+                right: 10%;
+                animation: rotate-shape 20s linear infinite;
+            }
+
+            &.shape-circle-2 {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                bottom: 25%;
+                right: 25%;
+                animation: rotate-shape 15s linear infinite reverse;
+            }
+
+            &.shape-square-1 {
+                width: 80px;
+                height: 80px;
+                bottom: 20%;
+                left: 8%;
+                animation: rotate-shape-reverse 25s linear infinite;
+            }
+
+            &.shape-triangle-1 {
+                width: 0;
+                height: 0;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-bottom: 90px solid rgba(255, 255, 255, 0.1);
+                border-top: none;
+                top: 50%;
+                right: 20%;
+                animation: float-shape 12s ease-in-out infinite;
+            }
+        }
+    }
+
+    // Grid Pattern
+    .exclusive-deals-grid-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        opacity: 0.15;
+        z-index: 0;
+    }
+
+    // Sparkles
+    .exclusive-deals-sparkles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .sparkle {
+            position: absolute;
+            color: #FFD700;
+            font-size: 1.2rem;
+            animation: twinkle 3s ease-in-out infinite;
+
+            &.sparkle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+            &.sparkle-2 { top: 30%; left: 50%; animation-delay: 0.5s; }
+            &.sparkle-3 { top: 50%; left: 30%; animation-delay: 1s; }
+            &.sparkle-4 { top: 70%; left: 60%; animation-delay: 1.5s; }
+            &.sparkle-5 { top: 80%; left: 20%; animation-delay: 2s; }
+            &.sparkle-6 { top: 35%; left: 80%; animation-delay: 2.5s; }
+        }
+    }
+
+    // Light Rays
+    .exclusive-deals-light-rays {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: light-ray-move 8s ease-in-out infinite;
+
+            &.ray-1 {
+                left: 20%;
+                animation-delay: 0s;
+            }
+
+            &.ray-2 {
+                left: 50%;
+                animation-delay: 2s;
+            }
+
+            &.ray-3 {
+                left: 80%;
+                animation-delay: 4s;
+            }
+        }
+    }
+
+    // Bubbles
+    .exclusive-deals-bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: bubble-rise 12s ease-in-out infinite;
+
+            &.bubble-1 { width: 40px; height: 40px; left: 10%; bottom: -50px; animation-delay: 0s; }
+            &.bubble-2 { width: 30px; height: 30px; left: 25%; bottom: -50px; animation-delay: 2s; }
+            &.bubble-3 { width: 50px; height: 50px; left: 45%; bottom: -50px; animation-delay: 4s; }
+            &.bubble-4 { width: 35px; height: 35px; left: 60%; bottom: -50px; animation-delay: 1s; }
+            &.bubble-5 { width: 45px; height: 45px; left: 75%; bottom: -50px; animation-delay: 3s; }
+            &.bubble-6 { width: 25px; height: 25px; left: 90%; bottom: -50px; animation-delay: 5s; }
+        }
+    }
+
+    // Confetti
+    .exclusive-deals-confetti {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: confetti-fall 8s linear infinite;
+
+            &.confetti-1 { background: #DC143C; left: 10%; top: -20px; animation-delay: 0s; }
+            &.confetti-2 { background: #003893; left: 20%; top: -20px; animation-delay: 1s; }
+            &.confetti-3 { background: #FFD700; left: 30%; top: -20px; animation-delay: 2s; }
+            &.confetti-4 { background: #DC143C; left: 45%; top: -20px; animation-delay: 3s; }
+            &.confetti-5 { background: #003893; left: 60%; top: -20px; animation-delay: 0.5s; }
+            &.confetti-6 { background: #FFD700; left: 70%; top: -20px; animation-delay: 1.5s; }
+            &.confetti-7 { background: #DC143C; left: 80%; top: -20px; animation-delay: 2.5s; }
+            &.confetti-8 { background: #003893; left: 90%; top: -20px; animation-delay: 3.5s; }
+        }
+    }
+
+    // Waves
+    .exclusive-deals-waves {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 50%;
+            animation: wave-move 15s ease-in-out infinite;
+
+            &.wave-1 {
+                animation-delay: 0s;
+                opacity: 0.3;
+            }
+
+            &.wave-2 {
+                animation-delay: 2s;
+                opacity: 0.2;
+            }
+
+            &.wave-3 {
+                animation-delay: 4s;
+                opacity: 0.1;
+            }
+        }
+    }
+
+    // Animated Border
+    .exclusive-deals-animated-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: $radius-xl;
+        pointer-events: none;
+        z-index: 2;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #DC143C, #003893, #DC143C);
+            background-size: 400% 400%;
+            border-radius: $radius-xl;
+            opacity: 0.15;
+            animation: gradient-rotate 8s ease infinite;
+            z-index: -1;
+        }
+    }
+
+    // Neon Lines
+    .exclusive-deals-neon-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .neon-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.6), transparent);
+            box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+            animation: neon-line-slide 6s ease-in-out infinite;
+
+            &.neon-line-1 {
+                top: 30%;
+                left: -100%;
+                width: 40%;
+                animation-delay: 0s;
+            }
+
+            &.neon-line-2 {
+                bottom: 30%;
+                right: -100%;
+                width: 50%;
+                animation-delay: 3s;
+                background: linear-gradient(90deg, transparent, rgba(0, 56, 147, 0.6), transparent);
+                box-shadow: 0 0 10px rgba(0, 56, 147, 0.5);
+            }
+        }
+    }
+
+    // Image Column
+    .exclusive-deals-image-col {
+        position: relative;
+        z-index: 2;
+    }
+
+    .exclusive-deals-image-wrapper {
+        position: relative;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include respond-to('lg') {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .exclusive-deals-person-img {
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+        border-radius: $radius-lg;
+        object-fit: cover;
+
+        @include respond-to('lg') {
+            max-width: 400px;
+        }
+
+        @include respond-to('md') {
+            max-width: 350px;
+        }
+    }
+
+    .exclusive-deals-yellow-bubble {
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        border-radius: 50% 50% 0 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        animation: float 6s ease-in-out infinite;
+        z-index: 3;
+
+        @include respond-to('md') {
+            width: 100px;
+            height: 100px;
+            top: -20px;
+            right: -20px;
+        }
+    }
+
+    .paper-plane-icon {
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+
+        @include respond-to('md') {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    // Form Column
+    .exclusive-deals-form-col {
+        position: relative;
+        z-index: 2;
+    }
+
+    .exclusive-deals-content {
+        padding: 0 2rem;
+
+        @include respond-to('lg') {
+            padding: 0;
+        }
+    }
+
+    .exclusive-deals-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: $font-weight-extrabold;
+        color: #fff;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+
+        @include respond-to('lg') {
+            text-align: center;
+        }
+    }
+
+    .exclusive-deals-description {
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        line-height: 1.7;
+
+        @include respond-to('lg') {
+            text-align: center;
+        }
+    }
+
+    .exclusive-deals-form {
+        .form-label {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: $font-weight-semibold;
+            margin-bottom: 0.25rem;
+            font-size: 0.9375rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    .exclusive-deals-input {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: $radius-md;
+        color: #fff;
+        padding: 0.875rem 1.25rem;
+        height: 50px;
+        font-size: 1rem;
+        transition: all $transition-base;
+        backdrop-filter: blur(10px);
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        &:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    .btn-exclusive-deals-signup {
+        background: #fff;
+        color: $primary-red;
+        border: none;
+        border-radius: $radius-md;
+        padding: 0.875rem 2.5rem;
+        height: 50px;
+        font-size: 1.0625rem;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all $transition-base;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}

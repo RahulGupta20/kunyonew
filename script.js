@@ -352,6 +352,77 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // ===================================
+    // Testimonials Carousel
+    // ===================================
+    if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+        var testimonialsOwl = $('.testimonials-carousel').owlCarousel({
+            items: 1,
+            loop: true,
+            center: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: false,
+            nav: true,
+            dots: true,
+            stagePadding: 100,
+            touchDrag: true,
+            mouseDrag: true,
+            responsive: {
+                0: {
+                    stagePadding: 30,
+                    margin: 5
+                },
+                768: {
+                    stagePadding: 80,
+                    margin: 10
+                },
+                1024: {
+                    stagePadding: 130,
+                    margin: 10
+                }
+            }
+        });
+
+        // Progress bar animation
+        testimonialsOwl.on('translate.owl.carousel', function(event) {
+            $('.testimonials-carousel .owl-dot').each(function() {
+                $(this).removeClass('animating');
+            });
+        });
+
+        testimonialsOwl.on('translated.owl.carousel', function(event) {
+            $('.testimonials-carousel .owl-dot').each(function() {
+                $(this).removeClass('animating');
+            });
+
+            setTimeout(function() {
+                $('.testimonials-carousel .owl-dot.active').addClass('animating');
+            }, 50);
+        });
+
+        // Initialize first dot animation
+        setTimeout(function() {
+            $('.testimonials-carousel .owl-dot.active').addClass('animating');
+        }, 100);
+
+        // Handle conditional nav button display
+        $('.testimonials-carousel').on('mousemove', function(e) {
+            var carouselWidth = $(this).width();
+            var mouseX = e.pageX - $(this).offset().left;
+
+            if (mouseX < carouselWidth / 2) {
+                $(this).removeClass('hover-right').addClass('hover-left');
+            } else {
+                $(this).removeClass('hover-left').addClass('hover-right');
+            }
+        });
+
+        $('.testimonials-carousel').on('mouseleave', function() {
+            $(this).removeClass('hover-left hover-right');
+        });
+    }
+
+    // ===================================
     // Lazy Load Images (if needed)
     // ===================================
     if ('IntersectionObserver' in window) {

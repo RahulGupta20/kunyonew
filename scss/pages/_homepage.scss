@@ -4,6 +4,307 @@
     background: $bg-secondary;
     position: relative;
 
+    .promo-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .promo-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float-particle 15s ease-in-out infinite;
+
+            &.promo-particle-1 { top: 10%; left: 15%; animation-delay: 0s; }
+            &.promo-particle-2 { top: 25%; left: 35%; animation-delay: 2s; }
+            &.promo-particle-3 { top: 40%; left: 55%; animation-delay: 4s; }
+            &.promo-particle-4 { top: 55%; left: 25%; animation-delay: 6s; }
+            &.promo-particle-5 { top: 70%; left: 45%; animation-delay: 1s; }
+            &.promo-particle-6 { top: 85%; left: 65%; animation-delay: 3s; }
+            &.promo-particle-7 { top: 15%; left: 75%; animation-delay: 5s; }
+            &.promo-particle-8 { top: 60%; left: 85%; animation-delay: 7s; }
+        }
+    }
+
+    .promo-sparkles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .promo-sparkle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+
+            &.promo-sparkle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+            &.promo-sparkle-2 { top: 30%; left: 50%; animation-delay: 0.5s; }
+            &.promo-sparkle-3 { top: 50%; left: 30%; animation-delay: 1s; }
+            &.promo-sparkle-4 { top: 70%; left: 60%; animation-delay: 1.5s; }
+            &.promo-sparkle-5 { top: 80%; left: 20%; animation-delay: 2s; }
+            &.promo-sparkle-6 { top: 35%; left: 80%; animation-delay: 2.5s; }
+        }
+    }
+
+    .promo-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .promo-shape {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: rotate-shape 20s linear infinite;
+
+            &.promo-circle {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                top: 15%;
+                right: 10%;
+            }
+
+            &.promo-square {
+                width: 80px;
+                height: 80px;
+                bottom: 20%;
+                left: 8%;
+                animation: rotate-shape-reverse 25s linear infinite;
+            }
+
+            &.promo-triangle {
+                width: 0;
+                height: 0;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-bottom: 90px solid rgba(255, 255, 255, 0.1);
+                border-top: none;
+                top: 50%;
+                right: 20%;
+                animation: float-shape 12s ease-in-out infinite;
+            }
+        }
+    }
+
+    .promo-grid-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        opacity: 0.15;
+        z-index: 0;
+    }
+
+    .promo-light-rays {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .promo-light-ray {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: light-ray-move 8s ease-in-out infinite;
+
+            &.promo-ray-1 {
+                left: 20%;
+                animation-delay: 0s;
+            }
+
+            &.promo-ray-2 {
+                left: 50%;
+                animation-delay: 2s;
+            }
+
+            &.promo-ray-3 {
+                left: 80%;
+                animation-delay: 4s;
+            }
+        }
+    }
+
+    .promo-bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .promo-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: bubble-rise 12s ease-in-out infinite;
+
+            &.promo-bubble-1 { width: 40px; height: 40px; left: 10%; bottom: -50px; animation-delay: 0s; }
+            &.promo-bubble-2 { width: 30px; height: 30px; left: 25%; bottom: -50px; animation-delay: 2s; }
+            &.promo-bubble-3 { width: 50px; height: 50px; left: 45%; bottom: -50px; animation-delay: 4s; }
+            &.promo-bubble-4 { width: 35px; height: 35px; left: 60%; bottom: -50px; animation-delay: 1s; }
+            &.promo-bubble-5 { width: 45px; height: 45px; left: 75%; bottom: -50px; animation-delay: 3s; }
+            &.promo-bubble-6 { width: 25px; height: 25px; left: 90%; bottom: -50px; animation-delay: 5s; }
+        }
+    }
+
+    .promo-confetti {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+
+        .promo-confetti-item {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: confetti-fall 8s linear infinite;
+
+            &.promo-confetti-1 { background: #DC143C; left: 10%; top: -20px; animation-delay: 0s; }
+            &.promo-confetti-2 { background: #003893; left: 20%; top: -20px; animation-delay: 1s; }
+            &.promo-confetti-3 { background: #FFD700; left: 30%; top: -20px; animation-delay: 2s; }
+            &.promo-confetti-4 { background: #DC143C; left: 45%; top: -20px; animation-delay: 3s; }
+            &.promo-confetti-5 { background: #003893; left: 60%; top: -20px; animation-delay: 0.5s; }
+            &.promo-confetti-6 { background: #FFD700; left: 70%; top: -20px; animation-delay: 1.5s; }
+            &.promo-confetti-7 { background: #DC143C; left: 80%; top: -20px; animation-delay: 2.5s; }
+            &.promo-confetti-8 { background: #003893; left: 90%; top: -20px; animation-delay: 3.5s; }
+        }
+    }
+
+    .promo-waves {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .promo-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 50%;
+            animation: wave-move 15s ease-in-out infinite;
+
+            &.promo-wave-1 {
+                animation-delay: 0s;
+                opacity: 0.3;
+            }
+
+            &.promo-wave-2 {
+                animation-delay: 2s;
+                opacity: 0.2;
+            }
+
+            &.promo-wave-3 {
+                animation-delay: 4s;
+                opacity: 0.1;
+            }
+        }
+    }
+
+    .promo-animated-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: $radius-xl;
+        pointer-events: none;
+        z-index: 2;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #DC143C, #003893, #DC143C);
+            background-size: 400% 400%;
+            border-radius: $radius-xl;
+            opacity: 0.15;
+            animation: gradient-rotate 8s ease infinite;
+            z-index: -1;
+        }
+    }
+
+    .promo-neon-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+
+        .promo-neon-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.6), transparent);
+            box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+            animation: neon-line-slide 6s ease-in-out infinite;
+
+            &.promo-neon-line-1 {
+                top: 30%;
+                left: -100%;
+                width: 40%;
+                animation-delay: 0s;
+            }
+
+            &.promo-neon-line-2 {
+                bottom: 30%;
+                right: -100%;
+                width: 50%;
+                animation-delay: 3s;
+                background: linear-gradient(90deg, transparent, rgba(0, 56, 147, 0.6), transparent);
+                box-shadow: 0 0 10px rgba(0, 56, 147, 0.5);
+            }
+        }
+    }
+
     .promo-card {
         display: flex;
         align-items: center;
@@ -84,8 +385,13 @@
 
     .promo-content {
         flex: 1;
+        max-width: 500px;
         position: relative;
         z-index: 1;
+
+        @include respond-to('lg') {
+            max-width: 100%;
+        }
     }
 
     .promo-tag {
@@ -190,19 +496,192 @@
 
     .promo-visual {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 2rem;
+        justify-content: flex-end;
+        padding: 0;
         position: relative;
         z-index: 1;
+        flex: 0 0 auto;
+        min-width: 500px;
 
         @include respond-to('lg') {
-            flex-direction: row;
-            gap: 3rem;
+            min-width: 400px;
         }
 
         @include respond-to('sm') {
             flex-direction: column;
+            min-width: auto;
+            margin-top: 2rem;
+        }
+    }
+
+    .promo-game-cards {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include respond-to('lg') {
+            height: 330px;
+            max-width: 400px;
+        }
+
+        @include respond-to('md') {
+            height: 290px;
+            max-width: 350px;
+        }
+
+        @include respond-to('sm') {
+            height: 200px;
+            max-width: 280px;
+        }
+    }
+
+    .promo-game-card {
+        position: absolute;
+        width: 220px;
+        height: 330px;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.6),
+            0 0 0 2px rgba(255, 255, 255, 0.1);
+
+        @include respond-to('lg') {
+            width: 180px;
+            height: 270px;
+        }
+
+        @include respond-to('md') {
+            width: 160px;
+            height: 240px;
+        }
+
+        @include respond-to('sm') {
+            width: 100px;
+            height: 150px;
+        }
+    }
+
+    .promo-card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .promo-card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+        transition: opacity 0.3s ease;
+    }
+
+    .promo-card-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, $primary-red 0%, darken($primary-red, 10%) 100%);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: $radius-md;
+        box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
+        z-index: 2;
+        animation: pulse 2s ease-in-out infinite;
+
+        @include respond-to('md') {
+            top: 10px;
+            right: 10px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.7rem;
+        }
+
+        @include respond-to('sm') {
+            top: 8px;
+            right: 8px;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.65rem;
+        }
+
+        &.promo-card-badge-hot {
+            background: linear-gradient(135deg, #FF4500 0%, #FF6347 100%);
+            box-shadow: 0 4px 12px rgba(255, 69, 0, 0.4);
+        }
+
+        &.promo-card-badge-new {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a3a5c;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+    }
+
+    .promo-game-card-1 {
+        left: 20px;
+        top: 25px;
+        transform: rotate(-15deg) translateZ(0);
+        z-index: 1;
+
+        @include respond-to('md') {
+            left: 10px;
+        }
+
+        @include respond-to('sm') {
+            left: 5px;
+            top: 30px;
+        }
+    }
+
+    .promo-game-card-2 {
+        left: 50%;
+        transform: translateX(-50%) rotate(3deg) scale(1.2) translateZ(0);
+        z-index: 3;
+        box-shadow:
+            0 30px 80px rgba(220, 20, 60, 0.4),
+            0 0 0 3px rgba(255, 255, 255, 0.2);
+    }
+
+    .promo-game-card-3 {
+        right: 20px;
+        top: 25px;
+        transform: rotate(15deg) translateZ(0);
+        z-index: 2;
+
+        @include respond-to('md') {
+            right: 10px;
+        }
+
+        @include respond-to('sm') {
+            right: 5px;
+            top: 30px;
+        }
+    }
+
+    .promo-game-card:hover {
+        transform: rotate(0deg) translateY(-20px) scale(1.05) translateZ(0) !important;
+        z-index: 5 !important;
+        box-shadow:
+            0 40px 100px rgba(220, 20, 60, 0.5),
+            0 0 0 4px rgba(255, 255, 255, 0.3);
+
+        .promo-card-img {
+            transform: scale(1.1);
+        }
+
+        .promo-card-overlay {
+            opacity: 0.3;
         }
     }
 
@@ -269,6 +748,157 @@
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes float-particle {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-30px) translateX(15px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50px) translateX(-10px);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-20px) translateX(20px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes rotate-shape {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes rotate-shape-reverse {
+    0% {
+        transform: rotate(360deg);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes float-shape {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes light-ray-move {
+    0%, 100% {
+        transform: translateX(0) scaleY(0.8);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateX(30px) scaleY(1.2);
+        opacity: 0.6;
+    }
+}
+
+@keyframes bubble-rise {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+        transform: translateX(0) scale(1);
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        bottom: 110%;
+        opacity: 0;
+        transform: translateX(100px) scale(1.5);
+    }
+}
+
+@keyframes confetti-fall {
+    0% {
+        top: -20px;
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 110%;
+        opacity: 0;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wave-move {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-25%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes gradient-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes neon-line-slide {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200%);
+        opacity: 0;
     }
 }
 
