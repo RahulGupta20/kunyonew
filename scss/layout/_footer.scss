@@ -4,10 +4,7 @@
 
 .footer {
     position: relative;
-    background:
-        radial-gradient(circle at 15% 85%, rgba(220, 20, 60, 0.08) 0%, transparent 35%),
-        radial-gradient(circle at 85% 15%, rgba(0, 56, 147, 0.08) 0%, transparent 35%),
-        linear-gradient(180deg, $bg-secondary 0%, #000816 100%);
+    background: linear-gradient(135deg, rgba(0, 45, 102, 0.4) 0%, rgba(0, 34, 77, 0.6) 100%);
     border-top: 1px solid rgba(220, 20, 60, 0.15);
     padding: 60px 0 $spacing-lg;
     overflow: hidden;

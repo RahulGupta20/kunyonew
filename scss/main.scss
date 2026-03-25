@@ -193,19 +193,17 @@
 .step-card {
     position: relative;
     padding: 2.5rem 2rem 2rem;
-    background: linear-gradient(135deg, rgba(0, 45, 102, 0.3) 0%, rgba(0, 34, 77, 0.5) 100%);
-    border: 1px solid rgba(0, 56, 147, 0.3);
+    border: 1px solid rgba(220, 20, 60, 0.5);
     border-radius: $radius-xl;
     transition: all $transition-base;
     backdrop-filter: blur(10px);
     z-index: 1;
+    box-shadow: 0 12px 40px rgba(220, 20, 60, 0.2);
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 56, 147, 0.2) 100%);
 
     &:hover {
         transform: translateY(-8px);
-        border-color: rgba(220, 20, 60, 0.5);
-        box-shadow: 0 12px 40px rgba(220, 20, 60, 0.2);
-        background: linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 56, 147, 0.2) 100%);
-
+        
         .step-number {
             transform: scale(1.1) rotate(5deg);
         }
@@ -240,7 +238,7 @@
         @include flex-center;
         justify-content: center;
         background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(0, 56, 147, 0.1) 100%);
-        border: 2px solid rgba(0, 56, 147, 0.3);
+        border: 2px solid rgba(220, 20, 60, 0.5);
         border-radius: $radius-lg;
         color: $text-secondary;
         transition: all $transition-base;
