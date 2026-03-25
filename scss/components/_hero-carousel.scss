@@ -7,6 +7,10 @@
     padding: 24px 0;
     background: transparent;
     position: relative;
+
+    @include mobile {
+        padding: 12px 0;
+    }
 }
 
 .hero-carousel {
@@ -181,7 +185,7 @@
 // Responsive
 @include respond-to('md') {
     .hero-section {
-        padding: 40px 0;
+        padding: 30px 0;
     }
 
     .hero-item img {
@@ -206,7 +210,7 @@
 
 @include respond-to('sm') {
     .hero-section {
-        padding: 30px 0;
+        padding: 10px 0;
     }
 
     .hero-item img {

@@ -22,7 +22,7 @@
     text-decoration: none;
 
     img {
-        height: 32px;
+        height: 34px;
         width: auto;
         display: block;
 
@@ -35,7 +35,7 @@
         }
 
         @include mobile {
-            height: 28px;
+            height: 29px;
         }
     }
 }
@@ -160,7 +160,7 @@
     font-size: $font-size-base;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 10px;
     font-weight: $font-weight-medium;
     transition: all 0.3s ease;

@@ -5,10 +5,53 @@
 .mobile-menu-toggle {
     display: none;
     @include button-reset;
-    font-size: 24px;
+    @include flex-center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: $text-primary;
+    font-size: 20px;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    line-height: 1;
 
     @include desktop {
-        display: block;
+        display: flex;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(220, 20, 60, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Mobile Menu Header
+.mobile-menu-header {
+    display: none;
+
+    @include desktop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 1rem;
+    }
+}
+
+.mobile-menu-logo {
+    display: block;
+
+    img {
+        height: 32px;
+        width: auto;
     }
 }
 
@@ -32,19 +75,24 @@
     display: none;
 
     @include desktop {
-        display: block;
-        position: absolute;
-        top: $spacing-xl;
-        right: $spacing-xl;
-        font-size: 28px;
-        color: $text-secondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+        color: $text-primary;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
         cursor: pointer;
         @include button-reset;
-        padding: $spacing-xs $spacing-md;
-        line-height: 1;
+        @include transition(all, 0.3s, ease);
 
         &:hover {
-            color: $text-primary;
+            background: $primary-red;
+            border-color: $primary-red;
+            color: #fff;
         }
     }
 }
@@ -52,12 +100,12 @@
 @include desktop {
     .bottom-nav .navbar-collapse {
         position: fixed;
-        top: 0;
+        top: -108px;
         left: -100%;
         width: 280px;
         height: 100vh;
         background: $bg-secondary;
-        padding: 60px $spacing-xxl $spacing-xxl;
+        padding: $spacing-xxl;
         margin-top: 0;
         border: none;
         box-shadow: $box-shadow-sidebar;

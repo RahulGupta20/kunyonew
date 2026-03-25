@@ -33,9 +33,14 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-lg-2 col-6">
-                    <a href="#" class="logo">
-                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
-                    </a>
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="#" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
                 </div>
                 <div class="col-lg-6 col-12 order-lg-2 order-3">
                     <div class="search-wrapper">
@@ -148,14 +153,15 @@
                 </div>
             </div>
 
-            <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                <i class="bi bi-list"></i>
-            </button>
-
             <div class="collapse navbar-collapse" id="mainNav">
-                <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                    <i class="bi bi-x"></i>
-                </button>
+                <div class="mobile-menu-header">
+                    <a href="#" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
                 <ul class="main-nav ms-4">
                     
                     <li>
