@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG Mobile UC - Buy UC Top-Up | KUNYO Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                            <span>/</span>
+                            <span>Register</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="desktop-special-offers">
+                <a href="#" class="special-offers">
+                    <i class="bi bi-megaphone"></i>
+                    Special Offers
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container-fluid">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Mobile Games</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">PUBG Mobile UC</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Product Images -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="product-image-gallery">
+                        <div class="main-product-image">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=600&fit=crop" alt="PUBG Mobile UC" id="mainProductImg">
+                            <span class="product-badge">Hot</span>
+                        </div>
+                        <div class="product-thumbnails">
+                            <div class="thumbnail active" onclick="changeImage(this, 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=600&fit=crop')">
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=100&h=100&fit=crop" alt="Image 1">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=600&fit=crop')">
+                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=100&h=100&fit=crop" alt="Image 2">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600&h=600&fit=crop')">
+                                <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=100&h=100&fit=crop" alt="Image 3">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=600&h=600&fit=crop')">
+                                <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=100&h=100&fit=crop" alt="Image 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-lg-7 col-md-6">
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h1 class="product-title">PUBG Mobile UC (Unknown Cash)</h1>
+                            <div class="product-meta">
+                                <div class="product-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <span class="rating-text">4.8 (2,547 reviews)</span>
+                                </div>
+                                <div class="product-stats">
+                                    <span><i class="bi bi-box-seam"></i> 15,248 sold</span>
+                                    <span><i class="bi bi-eye"></i> 45,892 views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-highlights">
+                            <div class="highlight-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant Delivery</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>100% Safe & Secure</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="bi bi-arrow-clockwise"></i>
+                                <span>Refund Guarantee</span>
+                            </div>
+                        </div>
+
+                        <div class="product-description">
+                            <p>Get your PUBG Mobile UC instantly! Unknown Cash (UC) is the premium in-game currency for PUBG Mobile that allows you to purchase exclusive items, skins, Royal Pass, and more. Fast, secure, and reliable top-up service.</p>
+                        </div>
+
+                        <!-- Pricing Tiers -->
+                        <div class="pricing-section">
+                            <h3 class="section-label">Select Amount</h3>
+                            <div class="pricing-grid">
+                                <div class="price-card">
+                                    <div class="price-amount">60 UC</div>
+                                    <div class="price-value">$0.99</div>
+                                    <span class="popular-badge">Popular</span>
+                                </div>
+                                <div class="price-card">
+                                    <div class="price-amount">300 + 25 UC</div>
+                                    <div class="price-value">$4.99</div>
+                                </div>
+                                <div class="price-card">
+                                    <div class="price-amount">600 + 60 UC</div>
+                                    <div class="price-value">$9.99</div>
+                                    <span class="popular-badge">Best Value</span>
+                                </div>
+                                <div class="price-card">
+                                    <div class="price-amount">1,500 + 300 UC</div>
+                                    <div class="price-value">$24.99</div>
+                                </div>
+                                <div class="price-card">
+                                    <div class="price-amount">3,000 + 850 UC</div>
+                                    <div class="price-value">$49.99</div>
+                                </div>
+                                <div class="price-card">
+                                    <div class="price-amount">6,000 + 2,100 UC</div>
+                                    <div class="price-value">$99.99</div>
+                                    <span class="discount-badge">Save 15%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User ID Input -->
+                        <div class="user-input-section">
+                            <h3 class="section-label">Enter Your Details</h3>
+                            <div class="input-group-custom">
+                                <label for="userId">Player ID</label>
+                                <input type="text" id="userId" placeholder="Enter your PUBG Mobile Player ID" class="form-control-custom">
+                                <small class="input-help">You can find your Player ID in game settings</small>
+                            </div>
+                        </div>
+
+                        <!-- Purchase Actions -->
+                        <div class="purchase-actions">
+                            <button class="btn-buy-now">
+                                <i class="bi bi-lightning-fill"></i>
+                                Buy Now
+                            </button>
+                            <button class="btn-add-cart">
+                                <i class="bi bi-cart-plus"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-wishlist">
+                                <i class="bi bi-heart"></i>
+                            </button>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="payment-methods">
+                            <span class="payment-label">We Accept:</span>
+                            <div class="payment-icons">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="Amex">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs-section">
+                <ul class="nav nav-tabs product-tabs" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">
+                            <i class="bi bi-card-text"></i> Description
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="howto-tab" data-bs-toggle="tab" data-bs-target="#howto" type="button" role="tab">
+                            <i class="bi bi-question-circle"></i> How to Use
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab">
+                            <i class="bi bi-star"></i> Reviews (2,547)
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content product-tab-content" id="productTabsContent">
+                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                        <h3>About PUBG Mobile UC</h3>
+                        <p>Unknown Cash (UC) is the premium in-game currency for PUBG Mobile. Use UC to purchase:</p>
+                        <ul>
+                            <li>Exclusive weapon skins and outfits</li>
+                            <li>Royal Pass and Elite Pass upgrades</li>
+                            <li>Lucky spins and crate openings</li>
+                            <li>Premium items from the in-game shop</li>
+                            <li>Character customizations and emotes</li>
+                        </ul>
+                        <h4>Why Choose KUNYO?</h4>
+                        <p>We provide instant, secure, and reliable PUBG Mobile UC top-up services. Our automated system ensures your UC is delivered within minutes of purchase. With 24/7 customer support and a refund guarantee, you can shop with confidence.</p>
+                    </div>
+                    <div class="tab-pane fade" id="howto" role="tabpanel">
+                        <h3>How to Top-Up PUBG Mobile UC</h3>
+                        <div class="how-to-steps">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Select Amount</h4>
+                                    <p>Choose the UC package that suits your needs from the options above.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Enter Player ID</h4>
+                                    <p>Enter your PUBG Mobile Player ID. You can find this in your game profile settings.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Complete Payment</h4>
+                                    <p>Choose your preferred payment method and complete the secure checkout process.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Receive UC Instantly</h4>
+                                    <p>Your UC will be credited to your account within minutes. Check your in-game mail!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="reviews" role="tabpanel">
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="rating-score">4.8</div>
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <div class="rating-count">Based on 2,547 reviews</div>
+                            </div>
+                            <div class="rating-breakdown">
+                                <div class="rating-bar">
+                                    <span class="star-label">5 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 78%"></div></div>
+                                    <span class="percentage">78%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">4 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 15%"></div></div>
+                                    <span class="percentage">15%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">3 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 5%"></div></div>
+                                    <span class="percentage">5%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">2 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                    <span class="percentage">1%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">1 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                    <span class="percentage">1%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">RK</div>
+                                        <div class="reviewer-details">
+                                            <h5>Rajesh Kumar</h5>
+                                            <div class="review-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">2 days ago</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>Instant delivery! Got my UC within 2 minutes of payment. Highly recommended for quick top-ups.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">SP</div>
+                                        <div class="reviewer-details">
+                                            <h5>Suman Pradhan</h5>
+                                            <div class="review-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">1 week ago</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>Best prices in Nepal! Been using KUNYO for all my game top-ups. Safe and reliable service.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">AM</div>
+                                        <div class="reviewer-details">
+                                            <h5>Aayush Maharjan</h5>
+                                            <div class="review-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">2 weeks ago</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>Good service overall. UC was delivered as promised. Customer support was helpful when I had questions.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-load-more">Load More Reviews</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products-section">
+                <div class="section-header">
+                    <h2>You May Also Like</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&h=300&fit=crop" alt="Free Fire Diamonds">
+                                <span class="product-card-badge">New</span>
+                            </div>
+                            <div class="product-card-info">
+                                <h4>Free Fire Diamonds</h4>
+                                <div class="product-card-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="product-card-price">From $0.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=300&h=300&fit=crop" alt="Mobile Legends Diamonds">
+                            </div>
+                            <div class="product-card-info">
+                                <h4>Mobile Legends Diamonds</h4>
+                                <div class="product-card-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>4.7</span>
+                                </div>
+                                <div class="product-card-price">From $0.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=300&h=300&fit=crop" alt="Call of Duty Mobile CP">
+                                <span class="product-card-badge hot">Hot</span>
+                            </div>
+                            <div class="product-card-info">
+                                <h4>Call of Duty Mobile CP</h4>
+                                <div class="product-card-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="product-card-price">From $0.99</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=300&h=300&fit=crop" alt="Genshin Impact Genesis Crystals">
+                            </div>
+                            <div class="product-card-info">
+                                <h4>Genshin Impact Crystals</h4>
+                                <div class="product-card-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="product-card-price">From $0.99</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo">
+                        <p>Nepal's most trusted gaming e-commerce platform. Get instant game top-ups, gift cards, and gaming products delivered digitally.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Support</h5>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-contact">
+                        <h5>Contact Us</h5>
+                        <p><i class="bi bi-envelope"></i> support@kunyo.com</p>
+                        <p><i class="bi bi-phone"></i> +977-1-4444444</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-facebook"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KUNYO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        // Image Gallery
+        function changeImage(thumbnail, imageSrc) {
+            document.getElementById('mainProductImg').src = imageSrc;
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        // Price Card Selection
+        document.querySelectorAll('.price-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.price-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Mobile Menu
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const navbarCollapse = document.querySelector('#mainNav');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuOverlay.classList.toggle('show');
+            });
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', function() {
+                this.classList.remove('show');
+                if (navbarCollapse) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) {
+                        bsCollapse.hide();
+                    }
+                }
+            });
+        }
+
+        navbarCollapse?.addEventListener('shown.bs.collapse', function() {
+            mobileMenuOverlay?.classList.add('show');
+        });
+
+        navbarCollapse?.addEventListener('hidden.bs.collapse', function() {
+            mobileMenuOverlay?.classList.remove('show');
+        });
+    </script>
+</body>
+</html>

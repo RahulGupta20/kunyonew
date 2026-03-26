@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG Mobile UC - Buy UC Top-Up | KUNYO Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                            <span>/</span>
+                            <span>Register</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="desktop-special-offers">
+                <a href="#" class="special-offers">
+                    <i class="bi bi-megaphone"></i>
+                    Special Offers
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <div class="container-fluid">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Mobile Games</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">PUBG Mobile UC</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- API Status Banner -->
+    <div class="api-status-banner">
+        <div class="container-fluid">
+            <div class="status-content">
+                <i class="bi bi-info-circle-fill"></i>
+                <span>Connected to API. Unlimited stock. Delivery within 1 to 24 hours.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section product-detail-enhanced">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Product Images -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="product-image-gallery">
+                        <div class="main-product-image">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=600&fit=crop" alt="Free Fire Diamonds" id="mainProductImg">
+                            <span class="product-badge">Hot</span>
+                        </div>
+                        <div class="product-thumbnails">
+                            <div class="thumbnail active" onclick="changeImage(this, 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=600&fit=crop')">
+                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=100&h=100&fit=crop" alt="Image 1">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=600&fit=crop')">
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=100&h=100&fit=crop" alt="Image 2">
+                            </div>
+                            <div class="thumbnail" onclick="changeImage(this, 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600&h=600&fit=crop')">
+                                <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=100&h=100&fit=crop" alt="Image 3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-lg-7 col-md-6">
+                    <div class="product-info">
+                        <div class="product-header">
+                            <h1 class="product-title">Free Fire Diamond Top-Up</h1>
+                            <button class="btn-share" id="btnShare">
+                                <i class="bi bi-share"></i>
+                                Share
+                            </button>
+                        </div>
+
+                        <!-- Product Meta Information -->
+                        <div class="product-meta-info">
+                            <div class="meta-row">
+                                <span class="meta-label"><i class="bi bi-truck"></i> Delivery mode</span>
+                                <span class="meta-value">Direct Topup VIA UID AND Username</span>
+                            </div>
+                            <div class="meta-row">
+                                <span class="meta-label"><i class="bi bi-clock"></i> Delivery time</span>
+                                <span class="meta-value">24 hours to 48 hours</span>
+                            </div>
+                            <div class="meta-row">
+                                <span class="meta-label"><i class="bi bi-phone"></i> Platform</span>
+                                <span class="meta-value">Android, iOS</span>
+                            </div>
+                            <div class="meta-row">
+                                <span class="meta-label"><i class="bi bi-geo-alt"></i> Region</span>
+                                <span class="meta-value">Nepal, India</span>
+                            </div>
+                        </div>
+
+                        <div class="product-stats-inline">
+                            <div class="stat-item">
+                                <i class="bi bi-star-fill"></i>
+                                <span><strong>4.8</strong> (2,547 reviews)</span>
+                            </div>
+                            <div class="stat-divider">|</div>
+                            <div class="stat-item">
+                                <i class="bi bi-box-seam"></i>
+                                <span><strong>15,248</strong> sold</span>
+                            </div>
+                        </div>
+
+                        <div class="product-highlights">
+                            <div class="highlight-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant Delivery</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>100% Safe</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+
+                        <!-- Regional Restrictions Alert -->
+                        <div class="regional-alert">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                            <div class="alert-content">
+                                <strong>Regional Restrictions:</strong>
+                                <span>No Indonesian And INDIAN ID supported</span>
+                            </div>
+                        </div>
+
+                        <!-- Purchase Method Tabs -->
+                        <div class="purchase-method-tabs">
+                            <button class="method-tab active" data-method="uid">
+                                <i class="bi bi-person-badge"></i>
+                                Via UID
+                            </button>
+                            <button class="method-tab" data-method="login">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                Via Login
+                            </button>
+                            <button class="method-tab" data-method="subscription">
+                                <i class="bi bi-calendar-check"></i>
+                                Subscription
+                            </button>
+                        </div>
+
+                        <!-- Method: Via UID -->
+                        <div class="method-content active" id="method-uid">
+                            <div class="pricing-section">
+                                <h3 class="section-label">Select Diamond Package</h3>
+                                <div class="pricing-grid-enhanced">
+                                    <div class="price-card-enhanced">
+                                        <div class="price-amount">50 💎</div>
+                                        <div class="price-value">Rs. 80.00</div>
+                                        <div class="price-details">Weekly</div>
+                                    </div>
+                                    <div class="price-card-enhanced popular">
+                                        <span class="card-badge">Popular</span>
+                                        <div class="price-amount">115 💎</div>
+                                        <div class="price-value">Rs. 140.00</div>
+                                        <div class="price-details">No Indonesian/Indian ID</div>
+                                    </div>
+                                    <div class="price-card-enhanced">
+                                        <div class="price-amount">240 💎</div>
+                                        <div class="price-value">Rs. 280.00</div>
+                                        <div class="price-details">No Indonesian/Indian ID</div>
+                                    </div>
+                                    <div class="price-card-enhanced">
+                                        <div class="price-amount">610 💎</div>
+                                        <div class="price-value">Rs. 710.00</div>
+                                        <div class="price-details">No Indonesian/Indian ID</div>
+                                    </div>
+                                    <div class="price-card-enhanced best-value">
+                                        <span class="card-badge">Best Value</span>
+                                        <div class="price-amount">1240 💎</div>
+                                        <div class="price-value">Rs. 1450.00</div>
+                                        <div class="price-details">Save 15%</div>
+                                    </div>
+                                    <div class="price-card-enhanced">
+                                        <div class="price-amount">2530 💎</div>
+                                        <div class="price-value">Rs. 2700.00</div>
+                                        <div class="price-details">Save 20%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="user-input-section">
+                                <h3 class="section-label">Enter Player ID</h3>
+                                <div class="input-group-custom">
+                                    <label for="userId">Player ID <span class="required">*</span></label>
+                                    <input type="text" id="userId" placeholder="Enter your Free Fire Player ID" class="form-control-custom">
+                                    <small class="input-help"><i class="bi bi-info-circle"></i> Find in game profile settings</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Method: Via Login -->
+                        <div class="method-content" id="method-login">
+                            <div class="login-method-section">
+                                <h3 class="section-label">Login Via Facebook</h3>
+                                <div class="login-option-info">
+                                    <i class="bi bi-facebook"></i>
+                                    <span>Login Via only Facebook (NOT Via Google)</span>
+                                </div>
+                                <div class="input-group-custom">
+                                    <label for="facebookId">Facebook ID</label>
+                                    <input type="text" id="facebookId" placeholder="Enter Facebook ID" class="form-control-custom">
+                                </div>
+                                <div class="input-group-custom">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" placeholder="Enter Password" class="form-control-custom">
+                                </div>
+                                <div class="login-disclaimer">
+                                    <i class="bi bi-shield-lock"></i>
+                                    <span>Credentials encrypted & never stored</span>
+                                </div>
+
+                                <div class="pricing-section">
+                                    <h3 class="section-label">Select Package</h3>
+                                    <div class="pricing-grid-enhanced">
+                                        <div class="price-card-enhanced">
+                                            <div class="price-amount">Weekly</div>
+                                            <div class="price-value">Rs. 250.00</div>
+                                        </div>
+                                        <div class="price-card-enhanced">
+                                            <div class="price-amount">Monthly</div>
+                                            <div class="price-value">Rs. 4350.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Method: Subscription -->
+                        <div class="method-content" id="method-subscription">
+                            <div class="subscription-section">
+                                <h3 class="section-label">Subscription Plans</h3>
+                                <div class="subscription-plans">
+                                    <div class="subscription-card">
+                                        <div class="plan-header">
+                                            <h4>Weekly</h4>
+                                            <div class="plan-price">Rs. 250<span>/week</span></div>
+                                        </div>
+                                        <ul class="plan-features">
+                                            <li><i class="bi bi-check-circle-fill"></i> 50 �� weekly</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Auto renewal</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Cancel anytime</li>
+                                        </ul>
+                                    </div>
+                                    <div class="subscription-card featured">
+                                        <span class="featured-badge">Best Deal</span>
+                                        <div class="plan-header">
+                                            <h4>Monthly</h4>
+                                            <div class="plan-price">Rs. 4350<span>/mo</span></div>
+                                        </div>
+                                        <ul class="plan-features">
+                                            <li><i class="bi bi-check-circle-fill"></i> Special perks</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> Bonus diamonds</li>
+                                            <li><i class="bi bi-check-circle-fill"></i> VIP support</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="input-group-custom">
+                                    <label for="subUserId">Player ID</label>
+                                    <input type="text" id="subUserId" placeholder="Enter Player ID" class="form-control-custom">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Purchase Actions -->
+                        <div class="purchase-actions">
+                            <div class="price-display">
+                                <span class="price-label">Total:</span>
+                                <span class="price-amount" id="totalPrice">Rs. 250.00</span>
+                            </div>
+                            <button class="btn-buy-now">
+                                <i class="bi bi-lightning-fill"></i>
+                                Add to Cart
+                            </button>
+                            <button class="btn-wishlist">
+                                <i class="bi bi-heart"></i>
+                            </button>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="payment-methods">
+                            <span class="payment-label">We Accept:</span>
+                            <div class="payment-icons">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs-section">
+                <ul class="nav nav-tabs product-tabs" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button">
+                            <i class="bi bi-card-text"></i> Description
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="howto-tab" data-bs-toggle="tab" data-bs-target="#howto" type="button">
+                            <i class="bi bi-question-circle"></i> How to Use
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">
+                            <i class="bi bi-star"></i> Reviews
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content product-tab-content">
+                    <div class="tab-pane fade show active" id="description">
+                        <h3>About Free Fire Diamonds</h3>
+                        <p>Free Fire Diamonds are the premium in-game currency. Use to purchase exclusive skins, bundles, and premium items.</p>
+                    </div>
+                    <div class="tab-pane fade" id="howto">
+                        <h3>How to Top-Up</h3>
+                        <p>1. Select method 2. Choose package 3. Enter details 4. Complete payment</p>
+                    </div>
+                    <div class="tab-pane fade" id="reviews">
+                        <h3>Customer Reviews</h3>
+                        <p>4.8/5 based on 2,547 reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Modal -->
+    <div class="share-modal" id="shareModal">
+        <div class="modal-overlay-share" id="shareOverlay"></div>
+        <div class="share-modal-content">
+            <button class="btn-close-share" id="btnCloseShare">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <h3>Share this product</h3>
+            <div class="share-options">
+                <button class="share-btn" data-platform="facebook">
+                    <i class="bi bi-facebook"></i>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-btn" data-platform="twitter">
+                    <i class="bi bi-twitter"></i>
+                    <span>Twitter</span>
+                </button>
+                <button class="share-btn" data-platform="whatsapp">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </button>
+            </div>
+            <div class="share-link">
+                <input type="text" id="shareLink" value="https://kunyo.com/product/free-fire" readonly>
+                <button class="btn-copy-link" id="btnCopyLink">
+                    <i class="bi bi-clipboard"></i>
+                    Copy
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo">
+                        <p>Nepal's most trusted gaming e-commerce platform.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KUNYO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/product-detail-enhanced.js"></script>
+</body>
+</html>

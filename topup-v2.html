@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUNYO - Game Top Up & Digital Gift Cards | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Header Styles (Original) -->
+
+    <!-- Global CSS (Navbar, Footer, Common) -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="#" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="#" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Top-Up V2 Page -->
+    <section class="topup-v2-page">
+        <!-- Product Header Banner -->
+        <div class="product-banner-v2">
+            <div class="banner-bg"></div>
+            <div class="banner-content">
+                <div class="product-icon-v2">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=300&h=300&fit=crop" alt="Mobile Legends">
+                </div>
+                <div class="product-header-info-v2">
+                    <h1 class="product-title-v2">Mobile Legends: Bang Bang</h1>
+                    <p class="product-subtitle-v2">Top-up Diamonds instantly • Safe & Secure • 24/7 Support</p>
+                    <div class="product-stats-v2">
+                        <div class="stats-badges">
+                            <span class="stat-badge"><i class="bi bi-star-fill"></i> 4.8 Rating</span>
+                            <span class="stat-badge"><i class="bi bi-bag-check"></i> 25k+ Orders</span>
+                            <span class="stat-badge"><i class="bi bi-lightning-charge"></i> Instant Delivery</span>
+                        </div>
+                        <div class="action-buttons-v2">
+                            <button class="btn-favorite-v2" id="btnFavoriteV2">
+                                <i class="bi bi-heart"></i> Add to Favorite
+                            </button>
+                            <button class="btn-share-v2" id="btnShareV2">
+                                <i class="bi bi-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <!-- Main Content -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Step 1: Select Package -->
+                    <div class="section-card-v2">
+                        <div class="section-header-v2">
+                            <div class="step-number-v2">1</div>
+                            <div class="step-info-v2">
+                                <h3>Select Diamond Package</h3>
+                                <p>Choose the amount you want to top-up</p>
+                            </div>
+                        </div>
+
+                        <div class="packages-list-v2">
+                            <div class="package-row-v2" data-package-id="1" data-price="1.49" data-diamonds="100">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>100 Diamonds</h4>
+                                        <span class="package-desc">Perfect for starters</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.1.49</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2 popular" data-package-id="2" data-price="3.49" data-diamonds="250">
+                                <span class="row-badge">Popular</span>
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>250 Diamonds <span class="bonus">+10 Bonus</span></h4>
+                                        <span class="package-desc">Most chosen package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.3.49</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="3" data-price="6.99" data-diamonds="500">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>500 Diamonds <span class="bonus">+25 Bonus</span></h4>
+                                        <span class="package-desc">Save 15% • Best value</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.6.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="4" data-price="12.99" data-diamonds="1000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>1000 Diamonds <span class="bonus">+60 Bonus</span></h4>
+                                        <span class="package-desc">Save 20% • Recommended</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.12.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2 best" data-package-id="5" data-price="29.99" data-diamonds="2500">
+                                <span class="row-badge best">Best Deal</span>
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>2500 Diamonds <span class="bonus">+200 Bonus</span></h4>
+                                        <span class="package-desc">Save 25% • Maximum value</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.29.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="6" data-price="54.99" data-diamonds="5000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>5000 Diamonds <span class="bonus">+500 Bonus</span></h4>
+                                        <span class="package-desc">Save 30% • VIP Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.54.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="7" data-price="89.99" data-diamonds="10000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>10000 Diamonds <span class="bonus">+1200 Bonus</span></h4>
+                                        <span class="package-desc">Save 35% • Elite Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.89.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="8" data-price="149.99" data-diamonds="20000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>20000 Diamonds <span class="bonus">+3000 Bonus</span></h4>
+                                        <span class="package-desc">Save 40% • Ultimate Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.149.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="9" data-price="199.99" data-diamonds="30000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>30000 Diamonds <span class="bonus">+5000 Bonus</span></h4>
+                                        <span class="package-desc">Save 45% • Mega Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.199.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="10" data-price="299.99" data-diamonds="50000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>50000 Diamonds <span class="bonus">+10000 Bonus</span></h4>
+                                        <span class="package-desc">Save 50% • Legendary Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.299.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="11" data-price="499.99" data-diamonds="100000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>100000 Diamonds <span class="bonus">+25000 Bonus</span></h4>
+                                        <span class="package-desc">Save 55% • Supreme Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.499.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="12" data-price="999.99" data-diamonds="250000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>250000 Diamonds <span class="bonus">+75000 Bonus</span></h4>
+                                        <span class="package-desc">Save 60% • Master Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.999.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="13" data-price="1499.99" data-diamonds="400000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>400000 Diamonds <span class="bonus">+125000 Bonus</span></h4>
+                                        <span class="package-desc">Save 65% • Platinum Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.1499.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="14" data-price="1999.99" data-diamonds="600000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>600000 Diamonds <span class="bonus">+200000 Bonus</span></h4>
+                                        <span class="package-desc">Save 70% • Diamond Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.1999.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="15" data-price="2999.99" data-diamonds="1000000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>1000000 Diamonds <span class="bonus">+500000 Bonus</span></h4>
+                                        <span class="package-desc">Save 75% • Immortal Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.2999.99</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="16" data-price="4999.99" data-diamonds="2000000">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span></span></div>
+                                    <div class="package-details">
+                                        <h4>2000000 Diamonds <span class="bonus">+1000000 Bonus</span></h4>
+                                        <span class="package-desc">Save 80% • God Tier Package</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs.4999.99</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Step 2: Enter Details -->
+                    <div class="section-card-v2">
+                        <div class="section-header-v2">
+                            <div class="step-number-v2">2</div>
+                            <div class="step-info-v2">
+                                <h3>Enter Your Game Details</h3>
+                                <p>We'll deliver diamonds to this account</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-v2">
+                            <div class="form-group-v2">
+                                <label>Player UID</label>
+                                <input type="text" class="input-v2" id="userIdV2" placeholder="Player UID" required>
+                            </div>
+                            <div class="invalid-feedback" data-for="userIdV2">
+                                Please enter your Player UID
+                            </div>
+                            <div class="form-group-v2">
+                                <label>Player Username</label>
+                                <input type="text" class="input-v2" id="zoneIdV2" placeholder="Enter Player Username" required>
+                            </div>
+                            <div class="invalid-feedback" data-for="zoneIdV2">
+                                Please enter your Player Username
+                            </div>
+                        </div>
+
+                        <div class="verification-box-v2" id="verificationBox" style="display: none;">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div class="verification-info">
+                                <strong id="verifiedName">Username</strong>
+                                <span>Account verified successfully</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="section-card-v2 order-summary-v2 sticky-sidebar">
+                        <div class="section-header-v2">
+                            <div class="step-number-v2">3</div>
+                            <div class="step-info-v2">
+                                <h3>Order Summary</h3>
+                                <p>Review your purchase</p>
+                            </div>
+                        </div>
+
+                        <!-- Summary Content -->
+                        <div class="summary-content-v2">
+
+                            <!-- Package Info -->
+                            <div class="summary-info-grid">
+                                <div class="info-row">
+                                    <span class="info-label">Package:</span>
+                                    <span class="info-value" id="summaryPackage">Select a package</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value" id="summaryPrice">$0.00</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Wallet Charge:</span>
+                                    <span class="info-value wallet-charge" id="summaryWalletCharge">$0.00</span>
+                                </div>
+                            </div>
+
+                            <!-- Pricing Breakdown -->
+                            <div class="pricing-breakdown">
+                                <div class="pricing-row">
+                                    <span>Subtotal:</span>
+                                    <strong id="pricingSubtotal">$0.00</strong>
+                                </div>
+                                <div class="pricing-row discount" id="pricingDiscountRow">
+                                    <span>Discount:</span>
+                                    <strong id="pricingDiscount">-$0.00</strong>
+                                </div>
+                                <div class="pricing-row total">
+                                    <span>Total:</span>
+                                    <strong id="pricingTotal">$0.00</strong>
+                                </div>
+                            </div>
+
+                            <!-- Promo Code Section -->
+                            <div class="promo-section-v2">
+                                <div class="promo-input-group">
+                                    <input type="text" class="promo-input-v2" id="promoInput" placeholder="Enter promo code">
+                                    <button class="btn-apply-promo" id="btnApplyPromo">
+                                        <i class="bi bi-tag-fill"></i>
+                                        <span>Apply</span>
+                                    </button>
+                                </div>
+                                <div class="promo-message success" id="promoSuccess" style="display: none;">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Promo applied!</span>
+                                </div>
+                                <div class="promo-message error" id="promoError" style="display: none;">
+                                    <i class="bi bi-x-circle-fill"></i>
+                                    <span>Invalid promo code</span>
+                                </div>
+                            </div>
+
+                            <!-- Payment Method Accordion -->
+                            <div class="payment-accordion-v2">
+                                <div class="payment-accordion-header" id="paymentAccordionHeader">
+                                    <div class="payment-selected-display">
+                                        <i class="bi bi-credit-card" id="paymentSelectedIcon"></i>
+                                        <div>
+                                            <span id="paymentSelectedText">Credit/Debit Card</span>
+                                            <small>Visa, Mastercard, or local cards</small>
+                                        </div>
+                                    </div>
+                                    <i class="bi bi-chevron-down accordion-arrow"></i>
+                                </div>
+                                <div class="payment-accordion-body" id="paymentAccordionBody" style="display: none;">
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="card" checked>
+                                        <div class="payment-option-content">
+                                            <i class="bi bi-credit-card"></i>
+                                            <div class="payment-option-text">
+                                                <strong>Credit/Debit Card</strong>
+                                                <small>Visa, Mastercard, or local cards</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="esewa">
+                                        <div class="payment-option-content">
+                                            <div class="wallet-icon" style="background: #60bb46; color: white;">e</div>
+                                            <div class="payment-option-text">
+                                                <strong>eSewa</strong>
+                                                <small>Pay using eSewa digital wallet</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="khalti">
+                                        <div class="payment-option-content">
+                                            <div class="wallet-icon" style="background: #5c2d91; color: white;">K</div>
+                                            <div class="payment-option-text">
+                                                <strong>Khalti</strong>
+                                                <small>Pay using Khalti digital wallet</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="imepay">
+                                        <div class="payment-option-content">
+                                            <div class="wallet-icon" style="background: #d71921; color: white;">I</div>
+                                            <div class="payment-option-text">
+                                                <strong>IME Pay</strong>
+                                                <small>Pay using IME Pay digital wallet</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="banking">
+                                        <div class="payment-option-content">
+                                            <i class="bi bi-bank"></i>
+                                            <div class="payment-option-text">
+                                                <strong>Online Banking</strong>
+                                                <small>Pay via internet banking</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="checkout-actions">
+                                <button class="btn-add-to-cart" id="btnAddToCart">
+                                    <i class="bi bi-cart-plus"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                                <button class="btn-buy-now" id="btnBuyNow">
+                                    <i class="bi bi-lightning-fill"></i>
+                                    <span>Buy Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+
+
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Top-Up V2 JavaScript with Form Validation -->
+    <script>
+    (function() {
+        'use strict';
+
+        // State Management
+        const state = {
+            selectedPackage: null,
+            userDetails: {
+                userId: '',
+                username: ''
+            },
+            selectedPayment: 'card',
+            promoCode: '',
+            discount: 0,
+            cart: []
+        };
+
+        // Load cart from localStorage
+        function loadCart() {
+            const savedCart = localStorage.getItem('kunyoCart');
+            if (savedCart) {
+                state.cart = JSON.parse(savedCart);
+                renderCart();
+                updatePricing();
+            }
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('kunyoCart', JSON.stringify(state.cart));
+        }
+
+        // DOM Elements
+        const packageRows = document.querySelectorAll('.package-row-v2');
+        const userIdInput = document.getElementById('userIdV2');
+        const usernameInput = document.getElementById('zoneIdV2');
+        const paymentOptions = document.querySelectorAll('.payment-option-item input[type="radio"]');
+        const btnAddToCart = document.getElementById('btnAddToCart');
+        const btnBuyNow = document.getElementById('btnBuyNow');
+
+        // Cart elements
+        const cartItemsList = document.getElementById('cartItemsList');
+        const cartEmpty = document.getElementById('cartEmpty');
+        const cartCount = document.getElementById('cartCount');
+        const pricingSubtotal = document.getElementById('pricingSubtotal');
+        const pricingDiscount = document.getElementById('pricingDiscount');
+        const pricingDiscountRow = document.getElementById('pricingDiscountRow');
+        const pricingTotal = document.getElementById('pricingTotal');
+
+        // Promo elements
+        const promoInput = document.getElementById('promoInput');
+        const btnApplyPromo = document.getElementById('btnApplyPromo');
+        const promoSuccess = document.getElementById('promoSuccess');
+        const promoError = document.getElementById('promoError');
+
+        // Summary elements
+        const summaryPackageValue = document.getElementById('summaryPackage');
+        const summaryPrice = document.getElementById('summaryPrice');
+        const summaryWalletCharge = document.getElementById('summaryWalletCharge');
+        const summaryTotalAmount = document.querySelector('.total-amount');
+
+        // Initialize
+        function init() {
+            loadCart();
+            attachEventListeners();
+            updateSummary();
+        }
+
+        // Event Listeners
+        function attachEventListeners() {
+            // Package Selection
+            packageRows.forEach((row) => {
+                row.addEventListener('click', function() {
+                    selectPackage(row);
+                });
+            });
+
+            // User ID Input with validation
+            if (userIdInput) {
+                userIdInput.addEventListener('input', function() {
+                    state.userDetails.userId = this.value.trim();
+                    validateInput(this);
+                    updateSummary();
+                });
+
+                userIdInput.addEventListener('blur', function() {
+                    validateInput(this);
+                });
+            }
+
+            // Username Input with validation
+            if (usernameInput) {
+                usernameInput.addEventListener('input', function() {
+                    state.userDetails.username = this.value.trim();
+                    validateInput(this);
+                });
+
+                usernameInput.addEventListener('blur', function() {
+                    validateInput(this);
+                });
+            }
+
+            // Payment Accordion Toggle
+            const paymentAccordionHeader = document.getElementById('paymentAccordionHeader');
+            const paymentAccordionBody = document.getElementById('paymentAccordionBody');
+
+            if (paymentAccordionHeader && paymentAccordionBody) {
+                paymentAccordionHeader.addEventListener('click', function() {
+                    const isOpen = paymentAccordionBody.style.display === 'block';
+
+                    if (isOpen) {
+                        paymentAccordionBody.style.display = 'none';
+                        paymentAccordionHeader.classList.remove('open');
+                    } else {
+                        paymentAccordionBody.style.display = 'block';
+                        paymentAccordionHeader.classList.add('open');
+                    }
+                });
+            }
+
+            // Payment Method Selection
+            paymentOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    if (this.checked) {
+                        state.selectedPayment = this.value;
+
+                        // Update header display
+                        const selectedIcon = document.getElementById('paymentSelectedIcon');
+                        const selectedText = document.getElementById('paymentSelectedText');
+                        const paymentContent = this.nextElementSibling;
+
+                        if (selectedIcon && paymentContent) {
+                            const icon = paymentContent.querySelector('i');
+                            const walletIcon = paymentContent.querySelector('.wallet-icon');
+                            const text = paymentContent.querySelector('strong');
+                            const small = paymentContent.querySelector('small');
+
+                            if (walletIcon && text) {
+                                // Replace with wallet icon
+                                selectedIcon.outerHTML = walletIcon.outerHTML;
+                                const newSelectedIcon = document.getElementById('paymentSelectedIcon');
+                                if (newSelectedIcon) {
+                                    newSelectedIcon.id = 'paymentSelectedIcon';
+                                }
+                                selectedText.textContent = text.textContent;
+                                selectedText.nextElementSibling.textContent = small ? small.textContent : '';
+                            } else if (icon && text) {
+                                // Use bootstrap icon
+                                selectedIcon.className = icon.className;
+                                selectedText.textContent = text.textContent;
+                                selectedText.nextElementSibling.textContent = small ? small.textContent : '';
+                            }
+                        }
+
+                        // Close accordion after selection
+                        if (paymentAccordionBody && paymentAccordionHeader) {
+                            paymentAccordionBody.style.display = 'none';
+                            paymentAccordionHeader.classList.remove('open');
+                        }
+
+                        showNotification(`✓ ${this.value.charAt(0).toUpperCase() + this.value.slice(1)} selected`);
+                    }
+                });
+            });
+
+            // Promo Code
+            if (btnApplyPromo) {
+                btnApplyPromo.addEventListener('click', function() {
+                    applyPromoCode();
+                });
+            }
+
+            if (promoInput) {
+                promoInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        applyPromoCode();
+                    }
+                });
+            }
+
+            // Add to Cart Button
+            if (btnAddToCart) {
+                btnAddToCart.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    addToCart();
+                });
+            }
+
+            // Buy Now Button
+            if (btnBuyNow) {
+                btnBuyNow.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    buyNow();
+                });
+            }
+        }
+
+        // Cart Management Functions
+        function addToCart() {
+            if (!validateAllFields()) {
+                return;
+            }
+
+            const item = {
+                id: Date.now(),
+                package: state.selectedPackage,
+                userId: state.userDetails.userId,
+                quantity: 1
+            };
+
+            // Check if same package and userId exists in cart
+            const existingItemIndex = state.cart.findIndex(
+                cartItem => cartItem.package.id === item.package.id && cartItem.userId === item.userId
+            );
+
+            if (existingItemIndex > -1) {
+                state.cart[existingItemIndex].quantity += 1;
+                showNotification('✓ Quantity increased in cart');
+            } else {
+                state.cart.push(item);
+                showNotification('✓ Added to cart');
+            }
+
+            saveCart();
+            renderCart();
+            updatePricing();
+        }
+
+        function removeFromCart(itemId) {
+            state.cart = state.cart.filter(item => item.id !== itemId);
+            saveCart();
+            renderCart();
+            updatePricing();
+            showNotification('Item removed from cart');
+        }
+
+        function updateQuantity(itemId, delta) {
+            const item = state.cart.find(item => item.id === itemId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(itemId);
+                } else {
+                    saveCart();
+                    renderCart();
+                    updatePricing();
+                }
+            }
+        }
+
+        function renderCart() {
+            if (!cartItemsList || !cartEmpty || !cartCount) return;
+
+            if (state.cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartCount.textContent = '0';
+                return;
+            }
+
+            cartEmpty.style.display = 'none';
+            cartCount.textContent = state.cart.length;
+
+            const cartHTML = state.cart.map(item => `
+                <div class="cart-item" data-item-id="${item.id}">
+                    <div class="cart-item-info">
+                        <strong>${item.package.name}</strong>
+                        <small>User ID: ${item.userId}</small>
+                        <span class="cart-item-price">$${item.package.price.toFixed(2)}</span>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="cart-item-quantity">
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            cartItemsList.innerHTML = cartHTML;
+        }
+
+        function updatePricing() {
+            if (!pricingSubtotal || !pricingTotal) return;
+
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.package.price * item.quantity), 0);
+            const discount = subtotal * (state.discount / 100);
+            const total = subtotal - discount;
+
+            pricingSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            pricingTotal.textContent = `$${total.toFixed(2)}`;
+
+            if (pricingDiscount) {
+                pricingDiscount.textContent = `-$${discount.toFixed(2)}`;
+            }
+        }
+
+        function buyNow() {
+            if (!validateAllFields()) {
+                return;
+            }
+
+            // For Buy Now, we can either:
+            // 1. Add to cart and proceed to checkout immediately
+            // 2. Or process single item checkout without adding to cart
+
+            // Option 1: Add to cart and checkout
+            addToCart();
+
+            // Then proceed to checkout
+            setTimeout(() => {
+                processCheckout();
+            }, 300);
+        }
+
+        // Apply Promo Code
+        function applyPromoCode() {
+            if (!promoInput || !promoInput.value.trim()) {
+                showNotification('⚠ Please enter a promo code', 'error');
+                return;
+            }
+
+            const code = promoInput.value.trim().toUpperCase();
+
+            // Hide previous messages
+            if (promoSuccess) promoSuccess.style.display = 'none';
+            if (promoError) promoError.style.display = 'none';
+
+            // Show loading
+            if (btnApplyPromo) {
+                btnApplyPromo.innerHTML = '<span class="loading-spinner"></span><span>Checking...</span>';
+                btnApplyPromo.disabled = true;
+            }
+
+            // Simulate API call
+            setTimeout(() => {
+                // Valid promo codes (demo)
+                const validCodes = {
+                    'GAME10': 10,
+                    'SAVE20': 20,
+                    'WELCOME5': 5,
+                    'MEGA50': 50
+                };
+
+                if (validCodes[code]) {
+                    state.promoCode = code;
+                    state.discount = validCodes[code];
+
+                    if (promoSuccess) {
+                        promoSuccess.querySelector('span').textContent = `${state.discount}% discount applied!`;
+                        promoSuccess.style.display = 'flex';
+                    }
+
+                    showNotification(`✓ ${state.discount}% discount applied!`);
+                    updateSummary();
+
+                    // Disable input after successful apply
+                    if (promoInput) promoInput.disabled = true;
+                } else {
+                    state.promoCode = '';
+                    state.discount = 0;
+
+                    if (promoError) {
+                        promoError.style.display = 'flex';
+                    }
+
+                    showNotification('Invalid promo code', 'error');
+                }
+
+                // Reset button
+                if (btnApplyPromo) {
+                    btnApplyPromo.innerHTML = '<i class="bi bi-tag-fill"></i><span>Apply</span>';
+                    btnApplyPromo.disabled = false;
+                }
+            }, 1000);
+        }
+
+        // Validate Input Field
+        function validateInput(input) {
+            const value = input.value.trim();
+            const formGroup = input.closest('.form-group-v2');
+            const inputId = input.id;
+            const feedback = document.querySelector(`.invalid-feedback[data-for="${inputId}"]`);
+
+            if (!value) {
+                input.classList.add('is-invalid');
+                input.classList.remove('is-valid');
+                if (feedback) feedback.classList.add('show');
+                return false;
+            } else {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+                if (feedback) feedback.classList.remove('show');
+                return true;
+            }
+        }
+
+        // Validate All Fields
+        function validateAllFields() {
+            let isValid = true;
+
+            if (!state.selectedPackage) {
+                showNotification('⚠ Please select a package first', 'error');
+                const packagesSection = document.querySelector('.packages-list-v2');
+                if (packagesSection) {
+                    packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                isValid = false;
+            }
+
+            if (userIdInput && !validateInput(userIdInput)) {
+                isValid = false;
+            }
+
+            if (usernameInput && !validateInput(usernameInput)) {
+                isValid = false;
+            }
+
+            if (!state.selectedPayment) {
+                showNotification('⚠ Please select a payment method', 'error');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Package Selection
+        function selectPackage(row) {
+            // Remove selection from all
+            packageRows.forEach(r => r.classList.remove('selected'));
+
+            // Add selection to clicked
+            row.classList.add('selected');
+
+            // Get package data
+            const packageId = row.getAttribute('data-package-id');
+            const diamonds = row.getAttribute('data-diamonds');
+            const price = parseFloat(row.getAttribute('data-price'));
+            const name = row.querySelector('.package-details h4')?.textContent || `${diamonds} Diamonds`;
+
+            // Update state
+            state.selectedPackage = {
+                id: packageId,
+                name: name,
+                diamonds: diamonds,
+                price: price
+            };
+
+            // Update summary
+            updateSummary();
+
+            // Show notification with package icon
+            showNotification(`✓ Selected: ${diamonds} Diamonds`);
+
+            // Add subtle animation to summary
+            const summaryCard = document.querySelector('.order-summary-v2');
+            if (summaryCard) {
+                summaryCard.style.transform = 'scale(1.02)';
+                summaryCard.style.transition = 'transform 0.2s ease';
+                setTimeout(() => {
+                    summaryCard.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+
+        // Update Summary
+        function updateSummary() {
+            // Update package
+            if (summaryPackageValue && state.selectedPackage) {
+                summaryPackageValue.textContent = `${state.selectedPackage.diamonds} Diamonds`;
+            } else if (summaryPackageValue) {
+                summaryPackageValue.textContent = 'Select a package';
+            }
+
+            // Update Price
+            if (summaryPrice && state.selectedPackage) {
+                summaryPrice.textContent = `$${state.selectedPackage.price.toFixed(2)}`;
+            } else if (summaryPrice) {
+                summaryPrice.textContent = '$0.00';
+            }
+
+            // Update Wallet Charge (Total after discount)
+            if (summaryWalletCharge && state.selectedPackage) {
+                const subtotal = state.selectedPackage.price;
+                const discountAmount = (subtotal * state.discount) / 100;
+                const total = subtotal - discountAmount;
+                summaryWalletCharge.textContent = `$${total.toFixed(2)}`;
+            } else if (summaryWalletCharge) {
+                summaryWalletCharge.textContent = '$0.00';
+            }
+
+            // Update Total (legacy support)
+            if (summaryTotalAmount && state.selectedPackage) {
+                const subtotal = state.selectedPackage.price;
+                const discountAmount = (subtotal * state.discount) / 100;
+                const total = subtotal - discountAmount;
+                summaryTotalAmount.textContent = `$${total.toFixed(2)}`;
+            }
+        }
+
+        // Process Checkout
+        function processCheckout() {
+            // Check if cart has items
+            if (state.cart.length === 0) {
+                showNotification('⚠ Your cart is empty', 'error');
+                return;
+            }
+
+            // Show processing with loading spinner
+            if (btnBuyNow) {
+                btnBuyNow.innerHTML = '<span class="loading-spinner"></span><span>Processing...</span>';
+                btnBuyNow.disabled = true;
+            }
+
+            // Simulate payment processing
+            setTimeout(() => {
+                // Success
+                showSuccessModal();
+
+                // Clear cart after successful checkout
+                state.cart = [];
+                saveCart();
+                renderCart();
+                updatePricing();
+
+                // Reset button
+                if (btnBuyNow) {
+                    btnBuyNow.innerHTML = '<i class="bi bi-lightning-fill"></i><span>Buy Now</span>';
+                    btnBuyNow.disabled = false;
+                }
+            }, 2000);
+        }
+
+        // Show Success Modal
+        function showSuccessModal() {
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.package.price * item.quantity), 0);
+            const discountAmount = (subtotal * state.discount) / 100;
+            const total = subtotal - discountAmount;
+
+            const modal = document.createElement('div');
+            modal.className = 'success-modal-v2';
+            modal.innerHTML = `
+                <div class="success-modal-overlay"></div>
+                <div class="success-modal-content">
+                    <div class="success-icon">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <h2>Purchase Successful!</h2>
+                    <p>Your order will be delivered within 5 minutes.</p>
+                    <div class="success-details">
+                        <div class="detail-row">
+                            <span>Order ID:</span>
+                            <strong>#KUN${Math.floor(100000 + Math.random() * 900000)}</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Items:</span>
+                            <strong>${state.cart.length} item(s)</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Payment:</span>
+                            <strong>${state.selectedPayment.charAt(0).toUpperCase() + state.selectedPayment.slice(1)}</strong>
+                        </div>
+                        <div class="detail-row total">
+                            <span>Total Paid:</span>
+                            <strong>$${total.toFixed(2)}</strong>
+                        </div>
+                    </div>
+                    <div class="success-actions">
+                        <button class="btn-success-primary" onclick="window.location.reload()">
+                            <i class="bi bi-arrow-repeat"></i> New Order
+                        </button>
+                        <button class="btn-success-secondary" onclick="this.closest('.success-modal-v2').remove(); document.body.style.overflow = '';">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+
+            // Close on overlay click
+            modal.querySelector('.success-modal-overlay').addEventListener('click', function() {
+                modal.remove();
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Notification Helper
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = 'notification-v2';
+            notification.textContent = message;
+
+            const bgColor = type === 'error'
+                ? 'linear-gradient(135deg, #dc143c 0%, #8b0000 100%)'
+                : 'linear-gradient(135deg, #003893 0%, #dc143c 100%)';
+
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${bgColor};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 999999;
+                animation: slideInRight 0.3s ease;
+                font-size: 0.9rem;
+                font-weight: 500;
+                max-width: 300px;
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // CSS Animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .loading-spinner {
+                display: inline-block;
+                width: 1rem;
+                height: 1rem;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                border-top-color: #fff;
+                border-radius: 50%;
+                animation: spin 0.6s linear infinite;
+                margin-right: 0.5rem;
+            }
+
+            .success-modal-v2 {
+                position: fixed;
+                inset: 0;
+                z-index: 99999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .success-modal-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(8px);
+            }
+
+            .success-modal-content {
+                position: relative;
+                background: linear-gradient(135deg, rgba(54, 9, 15, 0.98), rgba(0, 56, 147, 0.98));
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 16px;
+                padding: 2.5rem 2rem;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                animation: slideUp 0.4s ease;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            }
+
+            .success-icon {
+                font-size: 4rem;
+                color: #4caf50;
+                margin-bottom: 1rem;
+                animation: scaleIn 0.5s ease;
+            }
+
+            .success-modal-content h2 {
+                color: #fff;
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+
+            .success-modal-content > p {
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 1.5rem;
+            }
+
+            .success-details {
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 12px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+
+            .detail-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.6rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .detail-row:last-child {
+                border-bottom: none;
+            }
+
+            .detail-row.total {
+                padding-top: 1rem;
+                margin-top: 0.5rem;
+                border-top: 2px solid rgba(255, 255, 255, 0.1);
+                border-bottom: none;
+            }
+
+            .detail-row span {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.9rem;
+            }
+
+            .detail-row strong {
+                color: #fff;
+                font-weight: 600;
+            }
+
+            .detail-row.total strong {
+                font-size: 1.5rem;
+                background: linear-gradient(135deg, #dc143c, #003893);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .success-actions {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .btn-success-primary, .btn-success-secondary {
+                flex: 1;
+                padding: 0.85rem 1.5rem;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .btn-success-primary {
+                background: linear-gradient(135deg, #003893, #dc143c);
+                color: #fff;
+            }
+
+            .btn-success-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 56, 147, 0.4);
+            }
+
+            .btn-success-secondary {
+                background: rgba(255, 255, 255, 0.1);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .btn-success-secondary:hover {
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes scaleIn {
+                0% {
+                    transform: scale(0);
+                }
+                50% {
+                    transform: scale(1.2);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            .invalid-feedback {
+                display: none;
+                width: 100%;
+                margin-top: 0.5rem;
+                font-size: 0.75rem;
+                color: #dc143c;
+                padding-left: 0.5rem;
+            }
+
+            .input-v2.is-invalid {
+                border-color: #dc143c;
+                background-color: rgba(220, 20, 60, 0.05);
+            }
+
+            .input-v2.is-valid {
+                border-color: #4caf50;
+                background-color: rgba(76, 175, 80, 0.05);
+            }
+
+            .form-group-v2.is-invalid {
+                border-color: #dc143c;
+            }
+
+            .form-group-v2.is-valid {
+                border-color: #4caf50;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Expose cart functions to global scope for onclick handlers
+        window.removeFromCart = removeFromCart;
+        window.updateQuantity = updateQuantity;
+
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        console.log('✓ Top-Up V2 initialized - Cart & Form Validation Active');
+    })();
+    </script>
+</body>
+</html>

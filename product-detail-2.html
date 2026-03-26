@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Diamonds - Instant Top-Up | KUNYO Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                            <span>/</span>
+                            <span>Register</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="desktop-special-offers">
+                <a href="#" class="special-offers">
+                    <i class="bi bi-megaphone"></i>
+                    Special Offers
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Live Purchase Notification -->
+    <div class="live-purchase-notification" id="liveNotification">
+        <div class="notification-content">
+            <div class="notification-avatar">JD</div>
+            <div class="notification-text">
+                <strong>John Doe</strong> just purchased <span>500 Diamonds</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail V2 Section -->
+    <section class="product-detail-v2">
+        <div class="container-fluid">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="pd2-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Mobile Games</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Free Fire Diamonds</li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <!-- Left Column: Image Gallery & Info -->
+                <div class="col-lg-7">
+                    <!-- Image Gallery with Video -->
+                    <div class="pd2-gallery">
+                        <div class="pd2-main-media">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop" alt="Free Fire Diamonds" id="pd2MainImage">
+                            <button class="pd2-video-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                                <i class="bi bi-play-circle-fill"></i>
+                                <span>Watch Gameplay</span>
+                            </button>
+                            <div class="pd2-image-badges">
+                                <span class="badge-hot">Hot</span>
+                                <span class="badge-verified"><i class="bi bi-patch-check-fill"></i> Official</span>
+                            </div>
+                        </div>
+                        <div class="pd2-thumbnails">
+                            <div class="pd2-thumb active" data-image="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=150&h=150&fit=crop" alt="Image 1">
+                            </div>
+                            <div class="pd2-thumb" data-image="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=150&h=150&fit=crop" alt="Image 2">
+                            </div>
+                            <div class="pd2-thumb" data-image="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=800&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=150&h=150&fit=crop" alt="Image 3">
+                            </div>
+                            <div class="pd2-thumb" data-image="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop">
+                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop" alt="Image 4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Meta Info -->
+                    <div class="pd2-meta-section">
+                        <div class="pd2-header">
+                            <h1 class="pd2-title">Free Fire Diamonds</h1>
+                            <button class="pd2-share-btn">
+                                <i class="bi bi-share"></i>
+                                Share
+                            </button>
+                        </div>
+
+                        <div class="pd2-rating-bar">
+                            <div class="rating-left">
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <span class="rating-score">4.9</span>
+                                <span class="rating-count">(3,821 reviews)</span>
+                            </div>
+                            <div class="rating-right">
+                                <span class="sold-count"><i class="bi bi-fire"></i> 24,582 sold</span>
+                            </div>
+                        </div>
+
+                        <div class="pd2-trust-badges">
+                            <div class="trust-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant Delivery</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>100% Secure</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-cash-coin"></i>
+                                <span>Best Price</span>
+                            </div>
+                        </div>
+
+                        <!-- Comparison Table -->
+                        <div class="pd2-comparison">
+                            <h3 class="comparison-title">Package Comparison</h3>
+                            <div class="comparison-table">
+                                <div class="comparison-row header">
+                                    <div class="col-package">Package</div>
+                                    <div class="col-diamonds">Diamonds</div>
+                                    <div class="col-bonus">Bonus</div>
+                                    <div class="col-price">Price</div>
+                                    <div class="col-value">Value</div>
+                                </div>
+                                <div class="comparison-row">
+                                    <div class="col-package">Basic</div>
+                                    <div class="col-diamonds">100</div>
+                                    <div class="col-bonus">+10</div>
+                                    <div class="col-price">$0.99</div>
+                                    <div class="col-value"><span class="value-badge">Good</span></div>
+                                </div>
+                                <div class="comparison-row popular">
+                                    <div class="col-package">Popular</div>
+                                    <div class="col-diamonds">500</div>
+                                    <div class="col-bonus">+50</div>
+                                    <div class="col-price">$4.99</div>
+                                    <div class="col-value"><span class="value-badge best">Best Value</span></div>
+                                </div>
+                                <div class="comparison-row">
+                                    <div class="col-package">Premium</div>
+                                    <div class="col-diamonds">1,000</div>
+                                    <div class="col-bonus">+150</div>
+                                    <div class="col-price">$9.99</div>
+                                    <div class="col-value"><span class="value-badge">Great</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Accordion -->
+                        <div class="pd2-faq">
+                            <h3 class="faq-title">Frequently Asked Questions</h3>
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            How long does delivery take?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Diamonds are delivered instantly to your account within 1-5 minutes after successful payment. In rare cases, it may take up to 15 minutes.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            Is it safe to buy from KUNYO?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Yes, absolutely! We use official top-up methods and your account information is encrypted. We've successfully delivered over 500,000 orders with a 99.9% success rate.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                            What if I don't receive my diamonds?
+                                        </button>
+                                    </h2>
+                                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            If you don't receive your diamonds within 15 minutes, please contact our 24/7 customer support. We offer a full refund guarantee if the delivery fails.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                            Can I get a refund?
+                                        </button>
+                                    </h2>
+                                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Refunds are available if the diamonds were not delivered. Once diamonds are successfully credited to your account, refunds cannot be processed as they are digital goods.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Sticky Purchase Panel -->
+                <div class="col-lg-5">
+                    <div class="pd2-purchase-panel">
+                        <div class="panel-header">
+                            <div class="price-display">
+                                <span class="current-price" id="displayPrice">$4.99</span>
+                                <span class="original-price">$6.99</span>
+                                <span class="discount-badge">-29%</span>
+                            </div>
+                            <p class="price-note">Lowest price in 30 days</p>
+                        </div>
+
+                        <!-- Package Selector -->
+                        <div class="package-selector">
+                            <label class="selector-label">Select Package</label>
+                            <div class="packages-list">
+                                <div class="package-option" data-price="0.99" data-diamonds="100" data-bonus="10">
+                                    <div class="package-main">
+                                        <div class="package-icon"><i class="bi bi-gem"></i></div>
+                                        <div class="package-info">
+                                            <div class="package-name">100 Diamonds</div>
+                                            <div class="package-bonus">+10 Bonus</div>
+                                        </div>
+                                    </div>
+                                    <div class="package-price">$0.99</div>
+                                </div>
+                                <div class="package-option active" data-price="4.99" data-diamonds="500" data-bonus="50">
+                                    <div class="package-main">
+                                        <div class="package-icon"><i class="bi bi-gem"></i></div>
+                                        <div class="package-info">
+                                            <div class="package-name">500 Diamonds</div>
+                                            <div class="package-bonus">+50 Bonus</div>
+                                        </div>
+                                    </div>
+                                    <div class="package-price">$4.99</div>
+                                    <span class="popular-tag">Popular</span>
+                                </div>
+                                <div class="package-option" data-price="9.99" data-diamonds="1000" data-bonus="150">
+                                    <div class="package-main">
+                                        <div class="package-icon"><i class="bi bi-gem"></i></div>
+                                        <div class="package-info">
+                                            <div class="package-name">1,000 Diamonds</div>
+                                            <div class="package-bonus">+150 Bonus</div>
+                                        </div>
+                                    </div>
+                                    <div class="package-price">$9.99</div>
+                                </div>
+                                <div class="package-option" data-price="24.99" data-diamonds="2500" data-bonus="500">
+                                    <div class="package-main">
+                                        <div class="package-icon"><i class="bi bi-gem"></i></div>
+                                        <div class="package-info">
+                                            <div class="package-name">2,500 Diamonds</div>
+                                            <div class="package-bonus">+500 Bonus</div>
+                                        </div>
+                                    </div>
+                                    <div class="package-price">$24.99</div>
+                                    <span class="save-tag">Save 15%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package Preview -->
+                        <div class="package-preview">
+                            <div class="preview-header">You will receive:</div>
+                            <div class="preview-content">
+                                <div class="preview-item">
+                                    <i class="bi bi-gem"></i>
+                                    <span><span id="previewDiamonds">500</span> Diamonds</span>
+                                </div>
+                                <div class="preview-item bonus">
+                                    <i class="bi bi-plus-circle"></i>
+                                    <span><span id="previewBonus">50</span> Bonus Diamonds</span>
+                                </div>
+                                <div class="preview-total">
+                                    <strong>Total: <span id="previewTotal">550</span> Diamonds</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Input -->
+                        <div class="user-input-form">
+                            <div class="input-group">
+                                <label for="pd2PlayerId">Player ID <span class="required">*</span></label>
+                                <input type="text" id="pd2PlayerId" placeholder="Enter your Free Fire Player ID" class="form-input">
+                                <small class="input-help"><i class="bi bi-info-circle"></i> Find your ID in game profile</small>
+                            </div>
+                            <div class="input-group">
+                                <label for="pd2Email">Email (Optional)</label>
+                                <input type="email" id="pd2Email" placeholder="For order confirmation" class="form-input">
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="purchase-actions">
+                            <button class="btn-primary-action" id="buyNowBtn">
+                                <i class="bi bi-lightning-fill"></i>
+                                <span>Buy Now - <span id="btnPrice">$4.99</span></span>
+                            </button>
+                            <div class="secondary-actions">
+                                <button class="btn-secondary-action" id="addToCartBtn">
+                                    <i class="bi bi-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                                <button class="btn-icon-action" id="wishlistBtn">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Security Info -->
+                        <div class="security-info">
+                            <div class="security-item">
+                                <i class="bi bi-shield-lock-fill"></i>
+                                <span>SSL Secure Payment</span>
+                            </div>
+                            <div class="security-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Money Back Guarantee</span>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="payment-methods-mini">
+                            <p>We Accept:</p>
+                            <div class="payment-icons">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                                <span class="more-payments">+3 more</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="pd2-reviews-section">
+                <div class="reviews-header">
+                    <h2>Customer Reviews</h2>
+                    <div class="review-summary">
+                        <div class="summary-score">
+                            <span class="score-big">4.9</span>
+                            <div class="score-stars">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <span class="score-text">3,821 reviews</span>
+                        </div>
+                        <button class="btn-write-review">Write a Review</button>
+                    </div>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer">
+                                <div class="avatar">SK</div>
+                                <div class="reviewer-info">
+                                    <h5>Sagar Karki</h5>
+                                    <div class="review-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="review-date">3 days ago</span>
+                        </div>
+                        <p class="review-text">Super fast delivery! Got my diamonds in less than 2 minutes. Will definitely buy again.</p>
+                        <div class="review-footer">
+                            <span class="verified"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                            <button class="helpful-btn"><i class="bi bi-hand-thumbs-up"></i> Helpful (24)</button>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer">
+                                <div class="avatar">NP</div>
+                                <div class="reviewer-info">
+                                    <h5>Nikita Paudel</h5>
+                                    <div class="review-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="review-date">1 week ago</span>
+                        </div>
+                        <p class="review-text">Best prices compared to other sites. Customer support is also very responsive!</p>
+                        <div class="review-footer">
+                            <span class="verified"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                            <button class="helpful-btn"><i class="bi bi-hand-thumbs-up"></i> Helpful (18)</button>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer">
+                                <div class="avatar">RM</div>
+                                <div class="reviewer-info">
+                                    <h5>Rohan Malla</h5>
+                                    <div class="review-stars">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="review-date">2 weeks ago</span>
+                        </div>
+                        <p class="review-text">Reliable service. One time there was a small delay but support team resolved it quickly.</p>
+                        <div class="review-footer">
+                            <span class="verified"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                            <button class="helpful-btn"><i class="bi bi-hand-thumbs-up"></i> Helpful (12)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo">
+                        <p>Nepal's most trusted gaming e-commerce platform. Get instant game top-ups, gift cards, and gaming products delivered digitally.</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Support</h5>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-contact">
+                        <h5>Contact Us</h5>
+                        <p><i class="bi bi-envelope"></i> support@kunyo.com</p>
+                        <p><i class="bi bi-phone"></i> +977-1-4444444</p>
+                        <div class="social-links">
+                            <a href="#"><i class="bi bi-facebook"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="#"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KUNYO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/product-detail-2.js"></script>
+</body>
+</html>

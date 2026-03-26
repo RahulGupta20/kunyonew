@@ -22,6 +22,9 @@
 
     <!-- Header Styles (Original) -->
 
+    <!-- Global CSS (Navbar, Footer, Common) -->
+    <link rel="stylesheet" href="css/global.css">
+
     <!-- Custom SCSS Compiled CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -95,11 +98,17 @@
                             <span class="separator">/</span>
                             <span id="selectedCurrency">USD</span>
                         </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
                         <a href="#" class="header-icon login-register-btn">
                             <i class="bi bi-person"></i>
                             <span>Login</span>
-                            <span>/</span>
-                            <span>Register</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
                         </a>
                     </div>
                 </div>
@@ -163,7 +172,7 @@
                     </button>
                 </div>
                 <ul class="main-nav ms-4">
-                    
+
                     <li>
                         <a href="#">Gift Cards</a>
                     </li>

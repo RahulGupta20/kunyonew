@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Gift Cards - Send Digital Gift Cards | KUNYO Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="gc-body">
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>Select Categories <span class="close-menu"><i class="bi bi-x"></i></span></h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                            <span>/</span>
+                            <span>Register</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#"><span>Mobile games</span><i class="bi bi-chevron-right"></i></a>
+                    <a class="dropdown-item browse-category-item" href="#"><span>Games</span><i class="bi bi-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Direct Top Up</a></li>
+                    <li><a href="#">Subscription</a></li>
+                    <li><a href="#">Gaming Gears</a></li>
+                </ul>
+            </div>
+            <div class="desktop-special-offers">
+                <a href="#" class="special-offers"><i class="bi bi-megaphone"></i> Special Offers</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Gift Card Page - Improved Design -->
+    <section class="gc-hero">
+        <div class="container">
+            <div class="gc-hero-content">
+                <div class="hero-badge">
+                    <i class="bi bi-gift-fill"></i>
+                    <span>Perfect Gift for Gamers</span>
+                </div>
+                <h1 class="hero-title">Gaming Gift Cards</h1>
+                <p class="hero-subtitle">Choose amount, customize, and send instantly via email - No account needed!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gc-main-section">
+        <div class="container">
+
+            <!-- Progress Tracker -->
+            <div class="gc-progress-tracker">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-circle">
+                        <i class="bi bi-wallet2"></i>
+                    </div>
+                    <span class="step-text">Choose Amount</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-circle">
+                        <i class="bi bi-palette"></i>
+                    </div>
+                    <span class="step-text">Customize</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-circle">
+                        <i class="bi bi-send"></i>
+                    </div>
+                    <span class="step-text">Send</span>
+                </div>
+            </div>
+
+            <div class="gc-content-wrapper">
+
+                <!-- Left: Live Card Preview (Sticky) -->
+                <div class="gc-preview-column">
+                    <div class="preview-sticky-wrapper">
+                        <div class="preview-header">
+                            <h3>Live Preview</h3>
+                            <button class="btn-flip" id="btnFlipCard">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </button>
+                        </div>
+
+                        <div class="gc-card-wrapper">
+                            <div class="gc-card" id="giftCard">
+                                <div class="card-inner" id="cardInner">
+                                    <!-- Front -->
+                                    <div class="card-face card-front">
+                                        <div class="card-bg-pattern"></div>
+                                        <div class="card-shine"></div>
+                                        <div class="card-top">
+                                            <div class="card-logo">KUNYO</div>
+                                            <div class="card-chip">
+                                                <i class="bi bi-cpu"></i>
+                                            </div>
+                                        </div>
+                                        <div class="card-middle">
+                                            <div class="card-amount" id="cardAmount">$50</div>
+                                            <div class="card-label">Gaming Gift Card</div>
+                                        </div>
+                                        <div class="card-bottom">
+                                            <div class="card-design-name" id="cardDesignName">Classic Blue</div>
+                                        </div>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="card-face card-back">
+                                        <div class="card-mag-stripe"></div>
+                                        <div class="card-code-area">
+                                            <div class="code-label">Gift Code</div>
+                                            <div class="code-value">XXXX-XXXX-XXXX-XXXX</div>
+                                        </div>
+                                        <div class="card-message-area">
+                                            <div class="message-label">Message:</div>
+                                            <div class="message-text" id="cardMessage">"Happy Gaming!"</div>
+                                        </div>
+                                        <div class="card-from" id="cardFrom">From: Anonymous</div>
+                                        <div class="card-footer">
+                                            <small>Redeem at kunyo.com/redeem</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="preview-features">
+                            <div class="feature-item">
+                                <i class="bi bi-lightning-fill"></i>
+                                <span>Instant Delivery</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="bi bi-infinity"></i>
+                                <span>Never Expires</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form Steps -->
+                <div class="gc-form-column">
+
+                    <!-- Step 1: Amount Selection -->
+                    <div class="gc-step active" id="step1">
+                        <div class="step-title-bar">
+                            <h2 class="step-title">
+                                <span class="step-num">1</span>
+                                Choose Amount
+                            </h2>
+                        </div>
+
+                        <div class="amount-selector">
+                            <div class="amount-options">
+                                <label class="amount-option">
+                                    <input type="radio" name="amount" value="10">
+                                    <div class="option-card">
+                                        <div class="option-value">$10</div>
+                                        <div class="option-label">Starter</div>
+                                    </div>
+                                </label>
+
+                                <label class="amount-option">
+                                    <input type="radio" name="amount" value="25">
+                                    <div class="option-card">
+                                        <div class="option-value">$25</div>
+                                        <div class="option-label">Good Choice</div>
+                                    </div>
+                                </label>
+
+                                <label class="amount-option">
+                                    <input type="radio" name="amount" value="50" checked>
+                                    <div class="option-card">
+                                        <div class="popular-tag">POPULAR</div>
+                                        <div class="option-value">$50</div>
+                                        <div class="option-label">Best Value</div>
+                                    </div>
+                                </label>
+
+                                <label class="amount-option">
+                                    <input type="radio" name="amount" value="100">
+                                    <div class="option-card">
+                                        <div class="option-value">$100</div>
+                                        <div class="option-label">Premium</div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="custom-amount-divider">
+                                <span>OR</span>
+                            </div>
+
+                            <div class="custom-amount-input">
+                                <label>Enter Custom Amount</label>
+                                <div class="input-group-custom">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="customAmount" placeholder="Enter amount" min="5" max="500">
+                                </div>
+                                <small>Min: $5 | Max: $500</small>
+                            </div>
+                        </div>
+
+                        <button class="btn-next-step" id="btnNext1">
+                            Continue to Customize
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Customize Design & Message -->
+                    <div class="gc-step" id="step2">
+                        <div class="step-title-bar">
+                            <h2 class="step-title">
+                                <span class="step-num">2</span>
+                                Customize Your Gift Card
+                            </h2>
+                        </div>
+
+                        <div class="customize-section">
+                            <label class="section-label">
+                                <i class="bi bi-palette-fill"></i>
+                                Choose Design
+                            </label>
+                            <div class="design-grid">
+                                <label class="design-option">
+                                    <input type="radio" name="design" value="blue" checked>
+                                    <div class="design-card" style="background: linear-gradient(135deg, #003893 0%, #dc143c 100%);">
+                                        <span class="design-name">Classic Blue</span>
+                                    </div>
+                                </label>
+
+                                <label class="design-option">
+                                    <input type="radio" name="design" value="purple">
+                                    <div class="design-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        <span class="design-name">Purple Dream</span>
+                                    </div>
+                                </label>
+
+                                <label class="design-option">
+                                    <input type="radio" name="design" value="gold">
+                                    <div class="design-card" style="background: linear-gradient(135deg, #f09819 0%, #edde5d 100%);">
+                                        <span class="design-name">Golden Glow</span>
+                                    </div>
+                                </label>
+
+                                <label class="design-option">
+                                    <input type="radio" name="design" value="green">
+                                    <div class="design-card" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                                        <span class="design-name">Mint Fresh</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="customize-section">
+                            <label class="section-label" for="giftMessage">
+                                <i class="bi bi-chat-heart-fill"></i>
+                                Add Personal Message (Optional)
+                            </label>
+                            <textarea id="giftMessage" class="message-textarea" maxlength="150" placeholder="Write your message here...">Happy Gaming!</textarea>
+                            <div class="char-counter">
+                                <span id="charCount">13</span>/150 characters
+                            </div>
+                        </div>
+
+                        <div class="customize-section">
+                            <label class="section-label" for="senderName">
+                                <i class="bi bi-person-fill"></i>
+                                Your Name (Optional)
+                            </label>
+                            <input type="text" id="senderName" class="text-input" placeholder="e.g., John Doe" maxlength="50">
+                        </div>
+
+                        <div class="step-buttons">
+                            <button class="btn-back" id="btnBack2">
+                                <i class="bi bi-arrow-left"></i>
+                                Back
+                            </button>
+                            <button class="btn-next-step" id="btnNext2">
+                                Continue to Recipient
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Recipient & Checkout -->
+                    <div class="gc-step" id="step3">
+                        <div class="step-title-bar">
+                            <h2 class="step-title">
+                                <span class="step-num">3</span>
+                                Recipient Details & Payment
+                            </h2>
+                        </div>
+
+                        <div class="customize-section">
+                            <label class="section-label" for="recipientEmail">
+                                <i class="bi bi-envelope-fill"></i>
+                                Recipient Email *
+                            </label>
+                            <input type="email" id="recipientEmail" class="text-input" placeholder="recipient@example.com" required>
+                            <small class="help-text">The gift card will be sent to this email</small>
+                        </div>
+
+                        <div class="customize-section">
+                            <label class="section-label" for="recipientName">
+                                <i class="bi bi-person-circle"></i>
+                                Recipient Name (Optional)
+                            </label>
+                            <input type="text" id="recipientName" class="text-input" placeholder="e.g., Jane Smith">
+                        </div>
+
+                        <div class="customize-section">
+                            <label class="section-label">
+                                <i class="bi bi-clock-fill"></i>
+                                Delivery Time
+                            </label>
+                            <div class="delivery-options">
+                                <label class="delivery-option">
+                                    <input type="radio" name="delivery" value="now" checked>
+                                    <div class="delivery-card">
+                                        <i class="bi bi-lightning-fill"></i>
+                                        <div>
+                                            <strong>Send Immediately</strong>
+                                            <small>Instant delivery</small>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="delivery-option">
+                                    <input type="radio" name="delivery" value="schedule">
+                                    <div class="delivery-card">
+                                        <i class="bi bi-calendar-event"></i>
+                                        <div>
+                                            <strong>Schedule for Later</strong>
+                                            <small>Choose date & time</small>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="scheduled-input" id="scheduledInput" style="display: none;">
+                                <input type="datetime-local" id="scheduledTime" class="text-input">
+                            </div>
+                        </div>
+
+                        <!-- Order Summary -->
+                        <div class="order-summary-box">
+                            <h3>Order Summary</h3>
+                            <div class="summary-row">
+                                <span>Gift Card Value:</span>
+                                <strong id="summaryAmount">$50.00</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Processing Fee:</span>
+                                <strong>$0.00</strong>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row summary-total">
+                                <span>Total:</span>
+                                <strong id="summaryTotal">$50.00</strong>
+                            </div>
+                        </div>
+
+                        <!-- Payment -->
+                        <div class="customize-section">
+                            <label class="section-label">
+                                <i class="bi bi-credit-card-fill"></i>
+                                Payment Method
+                            </label>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="card" checked>
+                                    <div class="payment-card">
+                                        <i class="bi bi-credit-card"></i>
+                                        <span>Credit / Debit Card</span>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="paypal">
+                                    <div class="payment-card">
+                                        <i class="bi bi-paypal"></i>
+                                        <span>PayPal</span>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input type="radio" name="payment" value="crypto">
+                                    <div class="payment-card">
+                                        <i class="bi bi-currency-bitcoin"></i>
+                                        <span>Cryptocurrency</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="terms-checkbox">
+                            <label>
+                                <input type="checkbox" id="agreeTerms">
+                                <span>I agree to the <a href="#">Terms & Conditions</a></span>
+                            </label>
+                        </div>
+
+                        <div class="step-buttons">
+                            <button class="btn-back" id="btnBack3">
+                                <i class="bi bi-arrow-left"></i>
+                                Back
+                            </button>
+                            <button class="btn-complete" id="btnComplete">
+                                <i class="bi bi-lock-fill"></i>
+                                Complete Purchase
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="gc-success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <h2>Gift Card Sent Successfully!</h2>
+            <p>Your gift card has been sent to <strong id="successEmail">recipient@example.com</strong></p>
+            <div class="success-details">
+                <div class="detail-item">
+                    <span>Amount:</span>
+                    <strong id="successAmount">$50.00</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Order ID:</span>
+                    <strong>#GC-<span id="successOrderId">123456</span></strong>
+                </div>
+            </div>
+            <button class="btn-success-close" id="btnCloseSuccess">
+                Done
+            </button>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/gift-card.js"></script>
+</body>
+</html>
