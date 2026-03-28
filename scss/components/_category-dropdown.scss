@@ -15,13 +15,13 @@
     backdrop-filter: blur(20px);
     background-color: transparent;
 
-    @include desktop {
+    @include respond-to('lg') {
         min-width: 100%;
         max-width: 100vw;
         border-radius: 10px;
     }
 
-    @include tablet {
+    @include respond-to('md') {
         min-width: 100%;
     }
 }
@@ -37,7 +37,7 @@
     border-radius: 14px;
     overflow: hidden;
 
-    @include desktop {
+    @include respond-to('lg') {
         grid-template-columns: 1fr;
     }
 }
@@ -55,7 +55,7 @@
         border-bottom: 1px solid rgba(220, 20, 60, 0.25);
     }
 
-    @include tablet {
+    @include respond-to('md') {
         padding: 1rem 1.25rem;
     }
 }
@@ -84,12 +84,12 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 
-    @include desktop {
+    @include respond-to('lg') {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.25rem;
     }
 
-    @include tablet {
+    @include respond-to('md') {
         grid-template-columns: 1fr;
         gap: 1rem;
     }

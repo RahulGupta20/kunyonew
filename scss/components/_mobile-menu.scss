@@ -15,7 +15,7 @@
     border-radius: 10px;
     line-height: 1;
 
-    @include desktop {
+    @include respond-to('lg') {
         @include flex-center;
     }
 
@@ -35,7 +35,7 @@
 .mobile-menu-header {
     display: none;
 
-    @include desktop {
+    @include respond-to('lg') {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -73,7 +73,7 @@
 .sidebar-close-btn {
     display: none;
 
-    @include desktop {
+    @include respond-to('lg') {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -96,7 +96,7 @@
     }
 }
 
-@include desktop {
+@include respond-to('lg') {
     .bottom-nav .navbar-collapse {
         position: fixed;
         top: -108px;
@@ -104,7 +104,7 @@
         width: 280px;
         height: 100vh;
         background: $bg-secondary;
-        padding: $spacing-xxl;
+        padding: $spacing-2xl;
         margin-top: 0;
         border: none;
         box-shadow: $box-shadow-sidebar;

@@ -8,7 +8,7 @@
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: $text-primary;
-    font-size: $font-size-base;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -40,8 +40,8 @@
         transform: translateY(0);
     }
 
-    @include tablet {
-        font-size: $font-size-sm;
+    @include respond-to('md') {
+        font-size: 0.875rem;
         gap: 3px;
         padding: 0.4rem 0.75rem;
 
@@ -56,7 +56,7 @@
 .preferences-modal-dialog {
     max-width: 500px;
 
-    @include mobile {
+    @include respond-to('sm') {
         margin: 0.5rem;
         max-width: calc(100% - 1rem);
     }
@@ -135,7 +135,7 @@
         }
     }
 
-    @include mobile {
+    @include respond-to('sm') {
         padding: 1rem 1.25rem;
     }
 }
@@ -324,7 +324,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 1.25rem 1.5rem;
 
-    @include mobile {
+    @include respond-to('sm') {
         padding: 1rem 1.25rem;
     }
 }
@@ -356,7 +356,7 @@
         transform: translateY(0);
     }
 
-    @include mobile {
+    @include respond-to('sm') {
         padding: 0.75rem 1.25rem;
         font-size: 0.938rem;
     }

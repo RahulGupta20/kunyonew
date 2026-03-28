@@ -5,86 +5,42 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // ===================================
-    // Hero Carousel
+    // Hero Stack Grid Carousel
     // ===================================
     if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
-        var heroOwl = $('.hero-sec-carousel').owlCarousel({
-            items: 1,
-            loop: true,
-            center: true,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: false,
-            nav: true,
-            dots: true,
-            stagePadding: 100,
-            touchDrag: true,
-            mouseDrag: true,
-            responsive: {
-                0: {
-                    stagePadding: 30,
-                    margin: 5
-                },
-                768: {
-                    stagePadding: 80,
-                    margin: 10
-                },
-                1024: {
-                    stagePadding: 130,
-                    margin: 10
-                }
-            }
-        });
+        $('.hero-stack-carousel').each(function() {
+            var $carousel = $(this);
 
-        // Progress bar animation
-        heroOwl.on('translate.owl.carousel', function(event) {
-            $('.owl-dot').each(function() {
-                $(this).removeClass('animating');
-            });
-        });
-
-        heroOwl.on('translated.owl.carousel', function(event) {
-            $('.owl-dot').each(function() {
-                $(this).removeClass('animating');
+            var stackOwl = $carousel.owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: false,
+                dots: true,
+                smartSpeed: 600,
+                mouseDrag: true,
+                touchDrag: true
             });
 
+            // Progress bar animation
+            stackOwl.on('translate.owl.carousel', function(event) {
+                $carousel.find('.owl-dot').removeClass('animating');
+            });
+
+            stackOwl.on('translated.owl.carousel', function(event) {
+                $carousel.find('.owl-dot').removeClass('animating');
+
+                setTimeout(function() {
+                    $carousel.find('.owl-dot.active').addClass('animating');
+                }, 50);
+            });
+
+            // Initialize first dot animation
             setTimeout(function() {
-                $('.owl-dot.active').addClass('animating');
-            }, 50);
-        });
-
-        // Keyboard navigation
-        $(document).on('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                heroOwl.trigger('prev.owl.carousel');
-            } else if (e.key === 'ArrowRight') {
-                heroOwl.trigger('next.owl.carousel');
-            }
-        });
-
-        // Add aria-labels
-        $('.owl-prev').attr('aria-label', 'Previous slide');
-        $('.owl-next').attr('aria-label', 'Next slide');
-
-        // Initialize first dot animation
-        setTimeout(function() {
-            $('.owl-dot.active').addClass('animating');
-        }, 100);
-
-        // Handle conditional nav button display
-        $('.hero-sec-carousel').on('mousemove', function(e) {
-            var carouselWidth = $(this).width();
-            var mouseX = e.pageX - $(this).offset().left;
-
-            if (mouseX < carouselWidth / 2) {
-                $(this).removeClass('hover-right').addClass('hover-left');
-            } else {
-                $(this).removeClass('hover-left').addClass('hover-right');
-            }
-        });
-
-        $('.hero-sec-carousel').on('mouseleave', function() {
-            $(this).removeClass('hover-left hover-right');
+                $carousel.find('.owl-dot.active').addClass('animating');
+            }, 100);
         });
     }
 

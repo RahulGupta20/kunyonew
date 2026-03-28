@@ -66,6 +66,8 @@ build/
 *.bak
 *.backup
 *~
+hero-section-backup.html
+scss/components/_hero-carousel.scss
 
 # Database Files
 *.sql

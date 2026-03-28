@@ -7,11 +7,11 @@
     position: relative;
     z-index: 1000;
 
-    @include desktop {
+    @include respond-to('lg') {
         padding: $spacing-xl 0;
     }
 
-    @include tablet {
+    @include respond-to('md') {
         padding: $spacing-md 0;
     }
 }
@@ -26,15 +26,15 @@
         width: auto;
         display: block;
 
-        @include desktop {
+        @include respond-to('lg') {
             height: 36px;
         }
 
-        @include tablet {
+        @include respond-to('md') {
             height: 32px;
         }
 
-        @include mobile {
+        @include respond-to('sm') {
             height: 29px;
         }
     }
@@ -65,7 +65,7 @@
         overflow: hidden;
     }
 
-    @include desktop {
+    @include respond-to('lg') {
         max-width: 100%;
         margin: $spacing-lg 0 0;
     }
@@ -77,7 +77,7 @@
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding: $spacing-sm $spacing-xl;
     color: $text-primary;
-    font-size: $font-size-md;
+    font-size: 1.125rem;
     cursor: pointer;
     white-space: nowrap;
     font-weight: $font-weight-medium;
@@ -88,8 +88,8 @@
         background: rgba(220, 20, 60, 0.08);
     }
 
-    @include tablet {
-        font-size: $font-size-base;
+    @include respond-to('md') {
+        font-size: 1rem;
         padding: $spacing-sm $spacing-lg;
     }
 }
@@ -98,7 +98,7 @@
     flex: 1;
     border: none;
     padding: $spacing-sm $spacing-lg;
-    font-size: $font-size-md;
+    font-size: 1.125rem;
     outline: none;
     background: transparent;
     color: $text-primary;
@@ -108,8 +108,8 @@
         color: rgba(180, 184, 197, 0.7);
     }
 
-    @include tablet {
-        font-size: $font-size-base;
+    @include respond-to('md') {
+        font-size: 1rem;
         padding: $spacing-sm $spacing-md;
     }
 }
@@ -136,7 +136,7 @@
         font-size: 1.125rem;
     }
 
-    @include tablet {
+    @include respond-to('md') {
         padding: 0 $spacing-md;
     }
 }
@@ -157,7 +157,7 @@
     text-decoration: none;
     @include flex-center;
     gap: 6px;
-    font-size: $font-size-base;
+    font-size: 1rem;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 0.5rem 0.5rem;
@@ -185,13 +185,13 @@
     i {
         font-size: 18px;
 
-        @include tablet {
+        @include respond-to('md') {
             font-size: 16px;
         }
     }
 
     span {
-        @include desktop {
+        @include respond-to('lg') {
             display: none;
         }
     }
@@ -223,7 +223,7 @@
         padding: 0 4px;
         border: 2px solid #0a0e27;
 
-        @include desktop {
+        @include respond-to('lg') {
             font-size: 0.6rem;
             min-width: 16px;
             height: 16px;
@@ -251,7 +251,7 @@
         padding: 0 4px;
         border: 2px solid #0a0e27;
 
-        @include desktop {
+        @include respond-to('lg') {
             font-size: 0.6rem;
             min-width: 16px;
             height: 16px;
