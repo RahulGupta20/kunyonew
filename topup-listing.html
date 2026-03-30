@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Top-Ups - KUNYO | Nepal's #1 Gaming Store</title>
+    <meta name="description" content="Buy game top-ups for Freefire, Mobile Legends, PUBG Mobile and more. Fast delivery, secure payment, best prices in Nepal.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Topup Listing CSS -->
+    <link rel="stylesheet" href="css/topup-listing.css">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" id="mainSearchInput" placeholder="Search for games, top-ups and more" autocomplete="off">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <!-- Search Suggestions Dropdown -->
+                        <div class="search-suggestions" id="searchSuggestions">
+                            <div class="suggestions-content">
+                                <!-- Trending Section -->
+                                <div class="suggestion-section" id="trendingSection">
+                                    <div class="suggestion-header">
+                                        <i class="bi bi-fire"></i>
+                                        <span>Trending</span>
+                                    </div>
+                                    <div class="suggestion-items" id="trendingItems">
+                                        <!-- Populated by JS -->
+                                    </div>
+                                </div>
+
+                                <!-- Recent Searches -->
+                                <div class="suggestion-section" id="recentSection" style="display: none;">
+                                    <div class="suggestion-header">
+                                        <i class="bi bi-clock-history"></i>
+                                        <span>Recent Searches</span>
+                                        <button class="clear-recent" id="clearRecent">Clear</button>
+                                    </div>
+                                    <div class="suggestion-items" id="recentItems">
+                                        <!-- Populated by JS -->
+                                    </div>
+                                </div>
+
+                                <!-- Search Results -->
+                                <div class="suggestion-section" id="resultsSection" style="display: none;">
+                                    <div class="suggestion-items" id="searchResults">
+                                        <!-- Populated by JS -->
+                                    </div>
+                                </div>
+
+                                <!-- No Results -->
+                                <div class="no-results" id="noResults" style="display: none;">
+                                    <i class="bi bi-search"></i>
+                                    <p>No results found</p>
+                                    <span>Try searching for something else</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="icon-btn" id="favoritesBtn" title="Favorites">
+                            <i class="bi bi-heart"></i>
+                            <span class="badge" id="favoritesCount" style="display: none;">0</span>
+                        </button>
+                        <button class="icon-btn" id="cartBtn" title="Cart">
+                            <i class="bi bi-cart3"></i>
+                            <span class="badge" id="cartCount" style="display: none;">0</span>
+                        </button>
+                        <button class="icon-btn" id="userBtn" title="Account">
+                            <i class="bi bi-person"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="topup-hero">
+        <div class="container-fluid">
+            <div class="hero-content">
+                <h1 class="hero-title">Game Top-Ups</h1>
+                <p class="hero-subtitle">Fast, secure, and reliable top-ups for your favorite games</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="topup-listing-section">
+        <div class="container-fluid">
+
+            <!-- Category Navigation (Sticky) -->
+            <div class="category-nav-wrapper" id="categoryNavWrapper">
+                <div class="category-nav" id="categoryNav">
+                    <button class="category-tab active" data-category="all">
+                        <i class="bi bi-grid-3x3-gap"></i>
+                        <span>All Games</span>
+                    </button>
+                    <button class="category-tab" data-category="mobile-game">
+                        <i class="bi bi-phone"></i>
+                        <span>Mobile Games</span>
+                    </button>
+                    <button class="category-tab" data-category="pc-game">
+                        <i class="bi bi-laptop"></i>
+                        <span>PC Games</span>
+                    </button>
+                    <button class="category-tab" data-category="direct-topup">
+                        <i class="bi bi-lightning-charge"></i>
+                        <span>Direct Top-Up</span>
+                    </button>
+                    <button class="category-tab" data-category="gift-cards">
+                        <i class="bi bi-gift"></i>
+                        <span>Gift Cards</span>
+                    </button>
+                </div>
+
+                <!-- Filter & Sort Controls -->
+                <div class="controls-wrapper">
+                    <button class="control-btn" id="filterBtn">
+                        <i class="bi bi-funnel"></i>
+                        <span>Filter</span>
+                    </button>
+                    <div class="sort-dropdown">
+                        <button class="control-btn" id="sortBtn">
+                            <i class="bi bi-sort-down"></i>
+                            <span id="sortLabel">Popular</span>
+                        </button>
+                        <div class="sort-menu" id="sortMenu">
+                            <button class="sort-option active" data-sort="popular">
+                                <i class="bi bi-fire"></i>
+                                Popular
+                            </button>
+                            <button class="sort-option" data-sort="name-asc">
+                                <i class="bi bi-sort-alpha-down"></i>
+                                Name (A-Z)
+                            </button>
+                            <button class="sort-option" data-sort="name-desc">
+                                <i class="bi bi-sort-alpha-up"></i>
+                                Name (Z-A)
+                            </button>
+                            <button class="sort-option" data-sort="newest">
+                                <i class="bi bi-clock"></i>
+                                Newest
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Filters -->
+            <div class="active-filters" id="activeFilters" style="display: none;">
+                <span class="filter-label">Active filters:</span>
+                <div class="filter-chips" id="filterChips">
+                    <!-- Populated by JS -->
+                </div>
+                <button class="clear-all-filters" id="clearAllFilters">Clear all</button>
+            </div>
+
+            <!-- Brand Grid -->
+            <div class="brand-grid-container">
+                <!-- Loading Skeleton -->
+                <div class="brand-grid" id="skeletonGrid">
+                    <!-- 12 skeleton cards -->
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                    <div class="brand-card skeleton">
+                        <div class="skeleton-badge"></div>
+                        <div class="skeleton-logo"></div>
+                        <div class="skeleton-name"></div>
+                        <div class="skeleton-category"></div>
+                        <div class="skeleton-stats"></div>
+                    </div>
+                </div>
+
+                <!-- Actual Brand Grid -->
+                <div class="brand-grid" id="brandGrid" style="display: none;">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- No Results State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="bi bi-inbox"></i>
+                    <h3>No games found</h3>
+                    <p>Try adjusting your filters or search terms</p>
+                    <button class="btn-primary" id="resetFilters">Reset Filters</button>
+                </div>
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="btn-load-more" id="loadMoreBtn">
+                    <span>Load More</span>
+                    <i class="bi bi-arrow-down"></i>
+                </button>
+            </div>
+
+            <!-- Back to Top -->
+            <button class="back-to-top" id="backToTop" style="display: none;">
+                <i class="bi bi-arrow-up"></i>
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Filter Modal (Mobile) -->
+    <div class="filter-modal" id="filterModal">
+        <div class="filter-modal-overlay"></div>
+        <div class="filter-modal-content">
+            <div class="filter-modal-header">
+                <h3>Filters</h3>
+                <button class="close-modal" id="closeFilterModal">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="filter-modal-body">
+                <!-- Future: Add advanced filters here -->
+                <div class="filter-group">
+                    <label class="filter-group-label">Categories</label>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="mobile-game">
+                            <span>Mobile Games</span>
+                            <span class="count">(45)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="pc-game">
+                            <span>PC Games</span>
+                            <span class="count">(32)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="direct-topup">
+                            <span>Direct Top-Up</span>
+                            <span class="count">(12)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" value="gift-cards">
+                            <span>Gift Cards</span>
+                            <span class="count">(8)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-modal-footer">
+                <button class="btn-secondary" id="clearFilters">Clear All</button>
+                <button class="btn-primary" id="applyFilters">Apply Filters</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Favorites Modal -->
+    <div class="favorites-modal" id="favoritesModal" style="display: none;">
+        <div class="favorites-modal-overlay"></div>
+        <div class="favorites-modal-content">
+            <div class="favorites-modal-header">
+                <h3><i class="bi bi-heart-fill"></i> My Favorites</h3>
+                <button class="close-modal" id="closeFavoritesModal">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="favorites-modal-body" id="favoritesModalBody">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Topup Listing JS -->
+    <script src="js/topup-listing.js"></script>
+
+</body>
+</html>

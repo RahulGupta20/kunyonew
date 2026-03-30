@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <style>
+        .maintenance-icon-large {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 191, 36, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: rotate-tools 10s linear infinite;
+        }
+
+        .maintenance-icon-large i {
+            font-size: 4rem;
+            color: #f59e0b;
+        }
+
+        @keyframes rotate-tools {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        .status-badge i {
+            color: #f59e0b;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .status-badge span {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .countdown-display {
+            background: rgba(0, 45, 102, 0.3);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .countdown-display h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .time-unit {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(0, 56, 147, 0.2));
+            border-radius: 12px;
+            padding: 1rem 0.75rem;
+            min-width: 70px;
+        }
+
+        .time-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #dc143c;
+            line-height: 1;
+        }
+
+        .time-label {
+            display: block;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .maintenance-info {
+            background: rgba(0, 56, 147, 0.2);
+            border-left: 3px solid #003893;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .maintenance-info h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #4a9eff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .maintenance-info p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .updates-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .updates-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .updates-list li:last-child {
+            border-bottom: none;
+        }
+
+        .updates-list li:before {
+            content: "⚙";
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-size: 1.125rem;
+        }
+
+        .notify-section {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .notify-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #10b981;
+        }
+
+        .notify-section p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .notify-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 45, 102, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9375rem;
+        }
+
+        .notify-form input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .notify-form button {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .notify-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .social-status {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(220, 20, 60, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .social-status p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.75rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(220, 20, 60, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dc143c;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(220, 20, 60, 0.3);
+            transform: translateY(-3px);
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header (Simplified) -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Page - Split Screen Layout -->
+    <div class="auth-page">
+        <div class="auth-container">
+            <!-- LEFT: Maintenance Info -->
+            <div class="auth-form-section">
+                <div class="auth-form-wrapper">
+                    <div class="text-center">
+                        <div class="maintenance-icon-large">
+                            <i class="bi bi-tools"></i>
+                        </div>
+
+                        <div class="status-badge">
+                            <i class="bi bi-circle-fill"></i>
+                            <span>MAINTENANCE IN PROGRESS</span>
+                        </div>
+                    </div>
+
+                    <div class="auth-card-header text-center">
+                        <h1>We'll Be Back Soon!</h1>
+                        <p>KUNYO is currently undergoing scheduled maintenance to improve your gaming experience</p>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="countdown-display">
+                        <h3>⏱️ Estimated Time Remaining:</h3>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="hours">02</span>
+                                <span class="time-label">Hours</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="minutes">30</span>
+                                <span class="time-label">Minutes</span>
+                            </div>
+                            <div class="time-unit">
+                                <span class="time-value" id="seconds">45</span>
+                                <span class="time-label">Seconds</span>
+                            </div>
+                        </div>
+                        <small style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem;">
+                            Expected completion: <strong id="completionTime">--:-- --</strong>
+                        </small>
+                    </div>
+
+                    <!-- Maintenance Info -->
+                    <div class="maintenance-info">
+                        <h4>
+                            <i class="bi bi-info-circle-fill"></i>
+                            What's happening?
+                        </h4>
+                        <p>We're performing scheduled system upgrades to enhance performance, add new features, and improve security for all KUNYO users.</p>
+                    </div>
+
+                    <!-- Updates List -->
+                    <div class="maintenance-info" style="border-left-color: #f59e0b;">
+                        <h4 style="color: #f59e0b;">
+                            <i class="bi bi-lightning-fill"></i>
+                            What's New:
+                        </h4>
+                        <ul class="updates-list">
+                            <li>Faster checkout and payment processing</li>
+                            <li>New game top-up options for popular titles</li>
+                            <li>Enhanced account security features</li>
+                            <li>Improved mobile experience</li>
+                            <li>Bug fixes and performance improvements</li>
+                        </ul>
+                    </div>
+
+                    <!-- Notify Me Section -->
+                    <div class="notify-section">
+                        <h3>🔔 Get Notified When We're Back</h3>
+                        <p>Enter your email to receive a notification once maintenance is complete</p>
+                        <form class="notify-form" id="notifyForm">
+                            <input type="email" placeholder="your@email.com" id="notifyEmail" required>
+                            <button type="submit">
+                                <i class="bi bi-bell"></i> Notify Me
+                            </button>
+                        </form>
+                        <div id="notifySuccess" style="display: none; margin-top: 1rem; color: #10b981; font-size: 0.875rem;">
+                            <i class="bi bi-check-circle-fill"></i> You'll be notified when we're back!
+                        </div>
+                    </div>
+
+                    <!-- Social Status -->
+                    <div class="social-status">
+                        <p>Stay updated on our social media channels:</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Discord">
+                                <i class="bi bi-discord"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="auth-footer text-center">
+                        <p>Thank you for your patience! 🇳🇵</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Info Section with Carousel -->
+            <div class="auth-info-section">
+                <div class="auth-info-content">
+                    <div class="auth-carousel">
+                        <!-- Slide 1 -->
+                        <div class="auth-slide active">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🔧 System Upgrade</h2>
+                            <p class="auth-slide-desc">We're upgrading our infrastructure to provide you with faster, more reliable gaming services</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>⚡ Faster Loading Times</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🛡️ Enhanced Security</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🎮 New Features</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">⏱️ Brief Downtime</h2>
+                            <p class="auth-slide-desc">We apologize for the inconvenience. Maintenance is expected to complete within 2-3 hours</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📅 Scheduled Maintenance</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔄 Real-time Updates</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔔 Email Notifications</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🎯 Better Experience</h2>
+                            <p class="auth-slide-desc">After maintenance, enjoy an improved KUNYO with better performance and exciting new features</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🚀 Improved Performance</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>✨ New UI Enhancements</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🇳🇵 Nepal's #1 Choice</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Indicators -->
+                    <div class="auth-carousel-indicators">
+                        <button class="carousel-indicator active" data-slide="0"></button>
+                        <button class="carousel-indicator" data-slide="1"></button>
+                        <button class="carousel-indicator" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Set maintenance end time (2.5 hours from now)
+            const maintenanceEndTime = new Date(Date.now() + (2.5 * 60 * 60 * 1000));
+
+            function updateCountdown() {
+                const now = new Date();
+                const diff = maintenanceEndTime - now;
+
+                if (diff <= 0) {
+                    // Maintenance complete
+                    $('#hours').text('00');
+                    $('#minutes').text('00');
+                    $('#seconds').text('00');
+                    $('.status-badge span').text('MAINTENANCE COMPLETE');
+                    $('.status-badge').css('background', 'rgba(16, 185, 129, 0.2)');
+                    $('.status-badge').css('border-color', 'rgba(16, 185, 129, 0.4)');
+                    $('.status-badge i, .status-badge span').css('color', '#10b981');
+                    return;
+                }
+
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                $('#hours').text(hours.toString().padStart(2, '0'));
+                $('#minutes').text(minutes.toString().padStart(2, '0'));
+                $('#seconds').text(seconds.toString().padStart(2, '0'));
+            }
+
+            // Update completion time display
+            const completionTimeStr = maintenanceEndTime.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            $('#completionTime').text(completionTimeStr);
+
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // Notify form submission
+            $('#notifyForm').on('submit', function(e) {
+                e.preventDefault();
+                const email = $('#notifyEmail').val();
+
+                console.log('Notification Request:', {
+                    email: email,
+                    timestamp: new Date().toISOString()
+                });
+
+                $('#notifyEmail').val('');
+                $('#notifySuccess').slideDown();
+
+                setTimeout(function() {
+                    $('#notifySuccess').slideUp();
+                }, 5000);
+            });
+
+            // Log maintenance page visit
+            console.log('Maintenance Mode:', {
+                estimatedCompletion: maintenanceEndTime.toISOString(),
+                timestamp: new Date().toISOString()
+            });
+
+            // Auth Carousel functionality
+            let currentSlide = 0;
+            const slides = $('.auth-slide');
+            const indicators = $('.carousel-indicator');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                indicators.removeClass('active');
+                $(slides[index]).addClass('active');
+                $(indicators[index]).addClass('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Auto-advance carousel every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Click handlers for indicators
+            indicators.on('click', function() {
+                currentSlide = parseInt($(this).data('slide'));
+                showSlide(currentSlide);
+            });
+        });
+    </script>
+</body>
+</html>

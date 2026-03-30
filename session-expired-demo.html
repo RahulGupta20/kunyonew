@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Expired Demo - KUNYO Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 2rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .demo-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .demo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .demo-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #f59e0b;
+        }
+        .demo-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: #fbbf24;
+        }
+        .demo-link {
+            display: block;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+        .demo-link:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+            color: #fff;
+            transform: translateX(5px);
+        }
+        .demo-link i {
+            margin-right: 0.5rem;
+            color: #f59e0b;
+        }
+        .demo-link small {
+            display: block;
+            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+        .info-box {
+            background: rgba(0, 56, 147, 0.2);
+            border-left: 4px solid #003893;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .info-box i {
+            color: #003893;
+            margin-right: 0.5rem;
+        }
+        .warning-box {
+            background: rgba(245, 158, 11, 0.2);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .warning-box i {
+            color: #f59e0b;
+            margin-right: 0.5rem;
+        }
+        .param-table {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        .param-table th {
+            background: rgba(245, 158, 11, 0.2);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #f59e0b;
+        }
+        .param-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .param-table tr:last-child td {
+            border-bottom: none;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Header -->
+        <div class="demo-header">
+            <h1><i class="bi bi-clock-history"></i> Session Expired Demo</h1>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem;">KUNYO Session Management Testing</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="demo-card">
+            <h2><i class="bi bi-info-circle"></i> How It Works</h2>
+            <p>The <code>session-expired.html</code> page is shown when a user's session expires due to inactivity. Sessions typically expire after 30 minutes of no activity for security purposes.</p>
+
+            <div class="warning-box">
+                <i class="bi bi-clock-fill"></i>
+                <strong>Session Timeout:</strong> After 30 minutes of inactivity, users are automatically logged out and redirected to this page to protect their account from unauthorized access.
+            </div>
+
+            <h3>When This Page Appears:</h3>
+            <ul class="feature-list">
+                <li>User inactive for 30+ minutes</li>
+                <li>JWT/Session token expired on backend</li>
+                <li>User tries to access protected page without valid session</li>
+                <li>Session cookie expired or deleted</li>
+                <li>User manually logged out (optional redirect)</li>
+            </ul>
+        </div>
+
+        <!-- URL Parameters -->
+        <div class="demo-card">
+            <h2><i class="bi bi-code-square"></i> URL Parameters</h2>
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                        <th>Default</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>redirect</code></td>
+                        <td>Enable/disable auto-redirect to signin</td>
+                        <td><code>true</code></td>
+                        <td><code>false</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>return_url</code></td>
+                        <td>URL to redirect after viewing message</td>
+                        <td><code>signin.html</code></td>
+                        <td><code>index.html</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>duration</code></td>
+                        <td>How long session was active</td>
+                        <td><code>45 minutes</code></td>
+                        <td><code>2 hours</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Test Links - Default Behavior -->
+        <div class="demo-card">
+            <h2><i class="bi bi-play-circle"></i> Test Scenarios</h2>
+
+            <h3>1. Default Behavior (Auto-Redirect)</h3>
+            <a href="session-expired.html" class="demo-link" target="_blank">
+                <i class="bi bi-clock-history"></i>
+                Session Expired - Auto Redirect in 5 Seconds
+                <small>session-expired.html (default behavior)</small>
+            </a>
+            <div class="info-box">
+                <i class="bi bi-info-circle-fill"></i>
+                <strong>Expected:</strong> Shows session expired message, then automatically redirects to signin.html after 5 seconds countdown.
+            </div>
+
+            <h3>2. No Auto-Redirect</h3>
+            <a href="session-expired.html?redirect=false" class="demo-link" target="_blank">
+                <i class="bi bi-pause-circle"></i>
+                Session Expired - Manual Action Required
+                <small>?redirect=false</small>
+            </a>
+            <div class="info-box">
+                <i class="bi bi-info-circle-fill"></i>
+                <strong>Expected:</strong> Shows session expired message without auto-redirect. User must manually click "Sign In Again" button.
+            </div>
+
+            <h3>3. Custom Return URL</h3>
+            <a href="session-expired.html?return_url=index.html" class="demo-link" target="_blank">
+                <i class="bi bi-house"></i>
+                Session Expired - Redirect to Homepage
+                <small>?return_url=index.html</small>
+            </a>
+            <div class="info-box">
+                <i class="bi bi-info-circle-fill"></i>
+                <strong>Expected:</strong> Auto-redirects to index.html instead of signin.html after 5 seconds.
+            </div>
+
+            <h3>4. Custom Session Duration</h3>
+            <a href="session-expired.html?duration=2 hours&redirect=false" class="demo-link" target="_blank">
+                <i class="bi bi-hourglass-split"></i>
+                Session Expired - Long Session Display
+                <small>?duration=2 hours&redirect=false</small>
+            </a>
+            <div class="info-box">
+                <i class="bi bi-info-circle-fill"></i>
+                <strong>Expected:</strong> Shows "Session Duration: 2 hours" instead of default "45 minutes".
+            </div>
+
+            <h3>5. Combined Parameters</h3>
+            <a href="session-expired.html?redirect=false&return_url=index.html&duration=1 hour" class="demo-link" target="_blank">
+                <i class="bi bi-sliders"></i>
+                Full Control - All Parameters
+                <small>?redirect=false&return_url=index.html&duration=1 hour</small>
+            </a>
+            <div class="info-box">
+                <i class="bi bi-info-circle-fill"></i>
+                <strong>Expected:</strong> No auto-redirect, shows 1 hour session duration, "Sign In Again" button redirects to index.html.
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="demo-card">
+            <h2><i class="bi bi-star"></i> Key Features</h2>
+
+            <h3>1. Session Information Display</h3>
+            <ul class="feature-list">
+                <li><strong>Session Duration:</strong> Total time user was logged in</li>
+                <li><strong>Last Activity:</strong> When user last interacted (calculated as 30 minutes ago)</li>
+                <li><strong>Expired Time:</strong> When session expired (shown as "Just now")</li>
+            </ul>
+
+            <h3>2. Auto-Redirect Countdown</h3>
+            <p>5-second countdown before automatic redirect (can be disabled with <code>?redirect=false</code>)</p>
+
+            <h3>3. Quick Actions</h3>
+            <ul class="feature-list">
+                <li><strong>Sign In Again:</strong> Primary button to re-authenticate</li>
+                <li><strong>Clear Browser Data:</strong> Clears localStorage and sessionStorage before signing in</li>
+            </ul>
+
+            <h3>4. Security Features</h3>
+            <ul class="feature-list">
+                <li>Automatically clears auth tokens from localStorage</li>
+                <li>Preserves cart items and favorites</li>
+                <li>Explains why session expired</li>
+                <li>Tips for staying logged in longer</li>
+            </ul>
+
+            <h3>5. Info Carousel</h3>
+            <p>3 auto-rotating slides explaining:</p>
+            <ul class="feature-list">
+                <li>Auto-logout timer and security</li>
+                <li>Quick sign-in options</li>
+                <li>Data preservation (cart, favorites)</li>
+            </ul>
+        </div>
+
+        <!-- Production Integration -->
+        <div class="demo-card">
+            <h2><i class="bi bi-code-slash"></i> Production Integration</h2>
+
+            <h3>Backend Session Check</h3>
+            <p>When detecting an expired session, redirect users with appropriate parameters:</p>
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <code style="color: #10b981; font-size: 0.875rem;">
+// JavaScript - Detect expired session<br>
+if (response.status === 401 && response.error === 'session_expired') {<br>
+&nbsp;&nbsp;const returnUrl = window.location.pathname;<br>
+&nbsp;&nbsp;window.location.href = `session-expired.html?return_url=${returnUrl}`;<br>
+}
+                </code>
+            </div>
+
+            <h3>Axios/Fetch Interceptor Example</h3>
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <code style="color: #10b981; font-size: 0.875rem;">
+// Axios interceptor<br>
+axios.interceptors.response.use(<br>
+&nbsp;&nbsp;response => response,<br>
+&nbsp;&nbsp;error => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (error.response?.status === 401) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const currentPage = encodeURIComponent(window.location.href);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.location.href = `session-expired.html?return_url=${currentPage}`;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return Promise.reject(error);<br>
+&nbsp;&nbsp;}<br>
+);
+                </code>
+            </div>
+
+            <h3>Console Logging</h3>
+            <p>The page logs session expiry data for debugging:</p>
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <code style="color: #10b981; font-size: 0.875rem;">
+console.log('Session Expired:', {<br>
+&nbsp;&nbsp;reason: 'inactivity_timeout',<br>
+&nbsp;&nbsp;duration: '45 minutes',<br>
+&nbsp;&nbsp;lastActivity: '2026-03-30T10:30:00Z',<br>
+&nbsp;&nbsp;expiredAt: '2026-03-30T11:00:00Z',<br>
+&nbsp;&nbsp;returnUrl: 'signin.html'<br>
+});
+                </code>
+            </div>
+
+            <div class="warning-box">
+                <i class="bi bi-shield-exclamation"></i>
+                <strong>Security Best Practices:</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li>Clear auth tokens (access_token, refresh_token, session_id)</li>
+                    <li>Preserve user data (cart, favorites, preferences)</li>
+                    <li>Log session expiry events for analytics</li>
+                    <li>Implement sliding session (extend on activity)</li>
+                    <li>Allow "Remember Me" for longer sessions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Session Management -->
+        <div class="demo-card">
+            <h2><i class="bi bi-gear"></i> Session Management Tips</h2>
+
+            <h3>Recommended Session Durations:</h3>
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Session Type</th>
+                        <th>Duration</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Standard</strong></td>
+                        <td>30 minutes</td>
+                        <td>Default for most users</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Remember Me</strong></td>
+                        <td>7-30 days</td>
+                        <td>Trusted device, less sensitive actions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>High Security</strong></td>
+                        <td>5-15 minutes</td>
+                        <td>Payment pages, sensitive operations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>API Token</strong></td>
+                        <td>1 hour</td>
+                        <td>Backend API access with refresh token</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Preventing Session Expiry:</h3>
+            <ul class="feature-list">
+                <li>Implement activity tracking (mouse move, clicks, scrolls)</li>
+                <li>Send heartbeat requests every 5 minutes</li>
+                <li>Warn users 2 minutes before expiry</li>
+                <li>Offer "Stay Logged In" option</li>
+                <li>Use refresh tokens for extended access</li>
+            </ul>
+        </div>
+
+        <!-- Related Pages -->
+        <div class="demo-card">
+            <h2><i class="bi bi-link-45deg"></i> Related Authentication Pages</h2>
+
+            <a href="account-locked.html" class="demo-link">
+                <i class="bi bi-lock"></i>
+                Account Locked Page
+                <small>Temporary account lock with unlock options</small>
+            </a>
+
+            <a href="signin.html" class="demo-link">
+                <i class="bi bi-box-arrow-in-right"></i>
+                Sign In Page
+                <small>Login to KUNYO account</small>
+            </a>
+
+            <a href="auth-callback-demo.html" class="demo-link">
+                <i class="bi bi-shield-check"></i>
+                OAuth Callback Demo
+                <small>Google/Apple social authentication testing</small>
+            </a>
+
+            <a href="reset-password-demo.html" class="demo-link">
+                <i class="bi bi-key"></i>
+                Reset Password Demo
+                <small>Password reset testing documentation</small>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="color: rgba(255,255,255,0.5);">
+                <i class="bi bi-flag"></i> KUNYO - Nepal's #1 Gaming Store<br>
+                <small>Session Management Testing Documentation</small>
+            </p>
+            <a href="index.html" class="btn btn-outline-light mt-2">
+                <i class="bi bi-house"></i> Back to Homepage
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

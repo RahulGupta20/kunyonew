@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Callback Demo - KUNYO Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 2rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .demo-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #dc143c, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .demo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .demo-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #dc143c;
+        }
+        .demo-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: #ff6b6b;
+        }
+        .demo-link {
+            display: block;
+            background: rgba(220, 20, 60, 0.1);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+        .demo-link:hover {
+            background: rgba(220, 20, 60, 0.2);
+            border-color: #dc143c;
+            color: #fff;
+            transform: translateX(5px);
+        }
+        .demo-link i {
+            margin-right: 0.5rem;
+            color: #dc143c;
+        }
+        .demo-link small {
+            display: block;
+            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .code-block code {
+            color: #10b981;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+        .info-box {
+            background: rgba(0, 56, 147, 0.2);
+            border-left: 4px solid #003893;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .info-box i {
+            color: #003893;
+            margin-right: 0.5rem;
+        }
+        .step-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc143c, #ff6b6b);
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .param-table {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        .param-table th {
+            background: rgba(220, 20, 60, 0.2);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #dc143c;
+        }
+        .param-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .param-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Header -->
+        <div class="demo-header">
+            <h1><i class="bi bi-shield-check"></i> OAuth Callback Demo</h1>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem;">KUNYO Social Authentication Testing</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="demo-card">
+            <h2><i class="bi bi-info-circle"></i> How It Works</h2>
+            <p>The <code>auth-callback.html</code> page handles OAuth redirects from Google and Apple. When users authenticate with social login, they are redirected to this page with specific URL parameters.</p>
+
+            <div class="info-box">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <strong>Important:</strong> You cannot access the callback page directly. It requires OAuth parameters in the URL to function properly.
+            </div>
+        </div>
+
+        <!-- URL Parameters -->
+        <div class="demo-card">
+            <h2><i class="bi bi-code-square"></i> URL Parameters</h2>
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>code</code></td>
+                        <td>Authorization code from OAuth provider</td>
+                        <td><code>abc123xyz789</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>state</code></td>
+                        <td>Security token to prevent CSRF attacks</td>
+                        <td><code>random_state_token</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>provider</code></td>
+                        <td>OAuth provider (google or apple)</td>
+                        <td><code>google</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>error</code></td>
+                        <td>Error type if authentication failed</td>
+                        <td><code>access_denied</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Authentication Flow -->
+        <div class="demo-card">
+            <h2><i class="bi bi-arrow-right-circle"></i> 4-Step Authentication Flow</h2>
+            <p>When authentication succeeds, the page shows a visual progress through 4 steps:</p>
+
+            <div style="margin: 1.5rem 0;">
+                <div style="margin-bottom: 0.75rem;">
+                    <span class="step-badge">Step 1</span>
+                    <strong>Connecting to provider</strong> <small style="color: rgba(255,255,255,0.5);">(1 second)</small>
+                </div>
+                <div style="margin-bottom: 0.75rem;">
+                    <span class="step-badge">Step 2</span>
+                    <strong>Verifying credentials</strong> <small style="color: rgba(255,255,255,0.5);">(2 seconds)</small>
+                </div>
+                <div style="margin-bottom: 0.75rem;">
+                    <span class="step-badge">Step 3</span>
+                    <strong>Creating your account</strong> <small style="color: rgba(255,255,255,0.5);">(3 seconds)</small>
+                </div>
+                <div style="margin-bottom: 0.75rem;">
+                    <span class="step-badge">Step 4</span>
+                    <strong>Finalizing setup</strong> <small style="color: rgba(255,255,255,0.5);">(4 seconds)</small>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="bi bi-check-circle-fill"></i>
+                After completion, shows success message and auto-redirects to <code>index.html</code> after 2 seconds.
+            </div>
+        </div>
+
+        <!-- Test Links - Success -->
+        <div class="demo-card">
+            <h2><i class="bi bi-check-circle"></i> Success Scenarios</h2>
+            <p>Click these links to see successful authentication flows:</p>
+
+            <h3>Google OAuth Success</h3>
+            <a href="auth-callback.html?code=4/0AeanS0aB8rX9YZ123abc456def789ghi&state=random_state_token_12345&provider=google" class="demo-link" target="_blank">
+                <i class="bi bi-google"></i>
+                Test Google Authentication Flow
+                <small>?code=4/0AeanS0aB8rX9YZ123abc456def789ghi&state=random_state_token_12345&provider=google</small>
+            </a>
+
+            <h3>Apple OAuth Success</h3>
+            <a href="auth-callback.html?code=c9a7f4e2d3b1a0c8e7f6d5a4b3c2d1e0&state=apple_state_token_67890&provider=apple" class="demo-link" target="_blank">
+                <i class="bi bi-apple"></i>
+                Test Apple Authentication Flow
+                <small>?code=c9a7f4e2d3b1a0c8e7f6d5a4b3c2d1e0&state=apple_state_token_67890&provider=apple</small>
+            </a>
+        </div>
+
+        <!-- Test Links - Errors -->
+        <div class="demo-card">
+            <h2><i class="bi bi-x-circle"></i> Error Scenarios</h2>
+            <p>Click these links to see different error states:</p>
+
+            <h3>Access Denied</h3>
+            <a href="auth-callback.html?error=access_denied&provider=google" class="demo-link" target="_blank">
+                <i class="bi bi-shield-x"></i>
+                User Denied Permission
+                <small>?error=access_denied&provider=google</small>
+            </a>
+
+            <h3>Missing Authorization Code</h3>
+            <a href="auth-callback.html" class="demo-link" target="_blank">
+                <i class="bi bi-exclamation-triangle"></i>
+                No Code Parameter
+                <small>(Direct access without parameters)</small>
+            </a>
+
+            <h3>Invalid State Token</h3>
+            <a href="auth-callback.html?error=invalid_state&provider=apple" class="demo-link" target="_blank">
+                <i class="bi bi-key"></i>
+                Invalid Security Token
+                <small>?error=invalid_state&provider=apple</small>
+            </a>
+
+            <h3>Server Error</h3>
+            <a href="auth-callback.html?error=server_error&provider=google" class="demo-link" target="_blank">
+                <i class="bi bi-server"></i>
+                Backend Server Error
+                <small>?error=server_error&provider=google</small>
+            </a>
+        </div>
+
+        <!-- Production Integration -->
+        <div class="demo-card">
+            <h2><i class="bi bi-code-slash"></i> Production Integration</h2>
+            <p>In production, configure your OAuth providers to redirect to:</p>
+
+            <div class="code-block">
+                <code>https://yourdomain.com/auth-callback.html</code>
+            </div>
+
+            <h3>Backend Integration Points</h3>
+            <p>The page logs authentication data to console for backend integration:</p>
+
+            <div class="code-block">
+                <code>
+console.log('OAuth Authentication:', {<br>
+&nbsp;&nbsp;provider: 'google',<br>
+&nbsp;&nbsp;code: 'authorization_code',<br>
+&nbsp;&nbsp;state: 'state_token',<br>
+&nbsp;&nbsp;timestamp: '2026-03-30T...'<br>
+});
+                </code>
+            </div>
+
+            <div class="info-box">
+                <i class="bi bi-lightbulb-fill"></i>
+                <strong>Next Steps:</strong> Replace the simulated authentication with actual API calls to your backend to exchange the authorization code for access tokens.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="color: rgba(255,255,255,0.5);">
+                <i class="bi bi-flag"></i> KUNYO - Nepal's #1 Gaming Store<br>
+                <small>OAuth Callback Testing Documentation</small>
+            </p>
+            <a href="index.html" class="btn btn-outline-light mt-2">
+                <i class="bi bi-house"></i> Back to Homepage
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

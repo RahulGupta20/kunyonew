@@ -77,7 +77,7 @@
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding: $spacing-sm $spacing-xl;
     color: $text-primary;
-    font-size: 1.125rem;
+    font-size: 12px;
     cursor: pointer;
     white-space: nowrap;
     font-weight: $font-weight-medium;
@@ -89,7 +89,7 @@
     }
 
     @include respond-to('md') {
-        font-size: 1rem;
+        font-size: 12px;
         padding: $spacing-sm $spacing-lg;
     }
 }
@@ -98,7 +98,7 @@
     flex: 1;
     border: none;
     padding: $spacing-sm $spacing-lg;
-    font-size: 1.125rem;
+    font-size: 12px;
     outline: none;
     background: transparent;
     color: $text-primary;
@@ -109,7 +109,7 @@
     }
 
     @include respond-to('md') {
-        font-size: 1rem;
+        font-size: 12px;
         padding: $spacing-sm $spacing-md;
     }
 }
@@ -157,7 +157,7 @@
     text-decoration: none;
     @include flex-center;
     gap: 6px;
-    font-size: 1rem;
+    font-size: 12px;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 0.5rem 0.5rem;
@@ -255,6 +255,63 @@
             font-size: 0.6rem;
             min-width: 16px;
             height: 16px;
+        }
+    }
+}
+
+.preferences-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: $text-primary;
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    font-weight: $font-weight-medium;
+    line-height: 20px;
+    min-height: 38px;
+
+    img {
+        width: 20px;
+        height: 15px;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .separator {
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 400;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(220, 20, 60, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    @include respond-to('md') {
+        font-size: 12px;
+        gap: 3px;
+        padding: 0.4rem 0.75rem;
+
+        img {
+            width: 18px;
+            height: 13px;
+        }
+    }
+
+    @include respond-to('sm') {
+        #selectedFlag {
+            display: none;
         }
     }
 }

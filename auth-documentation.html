@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication System Documentation - KUNYO</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2332 100%);
+            color: rgba(255, 255, 255, 0.9);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .doc-header {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 2px solid rgba(74, 158, 255, 0.3);
+            padding: 2rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a9eff;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-header p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .badge-info {
+            background: linear-gradient(135deg, #dc143c, #ff6b6b);
+            color: #fff;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 1rem;
+        }
+
+        .nav-tabs {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .nav-tabs .nav-link {
+            color: rgba(255, 255, 255, 0.6);
+            border: none;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom-color: rgba(74, 158, 255, 0.3);
+        }
+
+        .nav-tabs .nav-link.active {
+            color: #4a9eff;
+            background: transparent;
+            border-bottom-color: #4a9eff;
+        }
+
+        .page-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .page-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(74, 158, 255, 0.3);
+            transform: translateX(4px);
+        }
+
+        .page-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #4a9eff;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .page-card .file-name {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: #10b981;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-card p {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .page-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-view {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            color: #4a9eff;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-view:hover {
+            background: rgba(74, 158, 255, 0.2);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-right: 0.5rem;
+        }
+
+        .badge-core {
+            background: rgba(74, 158, 255, 0.2);
+            color: #4a9eff;
+        }
+
+        .badge-verification {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .badge-security {
+            background: rgba(220, 20, 60, 0.2);
+            color: #dc143c;
+        }
+
+        .badge-recovery {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .badge-oauth {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        .badge-demo {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8b5cf6;
+        }
+
+        .badge-misc {
+            background: rgba(236, 72, 153, 0.2);
+            color: #ec4899;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-card h4 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a9eff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quick-nav {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-nav h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+
+        .quick-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .quick-nav-link {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .quick-nav-link:hover {
+            background: rgba(16, 185, 129, 0.25);
+            color: #fff;
+        }
+
+        .search-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .search-box i {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .doc-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-nav-links {
+                flex-direction: column;
+            }
+
+            .quick-nav-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="doc-header">
+            <h1>
+                <i class="bi bi-shield-lock"></i>
+                Authentication System Documentation
+                <span class="badge-info">v1.0.0</span>
+            </h1>
+            <p>Complete guide to all authentication pages in the KUNYO gaming store</p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h4>20</h4>
+                <p>Total Pages</p>
+            </div>
+            <div class="stat-card">
+                <h4>12</h4>
+                <p>Core Auth Pages</p>
+            </div>
+            <div class="stat-card">
+                <h4>5</h4>
+                <p>Demo Pages</p>
+            </div>
+            <div class="stat-card">
+                <h4>3</h4>
+                <p>Misc Pages</p>
+            </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h4><i class="bi bi-lightning-fill"></i> Quick Navigation</h4>
+            <div class="quick-nav-links">
+                <a href="#core-auth" class="quick-nav-link">Core Auth</a>
+                <a href="#verification" class="quick-nav-link">Verification</a>
+                <a href="#security" class="quick-nav-link">Security</a>
+                <a href="#recovery" class="quick-nav-link">Recovery</a>
+                <a href="#oauth" class="quick-nav-link">OAuth</a>
+                <a href="#demo" class="quick-nav-link">Demo Pages</a>
+                <a href="#misc" class="quick-nav-link">Miscellaneous</a>
+            </div>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" id="searchInput" placeholder="Search for pages, features, or functionality...">
+        </div>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="docTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">
+                    <i class="bi bi-grid"></i> All Pages (20)
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="core-tab" data-bs-toggle="tab" data-bs-target="#core" type="button" role="tab">
+                    <i class="bi bi-key"></i> Core Auth (12)
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="demo-tab" data-bs-toggle="tab" data-bs-target="#demo" type="button" role="tab">
+                    <i class="bi bi-tools"></i> Demo & Testing (5)
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="misc-tab" data-bs-toggle="tab" data-bs-target="#misc" type="button" role="tab">
+                    <i class="bi bi-three-dots"></i> Miscellaneous (3)
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="docTabContent">
+            <!-- All Pages Tab -->
+            <div class="tab-pane fade show active" id="all" role="tabpanel">
+
+                <h2 id="core-auth" style="margin-top: 2rem; margin-bottom: 1.5rem; color: #4a9eff;">
+                    <i class="bi bi-key-fill"></i> Core Authentication Pages
+                </h2>
+
+                <!-- Sign In -->
+                <div class="page-card">
+                    <h3><i class="bi bi-box-arrow-in-right"></i> Sign In</h3>
+                    <span class="category-badge badge-core">Core Auth</span>
+                    <div class="file-name">signin.html</div>
+                    <p>Main login page for users to authenticate using email/username and password. Includes social login options (Google, Apple), remember me functionality, and links to password recovery.</p>
+                    <ul class="feature-list">
+                        <li>Email/Username + Password authentication</li>
+                        <li>Social login integration (Google, Apple)</li>
+                        <li>Remember me checkbox</li>
+                        <li>Show/hide password toggle</li>
+                        <li>Links to signup and forgot password</li>
+                        <li>Form validation and error handling</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="signin.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sign Up -->
+                <div class="page-card">
+                    <h3><i class="bi bi-person-plus"></i> Sign Up</h3>
+                    <span class="category-badge badge-core">Core Auth</span>
+                    <div class="file-name">signup.html</div>
+                    <p>User registration page with comprehensive form validation. Collects user information and creates new accounts with optional email verification.</p>
+                    <ul class="feature-list">
+                        <li>Full name, email, password fields</li>
+                        <li>Password strength indicator</li>
+                        <li>Password confirmation validation</li>
+                        <li>Terms and conditions acceptance</li>
+                        <li>Social signup options (Google, Apple)</li>
+                        <li>Real-time form validation</li>
+                        <li>Age verification (13+ requirement)</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="signup.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Forgot Password -->
+                <div class="page-card">
+                    <h3><i class="bi bi-question-circle"></i> Forgot Password</h3>
+                    <span class="category-badge badge-recovery">Recovery</span>
+                    <div class="file-name">forgot-password.html</div>
+                    <p>Password recovery initiation page where users can request a password reset link via email.</p>
+                    <ul class="feature-list">
+                        <li>Email address input for recovery</li>
+                        <li>Email validation</li>
+                        <li>Link to return to signin</li>
+                        <li>Success message after submission</li>
+                        <li>Resend functionality</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="forgot-password.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Reset Password -->
+                <div class="page-card">
+                    <h3><i class="bi bi-arrow-counterclockwise"></i> Reset Password</h3>
+                    <span class="category-badge badge-recovery">Recovery</span>
+                    <div class="file-name">reset-password.html</div>
+                    <p>Password reset page where users create a new password after clicking the email recovery link.</p>
+                    <ul class="feature-list">
+                        <li>New password input with strength indicator</li>
+                        <li>Password confirmation</li>
+                        <li>Show/hide password toggles</li>
+                        <li>Token expiration handling (15 minutes)</li>
+                        <li>Success/error states</li>
+                        <li>Automatic redirect to signin after success</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="reset-password.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                        <a href="reset-password.html?token=expired" class="btn-view" target="_blank">
+                            <i class="bi bi-hourglass-split"></i> View Expired State
+                        </a>
+                    </div>
+                </div>
+
+                <h2 id="verification" style="margin-top: 3rem; margin-bottom: 1.5rem; color: #4a9eff;">
+                    <i class="bi bi-shield-check"></i> Verification Pages
+                </h2>
+
+                <!-- Verify Email -->
+                <div class="page-card">
+                    <h3><i class="bi bi-envelope-check"></i> Verify Email</h3>
+                    <span class="category-badge badge-verification">Verification</span>
+                    <div class="file-name">verify-email.html</div>
+                    <p>Email verification page that displays success or error states based on verification token validity.</p>
+                    <ul class="feature-list">
+                        <li>URL parameter handling (?status=success/error/expired)</li>
+                        <li>Success state with confetti animation</li>
+                        <li>Error handling for invalid/expired tokens</li>
+                        <li>Resend verification email option</li>
+                        <li>Automatic redirection after 5 seconds</li>
+                        <li>Visual feedback with icons and animations</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="verify-email.html?status=success" class="btn-view" target="_blank">
+                            <i class="bi bi-check-circle"></i> View Success
+                        </a>
+                        <a href="verify-email.html?status=error" class="btn-view" target="_blank">
+                            <i class="bi bi-x-circle"></i> View Error
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Verify OTP -->
+                <div class="page-card">
+                    <h3><i class="bi bi-123"></i> Verify OTP</h3>
+                    <span class="category-badge badge-verification">Verification</span>
+                    <div class="file-name">verify-otp.html</div>
+                    <p>One-time password verification page with 6-digit code input and countdown timer.</p>
+                    <ul class="feature-list">
+                        <li>6-digit OTP input fields</li>
+                        <li>Auto-focus next input on digit entry</li>
+                        <li>Auto-submit on completion</li>
+                        <li>5-minute countdown timer</li>
+                        <li>Resend OTP after 60 seconds</li>
+                        <li>Masked contact info display</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="verify-otp.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Verify Phone -->
+                <div class="page-card">
+                    <h3><i class="bi bi-phone"></i> Verify Phone</h3>
+                    <span class="category-badge badge-verification">Verification</span>
+                    <div class="file-name">verify-phone.html</div>
+                    <p>Phone number verification page with SMS code input functionality.</p>
+                    <ul class="feature-list">
+                        <li>6-digit SMS code verification</li>
+                        <li>Auto-advance input fields</li>
+                        <li>Masked phone number display</li>
+                        <li>5-minute countdown timer</li>
+                        <li>Resend SMS option (60s cooldown)</li>
+                        <li>Alternative verification methods</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="verify-phone.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Email Confirmation Sent -->
+                <div class="page-card">
+                    <h3><i class="bi bi-send-check"></i> Email Confirmation Sent</h3>
+                    <span class="category-badge badge-verification">Verification</span>
+                    <div class="file-name">email-confirmation-sent.html</div>
+                    <p>Success page shown after requesting email verification. Provides instructions and resend functionality.</p>
+                    <ul class="feature-list">
+                        <li>Animated email icon with notification badge</li>
+                        <li>3-step verification process guide</li>
+                        <li>Masked email display (URL parameter support)</li>
+                        <li>60-second resend cooldown</li>
+                        <li>Email tips section (spam folder, delivery time)</li>
+                        <li>Change email option</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="email-confirmation-sent.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                        <a href="email-confirmation-sent.html?email=user@example.com" class="btn-view" target="_blank">
+                            <i class="bi bi-envelope-at"></i> With Email
+                        </a>
+                    </div>
+                </div>
+
+                <h2 id="security" style="margin-top: 3rem; margin-bottom: 1.5rem; color: #4a9eff;">
+                    <i class="bi bi-shield-fill-exclamation"></i> Security & Account Issues
+                </h2>
+
+                <!-- Account Locked -->
+                <div class="page-card">
+                    <h3><i class="bi bi-lock"></i> Account Locked</h3>
+                    <span class="category-badge badge-security">Security</span>
+                    <div class="file-name">account-locked.html</div>
+                    <p>Account temporarily locked page displayed after multiple failed login attempts. Shows countdown timer and unlock options.</p>
+                    <ul class="feature-list">
+                        <li>15-minute countdown timer (dynamic)</li>
+                        <li>Multiple unlock options (Email, SMS, Support)</li>
+                        <li>Failed attempts counter</li>
+                        <li>Security tips section</li>
+                        <li>Suspicious activity detection explanation</li>
+                        <li>URL parameters for state management</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="account-locked.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                        <a href="account-locked.html?unlocked=true" class="btn-view" target="_blank">
+                            <i class="bi bi-unlock"></i> Unlocked State
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Session Expired -->
+                <div class="page-card">
+                    <h3><i class="bi bi-hourglass-split"></i> Session Expired</h3>
+                    <span class="category-badge badge-security">Security</span>
+                    <div class="file-name">session-expired.html</div>
+                    <p>Session expiration notification page that prompts users to re-authenticate. Supports automatic and manual redirection.</p>
+                    <ul class="feature-list">
+                        <li>5-second auto-redirect countdown</li>
+                        <li>Return URL preservation (?return_url parameter)</li>
+                        <li>Manual redirect option</li>
+                        <li>Session timeout explanation</li>
+                        <li>Security tips (close browser, use private mode)</li>
+                        <li>Disable auto-redirect option (?redirect=false)</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="session-expired.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                        <a href="session-expired.html?redirect=false" class="btn-view" target="_blank">
+                            <i class="bi bi-pause-circle"></i> No Auto-redirect
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Account Deleted -->
+                <div class="page-card">
+                    <h3><i class="bi bi-trash"></i> Account Deleted</h3>
+                    <span class="category-badge badge-security">Security</span>
+                    <div class="file-name">account-deleted.html</div>
+                    <p>Account deletion confirmation page with 30-day recovery window. Shows what's deleted and recovery options.</p>
+                    <ul class="feature-list">
+                        <li>30-day recovery window countdown</li>
+                        <li>Recovery deadline calculator (JavaScript)</li>
+                        <li>What's deleted list (6 items)</li>
+                        <li>Data retention policy notice</li>
+                        <li>Recover account button</li>
+                        <li>Optional feedback form</li>
+                        <li>Browse without account option</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="account-deleted.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <h2 id="recovery" style="margin-top: 3rem; margin-bottom: 1.5rem; color: #4a9eff;">
+                    <i class="bi bi-life-preserver"></i> Account Recovery
+                </h2>
+
+                <!-- Account Recovery -->
+                <div class="page-card">
+                    <h3><i class="bi bi-arrow-clockwise"></i> Account Recovery</h3>
+                    <span class="category-badge badge-recovery">Recovery</span>
+                    <div class="file-name">account-recovery.html</div>
+                    <p>Multi-step account recovery flow for locked, suspended, or inaccessible accounts. Supports multiple recovery methods.</p>
+                    <ul class="feature-list">
+                        <li>3 recovery methods (Email, Phone, Backup codes)</li>
+                        <li>Step-by-step recovery process</li>
+                        <li>Security question verification (optional)</li>
+                        <li>Contact support escalation</li>
+                        <li>Progress indicator</li>
+                        <li>Alternative recovery options</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="account-recovery.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <h2 id="oauth" style="margin-top: 3rem; margin-bottom: 1.5rem; color: #4a9eff;">
+                    <i class="bi bi-box-arrow-in-up-right"></i> OAuth & Social Authentication
+                </h2>
+
+                <!-- Auth Callback -->
+                <div class="page-card">
+                    <h3><i class="bi bi-arrow-return-left"></i> Auth Callback</h3>
+                    <span class="category-badge badge-oauth">OAuth</span>
+                    <div class="file-name">auth-callback.html</div>
+                    <p>OAuth callback handler for Google and Apple authentication. Processes authorization codes and handles errors.</p>
+                    <ul class="feature-list">
+                        <li>URL parameter extraction (code, state, provider, error)</li>
+                        <li>Success state with processing animation</li>
+                        <li>Error handling with user-friendly messages</li>
+                        <li>State validation</li>
+                        <li>Provider identification (Google/Apple)</li>
+                        <li>Automatic redirect after successful auth</li>
+                        <li>Session storage for return URL</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="auth-callback.html?code=abc123&state=xyz&provider=google" class="btn-view" target="_blank">
+                            <i class="bi bi-check-circle"></i> Success State
+                        </a>
+                        <a href="auth-callback.html?error=access_denied&provider=apple" class="btn-view" target="_blank">
+                            <i class="bi bi-x-circle"></i> Error State
+                        </a>
+                    </div>
+                </div>
+
+                <h2 id="misc" style="margin-top: 3rem; margin-bottom: 1.5rem; color: #4a9eff;">
+                    <i class="bi bi-three-dots"></i> Miscellaneous Pages
+                </h2>
+
+                <!-- Terms Acceptance -->
+                <div class="page-card">
+                    <h3><i class="bi bi-file-earmark-text"></i> Terms Acceptance</h3>
+                    <span class="category-badge badge-misc">Miscellaneous</span>
+                    <div class="file-name">terms-acceptance.html</div>
+                    <p>Updated terms and privacy policy acceptance page with tab-based document display, reading progress tracking, and comparison of changes.</p>
+                    <ul class="feature-list">
+                        <li>3-tab system (Terms, Privacy, What Changed)</li>
+                        <li>Reading progress bar (scroll-based)</li>
+                        <li>Quick summary section (6 key points)</li>
+                        <li>Before/after comparison table</li>
+                        <li>Print and Download PDF buttons</li>
+                        <li>Required acceptance checkboxes</li>
+                        <li>Optional marketing consent</li>
+                        <li>Full header and footer for navigation</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="terms-acceptance.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Maintenance Mode -->
+                <div class="page-card">
+                    <h3><i class="bi bi-tools"></i> Maintenance Mode</h3>
+                    <span class="category-badge badge-misc">Miscellaneous</span>
+                    <div class="file-name">maintenance-mode.html</div>
+                    <p>System maintenance notification page with live countdown timer and email notification signup.</p>
+                    <ul class="feature-list">
+                        <li>Live countdown timer (2.5 hours default)</li>
+                        <li>Rotating tools icon animation</li>
+                        <li>Blinking "MAINTENANCE IN PROGRESS" badge</li>
+                        <li>Email notification signup form</li>
+                        <li>What's new/improvements list (5 items)</li>
+                        <li>Social media status links</li>
+                        <li>3-slide carousel (maintenance, security, performance)</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="maintenance-mode.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Page
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Core Auth Tab -->
+            <div class="tab-pane fade" id="core" role="tabpanel">
+                <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem;">
+                    Core authentication pages that handle user signin, signup, password management, and verification flows.
+                </p>
+                <!-- Same content as "Core Authentication Pages" section above -->
+            </div>
+
+            <!-- Demo & Testing Tab -->
+            <div class="tab-pane fade" id="demo" role="tabpanel">
+                <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem;">
+                    Demo and testing pages to document URL parameters, state management, and edge cases.
+                </p>
+
+                <h2 style="margin-top: 2rem; margin-bottom: 1.5rem; color: #4a9eff;">
+                    <i class="bi bi-tools"></i> Demo & Documentation Pages
+                </h2>
+
+                <!-- Auth Callback Demo -->
+                <div class="page-card">
+                    <h3><i class="bi bi-file-earmark-code"></i> Auth Callback Demo</h3>
+                    <span class="category-badge badge-demo">Demo</span>
+                    <div class="file-name">auth-callback-demo.html</div>
+                    <p>Documentation and testing page for OAuth callback functionality. Shows different state scenarios and URL parameter examples.</p>
+                    <ul class="feature-list">
+                        <li>Test links for all callback states</li>
+                        <li>URL parameter documentation table</li>
+                        <li>Success, error, and edge case examples</li>
+                        <li>Provider-specific scenarios (Google, Apple)</li>
+                        <li>Integration instructions</li>
+                        <li>Backend implementation examples</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="auth-callback-demo.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Reset Password Demo -->
+                <div class="page-card">
+                    <h3><i class="bi bi-file-earmark-code"></i> Reset Password Demo</h3>
+                    <span class="category-badge badge-demo">Demo</span>
+                    <div class="file-name">reset-password-demo.html</div>
+                    <p>Demo page showcasing different token states for password reset functionality.</p>
+                    <ul class="feature-list">
+                        <li>Valid token demonstration</li>
+                        <li>Expired token scenario</li>
+                        <li>Invalid token handling</li>
+                        <li>Token parameter examples</li>
+                        <li>Backend integration guide</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="reset-password-demo.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Session Expired Demo -->
+                <div class="page-card">
+                    <h3><i class="bi bi-file-earmark-code"></i> Session Expired Demo</h3>
+                    <span class="category-badge badge-demo">Demo</span>
+                    <div class="file-name">session-expired-demo.html</div>
+                    <p>Documentation page for session expiration handling with auto-redirect and return URL examples.</p>
+                    <ul class="feature-list">
+                        <li>Auto-redirect enabled/disabled states</li>
+                        <li>Return URL preservation examples</li>
+                        <li>Countdown timer demonstration</li>
+                        <li>URL parameter documentation</li>
+                        <li>Backend session management guide</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="session-expired-demo.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Account Locked Demo -->
+                <div class="page-card">
+                    <h3><i class="bi bi-file-earmark-code"></i> Account Locked Demo</h3>
+                    <span class="category-badge badge-demo">Demo</span>
+                    <div class="file-name">account-locked-demo.html</div>
+                    <p>Testing page for account lock scenarios with countdown timer and unlock state demonstrations.</p>
+                    <ul class="feature-list">
+                        <li>Locked state with active timer</li>
+                        <li>Unlocked state demonstration</li>
+                        <li>15-minute countdown explanation</li>
+                        <li>Unlock options documentation</li>
+                        <li>URL parameter guide</li>
+                        <li>Backend integration examples</li>
+                        <li>Lock scenarios comparison table</li>
+                    </ul>
+                    <div class="page-actions">
+                        <a href="account-locked-demo.html" class="btn-view" target="_blank">
+                            <i class="bi bi-eye"></i> View Demo
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Miscellaneous Tab -->
+            <div class="tab-pane fade" id="misc" role="tabpanel">
+                <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem;">
+                    Additional pages for terms acceptance, maintenance mode, and other system-level notifications.
+                </p>
+                <!-- Terms Acceptance and Maintenance Mode cards here -->
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <div style="background: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 2rem; margin-top: 4rem; text-align: center;">
+            <p style="color: rgba(255, 255, 255, 0.6); margin: 0;">
+                🇳🇵 KUNYO Authentication System | Last Updated: March 30, 2026 | Version 1.0.0
+            </p>
+            <p style="color: rgba(255, 255, 255, 0.4); margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+                Built with Bootstrap 5.3.2, jQuery 3.7.0, and Bootstrap Icons
+            </p>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Search functionality
+            $('#searchInput').on('keyup', function() {
+                const searchTerm = $(this).val().toLowerCase();
+
+                $('.page-card').each(function() {
+                    const cardText = $(this).text().toLowerCase();
+                    const fileName = $(this).find('.file-name').text().toLowerCase();
+
+                    if (cardText.includes(searchTerm) || fileName.includes(searchTerm)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+
+                // Show "no results" message if no cards are visible
+                const visibleCards = $('.page-card:visible').length;
+                if (visibleCards === 0 && searchTerm !== '') {
+                    if ($('#noResults').length === 0) {
+                        $('.tab-pane.active').prepend(
+                            '<div id="noResults" style="text-align: center; padding: 3rem; color: rgba(255, 255, 255, 0.5);">' +
+                            '<i class="bi bi-search" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>' +
+                            '<p>No pages found matching "<strong>' + searchTerm + '</strong>"</p>' +
+                            '</div>'
+                        );
+                    }
+                } else {
+                    $('#noResults').remove();
+                }
+            });
+
+            // Clear search when switching tabs
+            $('.nav-link').on('click', function() {
+                $('#searchInput').val('');
+                $('.page-card').show();
+                $('#noResults').remove();
+            });
+
+            // Smooth scroll for quick nav
+            $('.quick-nav-link').on('click', function(e) {
+                e.preventDefault();
+                const target = $(this).attr('href');
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - 100
+                }, 500);
+            });
+
+            // Log page view
+            console.log('Auth Documentation:', {
+                viewed: true,
+                totalPages: 20,
+                corePages: 12,
+                demoPages: 5,
+                miscPages: 3,
+                timestamp: new Date().toISOString()
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Locked Demo - KUNYO Authentication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 2rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .demo-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #dc143c, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .demo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .demo-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #dc143c;
+        }
+        .demo-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: #ff6b6b;
+        }
+        .demo-link {
+            display: block;
+            background: rgba(220, 20, 60, 0.1);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+        .demo-link:hover {
+            background: rgba(220, 20, 60, 0.2);
+            border-color: #dc143c;
+            color: #fff;
+            transform: translateX(5px);
+        }
+        .demo-link i {
+            margin-right: 0.5rem;
+            color: #dc143c;
+        }
+        .demo-link small {
+            display: block;
+            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+        .info-box {
+            background: rgba(0, 56, 147, 0.2);
+            border-left: 4px solid #003893;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .info-box i {
+            color: #003893;
+            margin-right: 0.5rem;
+        }
+        .warning-box {
+            background: rgba(239, 68, 68, 0.2);
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .warning-box i {
+            color: #ef4444;
+            margin-right: 0.5rem;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        .param-table {
+            width: 100%;
+            margin: 1rem 0;
+        }
+        .param-table th {
+            background: rgba(220, 20, 60, 0.2);
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #dc143c;
+        }
+        .param-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .param-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Header -->
+        <div class="demo-header">
+            <h1><i class="bi bi-lock-fill"></i> Account Locked Demo</h1>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem;">KUNYO Account Lock Testing</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="demo-card">
+            <h2><i class="bi bi-info-circle"></i> How It Works</h2>
+            <p>The <code>account-locked.html</code> page is displayed when a user's account is temporarily locked due to security concerns, typically after multiple failed login attempts.</p>
+
+            <div class="warning-box">
+                <i class="bi bi-shield-exclamation"></i>
+                <strong>Security Trigger:</strong> Accounts are automatically locked after 5 consecutive failed login attempts to prevent brute-force attacks and unauthorized access.
+            </div>
+
+            <h3>When This Page Appears:</h3>
+            <ul class="feature-list">
+                <li>5+ consecutive failed login attempts</li>
+                <li>Suspicious activity from unknown location</li>
+                <li>Multiple password reset requests in short time</li>
+                <li>Manual lock by admin or security system</li>
+                <li>Compromised account detection</li>
+            </ul>
+        </div>
+
+        <!-- URL Parameters -->
+        <div class="demo-card">
+            <h2><i class="bi bi-code-square"></i> URL Parameters</h2>
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>unlocked</code></td>
+                        <td>Show unlocked success state</td>
+                        <td><code>true</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>reason</code></td>
+                        <td>Reason for account lock</td>
+                        <td><code>failed_attempts</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>duration</code></td>
+                        <td>Lock duration (future feature)</td>
+                        <td><code>15</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Test Links -->
+        <div class="demo-card">
+            <h2><i class="bi bi-play-circle"></i> Test Scenarios</h2>
+
+            <h3>1. Default Locked State (15-min Countdown)</h3>
+            <a href="account-locked.html" class="demo-link" target="_blank">
+                <i class="bi bi-lock"></i>
+                Account Locked - Active Timer
+                <small>account-locked.html (default)</small>
+            </a>
+            <div class="info-box">
+                <i class="bi bi-info-circle-fill"></i>
+                <strong>Expected:</strong> Shows locked icon, 15-minute countdown timer, 3 unlock options (Email, SMS, Support), and reasons for lock.
+            </div>
+
+            <h3>2. Unlocked Success State</h3>
+            <a href="account-locked.html?unlocked=true" class="demo-link" target="_blank">
+                <i class="bi bi-unlock"></i>
+                Account Successfully Unlocked
+                <small>?unlocked=true</small>
+            </a>
+            <div class="info-box">
+                <i class="bi bi-check-circle-fill"></i>
+                <strong>Expected:</strong> Shows success message with "Account Unlocked!" alert and "Go to Sign In" button. Timer and unlock options are hidden.
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="demo-card">
+            <h2><i class="bi bi-star"></i> Key Features</h2>
+
+            <h3>1. Auto-Unlock Countdown Timer</h3>
+            <ul class="feature-list">
+                <li>15-minute (900 seconds) countdown</li>
+                <li>Updates every second in MM:SS format</li>
+                <li>Auto-shows unlocked state when timer reaches 0:00</li>
+                <li>Animated pulsing lock icon</li>
+            </ul>
+
+            <h3>2. Three Unlock Options</h3>
+            <ul class="feature-list">
+                <li><strong>Verify via Email:</strong> Links to verify-email.html</li>
+                <li><strong>Verify via SMS:</strong> Links to verify-phone.html</li>
+                <li><strong>Contact Support:</strong> Links to account-recovery.html</li>
+            </ul>
+
+            <h3>3. Lock Reason Display</h3>
+            <p>Shows common reasons for account lock:</p>
+            <ul class="feature-list">
+                <li>5 consecutive failed login attempts</li>
+                <li>Suspicious activity from unknown location</li>
+                <li>Multiple password reset requests</li>
+                <li>Security measure for purchase protection</li>
+            </ul>
+
+            <h3>4. Info Carousel</h3>
+            <p>3 auto-rotating slides about:</p>
+            <ul class="feature-list">
+                <li>Account security and fraud prevention</li>
+                <li>Auto-unlock timer and instant verification</li>
+                <li>Prevention tips and best practices</li>
+            </ul>
+
+            <h3>5. Visual Design</h3>
+            <ul class="feature-list">
+                <li>Large animated lock icon with pulse effect</li>
+                <li>Countdown timer with clock icon</li>
+                <li>Hover effects on unlock option cards</li>
+                <li>Color-coded alerts (red for lock, green for unlock)</li>
+            </ul>
+        </div>
+
+        <!-- Production Integration -->
+        <div class="demo-card">
+            <h2><i class="bi bi-code-slash"></i> Production Integration</h2>
+
+            <h3>Backend - Detect Failed Login</h3>
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(220, 20, 60, 0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <code style="color: #10b981; font-size: 0.875rem;">
+// Node.js Example<br>
+const failedAttempts = await getFailedLoginCount(userId);<br>
+<br>
+if (failedAttempts >= 5) {<br>
+&nbsp;&nbsp;await lockAccount(userId, { duration: 15, reason: 'failed_attempts' });<br>
+&nbsp;&nbsp;return res.redirect('/account-locked.html');<br>
+}
+                </code>
+            </div>
+
+            <h3>JavaScript - Console Logging</h3>
+            <p>The page logs lock events for debugging:</p>
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(220, 20, 60, 0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <code style="color: #10b981; font-size: 0.875rem;">
+console.log('Account Locked Page Loaded:', {<br>
+&nbsp;&nbsp;lockReason: 'multiple_failed_attempts',<br>
+&nbsp;&nbsp;lockDuration: '15 minutes',<br>
+&nbsp;&nbsp;unlockTime: '2026-03-30T11:15:00Z',<br>
+&nbsp;&nbsp;timestamp: '2026-03-30T11:00:00Z'<br>
+});
+                </code>
+            </div>
+
+            <h3>Unlock Verification Flow</h3>
+            <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(220, 20, 60, 0.2); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+                <code style="color: #10b981; font-size: 0.875rem;">
+// After successful email/SMS verification<br>
+await unlockAccount(userId);<br>
+res.redirect('/account-locked.html?unlocked=true');
+                </code>
+            </div>
+
+            <div class="warning-box">
+                <i class="bi bi-shield-check"></i>
+                <strong>Security Best Practices:</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li>Track failed login attempts by IP and user ID</li>
+                    <li>Implement exponential backoff (5 min, 15 min, 1 hour)</li>
+                    <li>Send email notification when account is locked</li>
+                    <li>Log all lock/unlock events for security audit</li>
+                    <li>Rate limit unlock verification attempts</li>
+                    <li>Use CAPTCHA after 2-3 failed attempts</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lock Scenarios -->
+        <div class="demo-card">
+            <h2><i class="bi bi-exclamation-triangle"></i> Common Lock Scenarios</h2>
+
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Trigger</th>
+                        <th>Lock Duration</th>
+                        <th>Unlock Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>5 failed logins</strong></td>
+                        <td>15 minutes</td>
+                        <td>Auto-unlock or Email/SMS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10 failed logins</strong></td>
+                        <td>1 hour</td>
+                        <td>Email/SMS verification required</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Suspicious location</strong></td>
+                        <td>Until verified</td>
+                        <td>Email/SMS + Security questions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manual admin lock</strong></td>
+                        <td>Indefinite</td>
+                        <td>Contact support required</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compromised account</strong></td>
+                        <td>Until verified</td>
+                        <td>Password reset + 2FA setup</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Related Pages -->
+        <div class="demo-card">
+            <h2><i class="bi bi-link-45deg"></i> Related Authentication Pages</h2>
+
+            <a href="verify-email.html" class="demo-link">
+                <i class="bi bi-envelope-check"></i>
+                Email Verification
+                <small>Verify account via email code</small>
+            </a>
+
+            <a href="verify-phone.html" class="demo-link">
+                <i class="bi bi-phone"></i>
+                Phone Verification
+                <small>Verify account via SMS OTP</small>
+            </a>
+
+            <a href="account-recovery.html" class="demo-link">
+                <i class="bi bi-life-preserver"></i>
+                Account Recovery
+                <small>Submit recovery request to support</small>
+            </a>
+
+            <a href="session-expired-demo.html" class="demo-link">
+                <i class="bi bi-clock-history"></i>
+                Session Expired Demo
+                <small>Session timeout testing</small>
+            </a>
+
+            <a href="signin.html" class="demo-link">
+                <i class="bi bi-box-arrow-in-right"></i>
+                Sign In Page
+                <small>Login after unlock</small>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="color: rgba(255,255,255,0.5);">
+                <i class="bi bi-flag"></i> KUNYO - Nepal's #1 Gaming Store<br>
+                <small>Account Lock Testing Documentation</small>
+            </p>
+            <a href="index.html" class="btn btn-outline-light mt-2">
+                <i class="bi bi-house"></i> Back to Homepage
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

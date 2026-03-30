@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Auth Page - Split Screen Layout -->
+    <div class="auth-page">
+        <div class="auth-container">
+            <!-- LEFT: Verification Section -->
+            <div class="auth-form-section">
+                <div class="auth-form-wrapper">
+
+                    <!-- Verification Error Message (Hidden by default) -->
+                    <div class="alert alert-danger" id="verificationErrorMessage" style="display: none;">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <div>
+                            <strong>Verification Failed</strong>
+                            <p id="errorText">This verification link is invalid or has expired.</p>
+                        </div>
+                    </div>
+
+                    <!-- Verification Success Message (Hidden by default) -->
+                    <div class="alert alert-success" id="verificationSuccessMessage" style="display: none;">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <div>
+                            <strong>Email Verified Successfully!</strong>
+                            <p>Your account has been verified. You can now access all features.</p>
+                        </div>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div id="verificationLoading">
+                        <div class="auth-card-header text-center">
+                            <div class="auth-slide-icon" style="margin: 0 auto 1.5rem;">
+                                <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <h1>Verifying Your Email</h1>
+                            <p>Please wait while we verify your email address...</p>
+                        </div>
+                    </div>
+
+                    <!-- Verified State (Hidden by default) -->
+                    <div id="verifiedContent" style="display: none;">
+                        <div class="auth-card-header text-center">
+                            <div class="auth-slide-icon" style="margin: 0 auto 1.5rem; background: linear-gradient(135deg, #10b981, #059669);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 50px; height: 50px;">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <h1>Email Verified! 🎉</h1>
+                            <p>Your KUNYO gaming account is now fully activated</p>
+                        </div>
+
+                        <button type="button" class="auth-submit-btn" onclick="window.location.href='index.html'">
+                            <span>Start Gaming</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </button>
+
+                        <div class="auth-footer" style="margin-top: 1.5rem;">
+                            <p><a href="signin.html" class="auth-link">Sign In to Your Account</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Resend Verification (Hidden by default) -->
+                    <div id="resendContent" style="display: none;">
+                        <div class="auth-card-header text-center">
+                            <h1>Verification Link Expired</h1>
+                            <p>Request a new verification link to verify your email</p>
+                        </div>
+
+                        <form class="auth-form" id="resendVerificationForm">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" placeholder="Enter your email address" required>
+                            </div>
+
+                            <button type="submit" class="auth-submit-btn">
+                                <span>Resend Verification Email</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <div class="auth-footer">
+                            <p>Back to <a href="signin.html" class="auth-link">Sign In</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT: Info Section with Carousel -->
+            <div class="auth-info-section">
+                <div class="auth-info-content">
+                    <div class="auth-carousel">
+                        <!-- Slide 1 -->
+                        <div class="auth-slide active">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">📧 Email Verification</h2>
+                            <p class="auth-slide-desc">Verify your email to unlock full access to KUNYO gaming store and secure your account</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>✅ Account Activation</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔒 Enhanced Security</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🎮 Full Access</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🛡️ Secure Your Account</h2>
+                            <p class="auth-slide-desc">Email verification adds an extra layer of security to protect your gaming purchases and personal information</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>💳 Purchase Protection</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔐 Account Recovery</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📢 Order Updates</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">⚡ Quick & Easy</h2>
+                            <p class="auth-slide-desc">Email verification takes just a few seconds. Click the link in your email and you're all set!</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>⏱️ One-time Process</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🎯 Instant Activation</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🇳🇵 Nepal Trusted</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Indicators -->
+                    <div class="auth-carousel-indicators">
+                        <button class="carousel-indicator active" data-slide="0"></button>
+                        <button class="carousel-indicator" data-slide="1"></button>
+                        <button class="carousel-indicator" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Extract verification token from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            const email = urlParams.get('email');
+
+            // Simulate API call to verify email
+            function verifyEmail(token) {
+                // Show loading state
+                $('#verificationLoading').show();
+
+                // Simulate API call delay
+                setTimeout(function() {
+                    // In production, this would be an actual API call
+                    // For demo, we check if token exists
+                    if (token && token.length > 10) {
+                        // Success - token is valid
+                        console.log('Email Verification:', {
+                            token: token,
+                            status: 'success',
+                            timestamp: new Date().toISOString()
+                        });
+
+                        $('#verificationLoading').hide();
+                        $('#verificationSuccessMessage').slideDown();
+                        $('#verifiedContent').slideDown();
+                    } else {
+                        // Error - token is invalid or expired
+                        console.log('Email Verification Failed:', {
+                            token: token,
+                            status: 'failed',
+                            timestamp: new Date().toISOString()
+                        });
+
+                        $('#verificationLoading').hide();
+                        $('#verificationErrorMessage').slideDown();
+                        $('#resendContent').slideDown();
+                    }
+                }, 2000); // 2 second delay to simulate API call
+            }
+
+            // Verify on page load if token exists
+            if (token) {
+                verifyEmail(token);
+            } else {
+                // No token in URL - show resend form
+                $('#verificationLoading').hide();
+                $('#errorText').text('No verification token found. Please check your email or request a new verification link.');
+                $('#verificationErrorMessage').slideDown();
+                $('#resendContent').slideDown();
+            }
+
+            // Resend verification email form
+            $('#resendVerificationForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const email = $('#email').val();
+
+                if (!email) {
+                    alert('Please enter your email address');
+                    return;
+                }
+
+                console.log('Resend Verification:', {
+                    email: email,
+                    timestamp: new Date().toISOString()
+                });
+
+                alert('Verification email sent! Please check your inbox.');
+
+                // Optional: redirect to signin after a delay
+                setTimeout(function() {
+                    window.location.href = 'signin.html';
+                }, 2000);
+            });
+
+            // Auth Carousel functionality
+            let currentSlide = 0;
+            const slides = $('.auth-slide');
+            const indicators = $('.carousel-indicator');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                indicators.removeClass('active');
+                $(slides[index]).addClass('active');
+                $(indicators[index]).addClass('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Auto-advance carousel every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Click handlers for indicators
+            indicators.on('click', function() {
+                currentSlide = parseInt($(this).data('slide'));
+                showSlide(currentSlide);
+            });
+        });
+    </script>
+</body>
+</html>

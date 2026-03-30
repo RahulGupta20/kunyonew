@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Expired - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <style>
+        .session-icon-large {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 191, 36, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotate-clock 20s linear infinite;
+        }
+
+        .session-icon-large i {
+            font-size: 3rem;
+            color: #f59e0b;
+        }
+
+        @keyframes rotate-clock {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .session-details {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .session-detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .session-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .session-detail-label {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .session-detail-value {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .quick-actions {
+            display: grid;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .quick-action-btn {
+            background: rgba(220, 20, 60, 0.1);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .quick-action-btn:hover {
+            background: rgba(220, 20, 60, 0.2);
+            border-color: #dc143c;
+            transform: translateY(-2px);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+        }
+
+        .quick-action-btn i {
+            font-size: 1.25rem;
+            color: #dc143c;
+        }
+
+        .quick-action-btn span {
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        .security-tip {
+            background: rgba(0, 56, 147, 0.2);
+            border-left: 3px solid #003893;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .security-tip h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #4a9eff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .security-tip p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .redirect-notice {
+            text-align: center;
+            margin: 1.5rem 0;
+            padding: 0.75rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+        }
+
+        .redirect-notice i {
+            color: #10b981;
+            margin-right: 0.5rem;
+        }
+
+        .redirect-notice span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+
+        .redirect-notice strong {
+            color: #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header (Simplified) -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                </div>
+                <div class="col-lg-10 col-6">
+                    <div class="header-icons justify-content-end">
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Page - Split Screen Layout -->
+    <div class="auth-page">
+        <div class="auth-container">
+            <!-- LEFT: Session Expired Info -->
+            <div class="auth-form-section">
+                <div class="auth-form-wrapper">
+                    <div class="text-center">
+                        <div class="session-icon-large">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                    </div>
+
+                    <div class="auth-card-header text-center">
+                        <h1>Your Session Has Expired</h1>
+                        <p>For your security, you've been automatically logged out due to inactivity</p>
+                    </div>
+
+                    <!-- Session Details -->
+                    <div class="session-details">
+                        <div class="session-detail-item">
+                            <span class="session-detail-label">Session Duration:</span>
+                            <span class="session-detail-value" id="sessionDuration">45 minutes</span>
+                        </div>
+                        <div class="session-detail-item">
+                            <span class="session-detail-label">Last Activity:</span>
+                            <span class="session-detail-value" id="lastActivity">30 minutes ago</span>
+                        </div>
+                        <div class="session-detail-item">
+                            <span class="session-detail-label">Session Expired:</span>
+                            <span class="session-detail-value" id="expiredTime">Just now</span>
+                        </div>
+                    </div>
+
+                    <!-- Auto Redirect Notice -->
+                    <div class="redirect-notice" id="redirectNotice" style="display: none;">
+                        <i class="bi bi-arrow-clockwise"></i>
+                        <span>Redirecting to sign in page in <strong id="redirectCountdown">5</strong> seconds...</span>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <a href="signin.html" class="auth-submit-btn" style="display: inline-flex; text-decoration: none; margin-bottom: 0.5rem;">
+                            <span>Sign In Again</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                        </a>
+
+                        <button type="button" class="quick-action-btn" onclick="localStorage.clear(); alert('All local data cleared! You can now sign in fresh.');">
+                            <i class="bi bi-trash"></i>
+                            <span>Clear Browser Data & Sign In</span>
+                        </button>
+                    </div>
+
+                    <!-- Security Tip -->
+                    <div class="security-tip">
+                        <h4>
+                            <i class="bi bi-shield-check"></i>
+                            Why did this happen?
+                        </h4>
+                        <p>Sessions automatically expire after 30 minutes of inactivity to protect your account from unauthorized access. This is a security measure to keep your gaming purchases and personal information safe.</p>
+                    </div>
+
+                    <!-- Session Settings Info -->
+                    <div class="security-tip" style="border-left-color: #10b981;">
+                        <h4 style="color: #10b981;">
+                            <i class="bi bi-lightbulb"></i>
+                            Stay Logged In Longer
+                        </h4>
+                        <p>Enable "Remember Me" when signing in to extend your session duration. You can also enable 2FA for enhanced security with longer sessions.</p>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Need help? <a href="#" class="auth-link">Contact Support</a></p>
+                    </div>
+
+                    <div class="auth-footer" style="border-top: none; padding-top: 0; margin-top: 1rem;">
+                        <p>Back to <a href="index.html" class="auth-link">Homepage</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Info Section with Carousel -->
+            <div class="auth-info-section">
+                <div class="auth-info-content">
+                    <div class="auth-carousel">
+                        <!-- Slide 1 -->
+                        <div class="auth-slide active">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">⏱️ Auto-Logout Timer</h2>
+                            <p class="auth-slide-desc">Your session automatically expires after 30 minutes of inactivity to protect your account security</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔒 Automatic Protection</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🛡️ Prevent Unauthorized Access</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>💳 Purchase Safety</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                    <polyline points="10 17 15 12 10 7"/>
+                                    <line x1="15" y1="12" x2="3" y2="12"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🚀 Quick Sign In</h2>
+                            <p class="auth-slide-desc">Sign back in with your credentials or use social login for instant access to KUNYO</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>⚡ Instant Re-login</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔐 Remember Me Option</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📱 Google/Apple Login</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🎮 Your Data is Safe</h2>
+                            <p class="auth-slide-desc">All your cart items, favorites, and account data are securely saved and ready when you log back in</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🛒 Cart Items Saved</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>❤️ Favorites Preserved</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🇳🇵 Nepal Secure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Indicators -->
+                    <div class="auth-carousel-indicators">
+                        <button class="carousel-indicator active" data-slide="0"></button>
+                        <button class="carousel-indicator" data-slide="1"></button>
+                        <button class="carousel-indicator" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Get session info from URL parameters or localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionDuration = urlParams.get('duration') || '45 minutes';
+            const returnUrl = urlParams.get('return_url') || 'signin.html';
+            const autoRedirect = urlParams.get('redirect') !== 'false'; // Auto redirect by default
+
+            // Update session details
+            $('#sessionDuration').text(sessionDuration);
+
+            // Calculate last activity time (example)
+            const now = new Date();
+            const lastActivityTime = new Date(now.getTime() - (30 * 60 * 1000)); // 30 minutes ago
+            $('#lastActivity').text(formatTimeAgo(lastActivityTime));
+            $('#expiredTime').text('Just now');
+
+            function formatTimeAgo(date) {
+                const minutes = Math.floor((new Date() - date) / 60000);
+                if (minutes < 1) return 'Just now';
+                if (minutes === 1) return '1 minute ago';
+                if (minutes < 60) return `${minutes} minutes ago`;
+                const hours = Math.floor(minutes / 60);
+                if (hours === 1) return '1 hour ago';
+                return `${hours} hours ago`;
+            }
+
+            // Auto-redirect countdown (optional feature)
+            if (autoRedirect) {
+                let redirectSeconds = 5;
+                const redirectNotice = $('#redirectNotice');
+                const redirectCountdown = $('#redirectCountdown');
+
+                redirectNotice.show();
+                redirectCountdown.text(redirectSeconds);
+
+                const redirectInterval = setInterval(function() {
+                    redirectSeconds--;
+                    redirectCountdown.text(redirectSeconds);
+
+                    if (redirectSeconds <= 0) {
+                        clearInterval(redirectInterval);
+                        window.location.href = returnUrl;
+                    }
+                }, 1000);
+
+                // Cancel redirect if user interacts
+                $('a, button').on('click', function() {
+                    clearInterval(redirectInterval);
+                    redirectNotice.slideUp();
+                });
+            }
+
+            // Log session expiry for backend
+            console.log('Session Expired:', {
+                reason: 'inactivity_timeout',
+                duration: sessionDuration,
+                lastActivity: lastActivityTime.toISOString(),
+                expiredAt: new Date().toISOString(),
+                returnUrl: returnUrl
+            });
+
+            // Clear any sensitive data from localStorage
+            // (Keep cart and favorites, remove auth tokens)
+            const sensitiveKeys = ['auth_token', 'session_id', 'access_token', 'refresh_token'];
+            sensitiveKeys.forEach(key => {
+                localStorage.removeItem(key);
+                sessionStorage.removeItem(key);
+            });
+
+            // Auth Carousel functionality
+            let currentSlide = 0;
+            const slides = $('.auth-slide');
+            const indicators = $('.carousel-indicator');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                indicators.removeClass('active');
+                $(slides[index]).addClass('active');
+                $(indicators[index]).addClass('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Auto-advance carousel every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Click handlers for indicators
+            indicators.on('click', function() {
+                currentSlide = parseInt($(this).data('slide'));
+                showSlide(currentSlide);
+            });
+        });
+    </script>
+</body>
+</html>

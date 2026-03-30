@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Locked - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <style>
+        .lock-icon-large {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(239, 68, 68, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse-lock 2s ease-in-out infinite;
+        }
+
+        .lock-icon-large i {
+            font-size: 3rem;
+            color: #dc143c;
+        }
+
+        @keyframes pulse-lock {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .countdown-timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(220, 20, 60, 0.1);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #dc143c;
+            margin: 1rem 0;
+        }
+
+        .unlock-options {
+            display: grid;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .unlock-option {
+            background: rgba(0, 45, 102, 0.2);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .unlock-option:hover {
+            background: rgba(220, 20, 60, 0.1);
+            border-color: #dc143c;
+            transform: translateX(5px);
+            color: #fff;
+        }
+
+        .unlock-option-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(0, 56, 147, 0.2));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .unlock-option-icon i {
+            font-size: 1.5rem;
+            color: #dc143c;
+        }
+
+        .unlock-option-content {
+            flex: 1;
+        }
+
+        .unlock-option-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem;
+        }
+
+        .unlock-option-content p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        .unlock-option i.bi-chevron-right {
+            color: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .unlock-option:hover i.bi-chevron-right {
+            color: #dc143c;
+            transform: translateX(3px);
+        }
+
+        .reason-list {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .reason-list h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #ef4444;
+        }
+
+        .reason-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .reason-list ul li {
+            padding: 0.375rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .reason-list ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #ef4444;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header (Simplified for locked state) -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                </div>
+                <div class="col-lg-10 col-6">
+                    <div class="header-icons justify-content-end">
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Page - Split Screen Layout -->
+    <div class="auth-page">
+        <div class="auth-container">
+            <!-- LEFT: Locked Account Info -->
+            <div class="auth-form-section">
+                <div class="auth-form-wrapper">
+                    <div class="text-center">
+                        <div class="lock-icon-large">
+                            <i class="bi bi-lock-fill"></i>
+                        </div>
+                    </div>
+
+                    <div class="auth-card-header text-center">
+                        <h1>Account Temporarily Locked</h1>
+                        <p>Your account has been locked due to multiple failed login attempts</p>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="text-center" id="timerContainer">
+                        <div class="countdown-timer">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Auto-unlock in: <strong id="countdown">15:00</strong></span>
+                        </div>
+                        <small style="display: block; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem;">
+                            Your account will automatically unlock after the timer expires
+                        </small>
+                    </div>
+
+                    <!-- Already Unlocked State (Hidden by default) -->
+                    <div id="unlockedContainer" style="display: none;">
+                        <div class="alert alert-success" style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="bi bi-check-circle-fill" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <strong>Account Unlocked!</strong>
+                                <p style="margin: 0; font-size: 0.875rem;">Your account has been successfully unlocked. You can now sign in.</p>
+                            </div>
+                        </div>
+
+                        <a href="signin.html" class="auth-submit-btn" style="display: inline-flex; text-decoration: none; width: 100%;">
+                            <span>Go to Sign In</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Unlock Options -->
+                    <div id="unlockOptions">
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin: 2rem 0 1rem; text-align: center;">
+                            Need Immediate Access?
+                        </h3>
+
+                        <div class="unlock-options">
+                            <a href="verify-email.html" class="unlock-option">
+                                <div class="unlock-option-icon">
+                                    <i class="bi bi-envelope-check"></i>
+                                </div>
+                                <div class="unlock-option-content">
+                                    <h4>Verify via Email</h4>
+                                    <p>Receive verification code at your registered email</p>
+                                </div>
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+
+                            <a href="verify-phone.html" class="unlock-option">
+                                <div class="unlock-option-icon">
+                                    <i class="bi bi-phone"></i>
+                                </div>
+                                <div class="unlock-option-content">
+                                    <h4>Verify via SMS</h4>
+                                    <p>Receive OTP on your registered phone number</p>
+                                </div>
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+
+                            <a href="account-recovery.html" class="unlock-option">
+                                <div class="unlock-option-icon">
+                                    <i class="bi bi-life-preserver"></i>
+                                </div>
+                                <div class="unlock-option-content">
+                                    <h4>Contact Support</h4>
+                                    <p>Submit recovery request to our support team</p>
+                                </div>
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Why Was I Locked -->
+                    <div class="reason-list">
+                        <h4><i class="bi bi-info-circle"></i> Why was my account locked?</h4>
+                        <ul>
+                            <li>5 consecutive failed login attempts</li>
+                            <li>Suspicious activity detected from unknown location</li>
+                            <li>Multiple password reset requests in short time</li>
+                            <li>Security measure to protect your gaming purchases</li>
+                        </ul>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Back to <a href="signin.html" class="auth-link">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Info Section with Carousel -->
+            <div class="auth-info-section">
+                <div class="auth-info-content">
+                    <div class="auth-carousel">
+                        <!-- Slide 1 -->
+                        <div class="auth-slide active">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🔒 Account Security</h2>
+                            <p class="auth-slide-desc">We've temporarily locked your account to protect your gaming purchases and personal information</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🛡️ Fraud Prevention</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>💳 Purchase Protection</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔐 Data Safety</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">⏱️ Auto-Unlock Timer</h2>
+                            <p class="auth-slide-desc">Your account will automatically unlock after 15 minutes. Or verify your identity now for instant access</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>⚡ Quick Verification</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📧 Email or SMS Code</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🎮 Instant Access</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🎯 Prevention Tips</h2>
+                            <p class="auth-slide-desc">Avoid future lockouts by following these security best practices</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>✅ Use Password Manager</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔐 Enable 2FA</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🇳🇵 Nepal Secure</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Indicators -->
+                    <div class="auth-carousel-indicators">
+                        <button class="carousel-indicator active" data-slide="0"></button>
+                        <button class="carousel-indicator" data-slide="1"></button>
+                        <button class="carousel-indicator" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Countdown timer (15 minutes = 900 seconds)
+            let timeRemaining = 900;
+            const countdownDisplay = $('#countdown');
+            const timerContainer = $('#timerContainer');
+            const unlockedContainer = $('#unlockedContainer');
+            const unlockOptions = $('#unlockOptions');
+
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            function updateCountdown() {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    countdownDisplay.text(formatTime(timeRemaining));
+                } else {
+                    // Timer expired - show unlocked state
+                    clearInterval(countdownInterval);
+                    timerContainer.slideUp(300, function() {
+                        unlockOptions.slideUp(300);
+                        unlockedContainer.slideDown(300);
+                    });
+
+                    console.log('Account Unlocked:', {
+                        reason: 'timer_expired',
+                        timestamp: new Date().toISOString()
+                    });
+                }
+            }
+
+            // Update countdown every second
+            const countdownInterval = setInterval(updateCountdown, 1000);
+
+            // Simulate checking unlock status from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const unlocked = urlParams.get('unlocked');
+
+            if (unlocked === 'true') {
+                clearInterval(countdownInterval);
+                timerContainer.hide();
+                unlockOptions.hide();
+                unlockedContainer.show();
+            }
+
+            // Log account lock event for backend
+            console.log('Account Locked Page Loaded:', {
+                lockReason: 'multiple_failed_attempts',
+                lockDuration: '15 minutes',
+                unlockTime: new Date(Date.now() + timeRemaining * 1000).toISOString(),
+                timestamp: new Date().toISOString()
+            });
+
+            // Auth Carousel functionality
+            let currentSlide = 0;
+            const slides = $('.auth-slide');
+            const indicators = $('.carousel-indicator');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                indicators.removeClass('active');
+                $(slides[index]).addClass('active');
+                $(indicators[index]).addClass('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Auto-advance carousel every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Click handlers for indicators
+            indicators.on('click', function() {
+                currentSlide = parseInt($(this).data('slide'));
+                showSlide(currentSlide);
+            });
+        });
+    </script>
+</body>
+</html>

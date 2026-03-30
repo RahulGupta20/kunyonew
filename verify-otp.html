@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Factor Authentication - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <style>
+        /* OTP Input Styling */
+        .otp-input-group {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .otp-input {
+            width: 3.5rem;
+            height: 3.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: 2px solid rgba(220, 20, 60, 0.3);
+            border-radius: 12px;
+            background: rgba(0, 45, 102, 0.3);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .otp-input:focus {
+            outline: none;
+            border-color: rgba(220, 20, 60, 0.6);
+            background: rgba(0, 45, 102, 0.4);
+            box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+            transform: scale(1.05);
+        }
+
+        .otp-input::placeholder {
+            color: rgba(180, 184, 197, 0.3);
+        }
+
+        @media (max-width: 480px) {
+            .otp-input {
+                width: 2.75rem;
+                height: 2.75rem;
+                font-size: 1.25rem;
+            }
+
+            .otp-input-group {
+                gap: 0.5rem;
+            }
+        }
+
+        .resend-timer {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .resend-btn {
+            background: transparent;
+            border: none;
+            color: #dc143c;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: underline;
+            padding: 0;
+            font-size: 0.875rem;
+        }
+
+        .resend-btn:hover {
+            color: #b01030;
+        }
+
+        .resend-btn:disabled {
+            color: rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+            text-decoration: none;
+        }
+
+        .verification-method {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(0, 45, 102, 0.3);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .verification-method i {
+            font-size: 1.5rem;
+            color: #dc143c;
+        }
+
+        .verification-method-text {
+            flex: 1;
+        }
+
+        .verification-method-text strong {
+            display: block;
+            color: #fff;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .verification-method-text span {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8125rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Auth Page - Split Screen Layout -->
+    <div class="auth-page">
+        <div class="auth-container">
+            <!-- LEFT: Form Section -->
+            <div class="auth-form-section">
+                <div class="auth-form-wrapper">
+
+                    <!-- STEP 1: Select Verification Method (Initially Visible) -->
+                    <div id="step1Container">
+                        <div class="auth-card-header">
+                            <h1>Two-Factor Authentication</h1>
+                            <p>Choose how you'd like to receive your verification code</p>
+                        </div>
+
+                        <form class="auth-form" id="verificationMethodForm">
+                            <div class="form-group">
+                                <label>Select Verification Method</label>
+
+                                <!-- Phone Method -->
+                                <label class="verification-method" style="cursor: pointer; margin-bottom: 0.75rem; display: flex;">
+                                    <input type="radio" name="verificationMethod" id="methodPhone" value="phone" checked style="margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; accent-color: #dc143c;">
+                                    <i class="bi bi-phone"></i>
+                                    <div class="verification-method-text">
+                                        <strong>SMS to Phone</strong>
+                                        <span id="phoneNumber">+977 98XX XXX X21</span>
+                                    </div>
+                                </label>
+
+                                <!-- Email Method -->
+                                <label class="verification-method" style="cursor: pointer; display: flex;">
+                                    <input type="radio" name="verificationMethod" id="methodEmail" value="email" style="margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; accent-color: #dc143c;">
+                                    <i class="bi bi-envelope"></i>
+                                    <div class="verification-method-text">
+                                        <strong>Email Code</strong>
+                                        <span id="emailAddress">r***l@example.com</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="auth-submit-btn">
+                                <span>Send Verification Code</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                    <polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <div class="auth-footer">
+                            <p><a href="signin.html" class="auth-link">Back to Sign In</a></p>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Enter OTP Code (Initially Hidden) -->
+                    <div id="step2Container" style="display: none;">
+                        <div class="auth-card-header">
+                            <h1>Enter Verification Code</h1>
+                            <p>We've sent a code to verify your identity</p>
+                        </div>
+
+                        <!-- Verification Method Info -->
+                        <div class="verification-method">
+                            <i class="bi bi-phone" id="selectedMethodIcon"></i>
+                            <div class="verification-method-text">
+                                <strong>Code sent to</strong>
+                                <span id="maskedContact">+977 98XX XXX X21</span>
+                            </div>
+                        </div>
+
+                        <form class="auth-form" id="otpVerificationForm">
+                            <div class="form-group">
+                                <label for="otp">Enter 6-Digit Code</label>
+                                <div class="otp-input-group">
+                                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" id="otp1" required>
+                                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" id="otp2" required>
+                                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" id="otp3" required>
+                                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" id="otp4" required>
+                                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" id="otp5" required>
+                                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" inputmode="numeric" id="otp6" required>
+                                </div>
+                            </div>
+
+                            <!-- Resend Timer -->
+                            <div class="resend-timer">
+                                <span id="resendText">Didn't receive code?
+                                    <button type="button" class="resend-btn" id="resendBtn" disabled>
+                                        Resend in <span id="countdown">60</span>s
+                                    </button>
+                                </span>
+                            </div>
+
+                            <button type="submit" class="auth-submit-btn">
+                                <span>Verify & Continue</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <div class="auth-footer">
+                            <p><a href="#" class="auth-link" id="changeMethod">Change verification method</a></p>
+                        </div>
+
+                        <div class="auth-footer" style="border-top: none; padding-top: 0; margin-top: 1rem;">
+                            <p><a href="signin.html" class="auth-link">Back to Sign In</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT: Info Section with Carousel -->
+            <div class="auth-info-section">
+                <div class="auth-info-content">
+                    <div class="auth-carousel">
+                        <!-- Slide 1 -->
+                        <div class="auth-slide active">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="5" y="11" width="14" height="10" rx="2" ry="2"/>
+                                    <circle cx="12" cy="16" r="1"/>
+                                    <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🔐 Extra Layer of Security</h2>
+                            <p class="auth-slide-desc">Two-Factor Authentication (2FA) adds an extra layer of protection to your KUNYO gaming account</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🛡️ Enhanced Security</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔒 Account Protection</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>💳 Purchase Safety</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">📱 SMS Verification</h2>
+                            <p class="auth-slide-desc">We've sent a 6-digit code to your registered phone number. Enter it to verify your identity</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>⚡ Instant Delivery</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>⏱️ Valid for 10 minutes</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>♻️ Resend if needed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🎮 Secure Gaming</h2>
+                            <p class="auth-slide-desc">Protect your game purchases, top-ups, and personal data with multi-factor authentication</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🎯 Prevent Unauthorized Access</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>💰 Transaction Security</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🇳🇵 Nepal Trusted</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Indicators -->
+                    <div class="auth-carousel-indicators">
+                        <button class="carousel-indicator active" data-slide="0"></button>
+                        <button class="carousel-indicator" data-slide="1"></button>
+                        <button class="carousel-indicator" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let selectedMethod = 'phone';
+            let countdown = 60;
+            let timerInterval = null;
+
+            // STEP 1: Send Verification Code
+            $('#verificationMethodForm').on('submit', function(e) {
+                e.preventDefault();
+
+                selectedMethod = $('input[name="verificationMethod"]:checked').val();
+
+                // Update Step 2 UI based on selected method
+                if (selectedMethod === 'phone') {
+                    $('#selectedMethodIcon').removeClass('bi-envelope').addClass('bi-phone');
+                    $('#maskedContact').text($('#phoneNumber').text());
+                } else {
+                    $('#selectedMethodIcon').removeClass('bi-phone').addClass('bi-envelope');
+                    $('#maskedContact').text($('#emailAddress').text());
+                }
+
+                console.log('Sending OTP via:', selectedMethod);
+
+                // Simulate sending OTP
+                alert(`Verification code sent to your ${selectedMethod}!`);
+
+                // Show Step 2, Hide Step 1
+                $('#step1Container').slideUp(300, function() {
+                    $('#step2Container').slideDown(300);
+                    // Auto-focus first OTP input
+                    $('#otp1').focus();
+                });
+
+                // Start countdown timer
+                startCountdown();
+            });
+
+            // Change verification method
+            $('#changeMethod').on('click', function(e) {
+                e.preventDefault();
+
+                // Clear OTP inputs
+                $('.otp-input').val('');
+
+                // Stop timer
+                if (timerInterval) {
+                    clearInterval(timerInterval);
+                }
+
+                // Show Step 1, Hide Step 2
+                $('#step2Container').slideUp(300, function() {
+                    $('#step1Container').slideDown(300);
+                });
+            });
+
+            // Countdown Timer Function
+            function startCountdown() {
+                countdown = 60;
+                const countdownElement = $('#countdown');
+                const resendBtn = $('#resendBtn');
+
+                resendBtn.prop('disabled', true).html('Resend in <span id="countdown">60</span>s');
+
+                timerInterval = setInterval(function() {
+                    countdown--;
+                    $('#countdown').text(countdown);
+
+                    if (countdown <= 0) {
+                        clearInterval(timerInterval);
+                        resendBtn.prop('disabled', false).html('Resend Code');
+                    }
+                }, 1000);
+            }
+
+            // OTP Input Auto-focus and Navigation
+            const otpInputs = $('.otp-input');
+
+            otpInputs.on('input', function() {
+                const $this = $(this);
+                const value = $this.val();
+
+                // Only allow numbers
+                if (!/^\d$/.test(value)) {
+                    $this.val('');
+                    return;
+                }
+
+                // Move to next input
+                if (value && $this.next('.otp-input').length) {
+                    $this.next('.otp-input').focus();
+                }
+            });
+
+            otpInputs.on('keydown', function(e) {
+                const $this = $(this);
+
+                // Handle backspace
+                if (e.key === 'Backspace' && !$this.val() && $this.prev('.otp-input').length) {
+                    $this.prev('.otp-input').focus();
+                }
+
+                // Handle arrow keys
+                if (e.key === 'ArrowLeft' && $this.prev('.otp-input').length) {
+                    e.preventDefault();
+                    $this.prev('.otp-input').focus();
+                }
+                if (e.key === 'ArrowRight' && $this.next('.otp-input').length) {
+                    e.preventDefault();
+                    $this.next('.otp-input').focus();
+                }
+            });
+
+            // Paste handler
+            otpInputs.first().on('paste', function(e) {
+                e.preventDefault();
+                const pastedData = e.originalEvent.clipboardData.getData('text').trim();
+
+                if (/^\d{6}$/.test(pastedData)) {
+                    pastedData.split('').forEach((char, index) => {
+                        $(`#otp${index + 1}`).val(char);
+                    });
+                    otpInputs.last().focus();
+                }
+            });
+
+            // Resend OTP
+            $('#resendBtn').on('click', function() {
+                if (countdown <= 0) {
+                    console.log('Resending OTP...');
+                    alert('New verification code sent!');
+
+                    // Restart countdown
+                    startCountdown();
+                }
+            });
+
+            // Form submission
+            $('#otpVerificationForm').on('submit', function(e) {
+                e.preventDefault();
+
+                // Collect OTP
+                const otp = otpInputs.map(function() {
+                    return $(this).val();
+                }).get().join('');
+
+                if (otp.length !== 6) {
+                    alert('Please enter all 6 digits');
+                    return;
+                }
+
+                // Log for backend integration
+                console.log('OTP Verification:', {
+                    otp: otp,
+                    timestamp: new Date().toISOString()
+                });
+
+                // Simulate verification
+                alert('Verification successful! Redirecting...');
+                window.location.href = 'index.html';
+            });
+
+            // Auth Carousel functionality
+            let currentSlide = 0;
+            const slides = $('.auth-slide');
+            const indicators = $('.carousel-indicator');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                indicators.removeClass('active');
+                $(slides[index]).addClass('active');
+                $(indicators[index]).addClass('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Auto-advance carousel every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Click handlers for indicators
+            indicators.on('click', function() {
+                currentSlide = parseInt($(this).data('slide'));
+                showSlide(currentSlide);
+            });
+        });
+    </script>
+</body>
+</html>

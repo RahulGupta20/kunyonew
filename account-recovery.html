@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Recovery - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Auth Page - Split Screen Layout -->
+    <div class="auth-page">
+        <div class="auth-container">
+            <!-- LEFT: Form Section -->
+            <div class="auth-form-section">
+                <div class="auth-form-wrapper">
+                    <div class="auth-card-header">
+                        <h1>Account Recovery</h1>
+                        <p>Help us verify your identity to recover your gaming account</p>
+                    </div>
+
+                    <!-- Account Status Alert -->
+                    <div class="alert alert-warning" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+                        <i class="bi bi-exclamation-triangle-fill" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <strong>Account Access Issue</strong>
+                            <p style="margin: 0; font-size: 0.875rem;">Your account has been temporarily restricted for security reasons.</p>
+                        </div>
+                    </div>
+
+                    <form class="auth-form" id="accountRecoveryForm">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your registered email" required>
+                            <small class="form-text">The email address you used to create your account</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Username or User ID</label>
+                            <input type="text" id="username" placeholder="Enter your username or ID" required>
+                            <small class="form-text">Your KUNYO username or unique user ID</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" placeholder="98XXXXXXXX" pattern="[0-9]{10}" maxlength="10">
+                            <small class="form-text">If you have registered a phone number</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastPurchase">Last Purchase or Transaction (Optional)</label>
+                            <input type="text" id="lastPurchase" placeholder="e.g., PUBG Mobile 1800 UC">
+                            <small class="form-text">Helps us verify your identity</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Reason for Recovery</label>
+                            <select id="reason" class="form-control" style="width: 100%; padding: 0.75rem 1rem; background: rgba(0, 45, 102, 0.3); border: 1px solid rgba(220, 20, 60, 0.2); border-radius: 12px; font-size: 0.9375rem; color: #fff; font-weight: 500;" required>
+                                <option value="">Select a reason</option>
+                                <option value="locked">Account Locked</option>
+                                <option value="suspended">Account Suspended</option>
+                                <option value="forgot">Forgot Password & Email</option>
+                                <option value="compromised">Account Compromised</option>
+                                <option value="other">Other Issue</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Additional Details</label>
+                            <textarea id="description" rows="4" placeholder="Please describe your issue..." style="width: 100%; padding: 0.75rem 1rem; background: rgba(0, 45, 102, 0.3); border: 1px solid rgba(220, 20, 60, 0.2); border-radius: 12px; font-size: 0.9375rem; color: #fff; font-weight: 500; resize: vertical; font-family: 'Inter', sans-serif;" required></textarea>
+                            <small class="form-text">Include any relevant information that can help us verify your account</small>
+                        </div>
+
+                        <button type="submit" class="auth-submit-btn">
+                            <span>Submit Recovery Request</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Need immediate help? <a href="#" class="auth-link">Contact Support</a></p>
+                    </div>
+
+                    <div class="auth-footer" style="border-top: none; padding-top: 0; margin-top: 1rem;">
+                        <p>Back to <a href="signin.html" class="auth-link">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Info Section with Carousel -->
+            <div class="auth-info-section">
+                <div class="auth-info-content">
+                    <div class="auth-carousel">
+                        <!-- Slide 1 -->
+                        <div class="auth-slide active">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <circle cx="12" cy="11" r="3"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">🔐 Secure Account Recovery</h2>
+                            <p class="auth-slide-desc">Our team will verify your identity and help you regain access to your KUNYO gaming account safely</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>✅ Manual Verification</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🔒 Secure Process</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📧 Email Confirmation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">⏱️ Recovery Timeline</h2>
+                            <p class="auth-slide-desc">Our support team reviews recovery requests within 24-48 hours. You'll receive updates via email</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📬 24-48 Hour Response</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📧 Email Updates</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🎯 Priority Support</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="auth-slide">
+                            <div class="auth-slide-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                            </div>
+                            <h2 class="auth-slide-title">📋 Information Needed</h2>
+                            <p class="auth-slide-desc">Provide accurate information to help us verify your account ownership and speed up recovery</p>
+                            <div class="auth-slide-features">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>📧 Email & Username</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>💳 Purchase History</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    <span>🇳🇵 Nepal Support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Indicators -->
+                    <div class="auth-carousel-indicators">
+                        <button class="carousel-indicator active" data-slide="0"></button>
+                        <button class="carousel-indicator" data-slide="1"></button>
+                        <button class="carousel-indicator" data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Form submission
+            $('#accountRecoveryForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    email: $('#email').val(),
+                    username: $('#username').val(),
+                    phone: $('#phone').val(),
+                    lastPurchase: $('#lastPurchase').val(),
+                    reason: $('#reason').val(),
+                    description: $('#description').val(),
+                    timestamp: new Date().toISOString()
+                };
+
+                // Validation
+                if (!formData.email || !formData.username || !formData.reason || !formData.description) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+
+                // Log for backend integration
+                console.log('Account Recovery Request:', formData);
+
+                // Show success message
+                alert('Recovery request submitted successfully!\n\nOur support team will review your request within 24-48 hours.\n\nYou will receive an email with further instructions.');
+
+                // Redirect to signin
+                setTimeout(function() {
+                    window.location.href = 'signin.html';
+                }, 1000);
+            });
+
+            // Auth Carousel functionality
+            let currentSlide = 0;
+            const slides = $('.auth-slide');
+            const indicators = $('.carousel-indicator');
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.removeClass('active');
+                indicators.removeClass('active');
+                $(slides[index]).addClass('active');
+                $(indicators[index]).addClass('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Auto-advance carousel every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Click handlers for indicators
+            indicators.on('click', function() {
+                currentSlide = parseInt($(this).data('slide'));
+                showSlide(currentSlide);
+            });
+        });
+    </script>
+</body>
+</html>

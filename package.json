@@ -6,6 +6,12 @@
   "scripts": {
     "sass": "sass scss/main.scss css/style.css --watch --no-source-map",
     "sass:build": "sass scss/main.scss css/style.css --style compressed --no-source-map",
+    "sass:product": "sass scss/pages/product-detail.scss css/product-detail.css --watch --no-source-map",
+    "sass:product:build": "sass scss/pages/product-detail.scss css/product-detail.css --style compressed --no-source-map",
+    "sass:auth": "sass scss/pages/auth.scss css/auth.css --watch --no-source-map",
+    "sass:auth:build": "sass scss/pages/auth.scss css/auth.css --style compressed --no-source-map",
+    "sass:all": "sass scss:css --watch --no-source-map",
+    "sass:all:build": "sass scss:css --style compressed --no-source-map",
     "dev": "npm run sass"
   },
   "keywords": [

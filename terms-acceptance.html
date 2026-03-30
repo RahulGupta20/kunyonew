@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updated Terms & Privacy - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+
+    <style>
+        .document-icon-large {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 56, 147, 0.2), rgba(74, 158, 255, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .document-icon-large i {
+            font-size: 3rem;
+            color: #4a9eff;
+        }
+
+        .update-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc143c, #ff6b6b);
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-scroll-box {
+            background: rgba(0, 45, 102, 0.2);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .terms-scroll-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .terms-scroll-box::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+
+        .terms-scroll-box::-webkit-scrollbar-thumb {
+            background: rgba(220, 20, 60, 0.5);
+            border-radius: 4px;
+        }
+
+        .terms-scroll-box::-webkit-scrollbar-thumb:hover {
+            background: rgba(220, 20, 60, 0.7);
+        }
+
+        .terms-scroll-box h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: #4a9eff;
+        }
+
+        .terms-scroll-box h4:first-child {
+            margin-top: 0;
+        }
+
+        .terms-scroll-box p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.75rem;
+        }
+
+        .terms-scroll-box ul {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            padding-left: 1.5rem;
+        }
+
+        .terms-scroll-box ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .changes-highlight {
+            background: rgba(220, 20, 60, 0.1);
+            border-left: 3px solid #dc143c;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .changes-highlight h5 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #dc143c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .changes-highlight ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .changes-highlight ul li {
+            padding: 0.375rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .changes-highlight ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #dc143c;
+            font-weight: bold;
+        }
+
+        .checkbox-wrapper {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .checkbox-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 0.125rem;
+            cursor: pointer;
+            accent-color: #10b981;
+        }
+
+        .checkbox-item label {
+            flex: 1;
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            line-height: 1.5;
+        }
+
+        .checkbox-item label a {
+            color: #10b981;
+            text-decoration: underline;
+        }
+
+        .checkbox-item label a:hover {
+            color: #059669;
+        }
+
+        .accept-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .accept-btn:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .accept-btn:not(:disabled):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .decline-link {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .decline-link a {
+            color: #ef4444;
+            text-decoration: underline;
+        }
+
+        .decline-link a:hover {
+            color: #dc2626;
+        }
+
+        .update-date {
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 1rem 0;
+        }
+
+        .update-date strong {
+            color: #4a9eff;
+        }
+
+        /* Progress Bar */
+        .reading-progress {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+            z-index: 10;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #dc143c, #ff6b6b);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Tabs for Terms/Privacy */
+        .terms-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terms-tab {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 0.9375rem;
+        }
+
+        .terms-tab:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .terms-tab.active {
+            color: #dc143c;
+            border-bottom-color: #dc143c;
+        }
+
+        .terms-content {
+            display: none;
+        }
+
+        .terms-content.active {
+            display: block;
+        }
+
+        /* Quick Summary Box */
+        .quick-summary {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(5, 150, 105, 0.12));
+            border: 2px solid rgba(16, 185, 129, 0.4);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+        }
+
+        .quick-summary::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #059669, #10b981);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .quick-summary h5 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quick-summary h5 i {
+            font-size: 1.25rem;
+            animation: pulse-icon 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .quick-summary ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .quick-summary ul li {
+            padding: 0.875rem 1rem;
+            padding-left: 2.75rem;
+            position: relative;
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.95);
+            background: rgba(16, 185, 129, 0.08);
+            border-radius: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s ease;
+            cursor: default;
+            font-weight: 500;
+        }
+
+        .quick-summary ul li:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateX(4px);
+            box-shadow: -4px 0 0 rgba(16, 185, 129, 0.6);
+        }
+
+        .quick-summary ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.125rem;
+            background: rgba(16, 185, 129, 0.2);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            line-height: 1;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            margin: 1rem 0;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: rgba(220, 20, 60, 0.2);
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #dc143c;
+            border-bottom: 2px solid rgba(220, 20, 60, 0.4);
+        }
+
+        .comparison-table td {
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .old-value {
+            color: #ef4444;
+            text-decoration: line-through;
+        }
+
+        .comparison-table .new-value {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .terms-content h4.features-heading {
+            margin-top: 2rem;
+        }
+
+        /* Read Timer */
+        .read-timer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .read-timer i {
+            animation: blink-timer 2s ease-in-out infinite;
+        }
+
+        @keyframes blink-timer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Print/Download Buttons */
+        .document-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .doc-action-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 8px;
+            color: #4a9eff;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .doc-action-btn:hover {
+            background: rgba(74, 158, 255, 0.2);
+            color: #fff;
+        }
+
+        .doc-action-btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Terms Acceptance Page Wrapper */
+        .terms-acceptance-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 100%;
+            width: 100%;
+            margin: 2rem auto;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .terms-footer-note {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+        }
+
+        .terms-footer-note p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .terms-acceptance-wrapper {
+                padding: 1.5rem;
+                margin: 1rem auto;
+                border-radius: 12px;
+            }
+
+            .terms-tabs {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .terms-tab {
+                padding: 0.625rem 1rem;
+                font-size: 0.875rem;
+                border-bottom: none;
+                border-left: 3px solid transparent;
+            }
+
+            .terms-tab.active {
+                border-left-color: #dc143c;
+                border-bottom-color: transparent;
+            }
+
+            .terms-scroll-box {
+                max-height: 250px;
+                padding: 1rem;
+            }
+
+            .comparison-table {
+                font-size: 0.8125rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+
+            .quick-summary {
+                padding: 1.25rem 1rem;
+                border-radius: 12px;
+            }
+
+            .quick-summary h5 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .quick-summary ul {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .quick-summary ul li {
+                padding: 0.75rem 0.875rem;
+                padding-left: 2.5rem;
+                font-size: 0.875rem;
+            }
+
+            .quick-summary ul li:before {
+                left: 0.875rem;
+                width: 20px;
+                height: 20px;
+                font-size: 1rem;
+            }
+
+            .document-actions {
+                flex-direction: column;
+            }
+
+            .doc-action-btn {
+                width: 100%;
+            }
+
+            .document-icon-large {
+                width: 80px;
+                height: 80px;
+            }
+
+            .document-icon-large i {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Terms Acceptance Page -->
+    <div class="auth-page">
+        <div class="container">
+            <div class="terms-acceptance-wrapper">
+                <div class="text-center">
+                    <div class="document-icon-large">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+
+                    <div class="update-badge">NEW UPDATE</div>
+                </div>
+
+                <div class="auth-card-header text-center">
+                    <h1>Updated Terms & Privacy Policy</h1>
+                    <p>We've updated our Terms of Service and Privacy Policy to better serve you</p>
+                </div>
+
+                <div class="update-date">
+                    <i class="bi bi-calendar-check"></i>
+                    Last updated: <strong>March 30, 2026</strong> | Effective: <strong>April 15, 2026</strong>
+                </div>
+
+                <!-- Read Timer -->
+                <div class="text-center">
+                    <div class="read-timer">
+                        <i class="bi bi-clock"></i>
+                        <span>Estimated reading time: <strong>5 minutes</strong></span>
+                    </div>
+                </div>
+
+                <!-- Document Actions -->
+                <div class="document-actions">
+                    <button class="doc-action-btn" onclick="window.print()">
+                        <i class="bi bi-printer"></i>Print
+                    </button>
+                    <a href="#" class="doc-action-btn" id="downloadBtn">
+                        <i class="bi bi-download"></i>Download PDF
+                    </a>
+                </div>
+
+                <!-- Key Changes Highlight -->
+                <div class="changes-highlight">
+                    <h5>
+                        <i class="bi bi-stars"></i>
+                        What's Changed?
+                    </h5>
+                    <ul>
+                        <li>Enhanced data protection and privacy controls</li>
+                        <li>Clearer refund and cancellation policies</li>
+                        <li>Updated payment processing terms</li>
+                        <li>Improved user rights and responsibilities</li>
+                        <li>New features for account security</li>
+                    </ul>
+                </div>
+
+                <!-- Quick Summary -->
+                <div class="quick-summary">
+                    <h5>
+                        <i class="bi bi-lightning-fill"></i>
+                        Quick Summary - Key Points
+                    </h5>
+                    <ul>
+                        <li>We protect your data</li>
+                        <li>Refunds for technical issues</li>
+                        <li>Secure payments (eSewa, Khalti)</li>
+                        <li>Enable 2FA recommended</li>
+                        <li>99.9% uptime guarantee</li>
+                        <li>Contact support anytime</li>
+                    </ul>
+                </div>
+
+                <!-- Tabs -->
+                <div class="terms-tabs">
+                    <button class="terms-tab active" data-tab="terms">
+                        <i class="bi bi-file-text"></i> Terms of Service
+                    </button>
+                    <button class="terms-tab" data-tab="privacy">
+                        <i class="bi bi-shield-lock"></i> Privacy Policy
+                    </button>
+                    <button class="terms-tab" data-tab="comparison">
+                        <i class="bi bi-arrow-left-right"></i> What Changed
+                    </button>
+                </div>
+
+                <!-- Terms & Privacy Scroll Box -->
+                <div class="terms-scroll-box">
+                    <!-- Reading Progress Bar -->
+                    <div class="reading-progress">
+                        <div class="reading-progress-bar" id="readingProgressBar"></div>
+                    </div>
+
+                    <!-- Terms Content -->
+                    <div class="terms-content active" id="termsContent">
+                    <h4>1. Introduction</h4>
+                    <p>Welcome to KUNYO, Nepal's #1 gaming store. By continuing to use our services, you agree to these updated Terms of Service and Privacy Policy. Please read carefully.</p>
+
+                    <h4>2. Data Collection & Privacy</h4>
+                    <p>We collect and process personal information to provide you with the best gaming experience:</p>
+                    <ul>
+                        <li>Account information (name, email, phone number)</li>
+                        <li>Transaction history and payment details</li>
+                        <li>Device information and browsing activity</li>
+                        <li>Game preferences and purchase history</li>
+                    </ul>
+                    <p>Your data is encrypted and stored securely. We never sell your personal information to third parties.</p>
+
+                    <h4>3. Refund & Cancellation Policy</h4>
+                    <p>Digital products purchased through KUNYO are subject to the following refund policy:</p>
+                    <ul>
+                        <li>Game codes and top-ups: No refunds after code delivery</li>
+                        <li>Pre-orders: Refundable until 48 hours before release</li>
+                        <li>Technical issues: Full refund if code doesn't work</li>
+                        <li>Wrong purchase: Contact support within 24 hours</li>
+                    </ul>
+
+                    <h4>4. Payment Processing</h4>
+                    <p>We accept multiple payment methods including eSewa, Khalti, IME Pay, and major credit cards. All transactions are processed securely through encrypted connections. Payment information is never stored on our servers.</p>
+
+                    <h4>5. Account Security</h4>
+                    <p>You are responsible for maintaining the confidentiality of your account credentials. We recommend:</p>
+                    <ul>
+                        <li>Using a strong, unique password</li>
+                        <li>Enabling two-factor authentication (2FA)</li>
+                        <li>Never sharing your login credentials</li>
+                        <li>Reporting suspicious activity immediately</li>
+                    </ul>
+
+                    <h4>6. User Conduct</h4>
+                    <p>Users must not engage in fraudulent activities, abuse refund policies, or attempt to manipulate our systems. Violations may result in account suspension or termination.</p>
+
+                    <h4>7. Intellectual Property</h4>
+                    <p>All content on KUNYO, including logos, trademarks, and website design, is owned by KUNYO or licensed to us. Unauthorized use is prohibited.</p>
+
+                    <h4>8. Service Availability</h4>
+                    <p>We strive to maintain 99.9% uptime but cannot guarantee uninterrupted service. Scheduled maintenance will be announced in advance when possible.</p>
+
+                    <h4>9. Changes to Terms</h4>
+                    <p>We may update these terms periodically. Continued use of KUNYO after changes take effect constitutes acceptance of the new terms.</p>
+
+                    <h4>10. Contact & Support</h4>
+                    <p>For questions about these terms or to exercise your privacy rights, contact us at support@kunyo.com or through our help center.</p>
+                    </div>
+
+                    <!-- Privacy Policy Content -->
+                    <div class="terms-content" id="privacyContent">
+                    <h4>1. Information We Collect</h4>
+                    <p>KUNYO collects the following information to provide and improve our gaming services:</p>
+                    <ul>
+                        <li><strong>Account Information:</strong> Name, email address, phone number, date of birth</li>
+                        <li><strong>Payment Information:</strong> Payment method details (encrypted), transaction history</li>
+                        <li><strong>Usage Data:</strong> IP address, device information, browsing activity, game preferences</li>
+                        <li><strong>Communication Data:</strong> Support tickets, feedback, chat messages</li>
+                    </ul>
+
+                    <h4>2. How We Use Your Information</h4>
+                    <p>Your data is used for the following purposes:</p>
+                    <ul>
+                        <li>Processing orders and delivering digital products</li>
+                        <li>Account authentication and security</li>
+                        <li>Personalized recommendations and offers</li>
+                        <li>Customer support and communication</li>
+                        <li>Fraud prevention and legal compliance</li>
+                        <li>Service improvement and analytics</li>
+                    </ul>
+
+                    <h4>3. Data Sharing & Third Parties</h4>
+                    <p>We do NOT sell your personal information. We may share data with:</p>
+                    <ul>
+                        <li><strong>Payment Processors:</strong> eSewa, Khalti, IME Pay for transaction processing</li>
+                        <li><strong>Cloud Services:</strong> AWS for secure data storage (Nepal region)</li>
+                        <li><strong>Analytics:</strong> Google Analytics for usage insights (anonymized)</li>
+                        <li><strong>Legal Requirements:</strong> When required by law or to protect rights</li>
+                    </ul>
+
+                    <h4>4. Your Privacy Rights</h4>
+                    <p>You have the following rights regarding your data:</p>
+                    <ul>
+                        <li><strong>Access:</strong> Request a copy of your personal data</li>
+                        <li><strong>Correction:</strong> Update inaccurate information</li>
+                        <li><strong>Deletion:</strong> Request account and data deletion (30-day recovery period)</li>
+                        <li><strong>Opt-out:</strong> Unsubscribe from marketing emails</li>
+                        <li><strong>Portability:</strong> Export your data in machine-readable format</li>
+                    </ul>
+
+                    <h4>5. Data Security</h4>
+                    <p>We implement industry-standard security measures:</p>
+                    <ul>
+                        <li>256-bit SSL/TLS encryption for all data transmission</li>
+                        <li>Encrypted storage for sensitive information</li>
+                        <li>Regular security audits and penetration testing</li>
+                        <li>Two-factor authentication (2FA) available</li>
+                        <li>Secure data centers in Nepal with 24/7 monitoring</li>
+                    </ul>
+
+                    <h4>6. Cookies & Tracking</h4>
+                    <p>We use cookies for:</p>
+                    <ul>
+                        <li>Session management and authentication</li>
+                        <li>Remembering preferences and cart items</li>
+                        <li>Analytics and performance monitoring</li>
+                        <li>Personalized content and recommendations</li>
+                    </ul>
+                    <p>You can control cookies through browser settings.</p>
+
+                    <h4>7. Data Retention</h4>
+                    <p>We retain your data for:</p>
+                    <ul>
+                        <li><strong>Account Data:</strong> As long as account is active + 30 days after deletion</li>
+                        <li><strong>Transaction Records:</strong> 5 years (Nepalese legal requirement)</li>
+                        <li><strong>Support Tickets:</strong> 2 years after resolution</li>
+                        <li><strong>Analytics Data:</strong> 13 months (anonymized)</li>
+                    </ul>
+
+                    <h4>8. Children's Privacy</h4>
+                    <p>KUNYO is not intended for children under 13. Users between 13-18 require parental consent. We do not knowingly collect data from children under 13.</p>
+
+                    <h4>9. International Data Transfers</h4>
+                    <p>Your data is primarily stored in Nepal. If transferred internationally, we ensure adequate protection through standard contractual clauses.</p>
+
+                    <h4>10. Changes to Privacy Policy</h4>
+                    <p>We will notify you of material changes via email and in-app notification. Continued use after changes constitutes acceptance.</p>
+
+                    <h4>11. Contact Privacy Team</h4>
+                    <p>For privacy questions or to exercise your rights:<br>
+                    Email: privacy@kunyo.com<br>
+                    Phone: +977 01-XXXXXXX<br>
+                    Address: KUNYO Privacy Office, Kathmandu, Nepal</p>
+                    </div>
+
+                    <!-- Comparison Content -->
+                    <div class="terms-content" id="comparisonContent">
+                    <h4>📊 What's New in This Update</h4>
+                    <p>We've made several important changes to improve transparency and protect your rights:</p>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Policy Area</th>
+                                <th>Previous</th>
+                                <th>Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Refund Period</strong></td>
+                                <td><span class="old-value">24 hours</span></td>
+                                <td><span class="new-value">48 hours (Pre-orders)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Retention</strong></td>
+                                <td><span class="old-value">Indefinite</span></td>
+                                <td><span class="new-value">30 days after deletion</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Account Recovery</strong></td>
+                                <td><span class="old-value">Not specified</span></td>
+                                <td><span class="new-value">30-day recovery period</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>2FA Security</strong></td>
+                                <td><span class="old-value">Optional</span></td>
+                                <td><span class="new-value">Recommended (incentivized)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Export</strong></td>
+                                <td><span class="old-value">Not available</span></td>
+                                <td><span class="new-value">Download anytime</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Payment Security</strong></td>
+                                <td><span class="old-value">Standard encryption</span></td>
+                                <td><span class="new-value">256-bit SSL + PCI DSS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Support Response</strong></td>
+                                <td><span class="old-value">48 hours</span></td>
+                                <td><span class="new-value">24 hours guaranteed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 class="features-heading">✨ New Features Added</h4>
+                    <ul>
+                        <li><strong>Enhanced Privacy Controls:</strong> Granular control over data sharing and marketing preferences</li>
+                        <li><strong>Automatic Account Backup:</strong> Your purchase history automatically backed up</li>
+                        <li><strong>Faster Refunds:</strong> Technical issue refunds processed within 24 hours</li>
+                        <li><strong>Security Dashboard:</strong> View login history and active sessions</li>
+                        <li><strong>Data Portability:</strong> Export your data in JSON or CSV format</li>
+                    </ul>
+
+                    <h4>🔒 Improved Security Measures</h4>
+                    <ul>
+                        <li>Email notifications for all account changes</li>
+                        <li>Login verification from new devices</li>
+                        <li>Automatic logout after 30 minutes of inactivity</li>
+                        <li>Suspicious activity detection and alerts</li>
+                        <li>Optional biometric authentication (mobile app)</li>
+                    </ul>
+
+                    <h4>📜 Legal Compliance Updates</h4>
+                    <ul>
+                        <li>GDPR-compliant data handling (for international users)</li>
+                        <li>Nepal Electronic Transaction Act 2063 compliance</li>
+                        <li>Consumer Protection Act 2075 alignment</li>
+                        <li>Updated dispute resolution procedures</li>
+                    </ul>
+
+                    <h4>❓ Frequently Asked Questions</h4>
+                    <p><strong>Q: Do I have to accept these changes?</strong><br>
+                    A: Yes, to continue using KUNYO. If you decline, your account will be deactivated but recoverable for 30 days.</p>
+
+                    <p><strong>Q: What happens to my existing data?</strong><br>
+                    A: All existing data remains protected under the new policy with enhanced security measures.</p>
+
+                    <p><strong>Q: Can I opt-out of data collection?</strong><br>
+                    A: Essential data (account, transactions) is required. You can opt-out of analytics and marketing.</p>
+
+                    <p><strong>Q: How do I delete my account?</strong><br>
+                    A: Go to Settings → Privacy → Delete Account. Data deleted after 30-day recovery period.</p>
+                    </div>
+                </div>
+
+                <!-- Acceptance Checkboxes -->
+                <div class="checkbox-wrapper">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="termsCheck">
+                        <label for="termsCheck">
+                            I have read and accept the updated <a href="#" target="_blank">Terms of Service</a>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="privacyCheck">
+                        <label for="privacyCheck">
+                            I have read and accept the updated <a href="#" target="_blank">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="emailCheck">
+                        <label for="emailCheck">
+                            I agree to receive promotional emails about new games and special offers (optional)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Accept Button -->
+                <button type="button" class="accept-btn" id="acceptBtn" disabled>
+                    <i class="bi bi-check-circle"></i>
+                    Accept & Continue
+                </button>
+
+                <!-- Decline Link -->
+                <div class="decline-link">
+                    <p>Don't agree? <a href="#" id="declineLink">Decline and Sign Out</a></p>
+                </div>
+
+                <div class="terms-footer-note">
+                    <p>🇳🇵 KUNYO - Nepal's #1 Gaming Store | Trusted by 10,000+ Gamers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Tab switching functionality
+            $('.terms-tab').on('click', function() {
+                const tab = $(this).data('tab');
+
+                // Update tabs
+                $('.terms-tab').removeClass('active');
+                $(this).addClass('active');
+
+                // Update content
+                $('.terms-content').removeClass('active');
+                $(`#${tab}Content`).addClass('active');
+
+                // Reset progress bar
+                $('#readingProgressBar').css('width', '0%');
+
+                // Scroll to top of terms box
+                $('.terms-scroll-box').scrollTop(0);
+            });
+
+            // Reading progress bar
+            $('.terms-scroll-box').on('scroll', function() {
+                const scrollTop = $(this).scrollTop();
+                const scrollHeight = $(this)[0].scrollHeight;
+                const clientHeight = $(this)[0].clientHeight;
+                const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+                $('#readingProgressBar').css('width', Math.min(scrollPercentage, 100) + '%');
+
+                // Log when user reads to bottom
+                if (scrollPercentage > 95) {
+                    console.log('User read full document (scrolled to bottom)');
+                }
+            });
+
+            // Download PDF button
+            $('#downloadBtn').on('click', function(e) {
+                e.preventDefault();
+                alert('In production, this would generate a PDF of the Terms & Privacy Policy.\n\nFor now, please use Print to save as PDF.');
+                console.log('Download PDF requested:', new Date().toISOString());
+            });
+
+            // Enable/disable accept button based on required checkboxes
+            function updateAcceptButton() {
+                const termsChecked = $('#termsCheck').is(':checked');
+                const privacyChecked = $('#privacyCheck').is(':checked');
+                const allRequired = termsChecked && privacyChecked;
+
+                $('#acceptBtn').prop('disabled', !allRequired);
+            }
+
+            // Watch for checkbox changes
+            $('#termsCheck, #privacyCheck').on('change', updateAcceptButton);
+
+            // Accept button click
+            $('#acceptBtn').on('click', function() {
+                const emailConsent = $('#emailCheck').is(':checked');
+
+                console.log('Terms Accepted:', {
+                    termsAccepted: true,
+                    privacyAccepted: true,
+                    emailConsent: emailConsent,
+                    timestamp: new Date().toISOString(),
+                    effectiveDate: '2026-04-15'
+                });
+
+                // Show success message
+                $(this).html('<i class="bi bi-check-circle-fill"></i> Accepted! Redirecting...');
+                $(this).css('background', 'linear-gradient(135deg, #10b981, #059669)');
+
+                // Redirect to homepage after 1.5 seconds
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 1500);
+            });
+
+            // Decline link click
+            $('#declineLink').on('click', function(e) {
+                e.preventDefault();
+
+                const confirmed = confirm('If you decline the updated terms, you will be signed out and won\'t be able to use KUNYO until you accept. Are you sure?');
+
+                if (confirmed) {
+                    console.log('Terms Declined:', {
+                        declined: true,
+                        timestamp: new Date().toISOString()
+                    });
+
+                    alert('You have declined the terms. You will be signed out.');
+                    window.location.href = 'signin.html';
+                }
+            });
+
+            // Log page view
+            console.log('Terms Acceptance Page:', {
+                viewed: true,
+                timestamp: new Date().toISOString(),
+                lastUpdated: '2026-03-30',
+                effectiveDate: '2026-04-15'
+            });
+
+            // Smooth scroll for terms box
+            $('.terms-scroll-box').on('scroll', function() {
+                const scrollTop = $(this).scrollTop();
+                const scrollHeight = $(this)[0].scrollHeight;
+                const clientHeight = $(this)[0].clientHeight;
+                const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+                // If user scrolled to bottom, could auto-check boxes (optional)
+                if (scrollPercentage > 95) {
+                    console.log('User read full terms (scrolled to bottom)');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

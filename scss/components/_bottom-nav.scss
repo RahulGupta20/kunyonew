@@ -8,7 +8,7 @@
     border-bottom: 1px solid rgba(220, 20, 60, 0.15);
     padding: 0;
     position: relative;
-    z-index: 1050;
+    z-index: 999;
 
     @include respond-to('md') {
         padding: $spacing-xs 0;
@@ -36,7 +36,7 @@
     padding: $spacing-md $spacing-2xl;
     @include flex-center;
     gap: $spacing-sm;
-    font-size: 1.25rem;
+    font-size: 0.875rem;
     cursor: pointer;
     border-radius: 0;
 
@@ -89,7 +89,7 @@
 .browse-category-item {
     @include flex-between;
     padding: $spacing-lg 18px;
-    font-size: 1.25rem;
+    font-size: 0.875rem;
     color: $text-primary;
     @include transition;
     background: transparent;
@@ -106,7 +106,7 @@
 
     i {
         color: $text-secondary;
-        font-size: 1.25rem;
+        font-size: 0.875rem;
     }
 }
 
@@ -125,7 +125,7 @@
         padding: $spacing-md 0;
         @include flex-center;
         gap: 4px;
-        font-size: 1.25rem;
+        font-size: 0.875rem;
         font-weight: 500;
 
         &:hover {
