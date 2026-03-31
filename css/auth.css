@@ -64,16 +64,48 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   color: #DC143C;
-  font-weight: 600;
-  font-size: 0.875rem;
+  font-weight: 700;
+  font-size: 1rem;
   text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(220, 20, 60, 0.2);
+}
+.link-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #DC143C, #C41230);
+  transition: width 0.3s ease;
+}
+.link-arrow svg {
+  transition: transform 0.3s ease;
+  animation: slideArrowLeftRight 2s ease-in-out infinite;
 }
 .link-arrow:hover {
-  color: #C41230;
+  color: #FFFFFF;
+}
+.link-arrow:hover::after {
+  width: 100%;
+}
+.link-arrow:hover svg {
+  animation: none;
+  transform: translateX(6px);
 }
 
+@keyframes slideArrowLeftRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
 .mt-1 {
   margin-top: 1rem;
 }
@@ -1051,15 +1083,12 @@ p {
   .auth-container {
     grid-template-columns: 1fr;
   }
-
   .auth-info-section {
     display: none;
   }
-
   .auth-form-section {
     min-height: 100vh;
   }
-
   .auth-page {
     padding-top: 0;
   }
@@ -1068,11 +1097,9 @@ p {
   .auth-form-section {
     padding: 2rem 1.5rem 1.5rem;
   }
-
   .auth-card-header h1 {
     font-size: 1.875rem;
   }
-
   .auth-form {
     gap: 1.25rem;
   }
@@ -1081,11 +1108,9 @@ p {
   .auth-form-section {
     padding: 1.5rem 1rem 1rem;
   }
-
   .auth-form-wrapper {
     max-width: 100%;
   }
-
   .auth-card-header {
     margin-bottom: 2rem;
   }
@@ -1095,23 +1120,19 @@ p {
   .auth-card-header p {
     font-size: 0.9375rem;
   }
-
   .form-group input {
     padding: 0.875rem 1rem;
     font-size: 0.9375rem;
   }
-
   .auth-social-btns {
     grid-template-columns: 1fr;
     gap: 0.875rem;
   }
-
   .form-options {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.875rem;
   }
-
   .checkbox-label,
 .forgot-link {
     font-size: 0.875rem;
