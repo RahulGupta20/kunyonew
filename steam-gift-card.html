@@ -1,0 +1,3508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUNYO - Game Top Up & Digital Gift Cards | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Header Styles (Original) -->
+
+    <!-- Global CSS (Navbar, Footer, Common) -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Detail Page CSS (Product pages, Topup pages, etc.) -->
+    <link rel="stylesheet" href="css/detail-page.css">
+</head>
+<body>
+
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="#" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>eGift Cards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Xbox</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>PSN</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Nintendo</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile recharges</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="#" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Direct Top Up</a>
+                    </li>
+                    <li>
+                        <a href="#">Tiktok Coins</a>
+                    </li>
+                    <li>
+                        <a href="#">Subscription</a>
+                    </li>
+                    <li>
+                        <a href="#">Gaming Gears</a>
+                    </li>
+                    <li>
+                        <a href="#">Promotion</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Cart Sidebar Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>
+                    <i class="bi bi-cart3"></i>
+                    Your Cart
+                    <span class="cart-count-badge" id="cartCountBadge">0</span>
+                </h3>
+                <button class="cart-drawer-close" id="cartDrawerClose">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="cart-drawer-body" id="cartDrawerBody">
+                <!-- Empty State -->
+                <div class="cart-empty-state" id="cartEmptyState">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-cart-x"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some gaming items to get started!</p>
+                    <button class="btn-continue-shopping" id="btnContinueShopping">
+                        <i class="bi bi-arrow-left"></i>
+                        Continue Shopping
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="cart-items-list" id="cartItemsListDrawer" style="display: none;">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+                <div class="cart-summary-mini">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <strong id="cartSubtotalDrawer">Rs. 0.00</strong>
+                    </div>
+                    <div class="summary-row discount" id="cartDiscountRowDrawer" style="display: none;">
+                        <span>Discount:</span>
+                        <strong class="discount-amount" id="cartDiscountDrawer">-Rs. 0.00</strong>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <strong class="total-amount" id="cartTotalDrawer">Rs. 0.00</strong>
+                    </div>
+                </div>
+                <button class="btn-checkout-drawer" id="btnCheckoutDrawer">
+                    <i class="bi bi-lightning-fill"></i>
+                    <span>Proceed to Checkout</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sticky Checkout Bar -->
+    <div class="mobile-sticky-checkout" id="mobileCheckoutBar" style="display: none;">
+        <div class="checkout-bar-content">
+            <div class="checkout-bar-info">
+                <div class="checkout-price" id="mobileCheckoutPrice">Rs. 0.00</div>
+                <div class="checkout-item-count" id="mobileCheckoutCount">No items selected</div>
+            </div>
+            <button class="btn-mobile-checkout" id="btnMobileCheckout">
+                <i class="bi bi-lightning-fill"></i>
+                <span>Buy Now</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-modal-overlay" id="checkoutModalOverlay"></div>
+        <div class="checkout-modal-container">
+            <!-- Modal Header -->
+            <div class="checkout-modal-header">
+                <h2>
+                    <i class="bi bi-bag-check-fill"></i>
+                    Complete Your Purchase
+                </h2>
+                <button class="checkout-modal-close" id="checkoutModalClose" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="checkout-modal-body">
+                <!-- Order Summary Section -->
+                <div class="checkout-section order-summary-section">
+                    <h3 class="section-title">
+                        <i class="bi bi-receipt"></i>
+                        Order Summary
+                    </h3>
+
+                    <div class="order-item-card">
+                        <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Product" class="order-item-image" id="checkoutProductImage">
+                        <div class="order-item-details">
+                            <h4 id="checkoutProductName">Mobile Legends: Bang Bang</h4>
+                            <p id="checkoutPackageDetails">Select a package</p>
+                        </div>
+                        <span class="order-item-price" id="checkoutItemPrice">Rs. 0.00</span>
+                    </div>
+
+                    <div class="delivery-details-card">
+                        <div class="detail-row">
+                            <i class="bi bi-person-fill"></i>
+                            <span>User ID: <strong id="checkoutUserId">-</strong></span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>Zone ID: <strong id="checkoutZoneId">-</strong></span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="bi bi-clock-fill"></i>
+                            <span>Delivery: <strong>2-5 minutes</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="price-breakdown-card">
+                        <div class="price-row">
+                            <span>Subtotal:</span>
+                            <span id="checkoutSubtotal">Rs. 0.00</span>
+                        </div>
+                        <div class="price-row discount-row" id="checkoutDiscountRow" style="display: none;">
+                            <span>Discount: <small id="checkoutPromoCode"></small></span>
+                            <span class="discount-amount" id="checkoutDiscount">-Rs. 0.00</span>
+                        </div>
+                        <div class="price-row total-row">
+                            <span>Total Amount:</span>
+                            <strong class="total-amount" id="checkoutTotal">Rs. 0.00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method Section -->
+                <div class="checkout-section payment-method-section">
+                    <h3 class="section-title">
+                        <i class="bi bi-credit-card-2-front"></i>
+                        Select Payment Method
+                    </h3>
+
+                    <div class="payment-options-list">
+                        <!-- Credit/Debit Card -->
+                        <label class="payment-option-item active">
+                            <input type="radio" name="checkoutPayment" value="card" checked>
+                            <div class="payment-option-content">
+                                <i class="bi bi-credit-card payment-icon"></i>
+                                <div class="payment-option-text">
+                                    <strong>Credit/Debit Card</strong>
+                                    <small>Visa, Mastercard, or local cards</small>
+                                </div>
+                                <i class="bi bi-chevron-right arrow-icon"></i>
+                            </div>
+                        </label>
+
+                        <!-- eSewa -->
+                        <label class="payment-option-item">
+                            <input type="radio" name="checkoutPayment" value="esewa">
+                            <div class="payment-option-content">
+                                <div class="wallet-icon esewa-icon">e</div>
+                                <div class="payment-option-text">
+                                    <strong>eSewa</strong>
+                                    <small>Pay using eSewa digital wallet</small>
+                                </div>
+                                <i class="bi bi-chevron-right arrow-icon"></i>
+                            </div>
+                        </label>
+
+                        <!-- Khalti -->
+                        <label class="payment-option-item">
+                            <input type="radio" name="checkoutPayment" value="khalti">
+                            <div class="payment-option-content">
+                                <div class="wallet-icon khalti-icon">K</div>
+                                <div class="payment-option-text">
+                                    <strong>Khalti</strong>
+                                    <small>Pay using Khalti digital wallet</small>
+                                </div>
+                                <i class="bi bi-chevron-right arrow-icon"></i>
+                            </div>
+                        </label>
+
+                        <!-- IME Pay -->
+                        <label class="payment-option-item">
+                            <input type="radio" name="checkoutPayment" value="imepay">
+                            <div class="payment-option-content">
+                                <div class="wallet-icon imepay-icon">I</div>
+                                <div class="payment-option-text">
+                                    <strong>IME Pay</strong>
+                                    <small>Pay using IME Pay digital wallet</small>
+                                </div>
+                                <i class="bi bi-chevron-right arrow-icon"></i>
+                            </div>
+                        </label>
+
+                        <!-- Online Banking -->
+                        <label class="payment-option-item">
+                            <input type="radio" name="checkoutPayment" value="banking">
+                            <div class="payment-option-content">
+                                <i class="bi bi-bank payment-icon"></i>
+                                <div class="payment-option-text">
+                                    <strong>Online Banking</strong>
+                                    <small>Pay via internet banking</small>
+                                </div>
+                                <i class="bi bi-chevron-right arrow-icon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Card Form Section -->
+                <div class="checkout-section payment-form-section" id="cardFormSection">
+                    <h3 class="section-title">
+                        <i class="bi bi-credit-card-fill"></i>
+                        Enter Card Details
+                    </h3>
+
+                    <div class="card-form">
+                        <div class="form-group-checkout">
+                            <label for="checkoutCardNumber">Card Number</label>
+                            <div class="card-input-wrapper">
+                                <input type="text"
+                                       class="form-input-checkout"
+                                       id="checkoutCardNumber"
+                                       placeholder="1234 5678 9012 3456"
+                                       maxlength="19">
+                                <div class="card-brand-icons">
+                                    <i class="bi bi-credit-card-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group-checkout">
+                            <label for="checkoutCardName">Cardholder Name</label>
+                            <input type="text"
+                                   class="form-input-checkout"
+                                   id="checkoutCardName"
+                                   placeholder="JOHN DOE"
+                                   style="text-transform: uppercase;">
+                        </div>
+
+                        <div class="form-row-checkout">
+                            <div class="form-group-checkout">
+                                <label for="checkoutCardExpiry">Expiry Date</label>
+                                <input type="text"
+                                       class="form-input-checkout"
+                                       id="checkoutCardExpiry"
+                                       placeholder="MM/YY"
+                                       maxlength="5">
+                            </div>
+                            <div class="form-group-checkout">
+                                <label for="checkoutCardCvv">
+                                    CVV
+                                    <i class="bi bi-question-circle" title="3-digit code on back of card"></i>
+                                </label>
+                                <input type="password"
+                                       class="form-input-checkout"
+                                       id="checkoutCardCvv"
+                                       placeholder="123"
+                                       maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wallet Redirect Section -->
+                <div class="checkout-section payment-form-section" id="walletRedirectSection" style="display: none;">
+                    <div class="redirect-notice-card">
+                        <div class="redirect-icon">
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </div>
+                        <h3>You'll be redirected to <span class="wallet-name" id="walletName">eSewa</span></h3>
+                        <p>After clicking "Continue", you will be redirected to <strong id="walletNameText">eSewa</strong> to complete your payment securely.</p>
+
+                        <div class="redirect-steps">
+                            <div class="redirect-step">
+                                <span class="step-number">1</span>
+                                <span class="step-text">Login to your <span id="walletNameStep1">eSewa</span> account</span>
+                            </div>
+                            <div class="redirect-step">
+                                <span class="step-number">2</span>
+                                <span class="step-text">Confirm payment details</span>
+                            </div>
+                            <div class="redirect-step">
+                                <span class="step-number">3</span>
+                                <span class="step-text">You'll be redirected back after payment</span>
+                            </div>
+                        </div>
+
+                        <div class="order-info-preview">
+                            <p><strong>Details to be sent:</strong></p>
+                            <ul>
+                                <li>Order ID: <strong id="checkoutOrderId">#KUN000000</strong></li>
+                                <li>Amount: <strong id="checkoutRedirectAmount">Rs. 0.00</strong></li>
+                                <li>Product: <strong id="checkoutRedirectProduct">-</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Section -->
+                <div class="checkout-section security-section">
+                    <div class="security-badges">
+                        <div class="security-badge">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Secure Payment</span>
+                        </div>
+                        <div class="security-badge">
+                            <i class="bi bi-lock-fill"></i>
+                            <span>256-bit SSL</span>
+                        </div>
+                        <div class="security-badge">
+                            <i class="bi bi-check-circle"></i>
+                            <span>PCI Compliant</span>
+                        </div>
+                    </div>
+                    <p class="security-text">
+                        Your payment information is encrypted and secure. We never store your card details.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="checkout-modal-footer">
+                <button class="btn-checkout-cancel" id="btnCheckoutCancel">
+                    <i class="bi bi-x-circle"></i>
+                    Cancel
+                </button>
+                <button class="btn-checkout-pay" id="btnCheckoutPay">
+                    <span class="btn-text" id="btnCheckoutPayText">
+                        <i class="bi bi-lightning-fill"></i>
+                        Pay Rs. 0.00
+                    </span>
+                    <span class="btn-loading" id="btnCheckoutPayLoading" style="display:none;">
+                        <span class="spinner-border spinner-border-sm"></span>
+                        Processing...
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top-Up V2 Page -->
+    <section class="topup-v2-page">
+        <!-- Product Header Banner -->
+        <div class="product-banner-v2">
+            <div class="banner-bg"></div>
+            <div class="banner-content">
+                <div class="product-icon-v2">
+                    <img src="file:///Users/rahul/rahul-personal/nepal/kun/kunyo-new/assets/images/steam1.jpeg" alt="Steam Gift Card">
+                    <div class="zoom-overlay">
+                        <i class="bi bi-search"></i>
+                    </div>
+                </div>
+                <div class="product-header-info-v2">
+                    <h1 class="product-title-v2">Steam Gift Card</h1>
+                    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+                        <a href="index.html" class="breadcrumb-link">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>Home</span>
+                        </a>
+                        <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                        <a href="#" class="breadcrumb-link">
+                            <span>Gift Cards</span>
+                        </a>
+                        <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                        <span class="breadcrumb-current">Steam Gift Card</span>
+                    </nav>
+                    <div class="product-stats-v2">
+                        <div class="stats-badges">
+                            <span class="stat-badge"><i class="bi bi-info-circle-fill"></i> Connected to API</span>
+                            <span class="stat-badge"><i class="bi bi-lightning-charge"></i> Delivery within 24 hours</span>
+                            <span class="stat-badge"><i class="bi bi-globe"></i> Global</span>
+                            <span class="stat-badge"><i class="bi bi-phone"></i> Android, iOS</span>
+                        </div>
+                        <div class="action-buttons-v2">
+                            <button class="btn-favorite-v2" id="btnFavoriteV2">
+                                <i class="bi bi-heart"></i> Add to Favorite
+                            </button>
+                            <div class="dropdown">
+                                <button class="btn-share-v2 dropdown-toggle" type="button" id="btnShareV2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-share"></i> Share
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="btnShareV2">
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400'); return false;"><i class="bi bi-facebook"></i> Facebook</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.querySelector('.product-title-v2').textContent), '_blank', 'width=600,height=400'); return false;"><i class="bi bi-twitter"></i> Twitter</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('https://wa.me/?text=' + encodeURIComponent(document.querySelector('.product-title-v2').textContent + ' ' + window.location.href), '_blank'); return false;"><i class="bi bi-whatsapp"></i> WhatsApp</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.querySelector('.product-title-v2').textContent), '_blank'); return false;"><i class="bi bi-telegram"></i> Telegram</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#" onclick="navigator.clipboard.writeText(window.location.href).then(() => alert('Link copied!')); return false;"><i class="bi bi-clipboard"></i> Copy Link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Main Content -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Step 1: Select Package -->
+                    <div class="section-card-v2">
+                        <div class="section-header-v2">
+                            <div class="step-number-v2">1</div>
+                            <div class="step-info-v2">
+                                <h3>Select Package</h3>
+                                <p>Choose the amount you want to top-up</p>
+                            </div>
+                        </div>
+
+                        <!-- Category Tabs -->
+                        <div class="tabs-wrapper">
+                            <button class="tab-scroll-btn tab-scroll-left" id="tabScrollLeft">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <ul class="nav nav-tabs package-category-tabs" role="tablist" id="packageTabs">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-packages" type="button" role="tab" aria-controls="all-packages" aria-selected="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="tab-icon">
+                                            <path d="M52 12a6.006 6.006 0 0 1 6 6v7.207l3.552.951a6.009 6.009 0 0 1 1.124.426l-6.06-22.619a4 4 0 0 0-4.9-2.828L11.175 12zM61.034 28.09 58 27.277V46a6.006 6.006 0 0 1-6 6H11.175l40.542 10.863a4 4 0 0 0 4.9-2.828l7.247-27.046a4 4 0 0 0-2.83-4.899zM23.667 22.5a1.5 1.5 0 0 0-1.5-1.5A3.171 3.171 0 0 0 19 24h3.163a1.5 1.5 0 0 0 1.504-1.5zM21 31h6v12h-6zM21 26h8v3h-8zM9 31h6v12H9zM7 26h8v3H7zM13.833 21a1.5 1.5 0 1 0 0 3H17a3.171 3.171 0 0 0-3.167-3zM17 26h2v17h-2z"/>
+                                            <path d="M52 14H4a4 4 0 0 0-4 4v28a4 4 0 0 0 4 4h48a4 4 0 0 0 4-4V18a4 4 0 0 0-4-4zM31 30a1 1 0 0 1-1 1h-1v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V31H6a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h4.672a3.5 3.5 0 0 1 3.161-5A5.164 5.164 0 0 1 18 21.115 5.164 5.164 0 0 1 22.167 19a3.5 3.5 0 0 1 3.161 5H30a1 1 0 0 1 1 1zm19 13H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2z"/>
+                                        </svg>
+                                        <span>All Packages</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="starter-tab" data-bs-toggle="tab" data-bs-target="#starter-packages" type="button" role="tab" aria-controls="starter-packages" aria-selected="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="tab-icon">
+                                            <path d="M52 12a6.006 6.006 0 0 1 6 6v7.207l3.552.951a6.009 6.009 0 0 1 1.124.426l-6.06-22.619a4 4 0 0 0-4.9-2.828L11.175 12zM61.034 28.09 58 27.277V46a6.006 6.006 0 0 1-6 6H11.175l40.542 10.863a4 4 0 0 0 4.9-2.828l7.247-27.046a4 4 0 0 0-2.83-4.899zM23.667 22.5a1.5 1.5 0 0 0-1.5-1.5A3.171 3.171 0 0 0 19 24h3.163a1.5 1.5 0 0 0 1.504-1.5zM21 31h6v12h-6zM21 26h8v3h-8zM9 31h6v12H9zM7 26h8v3H7zM13.833 21a1.5 1.5 0 1 0 0 3H17a3.171 3.171 0 0 0-3.167-3zM17 26h2v17h-2z"/>
+                                            <path d="M52 14H4a4 4 0 0 0-4 4v28a4 4 0 0 0 4 4h48a4 4 0 0 0 4-4V18a4 4 0 0 0-4-4zM31 30a1 1 0 0 1-1 1h-1v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V31H6a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h4.672a3.5 3.5 0 0 1 3.161-5A5.164 5.164 0 0 1 18 21.115 5.164 5.164 0 0 1 22.167 19a3.5 3.5 0 0 1 3.161 5H30a1 1 0 0 1 1 1zm19 13H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2z"/>
+                                        </svg>
+                                        <span>Starter $10</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="standard-tab" data-bs-toggle="tab" data-bs-target="#standard-packages" type="button" role="tab" aria-controls="standard-packages" aria-selected="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="tab-icon">
+                                            <path d="M52 12a6.006 6.006 0 0 1 6 6v7.207l3.552.951a6.009 6.009 0 0 1 1.124.426l-6.06-22.619a4 4 0 0 0-4.9-2.828L11.175 12zM61.034 28.09 58 27.277V46a6.006 6.006 0 0 1-6 6H11.175l40.542 10.863a4 4 0 0 0 4.9-2.828l7.247-27.046a4 4 0 0 0-2.83-4.899zM23.667 22.5a1.5 1.5 0 0 0-1.5-1.5A3.171 3.171 0 0 0 19 24h3.163a1.5 1.5 0 0 0 1.504-1.5zM21 31h6v12h-6zM21 26h8v3h-8zM9 31h6v12H9zM7 26h8v3H7zM13.833 21a1.5 1.5 0 1 0 0 3H17a3.171 3.171 0 0 0-3.167-3zM17 26h2v17h-2z"/>
+                                            <path d="M52 14H4a4 4 0 0 0-4 4v28a4 4 0 0 0 4 4h48a4 4 0 0 0 4-4V18a4 4 0 0 0-4-4zM31 30a1 1 0 0 1-1 1h-1v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V31H6a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h4.672a3.5 3.5 0 0 1 3.161-5A5.164 5.164 0 0 1 18 21.115 5.164 5.164 0 0 1 22.167 19a3.5 3.5 0 0 1 3.161 5H30a1 1 0 0 1 1 1zm19 13H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2z"/>
+                                        </svg>
+                                        <span>Standard $20</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="popular-tab" data-bs-toggle="tab" data-bs-target="#popular-packages" type="button" role="tab" aria-controls="popular-packages" aria-selected="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="tab-icon">
+                                            <path d="M52 12a6.006 6.006 0 0 1 6 6v7.207l3.552.951a6.009 6.009 0 0 1 1.124.426l-6.06-22.619a4 4 0 0 0-4.9-2.828L11.175 12zM61.034 28.09 58 27.277V46a6.006 6.006 0 0 1-6 6H11.175l40.542 10.863a4 4 0 0 0 4.9-2.828l7.247-27.046a4 4 0 0 0-2.83-4.899zM23.667 22.5a1.5 1.5 0 0 0-1.5-1.5A3.171 3.171 0 0 0 19 24h3.163a1.5 1.5 0 0 0 1.504-1.5zM21 31h6v12h-6zM21 26h8v3h-8zM9 31h6v12H9zM7 26h8v3H7zM13.833 21a1.5 1.5 0 1 0 0 3H17a3.171 3.171 0 0 0-3.167-3zM17 26h2v17h-2z"/>
+                                            <path d="M52 14H4a4 4 0 0 0-4 4v28a4 4 0 0 0 4 4h48a4 4 0 0 0 4-4V18a4 4 0 0 0-4-4zM31 30a1 1 0 0 1-1 1h-1v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V31H6a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h4.672a3.5 3.5 0 0 1 3.161-5A5.164 5.164 0 0 1 18 21.115 5.164 5.164 0 0 1 22.167 19a3.5 3.5 0 0 1 3.161 5H30a1 1 0 0 1 1 1zm19 13H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2z"/>
+                                        </svg>
+                                        <span>Popular $50</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="premium-tab" data-bs-toggle="tab" data-bs-target="#premium-packages" type="button" role="tab" aria-controls="premium-packages" aria-selected="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="tab-icon">
+                                            <path d="M52 12a6.006 6.006 0 0 1 6 6v7.207l3.552.951a6.009 6.009 0 0 1 1.124.426l-6.06-22.619a4 4 0 0 0-4.9-2.828L11.175 12zM61.034 28.09 58 27.277V46a6.006 6.006 0 0 1-6 6H11.175l40.542 10.863a4 4 0 0 0 4.9-2.828l7.247-27.046a4 4 0 0 0-2.83-4.899zM23.667 22.5a1.5 1.5 0 0 0-1.5-1.5A3.171 3.171 0 0 0 19 24h3.163a1.5 1.5 0 0 0 1.504-1.5zM21 31h6v12h-6zM21 26h8v3h-8zM9 31h6v12H9zM7 26h8v3H7zM13.833 21a1.5 1.5 0 1 0 0 3H17a3.171 3.171 0 0 0-3.167-3zM17 26h2v17h-2z"/>
+                                            <path d="M52 14H4a4 4 0 0 0-4 4v28a4 4 0 0 0 4 4h48a4 4 0 0 0 4-4V18a4 4 0 0 0-4-4zM31 30a1 1 0 0 1-1 1h-1v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V31H6a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h4.672a3.5 3.5 0 0 1 3.161-5A5.164 5.164 0 0 1 18 21.115 5.164 5.164 0 0 1 22.167 19a3.5 3.5 0 0 1 3.161 5H30a1 1 0 0 1 1 1zm19 13H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2zm0-5H35a1 1 0 0 1 0-2h15a1 1 0 0 1 0 2z"/>
+                                        </svg>
+                                        <span>Premium $100</span>
+                                    </button>
+                                </li>
+                            </ul>
+                            <button class="tab-scroll-btn tab-scroll-right" id="tabScrollRight">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="packageTabContent">
+                            <!-- All Packages Tab -->
+                            <div class="tab-pane fade show active" id="all-packages" role="tabpanel" aria-labelledby="all-tab">
+                                <div class="packages-list-v2">
+                            <div class="package-row-v2 popular" data-package-id="20" data-price="3200.00" data-amount="20">
+                                <span class="row-badge">Popular</span>
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span>💳</span></div>
+                                    <div class="package-details">
+                                        <h4>Steam Wallet Code - $20 USD</h4>
+                                        <span class="package-desc">Digital delivery • Instant activation</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs. 3,200.00</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="100" data-price="16000.00" data-amount="100">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span>💳</span></div>
+                                    <div class="package-details">
+                                        <h4>Steam Wallet Code - $100 USD</h4>
+                                        <span class="package-desc">Digital delivery • Instant activation</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs. 16,000.00</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2 best" data-package-id="50" data-price="8000.00" data-amount="50">
+                                <span class="row-badge best">Best Value</span>
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span>💳</span></div>
+                                    <div class="package-details">
+                                        <h4>Steam Wallet Code - $50 USD</h4>
+                                        <span class="package-desc">Digital delivery • Instant activation</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs. 8,000.00</div>
+                                </div>
+                            </div>
+
+                            <div class="package-row-v2" data-package-id="10" data-price="1600.00" data-amount="10">
+                                <div class="checkbox-select-v2">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+                                <div class="package-left">
+                                    <div class="package-icon"><span>💳</span></div>
+                                    <div class="package-details">
+                                        <h4>Steam Wallet Code - $10 USD</h4>
+                                        <span class="package-desc">Digital delivery • Instant activation</span>
+                                    </div>
+                                </div>
+                                <div class="package-right">
+                                    <div class="package-price-v2">Rs. 1,600.00</div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            <!-- End All Packages Tab -->
+
+                            <!-- Starter $10 Packages Tab -->
+                            <div class="tab-pane fade" id="starter-packages" role="tabpanel" aria-labelledby="starter-tab">
+                                <div class="packages-list-v2">
+                                    <div class="package-row-v2 popular" data-package-id="10" data-price="1600.00" data-amount="10">
+                                        <span class="row-badge">Popular</span>
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $10 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 1,600.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="20" data-price="3200.00" data-amount="20">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $20 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 3,200.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="100" data-price="16000.00" data-amount="100">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $100 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 16,000.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="50" data-price="8000.00" data-amount="50">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $50 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 8,000.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Standard $20 Packages Tab -->
+                            <div class="tab-pane fade" id="standard-packages" role="tabpanel" aria-labelledby="standard-tab">
+                                <div class="packages-list-v2">
+                                    <div class="package-row-v2 popular" data-package-id="20" data-price="3200.00" data-amount="20">
+                                        <span class="row-badge">Popular</span>
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $20 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 3,200.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="100" data-price="16000.00" data-amount="100">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $100 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 16,000.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="50" data-price="8000.00" data-amount="50">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $50 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 8,000.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="10" data-price="1600.00" data-amount="10">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $10 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 1,600.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Popular $50 Packages Tab -->
+                            <div class="tab-pane fade" id="popular-packages" role="tabpanel" aria-labelledby="popular-tab">
+                                <div class="packages-list-v2">
+                                    <div class="package-row-v2 popular" data-package-id="50" data-price="8000.00" data-amount="50">
+                                        <span class="row-badge">Popular</span>
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $50 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 8,000.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="20" data-price="3200.00" data-amount="20">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $20 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 3,200.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="100" data-price="16000.00" data-amount="100">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $100 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 16,000.00</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="package-row-v2" data-package-id="10" data-price="1600.00" data-amount="10">
+                                        <div class="checkbox-select-v2">
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span>💳</span></div>
+                                            <div class="package-details">
+                                                <h4>Steam Wallet Code - $10 USD</h4>
+                                                <span class="package-desc">Digital delivery • Instant activation</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right">
+                                            <div class="package-price-v2">Rs. 1,600.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Premium $100 Packages Tab -->
+                            <div class="tab-pane fade" id="premium-packages" role="tabpanel" aria-labelledby="premium-tab">
+                                <div class="cart-empty-state">
+                                    <div class="empty-state-icon">
+                                        <i class="bi bi-box-seam"></i>
+                                    </div>
+                                    <h4>Product Unavailable</h4>
+                                    <p>The Premium $100 package is currently unavailable. Please check back later or explore other options.</p>
+                                </div>
+                            </div>
+
+                            <!-- Diamonds Packages Tab -->
+                            <div class="tab-pane fade" id="diamonds-packages" role="tabpanel" aria-labelledby="diamonds-tab">
+                                <div class="packages-list-v2">
+                                    <!-- Popular packages only -->
+                                    <div class="package-row-v2 popular" data-package-id="2" data-price="3.49" data-diamonds="250">
+                                        <span class="row-badge">Popular</span>
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>250 Diamonds <span class="bonus">+10 Bonus</span></h4>
+                                                <span class="package-desc">Most chosen package</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.3.49</div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Twilight Pass Tab -->
+                            <div class="tab-pane fade" id="twilight-packages" role="tabpanel" aria-labelledby="twilight-tab">
+                                <div class="packages-list-v2">
+                                    <!-- Best deal packages -->
+                                    <div class="package-row-v2 best" data-package-id="5" data-price="29.99" data-diamonds="2500">
+                                        <span class="row-badge best">Best Deal</span>
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>2500 Diamonds <span class="bonus">+200 Bonus</span></h4>
+                                                <span class="package-desc">Save 25% • Maximum value</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.29.99</div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bundles Packages Tab -->
+                            <div class="tab-pane fade" id="bundles-packages" role="tabpanel" aria-labelledby="bundles-tab">
+                                <div class="packages-list-v2">
+                                    <!-- Starter packages (small amounts) -->
+                                    <div class="package-row-v2" data-package-id="1" data-price="1.49" data-diamonds="100">
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>100 Diamonds</h4>
+                                                <span class="package-desc">Perfect for starters</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.1.49</div></div>
+                                    </div>
+                                    <div class="package-row-v2" data-package-id="3" data-price="6.99" data-diamonds="500">
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>500 Diamonds <span class="bonus">+25 Bonus</span></h4>
+                                                <span class="package-desc">Save 15% • Best value</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.6.99</div></div>
+                                    </div>
+                                    <div class="package-row-v2" data-package-id="4" data-price="12.99" data-diamonds="1000">
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>1000 Diamonds <span class="bonus">+60 Bonus</span></h4>
+                                                <span class="package-desc">Save 20% • Recommended</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.12.99</div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2x Recharge Bonus Packages Tab -->
+                            <div class="tab-pane fade" id="bonus-packages" role="tabpanel" aria-labelledby="bonus-tab">
+                                <div class="packages-list-v2">
+                                    <!-- Premium packages (high amounts) -->
+                                    <div class="package-row-v2" data-package-id="14" data-price="1999.99" data-diamonds="600000">
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>600000 Diamonds <span class="bonus">+200000 Bonus</span></h4>
+                                                <span class="package-desc">Save 70% • Diamond Package</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.1999.99</div></div>
+                                    </div>
+                                    <div class="package-row-v2" data-package-id="15" data-price="2999.99" data-diamonds="1000000">
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>1000000 Diamonds <span class="bonus">+500000 Bonus</span></h4>
+                                                <span class="package-desc">Save 75% • Immortal Package</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.2999.99</div></div>
+                                    </div>
+                                    <div class="package-row-v2" data-package-id="16" data-price="4999.99" data-diamonds="2000000">
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>2000000 Diamonds <span class="bonus">+1000000 Bonus</span></h4>
+                                                <span class="package-desc">Save 80% • God Tier Package</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.4999.99</div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Weekly Diamond Pass Packages Tab -->
+                            <div class="tab-pane fade" id="weekly-packages" role="tabpanel" aria-labelledby="weekly-tab">
+                                <div class="packages-list-v2">
+                                    <!-- Weekly Diamond Pass packages -->
+                                    <div class="package-row-v2" data-package-id="17" data-price="99.99" data-diamonds="weekly">
+                                        <div class="checkbox-select-v2"><i class="bi bi-check-lg"></i></div>
+                                        <div class="package-left">
+                                            <div class="package-icon"><span></span></div>
+                                            <div class="package-details">
+                                                <h4>Weekly Diamond Pass</h4>
+                                                <span class="package-desc">Get diamonds daily for 7 days</span>
+                                            </div>
+                                        </div>
+                                        <div class="package-right"><div class="package-price-v2">Rs.99.99</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Tab Content -->
+                    </div>
+
+                    <!-- Product Description -->
+                    <div class="section-card-v2 product-description-v2 for-mobile-view d-none d-lg-block">
+                        <h3 class="description-title">Description</h3>
+
+                        <div class="description-content">
+                            <h4>About Mobile Legends Diamonds</h4>
+                            <p><strong>Mobile Legends: Bang Bang Diamonds</strong> is the in-game currency that can be used to purchase various items and features within the game. Diamonds can be obtained through in-game purchases using real money, or by participating in various in-game events and completing certain tasks. They can also be obtained as a reward from events, tournaments, and giveaways organized by the game developers. Diamonds can be used to purchase a variety of in-game items such as heroes, skins, emotes, and other cosmetic items. They can also be used to purchase certain in-game features like hero trial cards and battle points (BP) conversion.</p>
+
+                            <p>Additionally, Diamonds can be used to purchase skins for heroes, emotes, and even converted into BP. They can also be purchased in bulk, usually at a discounted price, in the form of bundles or packages. It's worth noting that the availability and cost of these items and features may vary depending on the region or country you are in. While Diamonds can enhance your gaming experience, it is not necessary to purchase them to enjoy the game. It's up to the player's discretion to decide whether or not to purchase Diamonds.</p>
+
+                            <h4>Why buy MLBB Diamond?</h4>
+                            <p>Buying Diamonds in Mobile Legends: Bang Bang can be a great way to enhance your gaming experience. With Diamonds, you'll have access to all sorts of premium features like new heroes, skins, emotes, and other cosmetic items that can make your characters look unique. Not only that, but you'll also be able to purchase in-game features like hero trial cards and battle points conversion that can be really helpful in improving your gameplay. Plus, using Diamonds to buy cosmetic items like skins and emotes can help you personalize your gaming experience. And if you're short on time, you can use Diamonds to purchase items that can help you progress faster. On top of all that, buying Diamonds also supports the game developers and helps fund future updates and development of the game. While it's not necessary to purchase Diamonds to enjoy the game, it can definitely make your Mobile Legends experience even better.</p>
+
+                            <h4>Is it worth buying diamonds in Mobile Legends?</h4>
+                            <p>Whether or not buying diamonds in Mobile Legends is worth it, ultimately depends on your personal preferences and goals as a player. Diamonds are the in-game currency that can be used to purchase a variety of items and features such as heroes, skins, emotes, and other cosmetic items. They can also be used to purchase certain in-game features like hero trial cards and battle points (BP) conversion. If you are someone who wants to have access to a wide range of characters and skins, or you want to progress faster in the game, then buying diamonds might be worth it for you.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Step 2: Enter Details -->
+                    <div class="section-card-v2">
+                        <div class="section-header-v2">
+                            <div class="step-number-v2">2</div>
+                            <div class="step-info-v2">
+                                <h3>
+                                    Quantity
+                                    <button class="info-icon-btn" id="scrollToGuideBtn" type="button" title="View Guide">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </h3>
+                                <p>Select the quantity of codes you need</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-v2 quantity-grid">
+                            <div class="form-group-v2">
+                                <label for="quantityV2">Quantity</label>
+                                <div class="quantity-selector">
+                                    <button type="button" class="quantity-btn quantity-decrease" id="decreaseQty">
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+                                    <input type="number" class="input-v2 quantity-input" id="quantityV2" value="1" min="1" max="99" required readonly>
+                                    <button type="button" class="quantity-btn quantity-increase" id="increaseQty">
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="section-card-v2 order-summary-v2 sticky-sidebar">
+                        <div class="section-header-v2 mb-2">
+                            <div class="step-number-v2">3</div>
+                            <div class="step-info-v2">
+                                <h3>Order Summary</h3>
+                                <p>Review your purchase</p>
+                            </div>
+                        </div>
+
+                        <!-- Summary Content -->
+                        <div class="summary-content-v2">
+
+                            <!-- Package Info -->
+                            <div class="summary-info-grid">
+                                <div class="info-row">
+                                    <span class="info-label">Package:</span>
+                                    <span class="info-value" id="summaryPackage">Select a package</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value" id="summaryPrice">$0.00</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Wallet Charge:</span>
+                                    <span class="info-value wallet-charge" id="summaryWalletCharge">$0.00</span>
+                                </div>
+                            </div>
+
+                            <!-- Pricing Breakdown -->
+                            <div class="pricing-breakdown">
+                                <div class="pricing-row">
+                                    <span>Subtotal:</span>
+                                    <strong id="pricingSubtotal">$0.00</strong>
+                                </div>
+                                <div class="pricing-row discount" id="pricingDiscountRow">
+                                    <span>Discount:</span>
+                                    <strong id="pricingDiscount">-$0.00</strong>
+                                </div>
+                                <div class="pricing-row total">
+                                    <span>Total:</span>
+                                    <strong id="pricingTotal">$0.00</strong>
+                                </div>
+                            </div>
+
+                            <!-- Promo Code Section -->
+                            <div class="promo-section-v2">
+                                <div class="promo-input-group">
+                                    <input type="text" class="promo-input-v2" id="promoInput" placeholder="Enter promo code">
+                                    <button class="btn-apply-promo" id="btnApplyPromo">
+                                        <i class="bi bi-tag-fill"></i>
+                                        <span>Apply</span>
+                                    </button>
+                                </div>
+                                <div class="promo-message success" id="promoSuccess" style="display: none;">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Promo applied!</span>
+                                </div>
+                                <div class="promo-message error" id="promoError" style="display: none;">
+                                    <i class="bi bi-x-circle-fill"></i>
+                                    <span>Invalid promo code</span>
+                                </div>
+                            </div>
+
+                            <!-- Payment Method Accordion -->
+                            <div class="payment-accordion-v2">
+                                <div class="payment-accordion-header" id="paymentAccordionHeader">
+                                    <div class="payment-selected-display">
+                                        <i class="bi bi-wallet2" id="paymentSelectedIcon"></i>
+                                        <div>
+                                            <span id="paymentSelectedText">Select Payment Method</span>
+                                            <small>Choose your preferred payment option</small>
+                                        </div>
+                                    </div>
+                                    <i class="bi bi-chevron-down accordion-arrow"></i>
+                                </div>
+                                <div class="payment-accordion-body" id="paymentAccordionBody" style="display: none;">
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="card">
+                                        <div class="payment-option-content">
+                                            <i class="bi bi-credit-card"></i>
+                                            <div class="payment-option-text">
+                                                <strong>Credit/Debit Card</strong>
+                                                <small>Visa, Mastercard, or local cards</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="esewa">
+                                        <div class="payment-option-content">
+                                            <div class="wallet-icon" style="background: #60bb46; color: white;">e</div>
+                                            <div class="payment-option-text">
+                                                <strong>eSewa</strong>
+                                                <small>Pay using eSewa digital wallet</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="khalti">
+                                        <div class="payment-option-content">
+                                            <div class="wallet-icon" style="background: #5c2d91; color: white;">K</div>
+                                            <div class="payment-option-text">
+                                                <strong>Khalti</strong>
+                                                <small>Pay using Khalti digital wallet</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="imepay">
+                                        <div class="payment-option-content">
+                                            <div class="wallet-icon" style="background: #d71921; color: white;">I</div>
+                                            <div class="payment-option-text">
+                                                <strong>IME Pay</strong>
+                                                <small>Pay using IME Pay digital wallet</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option-item">
+                                        <input type="radio" name="paymentV2" value="banking">
+                                        <div class="payment-option-content">
+                                            <i class="bi bi-bank"></i>
+                                            <div class="payment-option-text">
+                                                <strong>Online Banking</strong>
+                                                <small>Pay via internet banking</small>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="checkout-actions">
+                                <button class="btn-add-to-cart" id="btnAddToCart">
+                                    <i class="bi bi-cart-plus"></i>
+                                    <span>Add to Cart</span>
+                                </button>
+                                <button class="btn-buy-now" id="btnBuyNow">
+                                    <i class="bi bi-lightning-fill"></i>
+                                    <span>Buy Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <!-- Product Description -->
+                    <div class="section-card-v2 product-description-v2 for-mobile-view d-lg-none">
+                        <h3 class="description-title">Description</h3>
+
+                        <div class="description-content">
+                            <h4>About Mobile Legends Diamonds</h4>
+                            <p><strong>Mobile Legends: Bang Bang Diamonds</strong> is the in-game currency that can be used to purchase various items and features within the game. Diamonds can be obtained through in-game purchases using real money, or by participating in various in-game events and completing certain tasks. They can also be obtained as a reward from events, tournaments, and giveaways organized by the game developers. Diamonds can be used to purchase a variety of in-game items such as heroes, skins, emotes, and other cosmetic items. They can also be used to purchase certain in-game features like hero trial cards and battle points (BP) conversion.</p>
+
+                            <p>Additionally, Diamonds can be used to purchase skins for heroes, emotes, and even converted into BP. They can also be purchased in bulk, usually at a discounted price, in the form of bundles or packages. It's worth noting that the availability and cost of these items and features may vary depending on the region or country you are in. While Diamonds can enhance your gaming experience, it is not necessary to purchase them to enjoy the game. It's up to the player's discretion to decide whether or not to purchase Diamonds.</p>
+
+                            <h4>Why buy MLBB Diamond?</h4>
+                            <p>Buying Diamonds in Mobile Legends: Bang Bang can be a great way to enhance your gaming experience. With Diamonds, you'll have access to all sorts of premium features like new heroes, skins, emotes, and other cosmetic items that can make your characters look unique. Not only that, but you'll also be able to purchase in-game features like hero trial cards and battle points conversion that can be really helpful in improving your gameplay. Plus, using Diamonds to buy cosmetic items like skins and emotes can help you personalize your gaming experience. And if you're short on time, you can use Diamonds to purchase items that can help you progress faster. On top of all that, buying Diamonds also supports the game developers and helps fund future updates and development of the game. While it's not necessary to purchase Diamonds to enjoy the game, it can definitely make your Mobile Legends experience even better.</p>
+
+                            <h4>Is it worth buying diamonds in Mobile Legends?</h4>
+                            <p>Whether or not buying diamonds in Mobile Legends is worth it, ultimately depends on your personal preferences and goals as a player. Diamonds are the in-game currency that can be used to purchase a variety of items and features such as heroes, skins, emotes, and other cosmetic items. They can also be used to purchase certain in-game features like hero trial cards and battle points (BP) conversion. If you are someone who wants to have access to a wide range of characters and skins, or you want to progress faster in the game, then buying diamonds might be worth it for you.</p>
+                        </div>
+                    </div>
+
+                    <!-- Guide -->
+                    <div class="section-card-v2 guide-section-v2" id="guideSection">
+                        <h3 class="guide-title">Guide</h3>
+
+                        <div class="guide-content">
+                            <h4>How to top up ML Diamond?</h4>
+                            <ol class="guide-steps">
+                                <li>Select the Diamond denomination.</li>
+                                <li>Enter your ML User ID and Zone ID.</li>
+                                <li>Check out and select your payment method.</li>
+                                <li>Once payment is made, the ML Diamond you purchased will be credited to your MLBB Account shortly.</li>
+                            </ol>
+
+                            <h4>How to find ML User ID and Zone ID?</h4>
+                            <ol class="guide-steps">
+                                <li>Use your account to login the game.</li>
+                                <li>Click on your avatar in the top-left corner.</li>
+                                <li>Your ML User ID and Zone ID will be displayed. (e.g. User ID="12345678", ZoneID="1234")</li>
+                            </ol>
+
+                            <div class="guide-image">
+                                <img src="assets/images/mobile-legend-uid-guide.jpg!description" alt="How to find ML User ID and Zone ID">
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <!-- Reviews -->
+                    <div class="section-card-v2 reviews-section-v2">
+                        <h3 class="reviews-title">Reviews</h3>
+
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="rating-score">4.8</div>
+                                <div class="rating-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <div class="rating-count">Based on 2,547 reviews</div>
+                            </div>
+                            <div class="rating-breakdown">
+                                <div class="rating-bar">
+                                    <span class="star-label">5 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 78%"></div></div>
+                                    <span class="percentage">78%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">4 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 15%"></div></div>
+                                    <span class="percentage">15%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">3 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 5%"></div></div>
+                                    <span class="percentage">5%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">2 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                    <span class="percentage">1%</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span class="star-label">1 <i class="bi bi-star-fill"></i></span>
+                                    <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                    <span class="percentage">1%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">RK</div>
+                                        <div class="reviewer-details">
+                                            <h5>Rajesh Kumar</h5>
+                                            <div class="review-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">2 days ago</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>Instant delivery! Got my UC within 2 minutes of payment. Highly recommended for quick top-ups.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">SP</div>
+                                        <div class="reviewer-details">
+                                            <h5>Suman Pradhan</h5>
+                                            <div class="review-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">1 week ago</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>Best prices in Nepal! Been using KUNYO for all my game top-ups. Safe and reliable service.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">AM</div>
+                                        <div class="reviewer-details">
+                                            <h5>Aayush Maharjan</h5>
+                                            <div class="review-stars">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="review-date">2 weeks ago</span>
+                                </div>
+                                <div class="review-content">
+                                    <p>Good service overall. UC was delivered as promised. Customer support was helpful when I had questions.</p>
+                                </div>
+                                <div class="review-footer">
+                                    <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Purchase</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-load-more">Load More Reviews</button>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="section-card-v2 faq-section-v2">
+                        <h3 class="faq-title">
+                            <i class="bi bi-question-circle-fill"></i>
+                            Frequently Asked Questions
+                        </h3>
+
+                        <div class="faq-accordion">
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="1">
+                                    <span>How long does delivery take?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="1">
+                                    <p>Delivery is usually instant! Once your payment is confirmed, diamonds are automatically credited to your account within 2-5 minutes. In rare cases, it may take up to 24 hours during high traffic periods.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="2">
+                                    <span>Is it safe to share my User ID and Zone ID?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="2">
+                                    <p>Yes, it's completely safe! User ID and Zone ID are public identifiers used only for delivering diamonds to your account. We never ask for your password or any sensitive account information.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="3">
+                                    <span>What if I enter wrong User ID or Zone ID?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="3">
+                                    <p>Please double-check your details before purchasing. If you accidentally enter wrong information and diamonds are delivered to another account, we cannot reverse the transaction. However, contact our support team immediately and we'll try our best to assist you.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="4">
+                                    <span>Can I get a refund?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="4">
+                                    <p>Refunds are available only if the diamonds were not delivered within 48 hours or if there was a technical error on our end. Once diamonds are successfully delivered to your account, refunds cannot be processed as this is a digital product.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="5">
+                                    <span>Which payment methods do you accept?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="5">
+                                    <p>We accept all major payment methods including eSewa, Khalti, IME Pay, Credit/Debit Cards (Visa, Mastercard), and Online Banking. All payments are processed securely through encrypted payment gateways.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="6">
+                                    <span>Do you provide 24/7 customer support?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="6">
+                                    <p>Yes! Our customer support team is available 24/7 via WhatsApp, Email, and Live Chat. We typically respond within 5-10 minutes during business hours and within 30 minutes outside business hours.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="7">
+                                    <span>How do I find my User ID and Zone ID?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="7">
+                                    <p>Open Mobile Legends game → Tap your avatar in the top-left corner → Your User ID and Zone ID will be displayed (Example: User ID: "12345678", Zone ID: "1234"). Refer to the guide section above for a visual tutorial.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" data-faq="8">
+                                    <span>Are there any hidden charges?</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer" data-answer="8">
+                                    <p>No hidden charges! The price you see is the final price you pay. Some payment methods may charge a small processing fee (2-3%), which will be clearly displayed before you confirm payment.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-contact-cta">
+                            <p>Still have questions?</p>
+                            <a href="#" class="btn-contact-support">
+                                <i class="bi bi-headset"></i>
+                                Contact Support
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Product Meta Info -->
+                    <div class="mb-4 mt-lg-4">
+                        <div class="product-meta-info">
+                            <div class="meta-row">
+                                <div class="meta-icon">
+                                    <i class="bi bi-truck"></i>
+                                </div>
+                                <div class="meta-content">
+                                    <span class="meta-label">Delivery mode</span>
+                                    <span class="meta-value">Direct Topup VIA UID AND Username</span>
+                                </div>
+                            </div>
+                            <div class="meta-row">
+                                <div class="meta-icon">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div class="meta-content">
+                                    <span class="meta-label">Delivery time</span>
+                                    <span class="meta-value">24 hours to 48 hours</span>
+                                </div>
+                            </div>
+                            <div class="meta-row">
+                                <div class="meta-icon">
+                                    <i class="bi bi-phone"></i>
+                                </div>
+                                <div class="meta-content">
+                                    <span class="meta-label">Platform</span>
+                                    <span class="meta-value">Android, iOS</span>
+                                </div>
+                            </div>
+                            <div class="meta-row">
+                                <div class="meta-icon">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div class="meta-content">
+                                    <span class="meta-label">Region</span>
+                                    <span class="meta-value">Nepal, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="mb-4">
+                        <div class="pd2-trust-badges">
+                            <div class="trust-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant Delivery</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>100% Secure</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="bi bi-cash-coin"></i>
+                                <span>Best Price</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- advertisement -->
+                    <div>
+                        <img src="assets/images/topup-page-ad.png" class="img-fluid" alt="advertisement">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- You May Also Like Section -->
+    <section class="section you-may-also-like-section">
+        <div class="container-fluid">
+            <div class="section-header">
+                <div>
+                    <h2 class="main-sec-title">You May Also Like</h2>
+                </div>
+            </div>
+            <div class="owl-carousel owl-theme you-may-also-like-carousel">
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F87c9ac1ee7fbc89bf4567e572ccb78c8_Bibek%208.jpg&w=1080&q=75"
+                                    class="img-fluid"
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F31d4eafaa20588961ce955d58cbeae0e_TOP%20UP%203.jpg&w=1080&q=75"
+                                    class="img-fluid"
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Ftop-up%2F0a2a170a12465e3805badfb409d122d7_TOP%20UP%205.jpg&w=1080&q=75"
+                                    class="img-fluid"
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F85792062037b78356822549c8b30d177_steam%20wallet%20design%20.png&w=1080&q=75"
+                                    class="img-fluid"
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+                <article class="angled-box popular-product-item">
+                    <div class="angled-box-content">
+                        <header class="image-wrap">
+                            <figure class="promo-figure">
+                                <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fgift-card%2F5765753ae1ebfc71221bc3ce1f9b6556_325.png&w=1080&q=75"
+                                    class="img-fluid"
+                                    alt="Free Fire 1050 Diamond promotional offer">
+                            </figure>
+                        </header>
+                        <footer class="pack-footer">
+                            <h3>Free Fire Diamond Top Up (Direct) Via UID(No Indian & Indonesian Region)</h3>
+                            <h4 class="prices-range">Rs. 80.00 - Rs. 6100.00</h4>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+
+
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Image Modal (Bootstrap) -->
+    <div class="modal fade" id="productImageModal" tabindex="-1" aria-labelledby="productImageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content product-quick-view-modal">
+                <button type="button" class="btn-close-product-modal" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-md-5">
+                            <div class="product-modal-image">
+                                <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Mobile Legends: Bang Bang" id="modalImage" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="product-modal-info">
+                                <h2 class="product-modal-title" id="modalTitle">Mobile Legends: Bang Bang</h2>
+                                <div class="product-modal-rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span id="modalRating">4.8</span>
+                                    <span class="rating-count">(<span id="modalReviewCount">2,547</span> reviews)</span>
+                                </div>
+                                <div class="product-modal-meta">
+                                    <span class="meta-item"><i class="bi bi-globe"></i> Global</span>
+                                    <span class="meta-item"><i class="bi bi-phone"></i> Android, iOS</span>
+                                    <span class="meta-item"><i class="bi bi-lightning-charge"></i> Instant Delivery</span>
+                                    <span class="meta-item"><i class="bi bi-shield-check"></i> Secure Payment</span>
+                                </div>
+                                <p class="product-modal-description" id="modalDescription">
+                                    <strong>Mobile Legends: Bang Bang Diamonds</strong> is the in-game currency that can be used to purchase various items and features within the game. Diamonds can be obtained through in-game purchases using real money, or by participating in various in-game events and completing certain tasks.
+                                </p>
+                                <div class="product-modal-features">
+                                    <h6>What can you buy with Diamonds?</h6>
+                                    <ul>
+                                        <li><i class="bi bi-check-circle-fill"></i> Exclusive weapon skins and hero skins</li>
+                                        <li><i class="bi bi-check-circle-fill"></i> New heroes and character upgrades</li>
+                                        <li><i class="bi bi-check-circle-fill"></i> Battle Pass and Elite Pass upgrades</li>
+                                        <li><i class="bi bi-check-circle-fill"></i> Lucky spins and treasure box openings</li>
+                                        <li><i class="bi bi-check-circle-fill"></i> Premium items from the in-game shop</li>
+                                        <li><i class="bi bi-check-circle-fill"></i> Character customizations and emotes</li>
+                                    </ul>
+                                </div>
+                                <div class="product-modal-footer">
+                                    <div class="product-modal-price">
+                                        <span class="price-label">Starting from</span>
+                                        <span class="price-amount" id="modalPrice">Rs. 80.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+
+    <!-- Top-Up V2 JavaScript with Form Validation -->
+    <script>
+    (function() {
+        'use strict';
+
+        // State Management
+        const state = {
+            selectedPackage: null,
+            userDetails: {
+                userId: '',
+                username: ''
+            },
+            selectedPayment: 'card',
+            promoCode: '',
+            discount: 0,
+            cart: []
+        };
+
+        // Load cart from localStorage
+        function loadCart() {
+            state.cart = window.KunyoCart.get();
+            renderCart();
+            updatePricing();
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            window.KunyoCart.set(state.cart);
+        }
+
+        // DOM Elements
+        const packageRows = document.querySelectorAll('.package-row-v2');
+        const userIdInput = document.getElementById('userIdV2');
+        const usernameInput = document.getElementById('zoneIdV2');
+        const btnAddToCart = document.getElementById('btnAddToCart');
+        const btnBuyNow = document.getElementById('btnBuyNow');
+
+        // Cart elements
+        const cartItemsList = document.getElementById('cartItemsList');
+        const cartEmpty = document.getElementById('cartEmpty');
+        const cartCount = document.getElementById('cartCount');
+        const pricingSubtotal = document.getElementById('pricingSubtotal');
+        const pricingDiscount = document.getElementById('pricingDiscount');
+        const pricingDiscountRow = document.getElementById('pricingDiscountRow');
+        const pricingTotal = document.getElementById('pricingTotal');
+
+        // Promo elements
+        const promoInput = document.getElementById('promoInput');
+        const btnApplyPromo = document.getElementById('btnApplyPromo');
+        const promoSuccess = document.getElementById('promoSuccess');
+        const promoError = document.getElementById('promoError');
+
+        // Summary elements
+        const summaryPackageValue = document.getElementById('summaryPackage');
+        const summaryPrice = document.getElementById('summaryPrice');
+        const summaryWalletCharge = document.getElementById('summaryWalletCharge');
+        const summaryTotalAmount = document.querySelector('.total-amount');
+
+        // Initialize
+        function init() {
+            loadCart();
+            attachEventListeners();
+            updateSummary();
+            initTabScroll();
+            initScrollToGuide();
+        }
+
+        // Scroll to Guide Section
+        function initScrollToGuide() {
+            const scrollToGuideBtn = document.getElementById('scrollToGuideBtn');
+            const guideSection = document.getElementById('guideSection');
+
+            if (scrollToGuideBtn && guideSection) {
+                scrollToGuideBtn.addEventListener('click', function() {
+                    guideSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            }
+        }
+
+        // Tab Scroll Functionality
+        function initTabScroll() {
+            const tabsContainer = document.getElementById('packageTabs');
+            const scrollLeftBtn = document.getElementById('tabScrollLeft');
+            const scrollRightBtn = document.getElementById('tabScrollRight');
+
+            if (!tabsContainer || !scrollLeftBtn || !scrollRightBtn) return;
+
+            const scrollAmount = 200; // pixels to scroll per click
+
+            // Update button states
+            function updateScrollButtons() {
+                const scrollLeft = tabsContainer.scrollLeft;
+                const maxScroll = tabsContainer.scrollWidth - tabsContainer.clientWidth;
+
+                scrollLeftBtn.disabled = scrollLeft <= 0;
+                scrollRightBtn.disabled = scrollLeft >= maxScroll - 1;
+            }
+
+            // Scroll left
+            scrollLeftBtn.addEventListener('click', function() {
+                tabsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                setTimeout(updateScrollButtons, 300);
+            });
+
+            // Scroll right
+            scrollRightBtn.addEventListener('click', function() {
+                tabsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                setTimeout(updateScrollButtons, 300);
+            });
+
+            // Update on scroll
+            tabsContainer.addEventListener('scroll', updateScrollButtons);
+
+            // Initial update
+            updateScrollButtons();
+
+            // Update on window resize
+            window.addEventListener('resize', updateScrollButtons);
+        }
+
+        // Event Listeners
+        function attachEventListeners() {
+            // Package Selection
+            packageRows.forEach((row) => {
+                row.addEventListener('click', function() {
+                    selectPackage(row);
+                });
+            });
+
+            // User ID Input with validation
+            if (userIdInput) {
+                userIdInput.addEventListener('input', function() {
+                    state.userDetails.userId = this.value.trim();
+                    validateInput(this);
+                    updateSummary();
+                });
+
+                userIdInput.addEventListener('blur', function() {
+                    validateInput(this);
+                });
+            }
+
+            // Username Input with validation
+            if (usernameInput) {
+                usernameInput.addEventListener('input', function() {
+                    state.userDetails.username = this.value.trim();
+                    validateInput(this);
+                });
+
+                usernameInput.addEventListener('blur', function() {
+                    validateInput(this);
+                });
+            }
+
+            // Payment Accordion Toggle
+            const paymentAccordionHeader = document.getElementById('paymentAccordionHeader');
+            const paymentAccordionBody = document.getElementById('paymentAccordionBody');
+
+            if (paymentAccordionHeader && paymentAccordionBody) {
+                paymentAccordionHeader.addEventListener('click', function() {
+                    const isOpen = paymentAccordionBody.style.display === 'block';
+
+                    if (isOpen) {
+                        paymentAccordionBody.style.display = 'none';
+                        paymentAccordionHeader.classList.remove('open');
+                    } else {
+                        paymentAccordionBody.style.display = 'block';
+                        paymentAccordionHeader.classList.add('open');
+                    }
+                });
+            }
+
+            // Promo Code
+            if (btnApplyPromo) {
+                btnApplyPromo.addEventListener('click', function() {
+                    applyPromoCode();
+                });
+            }
+
+            if (promoInput) {
+                promoInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        applyPromoCode();
+                    }
+                });
+            }
+
+            // Add to Cart Button
+            if (btnAddToCart) {
+                btnAddToCart.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    addToCart();
+                });
+            }
+
+            // Buy Now Button - Handled by checkout modal code below
+        }
+
+        // Cart Management Functions
+        function addToCart() {
+            if (!validateAllFields()) {
+                return;
+            }
+
+            const productName = document.querySelector('.product-title-v2')?.textContent || 'Unknown Product';
+
+            const item = {
+                id: Date.now(),
+                productName: productName,
+                package: state.selectedPackage,
+                userId: state.userDetails.userId,
+                quantity: 1
+            };
+
+            // Check if same package and userId exists in cart
+            const existingItemIndex = state.cart.findIndex(
+                cartItem => cartItem.package.id === item.package.id && cartItem.userId === item.userId
+            );
+
+            if (existingItemIndex > -1) {
+                state.cart[existingItemIndex].quantity += 1;
+                showNotification('✓ Quantity increased in cart');
+            } else {
+                state.cart.push(item);
+                showNotification('✓ Added to cart');
+            }
+
+            saveCart();
+            renderCart();
+            updatePricing();
+        }
+
+        function removeFromCart(itemId) {
+            state.cart = state.cart.filter(item => item.id !== itemId);
+            saveCart();
+            renderCart();
+            updatePricing();
+            showNotification('Item removed from cart');
+        }
+
+        function updateQuantity(itemId, delta) {
+            const item = state.cart.find(item => item.id === itemId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(itemId);
+                } else {
+                    saveCart();
+                    renderCart();
+                    updatePricing();
+                }
+            }
+        }
+
+        function renderCart() {
+            if (!cartItemsList || !cartEmpty || !cartCount) return;
+
+            const cartLength = state.cart.length;
+
+            if (cartLength === 0) {
+                cartEmpty.style.display = 'block';
+                cartCount.textContent = '0';
+                return;
+            }
+
+            cartEmpty.style.display = 'none';
+            cartCount.textContent = cartLength;
+
+            const cartHTML = state.cart.map(item => `
+                <div class="cart-item" data-item-id="${item.id}">
+                    <div class="cart-item-info">
+                        <strong>${item.package.name}</strong>
+                        <small>User ID: ${item.userId}</small>
+                        <span class="cart-item-price">$${item.package.price.toFixed(2)}</span>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="cart-item-quantity">
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            cartItemsList.innerHTML = cartHTML;
+        }
+
+        function updatePricing() {
+            if (!pricingSubtotal || !pricingTotal) return;
+
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.package.price * item.quantity), 0);
+            const discount = subtotal * (state.discount / 100);
+            const total = subtotal - discount;
+
+            pricingSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            pricingTotal.textContent = `$${total.toFixed(2)}`;
+
+            if (pricingDiscount) {
+                pricingDiscount.textContent = `-$${discount.toFixed(2)}`;
+            }
+        }
+
+        function buyNow() {
+            if (!validateAllFields()) {
+                return;
+            }
+
+            // For Buy Now, we can either:
+            // 1. Add to cart and proceed to checkout immediately
+            // 2. Or process single item checkout without adding to cart
+
+            // Option 1: Add to cart and checkout
+            addToCart();
+
+            // Then proceed to checkout
+            setTimeout(() => {
+                processCheckout();
+            }, 300);
+        }
+
+        // Apply Promo Code
+        function applyPromoCode() {
+            if (!promoInput || !promoInput.value.trim()) {
+                showNotification('⚠ Please enter a promo code', 'error');
+                return;
+            }
+
+            const code = promoInput.value.trim().toUpperCase();
+
+            // Hide previous messages
+            if (promoSuccess) promoSuccess.style.display = 'none';
+            if (promoError) promoError.style.display = 'none';
+
+            // Show loading
+            if (btnApplyPromo) {
+                btnApplyPromo.innerHTML = '<span class="loading-spinner"></span><span>Checking...</span>';
+                btnApplyPromo.disabled = true;
+            }
+
+            // Simulate API call
+            setTimeout(() => {
+                // Valid promo codes (demo)
+                const validCodes = {
+                    'GAME10': 10,
+                    'SAVE20': 20,
+                    'WELCOME5': 5,
+                    'MEGA50': 50
+                };
+
+                if (validCodes[code]) {
+                    state.promoCode = code;
+                    state.discount = validCodes[code];
+
+                    if (promoSuccess) {
+                        promoSuccess.querySelector('span').textContent = `${state.discount}% discount applied!`;
+                        promoSuccess.style.display = 'flex';
+                    }
+
+                    showNotification(`✓ ${state.discount}% discount applied!`);
+                    updateSummary();
+
+                    // Disable input after successful apply
+                    if (promoInput) promoInput.disabled = true;
+                } else {
+                    state.promoCode = '';
+                    state.discount = 0;
+
+                    if (promoError) {
+                        promoError.style.display = 'flex';
+                    }
+
+                    showNotification('Invalid promo code', 'error');
+                }
+
+                // Reset button
+                if (btnApplyPromo) {
+                    btnApplyPromo.innerHTML = '<i class="bi bi-tag-fill"></i><span>Apply</span>';
+                    btnApplyPromo.disabled = false;
+                }
+            }, 1000);
+        }
+
+        // Validate Input Field
+        function validateInput(input) {
+            const value = input.value.trim();
+            const formGroup = input.closest('.form-group-v2');
+            const inputId = input.id;
+            const feedback = document.querySelector(`.invalid-feedback[data-for="${inputId}"]`);
+
+            if (!value) {
+                input.classList.add('is-invalid');
+                input.classList.remove('is-valid');
+                input.setAttribute('aria-invalid', 'true');
+                if (feedback) feedback.classList.add('show');
+                return false;
+            } else {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+                input.setAttribute('aria-invalid', 'false');
+                if (feedback) feedback.classList.remove('show');
+                return true;
+            }
+        }
+
+        // Validate All Fields
+        function validateAllFields() {
+            let isValid = true;
+
+            if (!state.selectedPackage) {
+                showNotification('⚠ Please select a package first', 'error');
+                const packagesSection = document.querySelector('.packages-list-v2');
+                if (packagesSection) {
+                    packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                isValid = false;
+            }
+
+            if (userIdInput && !validateInput(userIdInput)) {
+                isValid = false;
+            }
+
+            if (usernameInput && !validateInput(usernameInput)) {
+                isValid = false;
+            }
+
+            if (!state.selectedPayment) {
+                showNotification('⚠ Please select a payment method', 'error');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Package Selection
+        function selectPackage(row) {
+            // Remove selection from all
+            packageRows.forEach(r => r.classList.remove('selected'));
+
+            // Add selection to clicked
+            row.classList.add('selected');
+
+            // Get package data
+            const packageId = row.getAttribute('data-package-id');
+            const diamonds = row.getAttribute('data-diamonds');
+            const price = parseFloat(row.getAttribute('data-price'));
+            const name = row.querySelector('.package-details h4')?.textContent || `${diamonds} Diamonds`;
+
+            // Update state
+            state.selectedPackage = {
+                id: packageId,
+                name: name,
+                diamonds: diamonds,
+                price: price
+            };
+
+            // Update summary
+            updateSummary();
+
+            // Show notification with package icon
+            showNotification(`✓ Selected: ${diamonds} Diamonds`);
+
+            // Add subtle animation to summary
+            const summaryCard = document.querySelector('.order-summary-v2');
+            if (summaryCard) {
+                summaryCard.style.transform = 'scale(1.02)';
+                summaryCard.style.transition = 'transform 0.2s ease';
+                setTimeout(() => {
+                    summaryCard.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+
+        // Update Summary
+        function updateSummary() {
+            // Update package
+            if (summaryPackageValue && state.selectedPackage) {
+                summaryPackageValue.textContent = `${state.selectedPackage.diamonds} Diamonds`;
+            } else if (summaryPackageValue) {
+                summaryPackageValue.textContent = 'Select a package';
+            }
+
+            // Update Price
+            if (summaryPrice && state.selectedPackage) {
+                summaryPrice.textContent = `$${state.selectedPackage.price.toFixed(2)}`;
+            } else if (summaryPrice) {
+                summaryPrice.textContent = '$0.00';
+            }
+
+            // Update Wallet Charge (Total after discount)
+            if (summaryWalletCharge && state.selectedPackage) {
+                const subtotal = state.selectedPackage.price;
+                const discountAmount = (subtotal * state.discount) / 100;
+                const total = subtotal - discountAmount;
+                summaryWalletCharge.textContent = `$${total.toFixed(2)}`;
+            } else if (summaryWalletCharge) {
+                summaryWalletCharge.textContent = '$0.00';
+            }
+
+            // Update Total (legacy support)
+            if (summaryTotalAmount && state.selectedPackage) {
+                const subtotal = state.selectedPackage.price;
+                const discountAmount = (subtotal * state.discount) / 100;
+                const total = subtotal - discountAmount;
+                summaryTotalAmount.textContent = `$${total.toFixed(2)}`;
+            }
+        }
+
+        // Process Checkout
+        function processCheckout() {
+            // Check if cart has items
+            if (state.cart.length === 0) {
+                showNotification('⚠ Your cart is empty', 'error');
+                return;
+            }
+
+            // Show processing with loading spinner
+            if (btnBuyNow) {
+                btnBuyNow.innerHTML = '<span class="loading-spinner"></span><span>Processing...</span>';
+                btnBuyNow.disabled = true;
+            }
+
+            // Simulate payment processing
+            setTimeout(() => {
+                // Success
+                showSuccessModal();
+
+                // Clear cart after successful checkout
+                state.cart = [];
+                saveCart();
+                renderCart();
+                updatePricing();
+
+                // Reset button
+                if (btnBuyNow) {
+                    btnBuyNow.innerHTML = '<i class="bi bi-lightning-fill"></i><span>Buy Now</span>';
+                    btnBuyNow.disabled = false;
+                }
+            }, 2000);
+        }
+
+        // Show Success Modal
+        function showSuccessModal() {
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.package.price * item.quantity), 0);
+            const discountAmount = (subtotal * state.discount) / 100;
+            const total = subtotal - discountAmount;
+
+            const modal = document.createElement('div');
+            modal.className = 'success-modal-v2';
+            modal.innerHTML = `
+                <div class="success-modal-overlay"></div>
+                <div class="success-modal-content">
+                    <div class="success-icon">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <h2>Purchase Successful!</h2>
+                    <p>Your order will be delivered within 5 minutes.</p>
+                    <div class="success-details">
+                        <div class="detail-row">
+                            <span>Order ID:</span>
+                            <strong>#KUN${Math.floor(100000 + Math.random() * 900000)}</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Items:</span>
+                            <strong>${state.cart.length} item(s)</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Payment:</span>
+                            <strong>${state.selectedPayment.charAt(0).toUpperCase() + state.selectedPayment.slice(1)}</strong>
+                        </div>
+                        <div class="detail-row total">
+                            <span>Total Paid:</span>
+                            <strong>$${total.toFixed(2)}</strong>
+                        </div>
+                    </div>
+                    <div class="success-actions">
+                        <button class="btn-success-primary" onclick="window.location.reload()">
+                            <i class="bi bi-arrow-repeat"></i> New Order
+                        </button>
+                        <button class="btn-success-secondary" onclick="this.closest('.success-modal-v2').remove(); document.body.style.overflow = '';">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+
+            // Close on overlay click
+            modal.querySelector('.success-modal-overlay').addEventListener('click', function() {
+                modal.remove();
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Notification Helper
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = 'notification-v2';
+            notification.textContent = message;
+
+            const bgColor = type === 'error'
+                ? 'linear-gradient(135deg, #dc143c 0%, #8b0000 100%)'
+                : 'linear-gradient(135deg, #003893 0%, #dc143c 100%)';
+
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${bgColor};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 999999;
+                animation: slideInRight 0.3s ease;
+                font-size: 0.9rem;
+                font-weight: 500;
+                max-width: 300px;
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // CSS Animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .loading-spinner {
+                display: inline-block;
+                width: 1rem;
+                height: 1rem;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                border-top-color: #fff;
+                border-radius: 50%;
+                animation: spin 0.6s linear infinite;
+                margin-right: 0.5rem;
+            }
+
+            .success-modal-v2 {
+                position: fixed;
+                inset: 0;
+                z-index: 99999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .success-modal-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(8px);
+            }
+
+            .success-modal-content {
+                position: relative;
+                background: linear-gradient(135deg, rgba(54, 9, 15, 0.98), rgba(0, 56, 147, 0.98));
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 16px;
+                padding: 2.5rem 2rem;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                animation: slideUp 0.4s ease;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            }
+
+            .success-icon {
+                font-size: 4rem;
+                color: #4caf50;
+                margin-bottom: 1rem;
+                animation: scaleIn 0.5s ease;
+            }
+
+            .success-modal-content h2 {
+                color: #fff;
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+
+            .success-modal-content > p {
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 1.5rem;
+            }
+
+            .success-details {
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 12px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+
+            .detail-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.6rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .detail-row:last-child {
+                border-bottom: none;
+            }
+
+            .detail-row.total {
+                padding-top: 1rem;
+                margin-top: 0.5rem;
+                border-top: 2px solid rgba(255, 255, 255, 0.1);
+                border-bottom: none;
+            }
+
+            .detail-row span {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.9rem;
+            }
+
+            .detail-row strong {
+                color: #fff;
+                font-weight: 600;
+            }
+
+            .detail-row.total strong {
+                font-size: 1.5rem;
+                background: linear-gradient(135deg, #dc143c, #003893);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .success-actions {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .btn-success-primary, .btn-success-secondary {
+                flex: 1;
+                padding: 0.85rem 1.5rem;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .btn-success-primary {
+                background: linear-gradient(135deg, #003893, #dc143c);
+                color: #fff;
+            }
+
+            .btn-success-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 56, 147, 0.4);
+            }
+
+            .btn-success-secondary {
+                background: rgba(255, 255, 255, 0.1);
+                color: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .btn-success-secondary:hover {
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes scaleIn {
+                0% {
+                    transform: scale(0);
+                }
+                50% {
+                    transform: scale(1.2);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            .invalid-feedback {
+                display: none;
+                width: 100%;
+                margin-top: 0.5rem;
+                font-size: 0.75rem;
+                color: #dc143c;
+                padding-left: 0.5rem;
+            }
+
+            .input-v2.is-invalid {
+                border-color: #dc143c;
+                background-color: rgba(220, 20, 60, 0.05);
+            }
+
+            .input-v2.is-valid {
+                border-color: #4caf50;
+                background-color: rgba(76, 175, 80, 0.05);
+            }
+
+            .form-group-v2.is-invalid {
+                border-color: #dc143c;
+            }
+
+            .form-group-v2.is-valid {
+                border-color: #4caf50;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Expose cart functions to global scope for onclick handlers
+        window.removeFromCart = removeFromCart;
+        window.updateQuantity = updateQuantity;
+
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        console.log('✓ Top-Up V2 initialized - Cart & Form Validation Active');
+    })();
+
+    // Quantity Selector Handler
+    (function() {
+        const quantityInput = document.getElementById('quantityV2');
+        const decreaseBtn = document.getElementById('decreaseQty');
+        const increaseBtn = document.getElementById('increaseQty');
+
+        if (quantityInput && decreaseBtn && increaseBtn) {
+            const minQty = parseInt(quantityInput.getAttribute('min')) || 1;
+            const maxQty = parseInt(quantityInput.getAttribute('max')) || 99;
+
+            // Update button states
+            function updateButtonStates() {
+                const currentValue = parseInt(quantityInput.value);
+                decreaseBtn.disabled = currentValue <= minQty;
+                increaseBtn.disabled = currentValue >= maxQty;
+            }
+
+            // Decrease quantity
+            decreaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > minQty) {
+                    quantityInput.value = currentValue - 1;
+                    updateButtonStates();
+                }
+            });
+
+            // Increase quantity
+            increaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue < maxQty) {
+                    quantityInput.value = currentValue + 1;
+                    updateButtonStates();
+                }
+            });
+
+            // Initialize button states
+            updateButtonStates();
+        }
+    })();
+
+    // Product Image Modal Handler (Bootstrap)
+    (function() {
+        const productIcon = document.querySelector('.product-icon-v2');
+        const productModal = document.getElementById('productImageModal');
+
+        if (productIcon && productModal) {
+            // Open modal using Bootstrap
+            productIcon.addEventListener('click', function() {
+                const bsModal = new bootstrap.Modal(productModal);
+                bsModal.show();
+            });
+        }
+    })();
+
+    // Initialize Owl Carousel for You May Also Like
+    $(document).ready(function(){
+        if ($('.you-may-also-like-carousel').length) {
+            $('.you-may-also-like-carousel').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                navText: [
+                    '<i class="bi bi-chevron-left"></i>',
+                    '<i class="bi bi-chevron-right"></i>'
+                ],
+                responsive: {
+                    0: {
+                        items: 2,
+                        margin: 10,
+                        dots: true,
+                        nav: false
+                    },
+                    576: {
+                        items: 2,
+                        margin: 15,
+                        dots: true,
+                        nav: true
+                    },
+                    768: {
+                        items: 3,
+                        margin: 15,
+                        dots: true,
+                        nav: true
+                    },
+                    992: {
+                        items: 4,
+                        margin: 20,
+                        dots: false,
+                        nav: true
+                    },
+                    1200: {
+                        items: 5,
+                        margin: 20,
+                        dots: false,
+                        nav: true
+                    }
+                }
+            });
+            console.log('✓ You May Also Like Carousel initialized');
+        } else {
+            console.warn('⚠ You May Also Like Carousel element not found');
+        }
+    });
+
+    // ========================================
+    // PHASE 1 UI/UX ENHANCEMENTS - JavaScript
+    // ========================================
+
+    // Cart Drawer Functionality
+    (function() {
+        'use strict';
+
+        const cartDrawer = document.getElementById('cartDrawer');
+        const cartDrawerClose = document.getElementById('cartDrawerClose');
+        const cartDrawerOverlay = document.getElementById('cartDrawerOverlay');
+        const cartIconBtn = document.querySelector('.cart-icon-btn');
+        const btnContinueShopping = document.getElementById('btnContinueShopping');
+
+        // Cart drawer functions - using KunyoCartDrawer API
+        function openCartDrawer() {
+            window.KunyoCartDrawer.open();
+        }
+
+        function closeCartDrawer() {
+            window.KunyoCartDrawer.close();
+        }
+
+        function renderCartDrawer() {
+            window.KunyoCartDrawer.render();
+        }
+
+        // Cart actions - using KunyoCart API
+        window.removeFromCartDrawer = function(itemId) {
+            window.KunyoCart.remove(itemId);
+            renderCartDrawer();
+            showNotification('Item removed from cart');
+        };
+
+        window.updateCartQuantity = function(itemId, delta) {
+            window.KunyoCart.updateQuantity(itemId, delta);
+            renderCartDrawer();
+        };
+
+        // Note: Cart drawer event listeners are now handled by cart.js
+    })();
+
+    // Mobile Sticky Checkout Bar
+    (function() {
+        'use strict';
+
+        const mobileCheckoutBar = document.getElementById('mobileCheckoutBar');
+        const mobileCheckoutPrice = document.getElementById('mobileCheckoutPrice');
+        const mobileCheckoutCount = document.getElementById('mobileCheckoutCount');
+        const btnMobileCheckout = document.getElementById('btnMobileCheckout');
+
+        function updateMobileCheckoutBar() {
+            const summaryPrice = document.getElementById('summaryPrice');
+            const summaryPackage = document.getElementById('summaryPackage');
+
+            if (summaryPrice && summaryPackage && mobileCheckoutBar) {
+                const price = summaryPrice.textContent;
+                const packageText = summaryPackage.textContent;
+
+                if (packageText !== 'Select a package') {
+                    mobileCheckoutBar.classList.add('show');
+                    if (mobileCheckoutPrice) mobileCheckoutPrice.textContent = price;
+                    if (mobileCheckoutCount) mobileCheckoutCount.textContent = packageText;
+                } else {
+                    mobileCheckoutBar.classList.remove('show');
+                }
+            }
+        }
+
+        // Listen for package selection
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.package-row-v2')) {
+                setTimeout(updateMobileCheckoutBar, 100);
+            }
+        });
+
+        // Mobile checkout button
+        if (btnMobileCheckout) {
+            btnMobileCheckout.addEventListener('click', function() {
+                const btnBuyNow = document.getElementById('btnBuyNow');
+                if (btnBuyNow) {
+                    btnBuyNow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    btnBuyNow.click();
+                }
+            });
+        }
+
+        console.log('✓ Mobile Sticky Checkout Bar initialized');
+    })();
+
+    // FAQ Accordion
+    (function() {
+        'use strict';
+
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                const faqNumber = this.getAttribute('data-faq');
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        console.log('✓ FAQ Accordion initialized');
+    })();
+
+    console.log('🎉 Phase 1 UI/UX Enhancements - All features loaded!');
+
+    // ========================================
+    // CHECKOUT MODAL FUNCTIONALITY
+    // ========================================
+
+    (function() {
+        'use strict';
+
+        // DOM Elements
+        const checkoutModal = document.getElementById('checkoutModal');
+        const checkoutModalOverlay = document.getElementById('checkoutModalOverlay');
+        const checkoutModalClose = document.getElementById('checkoutModalClose');
+        const btnCheckoutCancel = document.getElementById('btnCheckoutCancel');
+        const btnCheckoutPay = document.getElementById('btnCheckoutPay');
+        const btnBuyNow = document.getElementById('btnBuyNow');
+
+        // Payment method elements
+        const paymentOptions = document.querySelectorAll('input[name="checkoutPayment"]');
+        const cardFormSection = document.getElementById('cardFormSection');
+        const walletRedirectSection = document.getElementById('walletRedirectSection');
+
+        // Card form inputs
+        const cardNumberInput = document.getElementById('checkoutCardNumber');
+        const cardExpiryInput = document.getElementById('checkoutCardExpiry');
+        const cardCvvInput = document.getElementById('checkoutCardCvv');
+
+        // Current checkout data
+        let checkoutData = {
+            package: null,
+            userDetails: {},
+            paymentMethod: 'card',
+            total: 0,
+            subtotal: 0,
+            discount: 0,
+            promoCode: ''
+        };
+
+        // Open checkout modal
+        function openCheckoutModal(e) {
+            if (e) e.preventDefault();
+
+            // Validate form
+            const userIdInput = document.getElementById('userIdV2');
+            const zoneIdInput = document.getElementById('zoneIdV2');
+            const selectedPackage = document.querySelector('.package-row-v2.selected');
+
+            if (!selectedPackage) {
+                showNotification('Please select a package first', 'error');
+                return;
+            }
+
+            if (!userIdInput.value.trim() || !zoneIdInput.value.trim()) {
+                showNotification('Please enter User ID and Zone ID', 'error');
+                return;
+            }
+
+            // Get package data from attributes
+            const packageData = {
+                name: selectedPackage.getAttribute('data-diamonds') + ' Diamonds',
+                details: selectedPackage.querySelector('.package-details h4')?.textContent || selectedPackage.getAttribute('data-diamonds') + ' Diamonds',
+                price: parseFloat(selectedPackage.getAttribute('data-price')) || 0
+            };
+
+            // Get promo code discount if applied
+            const promoInput = document.getElementById('promoCodeV2');
+            const discountPercent = promoInput?.dataset.discount || 0;
+            const promoCode = promoInput?.value || '';
+
+            // Calculate prices
+            const subtotal = packageData.price;
+            const discount = (subtotal * discountPercent) / 100;
+            const total = subtotal - discount;
+
+            // Update checkout data
+            checkoutData = {
+                package: packageData,
+                userDetails: {
+                    userId: userIdInput.value.trim(),
+                    zoneId: zoneIdInput.value.trim()
+                },
+                paymentMethod: 'card',
+                subtotal: subtotal,
+                discount: discount,
+                total: total,
+                promoCode: promoCode,
+                orderId: 'KUN' + Math.floor(Math.random() * 1000000)
+            };
+
+            // Populate modal
+            populateCheckoutModal();
+
+            // Show modal
+            checkoutModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close checkout modal
+        function closeCheckoutModal() {
+            checkoutModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Populate modal with data
+        function populateCheckoutModal() {
+            // Order summary
+            document.getElementById('checkoutProductName').textContent = 'Mobile Legends: Bang Bang';
+            document.getElementById('checkoutPackageDetails').textContent = checkoutData.package.details;
+            document.getElementById('checkoutItemPrice').textContent = `Rs. ${checkoutData.subtotal.toFixed(2)}`;
+
+            // User details
+            document.getElementById('checkoutUserId').textContent = checkoutData.userDetails.userId;
+            document.getElementById('checkoutZoneId').textContent = checkoutData.userDetails.zoneId;
+
+            // Price breakdown
+            document.getElementById('checkoutSubtotal').textContent = `Rs. ${checkoutData.subtotal.toFixed(2)}`;
+            document.getElementById('checkoutTotal').textContent = `Rs. ${checkoutData.total.toFixed(2)}`;
+
+            // Discount row
+            const discountRow = document.getElementById('checkoutDiscountRow');
+            if (checkoutData.discount > 0) {
+                discountRow.style.display = 'flex';
+                document.getElementById('checkoutPromoCode').textContent = `(${checkoutData.promoCode})`;
+                document.getElementById('checkoutDiscount').textContent = `-Rs. ${checkoutData.discount.toFixed(2)}`;
+            } else {
+                discountRow.style.display = 'none';
+            }
+
+            // Wallet redirect section
+            document.getElementById('checkoutOrderId').textContent = '#' + checkoutData.orderId;
+            document.getElementById('checkoutRedirectAmount').textContent = `Rs. ${checkoutData.total.toFixed(2)}`;
+            document.getElementById('checkoutRedirectProduct').textContent = checkoutData.package.name;
+
+            // Pay button
+            updatePayButton();
+        }
+
+        // Switch payment method
+        function switchPaymentMethod(method) {
+            checkoutData.paymentMethod = method;
+
+            // Update active state
+            document.querySelectorAll('.payment-option-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector(`input[value="${method}"]`)?.closest('.payment-option-item')?.classList.add('active');
+
+            // Show/hide appropriate form
+            if (method === 'card') {
+                cardFormSection.style.display = 'block';
+                walletRedirectSection.style.display = 'none';
+            } else {
+                cardFormSection.style.display = 'none';
+                walletRedirectSection.style.display = 'block';
+
+                // Update wallet name
+                const walletNames = {
+                    'esewa': 'eSewa',
+                    'khalti': 'Khalti',
+                    'imepay': 'IME Pay',
+                    'banking': 'your bank'
+                };
+                const walletName = walletNames[method] || 'payment gateway';
+                document.getElementById('walletName').textContent = walletName;
+                document.getElementById('walletNameText').textContent = walletName;
+                document.getElementById('walletNameStep1').textContent = walletName;
+            }
+
+            updatePayButton();
+        }
+
+        // Update pay button text
+        function updatePayButton() {
+            const btnText = document.getElementById('btnCheckoutPayText');
+
+            if (checkoutData.paymentMethod === 'card') {
+                btnText.innerHTML = `<i class="bi bi-credit-card-fill"></i> Pay Rs. ${checkoutData.total.toFixed(2)}`;
+            } else {
+                const walletNames = {
+                    'esewa': 'eSewa',
+                    'khalti': 'Khalti',
+                    'imepay': 'IME Pay',
+                    'banking': 'Bank'
+                };
+                const walletName = walletNames[checkoutData.paymentMethod] || 'Gateway';
+                btnText.innerHTML = `<i class="bi bi-arrow-right-circle-fill"></i> Continue to ${walletName}`;
+            }
+        }
+
+        // Card number formatting
+        if (cardNumberInput) {
+            cardNumberInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s/g, '');
+                value = value.replace(/\D/g, '');
+                value = value.substring(0, 16);
+
+                let formatted = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formatted += ' ';
+                    }
+                    formatted += value[i];
+                }
+
+                e.target.value = formatted;
+            });
+        }
+
+        // Card expiry formatting
+        if (cardExpiryInput) {
+            cardExpiryInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+
+                e.target.value = value;
+            });
+        }
+
+        // CVV input validation
+        if (cardCvvInput) {
+            cardCvvInput.addEventListener('input', function(e) {
+                e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+            });
+        }
+
+        // Process payment
+        function processPayment() {
+            const btnText = document.getElementById('btnCheckoutPayText');
+            const btnLoading = document.getElementById('btnCheckoutPayLoading');
+
+            // Show loading
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'flex';
+            btnCheckoutPay.disabled = true;
+
+            // Simulate payment processing
+            setTimeout(() => {
+                btnText.style.display = 'flex';
+                btnLoading.style.display = 'none';
+                btnCheckoutPay.disabled = false;
+
+                if (checkoutData.paymentMethod === 'card') {
+                    // Validate card inputs
+                    const cardNumber = cardNumberInput.value.replace(/\s/g, '');
+                    const cardExpiry = cardExpiryInput.value;
+                    const cardCvv = cardCvvInput.value;
+
+                    if (cardNumber.length < 13 || !cardExpiry.includes('/') || cardCvv.length < 3) {
+                        showNotification('Please fill in all card details correctly', 'error');
+                        return;
+                    }
+
+                    // Show success
+                    closeCheckoutModal();
+                    showSuccessModal();
+                } else {
+                    // Redirect to wallet (simulated)
+                    closeCheckoutModal();
+                    showNotification(`Redirecting to ${checkoutData.paymentMethod}...`, 'info');
+
+                    // In production, you would redirect to actual payment gateway
+                    setTimeout(() => {
+                        showSuccessModal();
+                    }, 2000);
+                }
+            }, 1500);
+        }
+
+        // Show success modal
+        function showSuccessModal() {
+            const successHTML = `
+                <div class="success-modal-overlay" id="successModalOverlay">
+                    <div class="success-modal-content">
+                        <div class="success-icon">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </div>
+                        <h2>Purchase Successful!</h2>
+                        <p>Your order has been placed successfully.</p>
+                        <div class="success-details">
+                            <p><strong>Order ID:</strong> ${checkoutData.orderId}</p>
+                            <p><strong>Package:</strong> ${checkoutData.package.details}</p>
+                            <p><strong>Amount:</strong> Rs. ${checkoutData.total.toFixed(2)}</p>
+                            <p><strong>Delivery:</strong> 2-5 minutes</p>
+                        </div>
+                        <button class="btn-success-close" onclick="this.closest('.success-modal-overlay').remove()">
+                            <i class="bi bi-check-lg"></i>
+                            Got it!
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', successHTML);
+
+            // Add styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .success-modal-overlay {
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0, 0, 0, 0.9);
+                    backdrop-filter: blur(10px);
+                    z-index: 10001;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    animation: fadeIn 0.3s ease;
+                }
+
+                .success-modal-content {
+                    background: linear-gradient(180deg, rgba(13, 4, 13, 0.98) 0%, rgba(36, 14, 35, 0.98) 100%);
+                    border: 1px solid rgba(220, 20, 60, 0.3);
+                    border-radius: 20px;
+                    padding: 2rem;
+                    max-width: 400px;
+                    text-align: center;
+                    animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                }
+
+                .success-icon {
+                    font-size: 4rem;
+                    color: #4caf50;
+                    margin-bottom: 1rem;
+                    animation: scaleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s backwards;
+                }
+
+                .success-modal-content h2 {
+                    font-size: 1.5rem;
+                    color: #fff;
+                    margin-bottom: 0.5rem;
+                }
+
+                .success-modal-content p {
+                    color: rgba(255, 255, 255, 0.7);
+                    margin-bottom: 1.5rem;
+                }
+
+                .success-details {
+                    background: rgba(0, 0, 0, 0.3);
+                    border: 1px solid rgba(220, 20, 60, 0.2);
+                    border-radius: 12px;
+                    padding: 1rem;
+                    margin-bottom: 1.5rem;
+                    text-align: left;
+                }
+
+                .success-details p {
+                    margin: 0.5rem 0;
+                    font-size: 0.875rem;
+                }
+
+                .btn-success-close {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    width: 100%;
+                    padding: 1rem;
+                    background: linear-gradient(135deg, #4caf50, #45a049);
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .btn-success-close:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+                }
+
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
+                @keyframes slideUp {
+                    from { transform: translateY(30px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+
+                @keyframes scaleIn {
+                    from { transform: scale(0); }
+                    to { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Event listeners
+        if (btnBuyNow) {
+            btnBuyNow.addEventListener('click', openCheckoutModal);
+        }
+
+        if (checkoutModalClose) {
+            checkoutModalClose.addEventListener('click', closeCheckoutModal);
+        }
+
+        if (btnCheckoutCancel) {
+            btnCheckoutCancel.addEventListener('click', closeCheckoutModal);
+        }
+
+        if (checkoutModalOverlay) {
+            checkoutModalOverlay.addEventListener('click', closeCheckoutModal);
+        }
+
+        // Payment method change
+        paymentOptions.forEach(option => {
+            option.addEventListener('change', function() {
+                switchPaymentMethod(this.value);
+            });
+        });
+
+        // Payment method item click (Checkout Modal only)
+        document.querySelectorAll('#checkoutModal .payment-option-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio && radio.name === 'checkoutPayment') {
+                    radio.checked = true;
+                    switchPaymentMethod(radio.value);
+                }
+            });
+        });
+
+        // Payment method item click (Order Summary Accordion)
+        document.querySelectorAll('#paymentAccordionBody .payment-option-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio && radio.name === 'paymentV2') {
+                    radio.checked = true;
+
+                    // Update header display
+                    const selectedIconContainer = document.getElementById('paymentSelectedIcon');
+                    const selectedText = document.getElementById('paymentSelectedText');
+                    const paymentContent = this.querySelector('.payment-option-content');
+
+                    if (selectedIconContainer && selectedText && paymentContent) {
+                        const icon = paymentContent.querySelector('i.bi');
+                        const walletIcon = paymentContent.querySelector('.wallet-icon');
+                        const text = paymentContent.querySelector('strong');
+                        const small = paymentContent.querySelector('small');
+
+                        if (walletIcon && text) {
+                            // Replace with wallet icon (clone and preserve id)
+                            const walletClone = walletIcon.cloneNode(true);
+                            walletClone.id = 'paymentSelectedIcon';
+                            selectedIconContainer.parentNode.replaceChild(walletClone, selectedIconContainer);
+                            selectedText.textContent = text.textContent;
+                            if (selectedText.nextElementSibling) {
+                                selectedText.nextElementSibling.textContent = small ? small.textContent : '';
+                            }
+                        } else if (icon && text) {
+                            // Replace with bootstrap icon (create new <i> element)
+                            const iconClone = document.createElement('i');
+                            iconClone.className = icon.className;
+                            iconClone.id = 'paymentSelectedIcon';
+                            selectedIconContainer.parentNode.replaceChild(iconClone, selectedIconContainer);
+                            selectedText.textContent = text.textContent;
+                            if (selectedText.nextElementSibling) {
+                                selectedText.nextElementSibling.textContent = small ? small.textContent : '';
+                            }
+                        }
+                    }
+
+                    // Close accordion after selection
+                    const paymentAccordionBody = document.getElementById('paymentAccordionBody');
+                    const paymentAccordionHeader = document.getElementById('paymentAccordionHeader');
+                    if (paymentAccordionBody && paymentAccordionHeader) {
+                        paymentAccordionBody.style.display = 'none';
+                        paymentAccordionHeader.classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // Pay button
+        if (btnCheckoutPay) {
+            btnCheckoutPay.addEventListener('click', processPayment);
+        }
+    })();
+    </script>
+</body>
+</html>
