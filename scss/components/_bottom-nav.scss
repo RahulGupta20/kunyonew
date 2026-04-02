@@ -175,3 +175,119 @@
         display: none !important;
     }
 }
+
+// More Dropdown Menu
+.main-nav {
+    .nav-item.dropdown {
+        position: relative;
+
+        .nav-link.dropdown-toggle {
+            color: $text-primary;
+            text-decoration: none;
+            padding: $spacing-md 0;
+            @include flex-center;
+            gap: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            @include transition;
+
+            &:hover {
+                color: $primary-red;
+            }
+
+            &::after {
+                border: none;
+                content: '\F282';
+                font-family: 'bootstrap-icons';
+                font-size: 0.75rem;
+                margin-left: 4px;
+                @include transition;
+            }
+
+            &[aria-expanded="true"]::after {
+                transform: rotate(180deg);
+            }
+
+            @include respond-to('lg') {
+                width: 100%;
+                padding: $spacing-md 0;
+                justify-content: space-between;
+
+                &::after {
+                    margin-left: auto;
+                }
+            }
+        }
+
+        .dropdown-menu {
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            box-shadow: $shadow-lg;
+            border-radius: $border-radius-md;
+            padding: $spacing-sm 0;
+            margin-top: $spacing-xs;
+            min-width: 200px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 56, 147, 0.15) 0%, transparent 50%),
+                rgba(0, 13, 31, 0.95);
+            backdrop-filter: blur(20px);
+
+            @include respond-to('lg') {
+                position: static;
+                width: 100%;
+                margin-top: 0;
+                border: none;
+                box-shadow: none;
+                background: rgba(0, 13, 31, 0.5);
+                padding: 0;
+            }
+
+            .dropdown-item {
+                padding: $spacing-md 18px;
+                font-size: 0.875rem;
+                color: $text-primary;
+                @include transition;
+                background: transparent;
+                border: none;
+
+                &:not(:last-child) {
+                    margin-bottom: 2px;
+                }
+
+                &:hover,
+                &:focus {
+                    background: rgba(220, 20, 60, 0.1);
+                    color: $primary-red;
+                    padding-left: 28px;
+                }
+
+                &:active {
+                    background: rgba(220, 20, 60, 0.15);
+                    color: $primary-red;
+                }
+
+                @include respond-to('lg') {
+                    padding: $spacing-sm 0;
+                    padding-left: $spacing-xl;
+
+                    &:hover,
+                    &:focus {
+                        padding-left: calc($spacing-xl + 10px);
+                    }
+                }
+            }
+
+            .dropdown-divider {
+                border-color: rgba(220, 20, 60, 0.2);
+                margin: $spacing-sm 0;
+                opacity: 0.5;
+
+                @include respond-to('lg') {
+                    display: none;
+                }
+            }
+        }
+    }
+}

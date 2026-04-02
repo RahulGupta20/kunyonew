@@ -194,6 +194,18 @@
                     <li>
                         <a href="#">Blog</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Support</a></li>
+                        </ul>
+                    </li>
                     <li class="mobile-special-offers">
                         <a href="#" class="special-offers-mobile">
                             <i class="bi bi-megaphone"></i>
@@ -320,16 +332,16 @@
 
                     <div class="delivery-details-card">
                         <div class="detail-row">
-                            <i class="bi bi-person-fill"></i>
-                            <span>User ID: <strong id="checkoutUserId">-</strong></span>
-                        </div>
-                        <div class="detail-row">
-                            <i class="bi bi-geo-alt-fill"></i>
-                            <span>Zone ID: <strong id="checkoutZoneId">-</strong></span>
+                            <i class="bi bi-box-seam-fill"></i>
+                            <span>Quantity: <strong id="checkoutQuantity">1</strong></span>
                         </div>
                         <div class="detail-row">
                             <i class="bi bi-clock-fill"></i>
-                            <span>Delivery: <strong>2-5 minutes</strong></span>
+                            <span>Delivery: <strong>Instant (Digital Code)</strong></span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="bi bi-shield-check-fill"></i>
+                            <span>Type: <strong>Official Steam Wallet Code</strong></span>
                         </div>
                     </div>
 
@@ -3061,8 +3073,7 @@
             if (e) e.preventDefault();
 
             // Validate form
-            const userIdInput = document.getElementById('userIdV2');
-            const zoneIdInput = document.getElementById('zoneIdV2');
+            const quantityInput = document.getElementById('quantityV2');
             const selectedPackage = document.querySelector('.package-row-v2.selected');
 
             if (!selectedPackage) {
@@ -3070,15 +3081,13 @@
                 return;
             }
 
-            if (!userIdInput.value.trim() || !zoneIdInput.value.trim()) {
-                showNotification('Please enter User ID and Zone ID', 'error');
-                return;
-            }
+            // Get quantity
+            const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
 
             // Get package data from attributes
             const packageData = {
-                name: selectedPackage.getAttribute('data-diamonds') + ' Diamonds',
-                details: selectedPackage.querySelector('.package-details h4')?.textContent || selectedPackage.getAttribute('data-diamonds') + ' Diamonds',
+                name: selectedPackage.querySelector('.package-details h4')?.textContent || 'Steam Wallet Code',
+                details: selectedPackage.querySelector('.package-details h4')?.textContent || 'Steam Wallet Code',
                 price: parseFloat(selectedPackage.getAttribute('data-price')) || 0
             };
 
@@ -3087,18 +3096,15 @@
             const discountPercent = promoInput?.dataset.discount || 0;
             const promoCode = promoInput?.value || '';
 
-            // Calculate prices
-            const subtotal = packageData.price;
+            // Calculate prices with quantity
+            const subtotal = packageData.price * quantity;
             const discount = (subtotal * discountPercent) / 100;
             const total = subtotal - discount;
 
             // Update checkout data
             checkoutData = {
                 package: packageData,
-                userDetails: {
-                    userId: userIdInput.value.trim(),
-                    zoneId: zoneIdInput.value.trim()
-                },
+                quantity: quantity,
                 paymentMethod: 'card',
                 subtotal: subtotal,
                 discount: discount,
@@ -3124,13 +3130,13 @@
         // Populate modal with data
         function populateCheckoutModal() {
             // Order summary
-            document.getElementById('checkoutProductName').textContent = 'Mobile Legends: Bang Bang';
+            document.getElementById('checkoutProductName').textContent = 'Steam Wallet Code';
             document.getElementById('checkoutPackageDetails').textContent = checkoutData.package.details;
             document.getElementById('checkoutItemPrice').textContent = `Rs. ${checkoutData.subtotal.toFixed(2)}`;
 
-            // User details
-            document.getElementById('checkoutUserId').textContent = checkoutData.userDetails.userId;
-            document.getElementById('checkoutZoneId').textContent = checkoutData.userDetails.zoneId;
+            // Quantity details
+            const quantity = checkoutData.quantity || 1;
+            document.getElementById('checkoutQuantity').textContent = quantity;
 
             // Price breakdown
             document.getElementById('checkoutSubtotal').textContent = `Rs. ${checkoutData.subtotal.toFixed(2)}`;
@@ -3150,6 +3156,21 @@
             document.getElementById('checkoutOrderId').textContent = '#' + checkoutData.orderId;
             document.getElementById('checkoutRedirectAmount').textContent = `Rs. ${checkoutData.total.toFixed(2)}`;
             document.getElementById('checkoutRedirectProduct').textContent = checkoutData.package.name;
+
+            // Sync payment method from main page
+            const selectedPaymentOnPage = document.querySelector('input[name="paymentV2"]:checked');
+            if (selectedPaymentOnPage) {
+                const paymentValue = selectedPaymentOnPage.value;
+                checkoutData.paymentMethod = paymentValue;
+
+                // Update checkout modal payment selection
+                const checkoutPaymentRadio = document.querySelector(`#checkoutModal input[name="checkoutPayment"][value="${paymentValue}"]`);
+                if (checkoutPaymentRadio) {
+                    checkoutPaymentRadio.checked = true;
+                    // Trigger the payment method switch
+                    switchPaymentMethod(paymentValue);
+                }
+            }
 
             // Pay button
             updatePayButton();
