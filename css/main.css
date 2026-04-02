@@ -3961,7 +3961,7 @@ p {
   background: rgba(220, 20, 60, 0.3) !important;
   box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
   transform: translateY(-50%) scale(1.08);
-  color: rgb(255, 255, 255) !important;
+  color: white !important;
   border-color: rgba(220, 20, 60, 0.5) !important;
   opacity: 1;
 }

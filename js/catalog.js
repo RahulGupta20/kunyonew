@@ -33,7 +33,9 @@
     const productsGrid = document.getElementById('productsGrid');
     const productCards = document.querySelectorAll('.product-card');
     const resultsCount = document.getElementById('resultsCount');
+    const selectedCategory = document.getElementById('selectedCategory');
     const noResults = document.getElementById('noResults');
+    const paginationWrapper = document.querySelector('.pagination-wrapper');
 
     const btnClearFilters = document.getElementById('btnClearFilters');
     const btnResetFilters = document.getElementById('btnResetFilters');
@@ -82,6 +84,7 @@
                     updateSelectedCategories();
                 }
                 applyFilters();
+                hideFiltersOnMobile();
             });
         });
 
@@ -90,6 +93,7 @@
             checkbox.addEventListener('change', function() {
                 updateSelectedPlatforms();
                 applyFilters();
+                hideFiltersOnMobile();
             });
         });
 
@@ -98,6 +102,7 @@
             checkbox.addEventListener('change', function() {
                 updateSelectedDelivery();
                 applyFilters();
+                hideFiltersOnMobile();
             });
         });
 
@@ -106,6 +111,7 @@
             radio.addEventListener('change', function() {
                 state.selectedPopularity = this.value;
                 applyFilters();
+                hideFiltersOnMobile();
             });
         });
 
@@ -177,6 +183,16 @@
                 filtersContainer?.classList.remove('show');
             });
         }
+
+        // Close filters when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth < 768 && filtersContainer?.classList.contains('show')) {
+                // Check if click is outside filters container and not on the toggle button
+                if (!filtersContainer.contains(e.target) && !btnFilterToggle?.contains(e.target)) {
+                    filtersContainer.classList.remove('show');
+                }
+            }
+        });
 
         // Quick View Modal
         quickViewButtons.forEach(btn => {
@@ -325,19 +341,52 @@
             resultsCount.textContent = visibleCount;
         }
 
+        // Update Selected Category Label
+        updateSelectedCategoryLabel();
+
         // Show/Hide No Results
         if (noResults) {
             if (visibleCount === 0) {
                 noResults.style.display = 'block';
                 if (productsGrid) productsGrid.style.display = 'none';
+                if (paginationWrapper) paginationWrapper.style.display = 'none';
             } else {
                 noResults.style.display = 'none';
                 if (productsGrid) productsGrid.style.display = '';
+                if (paginationWrapper) paginationWrapper.style.display = '';
             }
         }
 
         // Sort after filtering
         sortProducts();
+    }
+
+    // Update Selected Category Label
+    function updateSelectedCategoryLabel() {
+        if (!selectedCategory) return;
+
+        // Check if "All" is selected
+        if (state.selectedCategories.includes('all') || state.selectedCategories.length === 0) {
+            selectedCategory.textContent = 'All Categories';
+            return;
+        }
+
+        // Get all checked categories (excluding "all")
+        const checkedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked'))
+            .filter(cb => cb.value !== 'all');
+
+        if (checkedCategories.length === 0) {
+            selectedCategory.textContent = 'All Categories';
+        } else if (checkedCategories.length === 1) {
+            // Single category selected
+            const categoryLabel = checkedCategories[0].parentElement.querySelector('span').textContent;
+            selectedCategory.textContent = categoryLabel;
+        } else {
+            // Multiple categories selected - show first + count
+            const firstLabel = checkedCategories[0].parentElement.querySelector('span').textContent;
+            const remainingCount = checkedCategories.length - 1;
+            selectedCategory.textContent = `${firstLabel} +${remainingCount} more`;
+        }
     }
 
     // Sort Products
@@ -566,6 +615,14 @@
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
+    }
+
+    // Hide Filters on Mobile after interaction
+    function hideFiltersOnMobile() {
+        // Check if on mobile (window width < 768px for md breakpoint)
+        if (window.innerWidth < 768) {
+            filtersContainer?.classList.remove('show');
+        }
     }
 
     // Mobile Menu Compatibility

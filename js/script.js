@@ -211,32 +211,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // Intersection Observer for Fade-in Animations
     // ===================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    // DISABLED FOR PERFORMANCE: Fade-in animations removed to prevent flickering during scroll
+    // Elements now appear static without animations
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+    // const observerOptions = {
+    //     threshold: 0.1,
+    //     rootMargin: '0px 0px -50px 0px'
+    // };
 
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll(
-        '.game-card, .step-card, .feature-card, .testimonial-card, .giftcard-card'
-    );
+    // const observer = new IntersectionObserver(function(entries) {
+    //     entries.forEach(entry => {
+    //         if (entry.isIntersecting) {
+    //             entry.target.style.opacity = '1';
+    //             entry.target.style.transform = 'translateY(0)';
+    //             observer.unobserve(entry.target);
+    //         }
+    //     });
+    // }, observerOptions);
 
-    animateElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `all 0.6s ease ${index * 0.1}s`;
-        observer.observe(el);
-    });
+    // // Observe elements for animation
+    // const animateElements = document.querySelectorAll(
+    //     '.game-card, .step-card, .feature-card, .testimonial-card, .giftcard-card'
+    // );
+
+    // animateElements.forEach((el, index) => {
+    //     el.style.opacity = '0';
+    //     el.style.transform = 'translateY(30px)';
+    //     el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    //     observer.observe(el);
+    // });
 
 
     // ===================================
@@ -381,24 +384,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // Lazy Load Images (if needed)
     // ===================================
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        observer.unobserve(img);
-                    }
-                }
-            });
-        });
+    // DISABLED FOR PERFORMANCE: Lazy loading removed for better scroll performance
+    // Images now load immediately
 
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
+    // if ('IntersectionObserver' in window) {
+    //     const imageObserver = new IntersectionObserver((entries, observer) => {
+    //         entries.forEach(entry => {
+    //             if (entry.isIntersecting) {
+    //                 const img = entry.target;
+    //                 if (img.dataset.src) {
+    //                     img.src = img.dataset.src;
+    //                     img.removeAttribute('data-src');
+    //                     observer.unobserve(img);
+    //                 }
+    //             }
+    //         });
+    //     });
+
+    //     document.querySelectorAll('img[data-src]').forEach(img => {
+    //         imageObserver.observe(img);
+    //     });
+    // }
 
     // ===================================
     // Add to Cart Animation (for future product pages)

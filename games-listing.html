@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/global.css">
 
     <!-- Custom SCSS Compiled CSS -->
-    <link rel="stylesheet" href="css/games-listing.css?v=14">
+    <link rel="stylesheet" href="css/games-listing.css?v=66">
 </head>
 <body>
 
@@ -331,8 +331,8 @@
                 <div class="container-fluid">
                     <div class="hero-content">
                         <div class="hero-text">
-                            <h1 class="hero-title">Game Catalog</h1>
-                            <p class="hero-subtitle">Browse and top-up your favorite games instantly</p>
+                            <h1 class="hero-title">Game Cards</h1>
+                            <p class="hero-subtitle">Browse and purchase gift cards instantly</p>
                         </div>
                         <div class="hero-stats">
                             <div class="stat-item">
@@ -361,11 +361,21 @@
                     <!-- Sidebar Filters -->
                     <div class="col-lg-3 col-md-4">
                         <div class="filters-sidebar">
-                            <!-- Mobile Filter Toggle -->
-                            <button class="btn-filter-toggle d-lg-none" id="btnFilterToggle">
-                                <i class="bi bi-funnel"></i>
-                                <span>Filters</span>
-                            </button>
+                            <!-- Mobile Filter Toggle & View Switcher -->
+                            <div class="mobile-toolbar d-lg-none">
+                                <button class="btn-filter-toggle" id="btnFilterToggle">
+                                    <i class="bi bi-funnel"></i>
+                                    <span>Filters</span>
+                                </button>
+                                <select class="form-select sort-select" id="sortSelectMobile">
+                                    <option value="popular">Most Popular • 24</option>
+                                    <option value="newest">Newest First • 24</option>
+                                    <option value="name-asc">Name (A-Z) • 24</option>
+                                    <option value="name-desc">Name (Z-A) • 24</option>
+                                    <option value="price-low">Price: Low to High • 24</option>
+                                    <option value="price-high">Price: High to Low • 24</option>
+                                </select>
+                            </div>
 
                             <div class="filters-container" id="filtersContainer">
                                 <!-- Close Button (Mobile) -->
@@ -396,28 +406,28 @@
                                     <div class="filter-options">
                                         <label class="filter-checkbox">
                                             <input type="checkbox" name="category" value="all" checked>
-                                            <span>All Games</span>
+                                            <span>All</span>
                                             <span class="filter-count">(24)</span>
                                         </label>
                                         <label class="filter-checkbox">
-                                            <input type="checkbox" name="category" value="moba">
-                                            <span>MOBA</span>
-                                            <span class="filter-count">(8)</span>
+                                            <input type="checkbox" name="category" value="mobile-games">
+                                            <span>Mobile Game Cards</span>
+                                            <span class="filter-count">(12)</span>
                                         </label>
                                         <label class="filter-checkbox">
-                                            <input type="checkbox" name="category" value="rpg">
-                                            <span>RPG</span>
+                                            <input type="checkbox" name="category" value="game-cards">
+                                            <span>Game Cards</span>
                                             <span class="filter-count">(6)</span>
                                         </label>
                                         <label class="filter-checkbox">
-                                            <input type="checkbox" name="category" value="fps">
-                                            <span>FPS/Shooter</span>
-                                            <span class="filter-count">(5)</span>
+                                            <input type="checkbox" name="category" value="gift-cards">
+                                            <span>Gift Cards</span>
+                                            <span class="filter-count">(4)</span>
                                         </label>
                                         <label class="filter-checkbox">
-                                            <input type="checkbox" name="category" value="battle-royale">
-                                            <span>Battle Royale</span>
-                                            <span class="filter-count">(5)</span>
+                                            <input type="checkbox" name="category" value="streaming">
+                                            <span>Video Streaming</span>
+                                            <span class="filter-count">(2)</span>
                                         </label>
                                     </div>
                                 </div>
@@ -530,24 +540,16 @@
                         <!-- Toolbar -->
                         <div class="catalog-toolbar">
                             <div class="toolbar-left">
-                                <p class="results-count">Showing <span id="resultsCount">24</span> games</p>
+                                <p class="results-count"><span id="selectedCategory">All Categories</span></p>
                             </div>
-                            <div class="toolbar-right">
-                                <div class="view-switcher">
-                                    <button class="btn-view active" data-view="grid" title="Grid View">
-                                        <i class="bi bi-grid-3x3-gap"></i>
-                                    </button>
-                                    <button class="btn-view" data-view="list" title="List View">
-                                        <i class="bi bi-list"></i>
-                                    </button>
-                                </div>
+                            <div class="toolbar-right d-none d-lg-flex">
                                 <select class="form-select sort-select" id="sortSelect">
-                                    <option value="popular">Most Popular</option>
-                                    <option value="newest">Newest First</option>
-                                    <option value="name-asc">Name (A-Z)</option>
-                                    <option value="name-desc">Name (Z-A)</option>
-                                    <option value="price-low">Price: Low to High</option>
-                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="popular">Most Popular • 24</option>
+                                    <option value="newest">Newest First • 24</option>
+                                    <option value="name-asc">Name (A-Z) • 24</option>
+                                    <option value="name-desc">Name (Z-A) • 24</option>
+                                    <option value="price-low">Price: Low to High • 24</option>
+                                    <option value="price-high">Price: High to Low • 24</option>
                                 </select>
                             </div>
                         </div>
@@ -566,17 +568,17 @@
                             <!-- Product Card 1 -->
                             <a href="product-detail.html" class="angled-box" data-category="moba" data-platform="mobile" data-price="50" data-popularity="trending" data-delivery="instant">
                                 <div class="product-badges">
-                                    <span class="badge badge-trending">🔥 Trending</span>
-                                    <span class="badge badge-instant">⚡ Instant</span>
+                                    <span class="badge badge-trending d-none">🔥 Trending</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
                                         <figure class="promo-figure">
-                                            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=300&fit=crop" alt="Mobile Legends">
+                                            <img src="assets/images/steam1.jpeg" alt="Steam Wallet">
                                         </figure>
                                     </div>
                                     <footer class="pack-footer">
-                                        <h3 class="product-title">Mobile Legends</h3>
+                                        <h3 class="product-title">Steam</h3>
                                     </footer>
                                 </div>
                             </a>
@@ -584,17 +586,17 @@
                             <!-- Product Card 2 -->
                             <a href="product-detail-2.html" class="angled-box" data-category="rpg" data-platform="mobile,pc" data-price="100" data-popularity="popular" data-delivery="instant">
                                 <div class="product-badges">
-                                    <span class="badge badge-popular">⭐ Popular</span>
-                                    <span class="badge badge-instant">⚡ Instant</span>
+                                    <span class="badge badge-popular d-none">⭐ Popular</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
                                         <figure class="promo-figure">
-                                            <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&h=300&fit=crop" alt="Genshin Impact">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2Ff42becd96eef3c3e995158a8bcce9489_kunyo%20gears%20gift%20naruto.jpg&w=1080&q=75" alt="Nintendo Eshop Card">
                                         </figure>
                                     </div>
                                     <footer class="pack-footer">
-                                        <h3 class="product-title">Genshin Impact</h3>
+                                        <h3 class="product-title">Nintendo Eshop Card</h3>
                                     </footer>
                                 </div>
                             </a>
@@ -602,17 +604,17 @@
                             <!-- Product Card 3 -->
                             <a href="product-detail-3.html" class="angled-box" data-category="battle-royale" data-platform="mobile" data-price="25" data-popularity="trending" data-delivery="instant">
                                 <div class="product-badges">
-                                    <span class="badge badge-trending">🔥 Trending</span>
-                                    <span class="badge badge-instant">⚡ Instant</span>
+                                    <span class="badge badge-trending d-none">🔥 Trending</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
                                         <figure class="promo-figure">
-                                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop" alt="PUBG Mobile">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F87d4a65a4fa085ea2f01595296a27c63_itune%20gift.jpg&w=1080&q=75" alt="PUBG Mobile">
                                         </figure>
                                     </div>
                                     <footer class="pack-footer">
-                                        <h3 class="product-title">PUBG Mobile</h3>
+                                        <h3 class="product-title">iTunes Gift Card</h3>
                                     </footer>
                                 </div>
                             </a>
@@ -620,16 +622,16 @@
                             <!-- Product Card 4 -->
                             <a href="product-detail.html" class="angled-box" data-category="battle-royale" data-platform="mobile" data-price="30" data-popularity="popular" data-delivery="instant">
                                 <div class="product-badges">
-                                    <span class="badge badge-popular">⭐ Popular</span>
+                                    <span class="badge badge-popular d-none">⭐ Popular</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
                                         <figure class="promo-figure">
-                                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop" alt="Free Fire">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F44e945d2fe95eb8cc10e132a2e0b6abb_KUNYO%20GIFT%20CARD%20PLAYSTATION.jpg&w=1080&q=75" alt="Free Fire">
                                         </figure>
                                     </div>
                                     <footer class="pack-footer">
-                                        <h3 class="product-title">Free Fire</h3>
+                                        <h3 class="product-title">PlayStation Gift Card</h3>
                                     </footer>
                                 </div>
                             </a>
@@ -637,16 +639,16 @@
                             <!-- Product Card 5 -->
                             <a href="product-detail.html" class="angled-box" data-category="fps" data-platform="mobile,pc" data-price="50" data-popularity="popular" data-delivery="instant">
                                 <div class="product-badges">
-                                    <span class="badge badge-popular">⭐ Popular</span>
+                                    <span class="badge badge-popular d-none">⭐ Popular</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
                                         <figure class="promo-figure">
-                                            <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=300&fit=crop" alt="Valorant">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F842b356d2f4cec199ee25bb44fa308af_GOOGLE%20only.png&w=1080&q=75" alt="Valorant">
                                         </figure>
                                     </div>
                                     <footer class="pack-footer">
-                                        <h3 class="product-title">Valorant</h3>
+                                        <h3 class="product-title">Google Gift Card</h3>
                                     </footer>
                                 </div>
                             </a>
@@ -654,17 +656,17 @@
                             <!-- Product Card 6 -->
                             <a href="product-detail.html" class="angled-box" data-category="rpg" data-platform="mobile" data-price="75" data-popularity="new" data-delivery="instant">
                                 <div class="product-badges">
-                                    <span class="badge badge-new">✨ New</span>
-                                    <span class="badge badge-instant">⚡ Instant</span>
+                                    <span class="badge badge-new d-none">✨ New</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
                                         <figure class="promo-figure">
-                                            <img src="https://images.unsplash.com/photo-1614294148960-9aa740632a87?w=400&h=300&fit=crop" alt="Honkai Star Rail">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F91503b1189452726957e1b5381eacede_xbox%20final%20design.jpg&w=1080&q=75" alt="Honkai Star Rail">
                                         </figure>
                                     </div>
                                     <footer class="pack-footer">
-                                        <h3 class="product-title">Honkai: Star Rail</h3>
+                                        <h3 class="product-title">Xbox Live Gift Card</h3>
                                     </footer>
                                 </div>
                             </a>
@@ -677,11 +679,11 @@
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
                                         <figure class="promo-figure">
-                                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=300&fit=crop" alt="League of Legends Wild Rift">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F5fc5cfe0b4d83ecf1f6023227f50db1c_zing%20code%20only.png&w=1080&q=75" alt="League of Legends Wild Rift">
                                         </figure>
                                     </div>
                                     <footer class="pack-footer">
-                                        <h3 class="product-title">League of Legends Wild Rift</h3>
+                                        <h3 class="product-title">ZING CODE (GLOBAL)</h3>
                                     </footer>
                                 </div>
                             </a>
@@ -741,7 +743,7 @@
                             <a href="product-detail.html" class="angled-box" data-category="rpg" data-platform="mobile" data-price="35" data-popularity="trending" data-delivery="instant">
                                 <div class="product-badges">
                                     <span class="badge badge-trending">🔥 Trending</span>
-                                    <span class="badge badge-instant">⚡ Instant</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
@@ -844,7 +846,7 @@
                             <a href="product-detail.html" class="angled-box" data-category="sandbox" data-platform="mobile,pc" data-price="50" data-popularity="trending" data-delivery="instant">
                                 <div class="product-badges">
                                     <span class="badge badge-trending">🔥 Trending</span>
-                                    <span class="badge badge-instant">⚡ Instant</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">
@@ -896,7 +898,7 @@
                             <a href="product-detail.html" class="angled-box" data-category="battle-royale" data-platform="mobile" data-price="35" data-popularity="trending" data-delivery="instant">
                                 <div class="product-badges">
                                     <span class="badge badge-trending">🔥 Trending</span>
-                                    <span class="badge badge-instant">⚡ Instant</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
                                 </div>
                                 <div class="angled-box-content">
                                     <div class="image-wrap">

@@ -63,7 +63,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 9998;
+    z-index: 2;
 
     &.show {
         display: block;
@@ -103,7 +103,7 @@
         left: -100%;
         width: 280px;
         height: 100vh;
-        background: $bg-secondary;
+        background: #240e23;
         padding: $spacing-2xl;
         margin-top: 0;
         border: none;
