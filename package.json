@@ -12,6 +12,8 @@
     "sass:auth:build": "sass scss/pages/auth.scss css/auth.css --style compressed --no-source-map",
     "sass:cart": "sass scss/cart.scss css/cart.css --watch --no-source-map",
     "sass:cart:build": "sass scss/cart.scss css/cart.css --style compressed --no-source-map",
+    "sass:checkout": "sass scss/checkout.scss css/checkout.css --watch --no-source-map",
+    "sass:checkout:build": "sass scss/checkout.scss css/checkout.css --style compressed --no-source-map",
     "sass:all": "sass scss:css --watch --no-source-map",
     "sass:all:build": "sass scss:css --style compressed --no-source-map",
     "dev": "npm run sass"

@@ -94,7 +94,7 @@
                             <span class="separator">/</span>
                             <span>USD</span>
                         </button>
-                        <a href="#" class="header-icon login-register-btn">
+                        <a href="signin.html" class="header-icon login-register-btn">
                             <i class="bi bi-person"></i>
                             <span>Login</span>
                         </a>
@@ -222,12 +222,37 @@
                         <!-- Left: Cart Items -->
                         <div class="col-lg-8">
 
+                        <!-- Bulk Actions Toolbar -->
+                        <div class="bulk-actions-bar" id="bulkActionsBar" style="display: none;">
+                            <div class="bulk-actions-left">
+                                <div class="bulk-select-all">
+                                    <input type="checkbox" class="select-all-checkbox" id="selectAll">
+                                    <label for="selectAll" class="checkbox-label"></label>
+                                    <span class="selected-count" id="selectedCount">0 items selected</span>
+                                </div>
+                            </div>
+                            <div class="bulk-actions-right">
+                                <button class="btn-bulk-action btn-delete-selected" id="btnDeleteSelected">
+                                    <i class="bi bi-trash"></i>
+                                    <span>Delete Selected</span>
+                                </button>
+                                <button class="btn-bulk-action btn-clear-cart" id="btnClearCart">
+                                    <i class="bi bi-x-circle"></i>
+                                    <span>Clear Cart</span>
+                                </button>
+                            </div>
+                        </div>
+
                         <!-- Cart Items List -->
                         <div class="cart-items-list" id="cartItemsList">
 
                             <!-- Cart Item 1 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-1">
+                                        <label for="item-1" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Mobile Legends: Bang Bang">
                                     </div>
@@ -272,6 +297,10 @@
                                                 <i class="bi bi-geo-alt"></i>
                                                 Zone: 7890
                                             </span>
+                                            <span class="stock-badge in-stock">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                In Stock
+                                            </span>
                                         </div>
 
                                         <div class="cart-item-footer">
@@ -300,6 +329,10 @@
                             <!-- Cart Item 2 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-2">
+                                        <label for="item-2" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/pubg-sm.webp" alt="PUBG Mobile UC">
                                     </div>
@@ -344,6 +377,10 @@
                                                 <i class="bi bi-geo-alt"></i>
                                                 Zone: 5432
                                             </span>
+                                            <span class="stock-badge limited-stock">
+                                                <i class="bi bi-exclamation-triangle-fill"></i>
+                                                Only 3 left!
+                                            </span>
                                         </div>
 
                                         <div class="cart-item-footer">
@@ -372,6 +409,10 @@
                             <!-- Cart Item 3 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-3">
+                                        <label for="item-3" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Steam Gift Card">
                                     </div>
@@ -427,6 +468,10 @@
                             <!-- Cart Item 4 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-4">
+                                        <label for="item-4" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/freefire.jpeg" alt="Free Fire Diamonds">
                                     </div>
@@ -495,6 +540,10 @@
                             <!-- Cart Item 5 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-5">
+                                        <label for="item-5" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/ghensin-impact.webp" alt="Genshin Impact">
                                     </div>
@@ -563,6 +612,10 @@
                             <!-- Cart Item 4 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-6">
+                                        <label for="item-6" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/freefire.jpeg" alt="Free Fire Diamonds">
                                     </div>
@@ -631,6 +684,10 @@
                             <!-- Cart Item 5 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-7">
+                                        <label for="item-7" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/ghensin-impact.webp" alt="Genshin Impact">
                                     </div>
@@ -698,6 +755,10 @@
                             <!-- Cart Item 4 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-8">
+                                        <label for="item-8" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/freefire.jpeg" alt="Free Fire Diamonds">
                                     </div>
@@ -766,6 +827,10 @@
                             <!-- Cart Item 5 -->
                             <div class="cart-item-card">
                                 <div class="cart-item-main">
+                                    <div class="cart-item-checkbox">
+                                        <input type="checkbox" class="item-checkbox" id="item-9">
+                                        <label for="item-9" class="checkbox-label"></label>
+                                    </div>
                                     <div class="cart-item-image">
                                         <img src="assets/images/ghensin-impact.webp" alt="Genshin Impact">
                                     </div>
@@ -855,7 +920,17 @@
                                         <strong id="summaryPrice">Rs. 4,650.00</strong>
                                     </div>
                                     <div class="pricing-row wallet-charge-row">
-                                        <span>Wallet Charge:</span>
+                                        <span>
+                                            Wallet Charge:
+                                            <i class="bi bi-info-circle tooltip-icon" data-tooltip="wallet-charge"></i>
+                                            <div class="price-tooltip" id="tooltip-wallet-charge">
+                                                <div class="tooltip-arrow"></div>
+                                                <div class="tooltip-content">
+                                                    <strong>Wallet Service Charge</strong>
+                                                    <p>A 2% processing fee is applied for digital wallet transactions to cover payment gateway costs.</p>
+                                                </div>
+                                            </div>
+                                        </span>
                                         <strong id="summaryWallet" class="wallet-charge">Rs. 218.5</strong>
                                     </div>
                                     <div class="pricing-row wallet-note">
@@ -866,13 +941,54 @@
                                         <span>Subtotal:</span>
                                         <strong id="summarySubtotal">Rs. 4,868.5</strong>
                                     </div>
-                                    <div class="pricing-row discount">
-                                        <span>Discount:</span>
+                                    <div class="pricing-row discount" style="display: none;">
+                                        <span>
+                                            Discount:
+                                            <i class="bi bi-info-circle tooltip-icon" data-tooltip="discount"></i>
+                                            <div class="price-tooltip" id="tooltip-discount">
+                                                <div class="tooltip-arrow"></div>
+                                                <div class="tooltip-content">
+                                                    <strong>Promo Code Discount</strong>
+                                                    <p>Your applied promo code discount will be deducted from the subtotal.</p>
+                                                </div>
+                                            </div>
+                                        </span>
                                         <strong id="summaryDiscount">-Rs. 0</strong>
                                     </div>
                                     <div class="pricing-row total">
                                         <span>Total:</span>
                                         <strong id="summaryTotal">Rs. 4,868.5</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Promo Code Section -->
+                            <div class="promo-code-section">
+                                <button class="promo-code-toggle" type="button" id="promoToggleBtn">
+                                    <i class="bi bi-tag-fill"></i>
+                                    <span>Have a promo code?</span>
+                                    <i class="bi bi-chevron-down toggle-chevron"></i>
+                                </button>
+
+                                <div class="promo-code-input-wrapper" id="promoInputWrapper" style="display: none;">
+                                    <div class="promo-input-group">
+                                        <input type="text" class="promo-input" id="promoCodeInput" placeholder="Enter promo code" maxlength="20">
+                                        <button class="btn-apply-promo" type="button" id="btnApplyPromo">
+                                            <i class="bi bi-tag-fill"></i>
+                                            <span>Apply</span>
+                                        </button>
+                                    </div>
+                                    <div class="promo-message" id="promoMessage" style="display: none;"></div>
+                                    <div class="promo-applied" id="promoApplied" style="display: none;">
+                                        <div class="promo-applied-content">
+                                            <div class="promo-applied-info">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                <span id="appliedPromoCode"></span>
+                                            </div>
+                                            <button class="btn-remove-promo" type="button" id="btnRemovePromo">
+                                                <i class="bi bi-x"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1510,6 +1626,283 @@
         document.getElementById('btnProceedToCheckout')?.addEventListener('click', function() {
             window.location.href = 'checkout.html';
         });
+
+        // Promo Code Functionality
+        let appliedPromo = null;
+
+        // Valid promo codes (in real app, this would be validated server-side)
+        const promoCodes = {
+            'WELCOME10': { type: 'percentage', value: 10, description: '10% off' },
+            'SAVE50': { type: 'fixed', value: 50, description: 'Rs. 50 off' },
+            'GAMING15': { type: 'percentage', value: 15, description: '15% off' },
+            'NEWUSER': { type: 'percentage', value: 20, description: '20% off for new users' },
+            'FLASH5': { type: 'percentage', value: 5, description: '5% flash sale' }
+        };
+
+        // Toggle promo code input
+        document.getElementById('promoToggleBtn')?.addEventListener('click', function() {
+            const wrapper = document.getElementById('promoInputWrapper');
+            const chevron = this.querySelector('.toggle-chevron');
+
+            if (wrapper.style.display === 'none') {
+                wrapper.style.display = 'block';
+                chevron.style.transform = 'rotate(180deg)';
+                document.getElementById('promoCodeInput').focus();
+            } else {
+                wrapper.style.display = 'none';
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Apply promo code
+        document.getElementById('btnApplyPromo')?.addEventListener('click', function() {
+            const input = document.getElementById('promoCodeInput');
+            const code = input.value.trim().toUpperCase();
+            const messageEl = document.getElementById('promoMessage');
+
+            if (!code) {
+                showPromoMessage('Please enter a promo code', 'error');
+                return;
+            }
+
+            if (promoCodes[code]) {
+                applyPromoCode(code, promoCodes[code]);
+                showPromoMessage('Promo code applied successfully!', 'success');
+                setTimeout(() => {
+                    messageEl.style.display = 'none';
+                }, 2000);
+            } else {
+                showPromoMessage('Invalid promo code. Please try again.', 'error');
+            }
+        });
+
+        // Apply promo code on Enter key
+        document.getElementById('promoCodeInput')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('btnApplyPromo').click();
+            }
+        });
+
+        // Remove promo code
+        document.getElementById('btnRemovePromo')?.addEventListener('click', function() {
+            removePromoCode();
+        });
+
+        // Show promo message
+        function showPromoMessage(message, type) {
+            const messageEl = document.getElementById('promoMessage');
+            const icon = type === 'success' ? '<i class="bi bi-check-circle-fill"></i>' : '<i class="bi bi-x-circle-fill"></i>';
+            messageEl.innerHTML = icon + '<span>' + message + '</span>';
+            messageEl.className = 'promo-message ' + type;
+            messageEl.style.display = 'flex';
+        }
+
+        // Apply promo code
+        function applyPromoCode(code, promo) {
+            appliedPromo = { code, ...promo };
+
+            // Update discount in summary
+            updateCartSummaryWithPromo();
+
+            // Show applied promo badge
+            document.getElementById('appliedPromoCode').textContent = `${code} - ${promo.description}`;
+            document.getElementById('promoApplied').style.display = 'block';
+
+            // Clear and hide input
+            document.getElementById('promoCodeInput').value = '';
+
+            // Update discount row visibility
+            const discountRow = document.querySelector('.pricing-row.discount');
+            if (discountRow) {
+                discountRow.style.display = 'flex';
+            }
+        }
+
+        // Remove promo code
+        function removePromoCode() {
+            appliedPromo = null;
+
+            // Update summary
+            updateCartSummaryWithPromo();
+
+            // Hide applied promo badge
+            document.getElementById('promoApplied').style.display = 'none';
+            document.getElementById('promoMessage').style.display = 'none';
+
+            // Hide discount row if discount is 0
+            const discountRow = document.querySelector('.pricing-row.discount');
+            if (discountRow) {
+                discountRow.style.display = 'none';
+            }
+        }
+
+        // Update cart summary with promo
+        function updateCartSummaryWithPromo() {
+            let subtotal = 0;
+            const cards = document.querySelectorAll('.cart-item-card');
+
+            cards.forEach(card => {
+                const totalPriceText = card.querySelector('.item-total-price').textContent;
+                const price = parseFloat(totalPriceText.match(/[\d,]+\.?\d*/)[0].replace(/,/g, ''));
+                subtotal += price;
+            });
+
+            const serviceCharge = subtotal * 0.02;
+            const subtotalWithCharge = subtotal + serviceCharge;
+
+            // Calculate discount
+            let discount = 0;
+            if (appliedPromo) {
+                if (appliedPromo.type === 'percentage') {
+                    discount = subtotalWithCharge * (appliedPromo.value / 100);
+                } else if (appliedPromo.type === 'fixed') {
+                    discount = appliedPromo.value;
+                }
+            }
+
+            const total = subtotalWithCharge - discount;
+
+            // Update UI
+            document.getElementById('summaryPrice').textContent = `Rs. ${subtotal.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('summaryWallet').textContent = `Rs. ${serviceCharge.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('summarySubtotal').textContent = `Rs. ${subtotalWithCharge.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('summaryDiscount').textContent = `-Rs. ${discount.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('summaryTotal').textContent = `Rs. ${total.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+            // Update item count
+            updateItemCount();
+        }
+
+        // ===================================
+        // Bulk Actions Functionality
+        // ===================================
+
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const itemCheckboxes = document.querySelectorAll('.item-checkbox');
+        const bulkActionsBar = document.getElementById('bulkActionsBar');
+        const selectedCountEl = document.getElementById('selectedCount');
+        const btnDeleteSelected = document.getElementById('btnDeleteSelected');
+        const btnClearCart = document.getElementById('btnClearCart');
+
+        // Handle individual checkbox change
+        itemCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                updateBulkActionsVisibility();
+                updateSelectAllState();
+            });
+        });
+
+        // Handle select all checkbox
+        if (selectAllCheckbox) {
+            selectAllCheckbox.addEventListener('change', function() {
+                const isChecked = this.checked;
+                itemCheckboxes.forEach(checkbox => {
+                    checkbox.checked = isChecked;
+                });
+                updateBulkActionsVisibility();
+            });
+        }
+
+        // Update bulk actions bar visibility and count
+        function updateBulkActionsVisibility() {
+            const checkedCount = document.querySelectorAll('.item-checkbox:checked').length;
+
+            if (checkedCount > 0) {
+                bulkActionsBar.style.display = 'flex';
+                selectedCountEl.textContent = `${checkedCount} item${checkedCount > 1 ? 's' : ''} selected`;
+            } else {
+                bulkActionsBar.style.display = 'none';
+            }
+        }
+
+        // Update select all checkbox state
+        function updateSelectAllState() {
+            const checkedCount = document.querySelectorAll('.item-checkbox:checked').length;
+            const totalCount = itemCheckboxes.length;
+
+            if (checkedCount === 0) {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = false;
+            } else if (checkedCount === totalCount) {
+                selectAllCheckbox.checked = true;
+                selectAllCheckbox.indeterminate = false;
+            } else {
+                selectAllCheckbox.checked = false;
+                selectAllCheckbox.indeterminate = true;
+            }
+        }
+
+        // Delete selected items
+        if (btnDeleteSelected) {
+            btnDeleteSelected.addEventListener('click', function() {
+                const checkedItems = document.querySelectorAll('.item-checkbox:checked');
+
+                if (checkedItems.length === 0) return;
+
+                if (confirm(`Are you sure you want to delete ${checkedItems.length} item${checkedItems.length > 1 ? 's' : ''}?`)) {
+                    checkedItems.forEach(checkbox => {
+                        const cartCard = checkbox.closest('.cart-item-card');
+                        cartCard.style.animation = 'fadeOut 0.3s ease';
+                        setTimeout(() => {
+                            cartCard.remove();
+                            updateCartSummaryWithPromo();
+                            updateBulkActionsVisibility();
+
+                            // Check if cart is empty
+                            const remainingItems = document.querySelectorAll('.cart-item-card');
+                            if (remainingItems.length === 0) {
+                                showEmptyCart();
+                            }
+                        }, 300);
+                    });
+                }
+            });
+        }
+
+        // Clear entire cart
+        if (btnClearCart) {
+            btnClearCart.addEventListener('click', function() {
+                const totalItems = document.querySelectorAll('.cart-item-card').length;
+
+                if (confirm(`Are you sure you want to clear all ${totalItems} items from your cart?`)) {
+                    document.querySelectorAll('.cart-item-card').forEach((card, index) => {
+                        card.style.animation = 'fadeOut 0.3s ease';
+                        card.style.animationDelay = `${index * 0.05}s`;
+
+                        setTimeout(() => {
+                            card.remove();
+
+                            if (index === totalItems - 1) {
+                                showEmptyCart();
+                                bulkActionsBar.style.display = 'none';
+                            }
+                        }, 300 + (index * 50));
+                    });
+                }
+            });
+        }
+
+        // Show empty cart state
+        function showEmptyCart() {
+            document.getElementById('cartContent').style.display = 'none';
+            document.getElementById('emptyCartState').style.display = 'flex';
+        }
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
