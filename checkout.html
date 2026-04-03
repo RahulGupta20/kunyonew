@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout - KUNYO</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css?v=1">
+
+    <!-- Checkout Page CSS -->
+    <link rel="stylesheet" href="css/checkout.css?v=2">
+</head>
+<body>
+
+    <!-- Minimal Header -->
+    <header class="checkout-header-minimal">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/kunyo-logo.png" alt="KUNYO" class="logo-img">
+                </a>
+                <div class="security-badge">
+                    <i class="bi bi-shield-check"></i>
+                    <span>Secure Checkout</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Steps -->
+    <div class="progress-wrapper">
+        <div class="container">
+            <div class="progress-steps">
+                <div class="progress-step completed">
+                    <div class="step-marker">
+                        <i class="bi bi-check2"></i>
+                    </div>
+                    <span class="step-text">Cart</span>
+                </div>
+                <div class="progress-connector"></div>
+                <div class="progress-step active">
+                    <div class="step-marker">2</div>
+                    <span class="step-text">Information</span>
+                </div>
+                <div class="progress-connector"></div>
+                <div class="progress-step">
+                    <div class="step-marker">3</div>
+                    <span class="step-text">Payment</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Checkout Content -->
+    <main class="checkout-main">
+        <div class="container">
+            <div class="checkout-grid">
+
+                <!-- Left Side - Form -->
+                <div class="checkout-left">
+
+                    <!-- Contact Section -->
+                    <section class="checkout-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Contact Information</h2>
+                            <p class="section-subtitle">We'll send your order confirmation here</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email address</label>
+                            <div class="input-wrapper">
+                                <i class="bi bi-envelope input-icon"></i>
+                                <input type="email" class="form-control-modern" id="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone number</label>
+                            <div class="input-wrapper">
+                                <i class="bi bi-phone input-icon"></i>
+                                <input type="tel" class="form-control-modern" id="phone" placeholder="+977 98XXXXXXXX" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Delivery Details Section -->
+                    <section class="checkout-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Delivery Details</h2>
+                            <p class="section-subtitle">Your game items will be delivered to</p>
+                        </div>
+
+                        <div id="deliveryDetailsContainer">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </section>
+
+                    <!-- Payment Method Section -->
+                    <section class="checkout-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Payment Method</h2>
+                            <p class="section-subtitle">Select your preferred payment option</p>
+                        </div>
+
+                        <div class="payment-methods">
+                            <label class="payment-method-card">
+                                <input type="radio" name="payment" value="esewa" checked>
+                                <div class="payment-content">
+                                    <div class="payment-icon">
+                                        <i class="bi bi-wallet2"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>eSewa</h4>
+                                        <p>Pay with eSewa wallet</p>
+                                    </div>
+                                    <div class="payment-check">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-method-card">
+                                <input type="radio" name="payment" value="khalti">
+                                <div class="payment-content">
+                                    <div class="payment-icon">
+                                        <i class="bi bi-wallet"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>Khalti</h4>
+                                        <p>Pay with Khalti wallet</p>
+                                    </div>
+                                    <div class="payment-check">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-method-card">
+                                <input type="radio" name="payment" value="card">
+                                <div class="payment-content">
+                                    <div class="payment-icon">
+                                        <i class="bi bi-credit-card"></i>
+                                    </div>
+                                    <div class="payment-info">
+                                        <h4>Credit/Debit Card</h4>
+                                        <p>Visa, Mastercard, or local cards</p>
+                                    </div>
+                                    <div class="payment-check">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- Action Buttons -->
+                    <div class="checkout-actions">
+                        <a href="index.html" class="btn-secondary-action">
+                            <i class="bi bi-arrow-left"></i>
+                            Return to shop
+                        </a>
+                        <button type="button" class="btn-primary-action" id="btnCompleteOrder">
+                            <span>Complete Order</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Right Side - Order Summary -->
+                <aside class="checkout-right">
+                    <div class="order-summary-sticky">
+
+                        <div class="summary-card">
+                            <h3 class="summary-title">Order Summary</h3>
+
+                            <!-- Cart Items -->
+                            <div class="cart-items-list" id="cartItemsList">
+                                <!-- Populated by JavaScript -->
+                            </div>
+
+                            <!-- Promo Code -->
+                            <div class="promo-section">
+                                <button class="promo-toggle" type="button" id="promoToggle">
+                                    <i class="bi bi-tag"></i>
+                                    <span>Add promo code</span>
+                                    <i class="bi bi-chevron-down toggle-icon"></i>
+                                </button>
+                                <div class="promo-input-wrapper" id="promoInputWrapper" style="display: none;">
+                                    <div class="input-group-promo">
+                                        <input type="text" class="form-control-promo" placeholder="Enter code" id="promoCode">
+                                        <button class="btn-apply-promo" type="button">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Price Breakdown -->
+                            <div class="price-breakdown">
+                                <div class="price-row">
+                                    <span>Subtotal</span>
+                                    <span id="subtotalAmount">Rs. 0.00</span>
+                                </div>
+                                <div class="price-row">
+                                    <span>Processing Fee</span>
+                                    <span id="processingFee">Rs. 0.00</span>
+                                </div>
+                                <div class="price-row discount-row" id="discountRow" style="display: none;">
+                                    <span>Discount</span>
+                                    <span class="discount-amount" id="discountAmount">-Rs. 0.00</span>
+                                </div>
+                                <div class="price-divider"></div>
+                                <div class="price-row total-row">
+                                    <span>Total</span>
+                                    <span class="total-amount" id="totalAmount">Rs. 0.00</span>
+                                </div>
+                            </div>
+
+                            <!-- Trust Badges -->
+                            <div class="trust-badges">
+                                <div class="trust-badge">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Secure Payment</span>
+                                </div>
+                                <div class="trust-badge">
+                                    <i class="bi bi-lightning-charge"></i>
+                                    <span>Instant Delivery</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Empty Cart State -->
+    <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="container">
+            <div class="empty-content">
+                <div class="empty-icon">
+                    <i class="bi bi-cart-x"></i>
+                </div>
+                <h2>Your cart is empty</h2>
+                <p>Add some amazing games to your cart and come back to checkout!</p>
+                <a href="index.html" class="btn-primary-action">
+                    <i class="bi bi-shop"></i>
+                    <span>Start Shopping</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Trust Section -->
+    <footer class="checkout-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <i class="bi bi-lock"></i>
+                    All transactions are secure and encrypted
+                </p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">•</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">•</span>
+                    <a href="#">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Checkout JavaScript -->
+    <script>
+        // Load cart data with dummy fallback
+        let cartData = JSON.parse(sessionStorage.getItem('kunyo_checkout_cart') || '[]');
+
+        // If no cart data, use dummy/static content for preview
+        if (cartData.length === 0) {
+            cartData = [
+                {
+                    name: 'Mobile Legends: Bang Bang',
+                    package: '250 Diamonds',
+                    price: 450.00,
+                    quantity: 1,
+                    image: 'assets/images/mobile-legends-bang-bang1.webp',
+                    userId: '123456789',
+                    zoneId: '7890'
+                },
+                {
+                    name: 'PUBG Mobile UC',
+                    package: '600 UC + 60 Bonus',
+                    price: 850.00,
+                    quantity: 1,
+                    image: 'assets/images/mobile-legends-bang-bang1.webp',
+                    userId: '987654321',
+                    zoneId: '5432'
+                },
+                {
+                    name: 'Steam Gift Card',
+                    package: 'Standard $20',
+                    price: 2500.00,
+                    quantity: 2,
+                    image: 'assets/images/mobile-legends-bang-bang1.webp'
+                }
+            ];
+        }
+
+        const emptyState = document.getElementById('emptyState');
+        const checkoutMain = document.querySelector('.checkout-main');
+        const progressWrapper = document.querySelector('.progress-wrapper');
+
+        // Always show checkout content (with real or dummy data)
+        emptyState.style.display = 'none';
+        checkoutMain.style.display = 'block';
+        progressWrapper.style.display = 'block';
+        renderCart();
+
+        // Render cart items
+        function renderCart() {
+            const cartItemsList = document.getElementById('cartItemsList');
+            const deliveryDetailsContainer = document.getElementById('deliveryDetailsContainer');
+            let subtotal = 0;
+
+            cartItemsList.innerHTML = '';
+            deliveryDetailsContainer.innerHTML = '';
+
+            cartData.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                // Cart item
+                const itemHTML = `
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="${item.image || 'assets/images/mobile-legends-bang-bang1.webp'}" alt="${item.name}">
+                            <span class="item-qty">${item.quantity}</span>
+                        </div>
+                        <div class="item-details">
+                            <h4>${item.name}</h4>
+                            <p>${item.package || ''}</p>
+                        </div>
+                        <div class="item-price">Rs. ${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+                cartItemsList.insertAdjacentHTML('beforeend', itemHTML);
+
+                // Delivery details
+                const deliveryHTML = `
+                    <div class="delivery-info-card">
+                        <div class="delivery-icon">
+                            <i class="bi bi-controller"></i>
+                        </div>
+                        <div class="delivery-content">
+                            <h4>${item.name}</h4>
+                            <div class="delivery-detail">
+                                <span class="label">Package:</span>
+                                <span class="value">${item.package || 'N/A'}</span>
+                            </div>
+                            ${item.userId ? `
+                            <div class="delivery-detail">
+                                <span class="label">User ID:</span>
+                                <span class="value">${item.userId}</span>
+                            </div>
+                            ` : ''}
+                            ${item.zoneId ? `
+                            <div class="delivery-detail">
+                                <span class="label">Zone ID:</span>
+                                <span class="value">${item.zoneId}</span>
+                            </div>
+                            ` : ''}
+                            ${item.quantity && !item.userId ? `
+                            <div class="delivery-detail">
+                                <span class="label">Quantity:</span>
+                                <span class="value">${item.quantity}</span>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                deliveryDetailsContainer.insertAdjacentHTML('beforeend', deliveryHTML);
+            });
+
+            // Calculate totals
+            const processingFee = subtotal * 0.02; // 2% processing fee
+            const total = subtotal + processingFee;
+
+            document.getElementById('subtotalAmount').textContent = `Rs. ${subtotal.toFixed(2)}`;
+            document.getElementById('processingFee').textContent = `Rs. ${processingFee.toFixed(2)}`;
+            document.getElementById('totalAmount').textContent = `Rs. ${total.toFixed(2)}`;
+        }
+
+        // Promo code toggle
+        document.getElementById('promoToggle')?.addEventListener('click', function() {
+            const wrapper = document.getElementById('promoInputWrapper');
+            const icon = this.querySelector('.toggle-icon');
+            if (wrapper.style.display === 'none') {
+                wrapper.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                wrapper.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Payment method selection
+        document.querySelectorAll('input[name="payment"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.payment-method-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+                this.closest('.payment-method-card').classList.add('selected');
+            });
+        });
+
+        // Initialize first payment method as selected
+        document.querySelector('.payment-method-card')?.classList.add('selected');
+
+        // Complete order
+        document.getElementById('btnCompleteOrder')?.addEventListener('click', function() {
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!email || !phone) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            const total = document.getElementById('totalAmount').textContent;
+
+            const orderData = {
+                customer: { email, phone },
+                items: cartData,
+                paymentMethod: selectedPayment,
+                total: total,
+                orderId: 'KUN' + Date.now(),
+                timestamp: new Date().toISOString()
+            };
+
+            sessionStorage.setItem('kunyo_order_data', JSON.stringify(orderData));
+            sessionStorage.removeItem('kunyo_checkout_cart');
+
+            // Redirect to order confirmation (create this page later)
+            window.location.href = 'order-confirmation.html';
+        });
+    </script>
+</body>
+</html>

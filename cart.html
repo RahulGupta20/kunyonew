@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS (Navbar, Footer, Common) -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Cart Page CSS -->
+    <link rel="stylesheet" href="css/cart.css?v=3">
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="#" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag">
+                            <span>EN</span>
+                            <span class="separator">/</span>
+                            <span>USD</span>
+                        </button>
+                        <a href="#" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="cart.html" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge" id="headerCartBadge">4</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    All Categories
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Mobile games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Games</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                    <a class="dropdown-item browse-category-item" href="#">
+                        <span>Gaming eCards</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Direct Top Up</a></li>
+                    <li><a href="#">Subscription</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Support</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Cart Page -->
+    <div class="cart-page">
+        <!-- Page Header (Breadcrumb + Hero) -->
+        <header class="page-header">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb-nav" aria-label="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">Shopping Cart</span>
+                </nav>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="catalog-hero">
+                <div class="container-fluid">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">Shopping Cart</h1>
+                            <p class="hero-subtitle"><span id="itemCountHero">9</span> items ready for checkout</p>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Secure</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <!-- Main Content -->
+        <section class="catalog-content">
+            <div class="container-fluid">
+                <!-- Cart Content -->
+                <div class="cart-content-wrapper" id="cartContent">
+                    <div class="row g-4">
+
+                        <!-- Left: Cart Items -->
+                        <div class="col-lg-8">
+
+                        <!-- Cart Items List -->
+                        <div class="cart-items-list" id="cartItemsList">
+
+                            <!-- Cart Item 1 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Mobile Legends: Bang Bang">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="topup-mobile-legends.html" class="cart-item-link">Mobile Legends: Bang Bang</a>
+                                                </h3>
+                                                <p class="cart-item-package">250 Diamonds</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu1">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(0, 'Mobile Legends: Bang Bang', '250 Diamonds', 'assets/images/mobile-legends-bang-bang1.webp', '123456789', '7890');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                ID: 123456789
+                                            </span>
+                                            <span class="meta-badge">
+                                                <i class="bi bi-geo-alt"></i>
+                                                Zone: 7890
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="1" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 450.00</div>
+                                                <div class="item-unit-price">Rs. 450.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 2 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/pubg-sm.webp" alt="PUBG Mobile UC">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="#" class="cart-item-link">PUBG Mobile UC</a>
+                                                </h3>
+                                                <p class="cart-item-package">600 UC + 60 Bonus</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu2">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(1, 'PUBG Mobile UC', '600 UC + 60 Bonus', 'assets/images/mobile-legends-bang-bang1.webp', '987654321', '5432');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                ID: 987654321
+                                            </span>
+                                            <span class="meta-badge">
+                                                <i class="bi bi-geo-alt"></i>
+                                                Zone: 5432
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="2" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 1,700.00</div>
+                                                <div class="item-unit-price">Rs. 850.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 3 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Steam Gift Card">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="steam-gift-card.html" class="cart-item-link">Steam Gift Card</a>
+                                                </h3>
+                                                <p class="cart-item-package">Standard $20</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu3" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu3">
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="1" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 2,500.00</div>
+                                                <div class="item-unit-price">Rs. 2,500.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 4 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/freefire.jpeg" alt="Free Fire Diamonds">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="#" class="cart-item-link">Free Fire Diamonds</a>
+                                                </h3>
+                                                <p class="cart-item-package">310 Diamonds</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu4" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu4">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(3, 'Free Fire Diamonds', '310 Diamonds', 'assets/images/free-fire-sm.webp', '234567890', '');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                ID: 234567890
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="1" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 350.00</div>
+                                                <div class="item-unit-price">Rs. 350.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 5 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/ghensin-impact.webp" alt="Genshin Impact">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="#" class="cart-item-link">Genshin Impact</a>
+                                                </h3>
+                                                <p class="cart-item-package">980 Genesis Crystals</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu5" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu5">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(4, 'Genshin Impact', '980 Genesis Crystals', 'assets/images/mobile-legends-bang-bang1.webp', '345678901', '');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                UID: 345678901
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="2" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 2,400.00</div>
+                                                <div class="item-unit-price">Rs. 1,200.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 4 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/freefire.jpeg" alt="Free Fire Diamonds">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="#" class="cart-item-link">Free Fire Diamonds</a>
+                                                </h3>
+                                                <p class="cart-item-package">310 Diamonds</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu4" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu4">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(3, 'Free Fire Diamonds', '310 Diamonds', 'assets/images/free-fire-sm.webp', '234567890', '');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                ID: 234567890
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="1" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 350.00</div>
+                                                <div class="item-unit-price">Rs. 350.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 5 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/ghensin-impact.webp" alt="Genshin Impact">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="#" class="cart-item-link">Genshin Impact</a>
+                                                </h3>
+                                                <p class="cart-item-package">980 Genesis Crystals</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu5" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu5">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(4, 'Genshin Impact', '980 Genesis Crystals', 'assets/images/mobile-legends-bang-bang1.webp', '345678901', '');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                UID: 345678901
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="2" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 2,400.00</div>
+                                                <div class="item-unit-price">Rs. 1,200.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cart Item 4 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/freefire.jpeg" alt="Free Fire Diamonds">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="#" class="cart-item-link">Free Fire Diamonds</a>
+                                                </h3>
+                                                <p class="cart-item-package">310 Diamonds</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu4" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu4">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(3, 'Free Fire Diamonds', '310 Diamonds', 'assets/images/free-fire-sm.webp', '234567890', '');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                ID: 234567890
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="1" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 350.00</div>
+                                                <div class="item-unit-price">Rs. 350.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 5 -->
+                            <div class="cart-item-card">
+                                <div class="cart-item-main">
+                                    <div class="cart-item-image">
+                                        <img src="assets/images/ghensin-impact.webp" alt="Genshin Impact">
+                                    </div>
+
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-header">
+                                            <div class="cart-item-info">
+                                                <h3 class="cart-item-name">
+                                                    <a href="#" class="cart-item-link">Genshin Impact</a>
+                                                </h3>
+                                                <p class="cart-item-package">980 Genesis Crystals</p>
+                                            </div>
+                                            <div class="cart-item-actions">
+                                                <div class="dropdown">
+                                                    <button class="btn-actions-menu" type="button" id="actionsMenu5" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-end cart-actions-dropdown" aria-labelledby="actionsMenu5">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); openEditModal(4, 'Genshin Impact', '980 Genesis Crystals', 'assets/images/mobile-legends-bang-bang1.webp', '345678901', '');">
+                                                                <i class="bi bi-pencil"></i>
+                                                                <span>Edit Details</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item dropdown-item-danger" href="#" onclick="event.preventDefault();">
+                                                                <i class="bi bi-trash"></i>
+                                                                <span>Remove</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-item-meta">
+                                            <span class="meta-badge">
+                                                <i class="bi bi-person"></i>
+                                                UID: 345678901
+                                            </span>
+                                        </div>
+
+                                        <div class="cart-item-footer">
+                                            <div class="cart-item-quantity">
+                                                <span class="quantity-label">Qty:</span>
+                                                <div class="quantity-selector">
+                                                    <button class="qty-btn" onclick="updateQuantity(this, -1)">
+                                                        <i class="bi bi-dash"></i>
+                                                    </button>
+                                                    <input type="number" class="qty-value" value="2" readonly>
+                                                    <button class="qty-btn" onclick="updateQuantity(this, 1)">
+                                                        <i class="bi bi-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cart-item-price">
+                                                <div class="item-total-price">Rs. 2,400.00</div>
+                                                <div class="item-unit-price">Rs. 1,200.00 each</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Continue Shopping Link -->
+                        <div class="continue-shopping-wrapper">
+                            <a href="index.html" class="btn-continue-shopping-link">
+                                <i class="bi bi-arrow-left"></i>
+                                Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Order Summary -->
+                    <div class="col-lg-4">
+                        <div class="section-card-v2 order-summary-v2 sticky-sidebar">
+                            <h3 class="summary-card-title">Order Summary</h3>
+
+                            <div class="summary-content-v2">
+                                <!-- Pricing Breakdown -->
+                                <div class="pricing-breakdown">
+                                    <div class="pricing-row">
+                                        <span>Price:</span>
+                                        <strong id="summaryPrice">Rs. 4,650.00</strong>
+                                    </div>
+                                    <div class="pricing-row wallet-charge-row">
+                                        <span>Wallet Charge:</span>
+                                        <strong id="summaryWallet" class="wallet-charge">Rs. 218.5</strong>
+                                    </div>
+                                    <div class="pricing-row wallet-note">
+                                        <span>2% service charge</span>
+                                        <span></span>
+                                    </div>
+                                    <div class="pricing-row">
+                                        <span>Subtotal:</span>
+                                        <strong id="summarySubtotal">Rs. 4,868.5</strong>
+                                    </div>
+                                    <div class="pricing-row discount">
+                                        <span>Discount:</span>
+                                        <strong id="summaryDiscount">-Rs. 0</strong>
+                                    </div>
+                                    <div class="pricing-row total">
+                                        <span>Total:</span>
+                                        <strong id="summaryTotal">Rs. 4,868.5</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="checkout-actions">
+                                <button class="btn-buy-now" id="btnProceedToCheckout">
+                                    <i class="bi bi-lightning-fill"></i>
+                                    <span>Proceed to Checkout</span>
+                                </button>
+                            </div>
+
+                            <!-- Trust Badges -->
+                            <div class="cart-trust-badges">
+                                <div class="trust-badge-item">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Secure Payment</span>
+                                </div>
+                                <div class="trust-badge-item">
+                                    <i class="bi bi-lightning-charge"></i>
+                                    <span>Instant Delivery</span>
+                                </div>
+                            </div>
+
+                            <!-- Payment Methods -->
+                            <div class="payment-methods-info">
+                                <p class="payment-info-label">We accept</p>
+                                <div class="payment-icons-row">
+                                    <div class="payment-icon-box">
+                                        <i class="bi bi-wallet2"></i>
+                                    </div>
+                                    <div class="payment-icon-box">
+                                        <i class="bi bi-wallet"></i>
+                                    </div>
+                                    <div class="payment-icon-box">
+                                        <i class="bi bi-credit-card"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Empty Cart State -->
+            <div class="empty-cart-state" id="emptyCartState" style="display: none;">
+                <div class="empty-cart-content">
+                    <div class="empty-cart-icon">
+                        <i class="bi bi-cart-x"></i>
+                    </div>
+                    <h2>Your cart is empty</h2>
+                    <p>Looks like you haven't added any games to your cart yet. Start exploring!</p>
+                    <a href="index.html" class="btn-start-shopping">
+                        <i class="bi bi-shop"></i>
+                        Start Shopping
+                    </a>
+                </div>
+            </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Item Modal (Bootstrap - Slide from Right) -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-slideout">
+            <div class="modal-content edit-modal-content">
+                <div class="modal-header edit-modal-header">
+                    <h5 class="modal-title" id="editModalLabel">
+                        <i class="bi bi-pencil-square"></i>
+                        Edit Item Details
+                    </h5>
+                    <button type="button" class="btn-close edit-modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body edit-modal-body">
+                    <div class="edit-item-preview">
+                        <div class="edit-item-preview-card">
+                            <img id="editItemImage" src="" alt="" class="edit-item-image">
+                            <div class="edit-item-info">
+                                <h6 id="editItemName" class="edit-item-name"></h6>
+                                <p id="editItemPackage" class="edit-item-package"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="editForm" class="edit-form">
+                        <div class="form-group">
+                            <label for="editUserId" class="form-label">
+                                <i class="bi bi-person"></i>
+                                User ID
+                            </label>
+                            <input type="text" class="form-control edit-form-control" id="editUserId" placeholder="Enter User ID">
+                        </div>
+
+                        <div class="form-group" id="editZoneIdGroup" style="display: none;">
+                            <label for="editZoneId" class="form-label">
+                                <i class="bi bi-geo-alt"></i>
+                                Zone ID
+                            </label>
+                            <input type="text" class="form-control edit-form-control" id="editZoneId" placeholder="Enter Zone ID">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer edit-modal-footer">
+                    <button type="button" class="btn btn-cancel-edit" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-save-edit" onclick="saveEditChanges()">
+                        <i class="bi bi-check-lg"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Slide from Right - Matching cart-drawer */
+        .modal-dialog-slideout {
+            position: fixed;
+            margin: 0;
+            width: 100%;
+            max-width: 450px;
+            height: 100%;
+            right: 0;
+            top: 0;
+        }
+
+        .modal.fade .modal-dialog-slideout {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .modal.show .modal-dialog-slideout {
+            transform: translateX(0);
+        }
+
+        /* Modal Content - Exactly matching cart-drawer-content */
+        .edit-modal-content {
+            background: linear-gradient(180deg, rgba(13, 4, 13, 0.98) 0%, rgba(36, 14, 35, 0.98) 100%);
+            border: none;
+            border-left: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 0;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Header - Matching cart-drawer-header */
+        .edit-modal-header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(220, 20, 60, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .edit-modal-header .modal-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .edit-modal-header .modal-title i {
+            color: #DC143C;
+            font-size: 1.25rem;
+        }
+
+        .edit-modal-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: rgba(220, 20, 60, 0.1);
+            border-radius: 50%;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: all 250ms ease;
+            padding: 0;
+            opacity: 1;
+        }
+
+        .edit-modal-close i {
+            font-size: 0.875rem;
+        }
+
+        .edit-modal-close:hover {
+            background: #DC143C;
+            transform: rotate(90deg);
+            opacity: 1;
+        }
+
+        /* Body - Matching cart-drawer-body */
+        .edit-modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .edit-modal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .edit-modal-body::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .edit-modal-body::-webkit-scrollbar-thumb {
+            background: rgba(220, 20, 60, 0.5);
+            border-radius: 3px;
+        }
+
+        .edit-modal-body::-webkit-scrollbar-thumb:hover {
+            background: #DC143C;
+        }
+
+        /* Item Preview */
+        .edit-item-preview {
+            margin-bottom: 1.5rem;
+        }
+
+        .edit-item-preview-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            transition: all 0.25s ease;
+        }
+
+        .edit-item-preview-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(220, 20, 60, 0.2);
+        }
+
+        .edit-item-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            flex-shrink: 0;
+        }
+
+        .edit-item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+
+        .edit-item-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 0 0 0.25rem 0;
+            line-height: 1.3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .edit-item-package {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Form */
+        .edit-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .edit-form .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .edit-form .form-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+        }
+
+        .edit-form .form-label i {
+            color: #DC143C;
+            font-size: 1rem;
+        }
+
+        .edit-form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .edit-form-control::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .edit-form-control:focus {
+            outline: none;
+            background: rgba(0, 56, 147, 0.08);
+            border-color: #003893;
+            box-shadow: 0 0 0 3px rgba(0, 56, 147, 0.15);
+            color: #FFFFFF;
+        }
+
+        .edit-form-control:hover:not(:focus) {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* Footer - Matching cart-drawer footer style */
+        .edit-modal-footer {
+            padding: 1.25rem;
+            border-top: 1px solid rgba(220, 20, 60, 0.2);
+            background: rgba(13, 4, 13, 0.95);
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-cancel-edit {
+            flex: 1;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-cancel-edit:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            transform: translateY(-1px);
+        }
+
+        .btn-cancel-edit:active {
+            transform: translateY(0);
+        }
+
+        .btn-save-edit {
+            flex: 1;
+            padding: 0.75rem 1.25rem;
+            background: linear-gradient(135deg, #DC143C 0%, #C41230 100%);
+            border: none;
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+        }
+
+        .btn-save-edit:hover {
+            background: linear-gradient(135deg, #E01545 0%, #DC143C 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(220, 20, 60, 0.4);
+        }
+
+        .btn-save-edit:active {
+            transform: translateY(0);
+        }
+
+        .btn-save-edit i {
+            font-size: 1rem;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 575px) {
+            .modal-dialog-slideout {
+                max-width: 100%;
+            }
+
+            .edit-modal-header,
+            .edit-modal-body,
+            .edit-modal-footer {
+                padding: 1.25rem;
+            }
+
+            .edit-item-preview-card {
+                gap: 0.875rem;
+                padding: 0.875rem;
+            }
+
+            .edit-item-image {
+                width: 64px;
+                height: 64px;
+            }
+
+            .edit-item-name {
+                font-size: 0.9375rem;
+            }
+
+            .edit-item-package {
+                font-size: 0.8125rem;
+            }
+
+            .edit-modal-footer {
+                flex-direction: column-reverse;
+                gap: 0.625rem;
+            }
+
+            .btn-cancel-edit,
+            .btn-save-edit {
+                padding: 0.875rem 1.25rem;
+            }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 KUNYO. All rights reserved.</p>
+                <div class="footer-payment-methods">
+                    <span>We Accept:</span>
+                    <div class="payment-icons">
+                        <i class="bi bi-wallet2"></i>
+                        <i class="bi bi-wallet"></i>
+                        <i class="bi bi-credit-card"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Minimal Cart JavaScript -->
+    <script>
+        // Update quantity
+        function updateQuantity(button, change) {
+            const qtyInput = button.parentElement.querySelector('.qty-value');
+            let currentQty = parseInt(qtyInput.value);
+            let newQty = currentQty + change;
+
+            if (newQty < 1) newQty = 1;
+            if (newQty > 99) newQty = 99;
+
+            qtyInput.value = newQty;
+
+            // Update price display
+            const card = button.closest('.cart-item-card');
+            const priceText = card.querySelector('.item-unit-price').textContent;
+            const unitPrice = parseFloat(priceText.match(/[\d,]+\.?\d*/)[0].replace(',', ''));
+            const totalPrice = unitPrice * newQty;
+
+            card.querySelector('.item-total-price').textContent = `Rs. ${totalPrice.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+            // Recalculate summary
+            updateCartSummary();
+        }
+
+        // Update cart summary
+        function updateCartSummary() {
+            let subtotal = 0;
+            const cards = document.querySelectorAll('.cart-item-card');
+
+            cards.forEach(card => {
+                const totalPriceText = card.querySelector('.item-total-price').textContent;
+                const price = parseFloat(totalPriceText.match(/[\d,]+\.?\d*/)[0].replace(',', ''));
+                subtotal += price;
+            });
+
+            const processingFee = subtotal * 0.02;
+            const total = subtotal + processingFee;
+
+            document.getElementById('summarySubtotal').textContent = `Rs. ${subtotal.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('summaryFee').textContent = `Rs. ${processingFee.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('summaryTotal').textContent = `Rs. ${total.toLocaleString('en-NP', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+            // Update item count
+            updateItemCount();
+        }
+
+        // Update item count
+        function updateItemCount() {
+            let totalItems = 0;
+            const qtyInputs = document.querySelectorAll('.qty-value');
+
+            qtyInputs.forEach(input => {
+                totalItems += parseInt(input.value);
+            });
+
+            document.getElementById('itemCountHero').textContent = totalItems;
+            document.getElementById('headerCartBadge').textContent = totalItems;
+        }
+
+        // Open edit modal
+        function openEditModal(index, itemName, itemPackage, itemImage, userId, zoneId) {
+            // Populate modal with item details
+            document.getElementById('editItemImage').src = itemImage;
+            document.getElementById('editItemName').textContent = itemName;
+            document.getElementById('editItemPackage').textContent = itemPackage;
+            document.getElementById('editUserId').value = userId;
+
+            // Show/hide zone ID field if applicable
+            if (zoneId) {
+                document.getElementById('editZoneIdGroup').style.display = 'block';
+                document.getElementById('editZoneId').value = zoneId;
+            } else {
+                document.getElementById('editZoneIdGroup').style.display = 'none';
+            }
+
+            // Store index for saving later
+            const modalElement = document.getElementById('editModal');
+            modalElement.dataset.editIndex = index;
+
+            // Show modal using Bootstrap
+            const modal = new bootstrap.Modal(modalElement);
+            modal.show();
+        }
+
+        // Save edit changes
+        function saveEditChanges() {
+            const modalElement = document.getElementById('editModal');
+            const index = modalElement.dataset.editIndex;
+
+            // Get the cart item card
+            const cards = document.querySelectorAll('.cart-item-card');
+            const card = cards[index];
+
+            // Update the user ID and zone ID in the card
+            const userId = document.getElementById('editUserId').value;
+            const zoneId = document.getElementById('editZoneId').value;
+
+            const userIdBadge = card.querySelector('.meta-badge:has(.bi-person)');
+            const zoneIdBadge = card.querySelector('.meta-badge:has(.bi-geo-alt)');
+
+            if (userIdBadge) {
+                userIdBadge.innerHTML = `<i class="bi bi-person"></i> ID: ${userId}`;
+            }
+
+            if (zoneIdBadge && zoneId) {
+                zoneIdBadge.innerHTML = `<i class="bi bi-geo-alt"></i> Zone: ${zoneId}`;
+            }
+
+            // Close modal using Bootstrap
+            const modal = bootstrap.Modal.getInstance(modalElement);
+            modal.hide();
+        }
+
+        // Proceed to checkout
+        document.getElementById('btnProceedToCheckout')?.addEventListener('click', function() {
+            window.location.href = 'checkout.html';
+        });
+    </script>
+</body>
+</html>

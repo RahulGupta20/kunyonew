@@ -10,6 +10,8 @@
     "sass:product:build": "sass scss/pages/product-detail.scss css/product-detail.css --style compressed --no-source-map",
     "sass:auth": "sass scss/pages/auth.scss css/auth.css --watch --no-source-map",
     "sass:auth:build": "sass scss/pages/auth.scss css/auth.css --style compressed --no-source-map",
+    "sass:cart": "sass scss/cart.scss css/cart.css --watch --no-source-map",
+    "sass:cart:build": "sass scss/cart.scss css/cart.css --style compressed --no-source-map",
     "sass:all": "sass scss:css --watch --no-source-map",
     "sass:all:build": "sass scss:css --style compressed --no-source-map",
     "dev": "npm run sass"
