@@ -567,7 +567,7 @@
 
                     <!-- Hot Deals -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link" style="color: #DC143C; font-weight: 600;">
+                        <a href="hot-deals.html" class="nav-link" style="color: #DC143C; font-weight: 600;">
                             <i class="bi bi-fire"></i> Hot Deals
                         </a>
                     </li>
@@ -2429,6 +2429,45 @@
             window.addEventListener('resize', updateScrollButtons);
         }
 
+        // Package Selection Function
+        function selectPackage(row) {
+            // Remove selection from all
+            packageRows.forEach(r => r.classList.remove('selected'));
+
+            // Add selection to clicked
+            row.classList.add('selected');
+
+            // Get package data
+            const packageId = row.getAttribute('data-package-id');
+            const amount = row.getAttribute('data-amount');
+            const price = parseFloat(row.getAttribute('data-price'));
+            const name = row.querySelector('.package-details h4')?.textContent || `$${amount} USD`;
+
+            // Update state
+            state.selectedPackage = {
+                id: packageId,
+                name: name,
+                amount: amount,
+                price: price
+            };
+
+            // Update summary
+            updateSummary();
+
+            // Show notification
+            showNotification(`✓ Selected: ${name}`);
+
+            // Add subtle animation to summary
+            const summaryCard = document.querySelector('.order-summary-v2');
+            if (summaryCard) {
+                summaryCard.style.transform = 'scale(1.02)';
+                summaryCard.style.transition = 'transform 0.2s ease';
+                setTimeout(() => {
+                    summaryCard.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }
+
         // Event Listeners
         function attachEventListeners() {
             // Package Selection
@@ -2526,7 +2565,13 @@
 
             // Check if same package and userId exists in cart
             const existingItemIndex = state.cart.findIndex(
-                cartItem => cartItem.package.id === item.package.id && cartItem.userId === item.userId
+                cartItem => {
+                    // Only check for duplicates if both items are topup format with package.id
+                    if (cartItem.package && cartItem.package.id && item.package && item.package.id) {
+                        return cartItem.package.id === item.package.id && cartItem.userId === item.userId;
+                    }
+                    return false; // Don't match items from different pages
+                }
             );
 
             if (existingItemIndex > -1) {
@@ -2604,7 +2649,22 @@
         function updatePricing() {
             if (!pricingSubtotal || !pricingTotal) return;
 
-            const subtotal = state.cart.reduce((sum, item) => sum + (item.package.price * item.quantity), 0);
+            const subtotal = state.cart.reduce((sum, item) => {
+                let itemPrice = 0;
+
+                if (item.package && item.package.price !== undefined) {
+                    // Topup format
+                    itemPrice = item.package.price;
+                } else if (item.price !== undefined) {
+                    // Hot-deals format
+                    itemPrice = typeof item.price === 'string'
+                        ? parseFloat(item.price.replace(/[^\d.]/g, ''))
+                        : item.price;
+                }
+
+                return sum + (itemPrice * item.quantity);
+            }, 0);
+
             const discount = subtotal * (state.discount / 100);
             const total = subtotal - discount;
 
@@ -3188,6 +3248,14 @@
         }
 
         console.log('✓ Top-Up V2 initialized - Cart & Form Validation Active');
+        console.log('✓ Package rows found:', packageRows.length);
+
+        // Debug: Test if click events are working
+        if (packageRows.length === 0) {
+            console.error('❌ No package rows found! Check if .package-row-v2 elements exist in HTML');
+        } else {
+            console.log('✓ Event listeners attached to', packageRows.length, 'package rows');
+        }
     })();
 
     // Quantity Selector Handler

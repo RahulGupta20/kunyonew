@@ -567,7 +567,7 @@
 
                     <!-- Hot Deals -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link" style="color: #DC143C; font-weight: 600;">
+                        <a href="hot-deals.html" class="nav-link" style="color: #DC143C; font-weight: 600;">
                             <i class="bi bi-fire"></i> Hot Deals
                         </a>
                     </li>
@@ -2481,10 +2481,14 @@
 
             // Add to Cart Button
             if (btnAddToCart) {
+                console.log('✅ Add to Cart button found and event listener attached');
                 btnAddToCart.addEventListener('click', function(e) {
+                    console.log('🖱️ Add to Cart button clicked');
                     e.preventDefault();
                     addToCart();
                 });
+            } else {
+                console.error('❌ Add to Cart button NOT found (#btnAddToCart)');
             }
 
             // Buy Now Button - Handled by checkout modal code below
@@ -2492,9 +2496,20 @@
 
         // Cart Management Functions
         function addToCart() {
+            console.log('🛒 Add to Cart clicked');
+            console.log('State:', {
+                selectedPackage: state.selectedPackage,
+                userId: state.userDetails.userId,
+                username: state.userDetails.username,
+                selectedPayment: state.selectedPayment
+            });
+
             if (!validateAllFields()) {
+                console.log('❌ Validation failed');
                 return;
             }
+
+            console.log('✅ Validation passed, adding to cart...');
 
             const productName = document.querySelector('.product-title-v2')?.textContent || 'Unknown Product';
 
@@ -2506,22 +2521,37 @@
                 quantity: 1
             };
 
-            // Check if same package and userId exists in cart
+            // Check if same package and userId exists in cart (only for topup items)
             const existingItemIndex = state.cart.findIndex(
-                cartItem => cartItem.package.id === item.package.id && cartItem.userId === item.userId
+                cartItem => {
+                    // Only check for duplicates if both items are topup format with package.id
+                    if (cartItem.package && cartItem.package.id && item.package && item.package.id) {
+                        return cartItem.package.id === item.package.id && cartItem.userId === item.userId;
+                    }
+                    return false; // Don't match items from different pages (hot-deals, etc.)
+                }
             );
 
             if (existingItemIndex > -1) {
                 state.cart[existingItemIndex].quantity += 1;
+                console.log('✅ Quantity increased in cart');
                 showNotification('✓ Quantity increased in cart');
             } else {
                 state.cart.push(item);
+                console.log('✅ Item added to cart:', item);
                 showNotification('✓ Added to cart');
             }
 
             saveCart();
             renderCart();
             updatePricing();
+
+            // Update cart drawer
+            if (window.KunyoCartDrawer && window.KunyoCartDrawer.render) {
+                window.KunyoCartDrawer.render();
+            }
+
+            console.log('✅ Cart updated. Total items:', state.cart.length);
         }
 
         function removeFromCart(itemId) {
@@ -2560,25 +2590,51 @@
             cartEmpty.style.display = 'none';
             cartCount.textContent = cartLength;
 
-            const cartHTML = state.cart.map(item => `
-                <div class="cart-item" data-item-id="${item.id}">
-                    <div class="cart-item-info">
-                        <strong>${item.package.name}</strong>
-                        <small>User ID: ${item.userId}</small>
-                        <span class="cart-item-price">$${item.package.price.toFixed(2)}</span>
-                    </div>
-                    <div class="cart-item-actions">
-                        <div class="cart-item-quantity">
-                            <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                            <span>${item.quantity}</span>
-                            <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+            const cartHTML = state.cart.map(item => {
+                // Handle different cart item structures
+                let itemName = 'Unknown Item';
+                let itemPrice = 0;
+                let userIdDisplay = '';
+
+                if (item.package && item.package.name) {
+                    // Topup-v2 format
+                    itemName = item.package.name;
+                    itemPrice = item.package.price || 0;
+                    userIdDisplay = item.userId || 'N/A';
+                } else if (item.name) {
+                    // Hot-deals format
+                    itemName = item.name;
+                    itemPrice = typeof item.price === 'string'
+                        ? parseFloat(item.price.replace(/[^\d.]/g, ''))
+                        : (item.price || 0);
+                    userIdDisplay = item.type || 'Hot Deal';
+                } else if (item.productName) {
+                    // Alternative format
+                    itemName = item.productName;
+                    itemPrice = item.package?.price || 0;
+                    userIdDisplay = item.userId || 'N/A';
+                }
+
+                return `
+                    <div class="cart-item" data-item-id="${item.id}">
+                        <div class="cart-item-info">
+                            <strong>${itemName}</strong>
+                            <small>ID: ${userIdDisplay}</small>
+                            <span class="cart-item-price">$${itemPrice.toFixed(2)}</span>
                         </div>
-                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
-                            <i class="bi bi-trash"></i>
-                        </button>
+                        <div class="cart-item-actions">
+                            <div class="cart-item-quantity">
+                                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                            <button class="cart-item-remove" onclick="removeFromCart(${item.id})">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
 
             cartItemsList.innerHTML = cartHTML;
         }
@@ -2586,7 +2642,23 @@
         function updatePricing() {
             if (!pricingSubtotal || !pricingTotal) return;
 
-            const subtotal = state.cart.reduce((sum, item) => sum + (item.package.price * item.quantity), 0);
+            // Handle different cart item structures (from different pages)
+            const subtotal = state.cart.reduce((sum, item) => {
+                // Get price from either item.package.price (topup) or item.price (hot-deals)
+                let itemPrice = 0;
+
+                if (item.package && item.package.price !== undefined) {
+                    itemPrice = item.package.price;
+                } else if (item.price !== undefined) {
+                    // Parse price string like "Rs. 2,250" to number
+                    itemPrice = typeof item.price === 'string'
+                        ? parseFloat(item.price.replace(/[^\d.]/g, ''))
+                        : item.price;
+                }
+
+                return sum + (itemPrice * item.quantity);
+            }, 0);
+
             const discount = subtotal * (state.discount / 100);
             const total = subtotal - discount;
 
@@ -2731,6 +2803,8 @@
 
         // Package Selection
         function selectPackage(row) {
+            console.log('📦 selectPackage called for:', row);
+
             // Remove selection from all
             packageRows.forEach(r => r.classList.remove('selected'));
 
@@ -3170,6 +3244,14 @@
         }
 
         console.log('✓ Top-Up V2 initialized - Cart & Form Validation Active');
+        console.log('✓ Package rows found:', packageRows.length);
+
+        // Debug: Test if click events are working
+        if (packageRows.length === 0) {
+            console.error('❌ No package rows found! Check if .package-row-v2 elements exist in HTML');
+        } else {
+            console.log('✓ Event listeners attached to', packageRows.length, 'package rows');
+        }
     })();
 
     // Product Image Modal Handler (Bootstrap)

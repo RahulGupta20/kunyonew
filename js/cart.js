@@ -265,33 +265,64 @@
             if (cartDrawerFooter) cartDrawerFooter.style.display = 'block';
 
             // Generate HTML for each cart item
-            const cartHTML = cart.map(item => `
-                <div class="cart-item-drawer">
-                    <div class="cart-item-image">
-                        <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Mobile Legends: Bang Bang">
-                    </div>
-                    <div class="cart-item-content">
-                        <div class="cart-item-header">
-                            <h5>Mobile Legends: Bang Bang</h5>
-                            <button class="cart-item-remove" onclick="window.KunyoCart.remove(${item.id}); window.KunyoCartDrawer.render();">
-                                <i class="bi bi-trash"></i>
-                            </button>
+            const cartHTML = cart.map(item => {
+                // Handle different item data structures from different pages
+                let itemName = 'Unknown Product';
+                let itemDetails = '';
+                let itemImage = 'assets/images/mobile-legends-bang-bang1.webp';
+                let itemPrice = 0;
+
+                if (item.package && item.package.name) {
+                    // Topup format: {package: {name, price}, userId}
+                    itemName = item.productName || 'Mobile Legends: Bang Bang';
+                    itemDetails = `<small><strong>Package:</strong> ${item.package.name}</small>
+                                   <small><strong>User ID:</strong> ${item.userId || 'N/A'}</small>`;
+                    itemPrice = item.package.price || 0;
+                } else if (item.name) {
+                    // Hot-deals format: {name, price, image, category}
+                    itemName = item.name;
+                    itemDetails = `<small><strong>Category:</strong> ${item.category || item.type || 'Deal'}</small>
+                                   <small><strong>Discount:</strong> ${item.discount ? item.discount + '% OFF' : 'N/A'}</small>`;
+                    itemImage = item.image || itemImage;
+                    itemPrice = typeof item.price === 'string'
+                        ? parseFloat(item.price.replace(/[^\d.]/g, ''))
+                        : (item.price || 0);
+                } else if (item.productName) {
+                    // Alternative format
+                    itemName = item.productName;
+                    itemDetails = `<small><strong>User ID:</strong> ${item.userId || 'N/A'}</small>`;
+                    itemPrice = item.package?.price || 0;
+                }
+
+                const totalPrice = (itemPrice * item.quantity).toFixed(2);
+
+                return `
+                    <div class="cart-item-drawer">
+                        <div class="cart-item-image">
+                            <img src="${itemImage}" alt="${itemName}">
                         </div>
-                        <div class="cart-item-details">
-                            <small><strong>Package:</strong> ${item.package.name || 'Unknown Package'}</small>
-                            <small><strong>User ID:</strong> ${item.userId || 'N/A'}</small>
-                        </div>
-                        <div class="cart-item-footer">
-                            <div class="cart-item-price">Rs. ${(item.package.price * item.quantity).toFixed(2)}</div>
-                            <div class="cart-item-quantity">
-                                <button class="qty-btn" onclick="window.KunyoCart.updateQuantity(${item.id}, -1); window.KunyoCartDrawer.render();">-</button>
-                                <span>${item.quantity}</span>
-                                <button class="qty-btn" onclick="window.KunyoCart.updateQuantity(${item.id}, 1); window.KunyoCartDrawer.render();">+</button>
+                        <div class="cart-item-content">
+                            <div class="cart-item-header">
+                                <h5>${itemName}</h5>
+                                <button class="cart-item-remove" onclick="window.KunyoCart.remove(${item.id}); window.KunyoCartDrawer.render();">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                            <div class="cart-item-details">
+                                ${itemDetails}
+                            </div>
+                            <div class="cart-item-footer">
+                                <div class="cart-item-price">Rs. ${totalPrice}</div>
+                                <div class="cart-item-quantity">
+                                    <button class="qty-btn" onclick="window.KunyoCart.updateQuantity(${item.id}, -1); window.KunyoCartDrawer.render();">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button class="qty-btn" onclick="window.KunyoCart.updateQuantity(${item.id}, 1); window.KunyoCartDrawer.render();">+</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
 
             // Insert generated HTML into drawer
             if (cartItemsListDrawer) cartItemsListDrawer.innerHTML = cartHTML;
