@@ -8,7 +8,7 @@
     border-bottom: 1px solid rgba(220, 20, 60, 0.15);
     padding: 0;
     position: relative;
-    z-index: 999;
+    z-index: 0;
 
     @include respond-to('md') {
         padding: $spacing-xs 0;
@@ -23,9 +23,40 @@
 // Browse Category Dropdown
 .browse-category-dropdown {
     position: relative;
+    display: flex;
+    align-items: center;
 
     @include respond-to('lg') {
         display: none;
+    }
+
+    > .dropdown-toggle {
+        background: $primary-red;
+        color: $text-primary;
+        border: none;
+        padding: $spacing-md $spacing-lg;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+
+        &::after {
+            display: none;
+        }
+
+        &:hover {
+            background: $deep-red;
+        }
+
+        i {
+            font-size: 0.875rem;
+            transition: transform 0.3s ease;
+        }
+
+        &[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
     }
 }
 
@@ -78,7 +109,7 @@
     margin-top: $spacing-xs;
     min-width: 320px;
     overflow: hidden;
-    z-index: 10000;
+    z-index: 1030; // Same as other dropdown menus
     background:
         radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(0, 56, 147, 0.15) 0%, transparent 50%),
@@ -118,6 +149,46 @@
     margin: 0;
     padding: 0;
     gap: 32px;
+
+    // Dropdown with separate arrow
+    .nav-item.dropdown {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: $spacing-md 0;
+        }
+
+        // Separate dropdown arrow
+        > .dropdown-toggle {
+            display: inline-flex;
+            align-items: center;
+            padding: $spacing-md 8px;
+            color: $text-primary;
+            transition: all 0.2s ease;
+
+            &::after {
+                display: none; // Hide Bootstrap default arrow
+            }
+
+            i {
+                font-size: 0.75rem;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                color: $primary-red;
+            }
+
+            &[aria-expanded="true"] i {
+                transform: rotate(180deg);
+            }
+        }
+    }
 
     li a {
         color: $text-primary;
@@ -167,6 +238,7 @@
 
     @include respond-to('lg') {
         display: block;
+        padding: 0 1rem;
     }
 }
 
@@ -228,11 +300,13 @@
             margin-top: $spacing-xs;
             min-width: 200px;
             overflow: hidden;
-            background:
-                radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 56, 147, 0.15) 0%, transparent 50%),
-                rgba(0, 13, 31, 0.95);
+            background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(220, 20, 60, 0.25), transparent 70%), radial-gradient(circle at 20% 80%, rgba(0, 51, 153, 0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom, rgba(10, 0, 3, 0.98) 0%, rgba(0, 0, 0, 0.98) 100%);
             backdrop-filter: blur(20px);
+            display: none;
+
+            &.show {
+                display: block;
+            }
 
             @include respond-to('lg') {
                 position: static;

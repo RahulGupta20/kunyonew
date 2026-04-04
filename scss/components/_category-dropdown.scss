@@ -2,6 +2,7 @@
 @import "mixins";
 
 // Category Dropdown Menu
+// Using Bootstrap's z-index scale: this should be above navbar (1020/1030) but below modal (1050)
 .category-dropdown-menu {
     border: 1px solid rgba(220, 20, 60, 0.25);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -11,7 +12,7 @@
     min-width: 650px;
     left: 0 !important;
     right: auto !important;
-    z-index: 10000;
+    z-index: 1040 !important; // Same as Bootstrap modal backdrop
     backdrop-filter: blur(20px);
     background-color: transparent;
 
@@ -28,6 +29,7 @@
 
 .category-menu-content-dropdown {
     position: relative;
+    z-index: 1; // Relative to parent, no need for high value
     background:
         radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(0, 56, 147, 0.15) 0%, transparent 50%),

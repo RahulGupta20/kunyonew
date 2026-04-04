@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUNYO - Game Top Up & Digital Gift Cards | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <style>
+        /* Enhanced Navigation Styles */
+        :root {
+            --primary-blue: #003893;
+            --primary-red: #DC143C;
+            --dark-bg: #0d1117;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem 0;
+            font-size: 0.8125rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .top-bar-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            transition: color 0.3s ease;
+        }
+
+        .top-bar-link:hover {
+            color: var(--primary-red);
+        }
+
+        .top-bar-link i {
+            font-size: 0.875rem;
+        }
+
+        /* Main Header - Enhanced */
+        .main-header-new {
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-new {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-new img {
+            height: 36px;
+        }
+
+        /* Enhanced Navigation */
+        .main-nav-new {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-item-new {
+            position: relative;
+        }
+
+        .nav-link-new {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.625rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link-new:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-link-new.active {
+            color: var(--primary-red);
+            background: rgba(220, 20, 60, 0.1);
+        }
+
+        .nav-link-new i {
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item-new:hover .nav-link-new i {
+            transform: rotate(180deg);
+        }
+
+        .nav-badge {
+            padding: 0.125rem 0.375rem;
+            background: var(--primary-red);
+            border-radius: 10px;
+            font-size: 0.625rem;
+            font-weight: 700;
+            margin-left: 0.25rem;
+        }
+
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .header-action-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .header-action-btn i {
+            font-size: 1rem;
+        }
+
+        .action-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.625rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--dark-bg);
+        }
+
+        /* Mega Menu */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(13, 17, 23, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-width: 700px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .nav-item-new:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .mega-menu-column h4 {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mega-menu-column h4 i {
+            font-size: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .mega-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.625rem 0.75rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            margin-bottom: 0.25rem;
+        }
+
+        .mega-menu-item:hover {
+            background: rgba(220, 20, 60, 0.1);
+            color: var(--primary-red);
+            padding-left: 1rem;
+        }
+
+        .mega-menu-item i {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            width: 24px;
+            text-align: center;
+        }
+
+        .mega-menu-item:hover i {
+            color: var(--primary-red);
+        }
+
+        .mega-menu-item-text {
+            flex: 1;
+        }
+
+        .mega-menu-item-text strong {
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .mega-menu-item-text small {
+            font-size: 0.6875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Featured Section in Mega Menu */
+        .mega-menu-featured {
+            background: linear-gradient(135deg, rgba(0, 56, 147, 0.1), rgba(220, 20, 60, 0.1));
+            border: 1px solid rgba(0, 56, 147, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .mega-menu-featured h5 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .mega-menu-featured p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle i {
+            font-size: 1.25rem;
+        }
+
+        /* Search Bar in Header */
+        .header-search {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .header-search input {
+            width: 100%;
+            padding: 0.625rem 2.5rem 0.625rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-search input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary-blue);
+        }
+
+        .header-search input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .header-search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .mega-menu {
+                min-width: 600px;
+            }
+
+            .mega-menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .top-bar {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .main-nav-new {
+                display: none;
+            }
+
+            .header-search {
+                display: none;
+            }
+
+            .header-actions {
+                margin-left: auto;
+            }
+
+            .header-action-btn span {
+                display: none;
+            }
+        }
+
+        /* Demo Content */
+        .demo-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .demo-section h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .demo-section p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container-fluid">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="#" class="top-bar-link">
+                        <i class="bi bi-headset"></i>
+                        <span>24/7 Support</span>
+                    </a>
+                    <a href="#" class="top-bar-link">
+                        <i class="bi bi-truck"></i>
+                        <span>Track Order</span>
+                    </a>
+                    <a href="#" class="top-bar-link">
+                        <i class="bi bi-question-circle"></i>
+                        <span>Help Center</span>
+                    </a>
+                </div>
+                <div class="top-bar-right">
+                    <a href="#" class="top-bar-link">
+                        <i class="bi bi-gift"></i>
+                        <span>Download App & Get 10% Off</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header-new">
+        <div class="container-fluid">
+            <div class="header-content">
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <!-- Logo -->
+                <a href="index.html" class="logo-new">
+                    <img src="assets/images/kunyo-logo.png" alt="KUNYO">
+                </a>
+
+                <!-- Main Navigation -->
+                <nav class="main-nav-new">
+                    <!-- Browse Categories -->
+                    <div class="nav-item-new">
+                        <a href="#" class="nav-link-new">
+                            <i class="bi bi-grid"></i>
+                            Browse
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-phone"></i> Mobile Games</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-controller"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FreeFire</strong>
+                                            <small>Top-up diamonds instantly</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-controller"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PUBG Mobile</strong>
+                                            <small>UC & Royale Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-controller"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Mobile Legends</strong>
+                                            <small>Diamonds & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-controller"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Call of Duty Mobile</strong>
+                                            <small>CP & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-controller"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Genshin Impact</strong>
+                                            <small>Genesis Crystals</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-pc-display"></i> PC Games</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam Games</strong>
+                                            <small>Browse all Steam titles</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-controller"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Epic Games</strong>
+                                            <small>Exclusive PC games</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-controller"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>EA Games</strong>
+                                            <small>FIFA, Apex & more</small>
+                                        </div>
+                                    </a>
+
+                                    <h4 style="margin-top: 1.5rem;"><i class="bi bi-collection-play"></i> Console</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-playstation"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PlayStation</strong>
+                                            <small>PS4 & PS5 games</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-xbox"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Xbox</strong>
+                                            <small>Xbox games & passes</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-currency-dollar"></i> By Platform</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-google-play"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Google Play</strong>
+                                            <small>Android games & apps</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-apple"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>App Store</strong>
+                                            <small>iOS games & apps</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam</strong>
+                                            <small>PC gaming platform</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-nintendo-switch"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Nintendo eShop</strong>
+                                            <small>Switch games</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-fire"></i> Trending Now</h5>
+                                        <p>Check out the most popular games this week!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Up -->
+                    <div class="nav-item-new">
+                        <a href="#" class="nav-link-new">
+                            <i class="bi bi-lightning-charge"></i>
+                            Top Up
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Game Top-Ups</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FreeFire Diamonds</strong>
+                                            <small>Instant delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PUBG Mobile UC</strong>
+                                            <small>Global & India version</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Mobile Legends</strong>
+                                            <small>Diamonds & Weekly Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Genshin Impact</strong>
+                                            <small>Genesis Crystals & Welkin</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Valorant</strong>
+                                            <small>VP & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-broadcast"></i> Social Media</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-tiktok"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>TikTok Coins</strong>
+                                            <small>Support your favorite creators</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-instagram"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Instagram Boost</strong>
+                                            <small>Followers & engagement</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Ad-free experience</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-facebook"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Facebook Gaming</strong>
+                                            <small>Stars & support</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-wallet2"></i> Quick Recharge</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Recent Purchases</strong>
+                                            <small>Reorder in one click</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-star"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Favorites</strong>
+                                            <small>Your saved items</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-lightning-charge-fill"></i> Flash Sale</h5>
+                                        <p>Get 20% off on all mobile game top-ups this weekend!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gift Cards -->
+                    <div class="nav-item-new">
+                        <a href="#" class="nav-link-new">
+                            <i class="bi bi-gift"></i>
+                            Gift Cards
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Gaming Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-google-play"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Google Play Gift Card</strong>
+                                            <small>$10, $25, $50, $100</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam Wallet Code</strong>
+                                            <small>Digital delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-playstation"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PlayStation Store</strong>
+                                            <small>PSN cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-xbox"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Xbox Gift Card</strong>
+                                            <small>Games & Gold</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-nintendo-switch"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Nintendo eShop</strong>
+                                            <small>Switch cards</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-film"></i> Entertainment</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-netflix"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Netflix</strong>
+                                            <small>Subscription cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-spotify"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Spotify</strong>
+                                            <small>Premium codes</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-apple"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>iTunes & App Store</strong>
+                                            <small>Apple gift cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Gift subscriptions</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-bag"></i> Retail Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-amazon"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Amazon Gift Card</strong>
+                                            <small>Shop anything</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-cart"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Visa Prepaid Card</strong>
+                                            <small>Use anywhere</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-gift-fill"></i> Perfect Gift</h5>
+                                        <p>Not sure what to buy? Send a gift card!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Subscriptions -->
+                    <div class="nav-item-new">
+                        <a href="#" class="nav-link-new">
+                            <i class="bi bi-calendar-check"></i>
+                            Subscriptions
+                        </a>
+                    </div>
+
+                    <!-- Gaming Gears -->
+                    <div class="nav-item-new">
+                        <a href="#" class="nav-link-new">
+                            <i class="bi bi-headset"></i>
+                            Gaming Gears
+                        </a>
+                    </div>
+
+                    <!-- Deals -->
+                    <div class="nav-item-new">
+                        <a href="#" class="nav-link-new active">
+                            <i class="bi bi-fire"></i>
+                            Deals
+                            <span class="nav-badge">HOT</span>
+                        </a>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="nav-item-new">
+                        <a href="#" class="nav-link-new">
+                            <i class="bi bi-question-circle"></i>
+                            Support
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <div class="mega-menu" style="min-width: 400px;">
+                            <div class="mega-menu-grid" style="grid-template-columns: 1fr;">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-headset"></i> Customer Support</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-info-circle"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Help Center</strong>
+                                            <small>Find answers to your questions</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-truck"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Track Order</strong>
+                                            <small>Check your order status</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-chat-dots"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Live Chat</strong>
+                                            <small>Chat with support team</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-question-circle"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FAQ</strong>
+                                            <small>Frequently asked questions</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-telephone"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Contact Us</strong>
+                                            <small>Get in touch with us</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Search -->
+                <div class="header-search">
+                    <input type="text" placeholder="Search for games, cards, or top-ups...">
+                    <i class="bi bi-search header-search-icon"></i>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <a href="#" class="header-action-btn">
+                        <i class="bi bi-heart"></i>
+                        <span>Wishlist</span>
+                        <span class="action-badge">3</span>
+                    </a>
+                    <a href="cart.html" class="header-action-btn">
+                        <i class="bi bi-cart3"></i>
+                        <span>Cart</span>
+                        <span class="action-badge">2</span>
+                    </a>
+                    <a href="signin.html" class="header-action-btn">
+                        <i class="bi bi-person"></i>
+                        <span>Account</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Demo Content -->
+    <div class="demo-section">
+        <div class="container-fluid">
+            <h1>Enhanced Navigation System</h1>
+            <p>
+                This is the new improved navigation structure with mega menus, better organization,
+                and enhanced user experience. Hover over the menu items to see the dropdown menus.
+            </p>
+            <div class="mt-4">
+                <a href="index.html" class="btn btn-primary" style="background: linear-gradient(135deg, #003893, #DC143C); border: none; padding: 0.75rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; color: white; display: inline-block;">
+                    Back to Original Site
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

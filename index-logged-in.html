@@ -27,9 +27,20 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
+        /* Fix z-index stacking context */
+        .main-header {
+            z-index: 1000 !important;
+        }
+
+        .header-icons {
+            position: relative;
+            z-index: 10000;
+        }
+
         /* User Profile Dropdown Styles */
         .user-profile-dropdown {
             position: relative;
+            z-index: 10001;
         }
 
         .user-profile-btn {
@@ -100,30 +111,35 @@
             position: absolute;
             top: calc(100% + 0.5rem);
             right: 0;
-            min-width: 280px;
-            background: rgba(13, 17, 23, 0.98);
+            min-width: 240px;
+            background: rgba(13, 17, 23, 0.98) !important;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 0.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 8px;
+            padding: 0.25rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+            z-index: 10002 !important;
             overflow: hidden;
         }
 
+        /* Ensure bottom nav stays below dropdown */
+        .bottom-nav {
+            z-index: 999 !important;
+        }
+
         .user-dropdown-header {
-            padding: 1rem;
+            padding: 0.625rem 0.75rem;
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            margin-bottom: 0.375rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.625rem;
         }
 
         .user-dropdown-header .user-avatar {
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
         }
 
         .user-dropdown-header .user-info {
@@ -131,40 +147,40 @@
         }
 
         .user-dropdown-header .user-name {
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 700;
         }
 
         .user-dropdown-header .user-email {
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
         }
 
         .user-wallet-info {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem 1rem;
+            padding: 0.4rem 0.625rem;
             background: linear-gradient(135deg, rgba(0, 56, 147, 0.15), rgba(220, 20, 60, 0.15));
             border: 1px solid rgba(0, 56, 147, 0.3);
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            margin-bottom: 0.25rem;
         }
 
         .wallet-label {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8125rem;
+            gap: 0.3rem;
+            font-size: 0.6875rem;
             color: rgba(255, 255, 255, 0.7);
         }
 
         .wallet-label i {
-            font-size: 1rem;
+            font-size: 0.8125rem;
             color: #003893;
         }
 
         .wallet-balance {
-            font-size: 1rem;
+            font-size: 0.8125rem;
             font-weight: 700;
             color: #fff;
         }
@@ -178,36 +194,38 @@
         .user-dropdown-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
+            gap: 0.5rem;
+            padding: 0.4rem 0.625rem;
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            transition: all 0.2s ease;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
         }
 
         .user-dropdown-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            color: #fff;
+            background: rgba(220, 20, 60, 0.1);
+            color: #DC143C;
+            padding-left: 0.875rem;
         }
 
         .user-dropdown-item i {
-            font-size: 1.125rem;
+            font-size: 0.9375rem;
             color: rgba(255, 255, 255, 0.6);
-            width: 20px;
+            width: 16px;
             flex-shrink: 0;
+            transition: all 0.3s ease;
         }
 
         .user-dropdown-item:hover i {
-            color: #003893;
+            color: #DC143C;
         }
 
         .user-dropdown-item.logout-item {
             color: #DC143C;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            margin-top: 0.5rem;
-            padding-top: 1rem;
+            margin-top: 0.25rem;
+            padding-top: 0.5rem;
         }
 
         .user-dropdown-item.logout-item i {
@@ -220,13 +238,14 @@
 
         .item-badge {
             margin-left: auto;
-            padding: 0.125rem 0.5rem;
+            padding: 0.0625rem 0.3rem;
             background: rgba(220, 20, 60, 0.2);
             border: 1px solid rgba(220, 20, 60, 0.3);
-            border-radius: 12px;
-            font-size: 0.6875rem;
+            border-radius: 8px;
+            font-size: 0.5625rem;
             font-weight: 700;
             color: #DC143C;
+            line-height: 1;
         }
 
         /* Mobile Responsive */
@@ -244,14 +263,14 @@
             }
 
             .user-dropdown-menu {
-                min-width: 260px;
+                min-width: 220px;
             }
         }
 
         @media (max-width: 575px) {
             .user-dropdown-menu {
                 right: -20px;
-                min-width: 240px;
+                min-width: 200px;
             }
         }
     </style>
@@ -338,20 +357,11 @@
                             </button>
 
                             <div class="dropdown-menu user-dropdown-menu" aria-labelledby="userProfileDropdown">
-                                <!-- User Header -->
-                                <div class="user-dropdown-header">
-                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=003893&color=fff&size=128" alt="User Avatar" class="user-avatar">
-                                    <div class="user-info">
-                                        <span class="user-name">John Doe</span>
-                                        <span class="user-email">john.doe@email.com</span>
-                                    </div>
-                                </div>
-
                                 <!-- Wallet Info -->
                                 <div class="user-wallet-info">
                                     <div class="wallet-label">
                                         <i class="bi bi-wallet2"></i>
-                                        <span>Wallet Balance</span>
+                                        <span>Balance</span>
                                     </div>
                                     <div class="wallet-balance">Rs. 2,450</div>
                                 </div>
@@ -376,10 +386,6 @@
                                     <span>My Wallet</span>
                                 </a>
                                 <a href="#" class="user-dropdown-item">
-                                    <i class="bi bi-ticket-perforated"></i>
-                                    <span>Vouchers & Coupons</span>
-                                </a>
-                                <a href="#" class="user-dropdown-item">
                                     <i class="bi bi-bell"></i>
                                     <span>Notifications</span>
                                     <span class="item-badge">5</span>
@@ -387,10 +393,6 @@
                                 <a href="#" class="user-dropdown-item">
                                     <i class="bi bi-gear"></i>
                                     <span>Settings</span>
-                                </a>
-                                <a href="#" class="user-dropdown-item">
-                                    <i class="bi bi-question-circle"></i>
-                                    <span>Help & Support</span>
                                 </a>
 
                                 <!-- Logout -->
@@ -416,50 +418,136 @@
     <nav class="navbar navbar-expand-lg bottom-nav">
         <div class="container-fluid">
             <div class="dropdown browse-category-dropdown">
-                <button class="browse-category-btn dropdown-toggle" type="button" id="browseCategoryBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                <button class="browse-category-btn" type="button">
                     <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
-                    All Categories
-                    <i class="bi bi-chevron-down"></i>
+                    Browse All
                 </button>
-                <div class="dropdown-menu browse-category-menu" aria-labelledby="browseCategoryBtn">
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>Mobile games</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>Games</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>Gaming eCards</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>eGift Cards</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>Xbox</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>PSN</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>Nintendo</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                    <a class="dropdown-item browse-category-item" href="#">
-                        <span>Mobile recharges</span>
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                <div class="dropdown-menu mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-phone"></i> Mobile Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>FreeFire</strong>
+                                    <small>Top-up diamonds instantly</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PUBG Mobile</strong>
+                                    <small>UC & Royale Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Mobile Legends</strong>
+                                    <small>Diamonds & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Call of Duty Mobile</strong>
+                                    <small>CP & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Genshin Impact</strong>
+                                    <small>Genesis Crystals</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-pc-display"></i> PC Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam Games</strong>
+                                    <small>Browse all Steam titles</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Epic Games</strong>
+                                    <small>Exclusive PC games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>EA Games</strong>
+                                    <small>FIFA, Apex & more</small>
+                                </div>
+                            </a>
+
+                            <h4 style="margin-top: 1.5rem;"><i class="bi bi-collection-play"></i> Console</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-playstation"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PlayStation</strong>
+                                    <small>PS4 & PS5 games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-xbox"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Xbox</strong>
+                                    <small>Xbox games & passes</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-currency-dollar"></i> By Platform</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-google-play"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Google Play</strong>
+                                    <small>Android games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-apple"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>App Store</strong>
+                                    <small>iOS games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam</strong>
+                                    <small>PC gaming platform</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-nintendo-switch"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Nintendo eShop</strong>
+                                    <small>Switch games</small>
+                                </div>
+                            </a>
+
+                            <div class="mega-menu-featured">
+                                <h5><i class="bi bi-fire"></i> Trending Now</h5>
+                                <p>Check out the most popular games this week!</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="collapse navbar-collapse" id="mainNav">
                 <div class="mobile-menu-header">
-                    <a href="index.html" class="mobile-menu-logo">
+                    <a href="#" class="mobile-menu-logo">
                         <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
                     </a>
                     <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -467,41 +555,273 @@
                     </button>
                 </div>
                 <ul class="main-nav ms-4">
-                    <li>
-                        <a href="#">Gift Cards</a>
-                    </li>
-                    <li>
-                        <a href="#">Direct Top Up</a>
-                    </li>
-                    <li>
-                        <a href="#">Tiktok Coins</a>
-                    </li>
-                    <li>
-                        <a href="#">Subscription</a>
-                    </li>
-                    <li>
-                        <a href="#">Gaming Gears</a>
-                    </li>
-                    <li>
-                        <a href="#">Promotion</a>
-                    </li>
-                    <li>
-                        <a href="#">Blog</a>
-                    </li>
+                    <!-- Top Up Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Top Up</span>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="moreDropdown">
-                            <li><a class="dropdown-item" href="#">About Us</a></li>
-                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Game Top-Ups</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FreeFire Diamonds</strong>
+                                            <small>Instant delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PUBG Mobile UC</strong>
+                                            <small>Global & India version</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Mobile Legends</strong>
+                                            <small>Diamonds & Weekly Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Genshin Impact</strong>
+                                            <small>Genesis Crystals & Welkin</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Valorant</strong>
+                                            <small>VP & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-broadcast"></i> Social Media</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-tiktok"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>TikTok Coins</strong>
+                                            <small>Support your favorite creators</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-instagram"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Instagram Boost</strong>
+                                            <small>Followers & engagement</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Ad-free experience</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-facebook"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Facebook Gaming</strong>
+                                            <small>Stars & support</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-wallet2"></i> Quick Recharge</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Recent Purchases</strong>
+                                            <small>Reorder in one click</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-star"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Favorites</strong>
+                                            <small>Your saved items</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-lightning-charge-fill"></i> Flash Sale</h5>
+                                        <p>Get 20% off on all mobile game top-ups this weekend!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Gift Cards Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-gift"></i>
+                            <span>Gift Cards</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Gaming Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-google-play"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Google Play Gift Card</strong>
+                                            <small>$10, $25, $50, $100</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam Wallet Code</strong>
+                                            <small>Digital delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-playstation"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PlayStation Store</strong>
+                                            <small>PSN cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-xbox"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Xbox Gift Card</strong>
+                                            <small>Games & Gold</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-nintendo-switch"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Nintendo eShop</strong>
+                                            <small>Switch cards</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-film"></i> Entertainment</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-netflix"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Netflix</strong>
+                                            <small>Subscription cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-spotify"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Spotify</strong>
+                                            <small>Premium codes</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-apple"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>iTunes & App Store</strong>
+                                            <small>Apple gift cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Gift subscriptions</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-bag"></i> Retail Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-amazon"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Amazon Gift Card</strong>
+                                            <small>Shop anything</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-cart"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Visa Prepaid Card</strong>
+                                            <small>Use anywhere</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-gift-fill"></i> Perfect Gift</h5>
+                                        <p>Not sure what to buy? Send a gift card!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Subscriptions -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Subscriptions</a>
+                    </li>
+
+                    <!-- Gaming Gears -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-headset"></i> Gaming Gears</a>
+                    </li>
+
+                    <!-- Hot Deals -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" style="color: #DC143C; font-weight: 600;">
+                            <i class="bi bi-fire"></i> Hot Deals
+                        </a>
+                    </li>
+
+                    <!-- Support Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-question-circle"></i>
+                            <span>Support</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><a class="dropdown-item" href="#">Track Order</a></li>
+                            <li><a class="dropdown-item" href="#">Contact Us</a></li>
                             <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
                         </ul>
+                    </li>
+
+                    <!-- Mobile Special Offers -->
+                    <li class="mobile-special-offers">
+                        <a href="#" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
                     </li>
                 </ul>
             </div>
+
+            <a href="#" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
     <!-- Main Content Area -->
     <div class="container-fluid mt-5 pt-5">
@@ -545,6 +865,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/navigation.js"></script>
 
 </body>
 </html>
