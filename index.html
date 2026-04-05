@@ -2268,70 +2268,7 @@
     <script src="js/script.js"></script>
     <script src="js/cart.js"></script>
 
-    <script>
-// Close button functionality for category dropdown
-        document.addEventListener('DOMContentLoaded', function() {
-            const closeBtn = document.querySelector('.close-menu');
-            const dropdownElement = document.getElementById('categoryDropdownBtn');
-
-            if (closeBtn && dropdownElement) {
-                closeBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const dropdown = bootstrap.Dropdown.getInstance(dropdownElement);
-                    if (dropdown) {
-                        dropdown.hide();
-                    }
-                });
-            }
-
-            // Close when clicking category items and update button text
-            const categoryItems = document.querySelectorAll('.category-item');
-            categoryItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const selectedText = this.textContent.trim();
-
-                    // Update the button text
-                    const buttonText = dropdownElement.childNodes[0];
-                    if (buttonText) {
-                        buttonText.textContent = selectedText + ' ';
-                    }
-
-                    const dropdown = bootstrap.Dropdown.getInstance(dropdownElement);
-                    if (dropdown) {
-                        dropdown.hide();
-                    }
-                });
-            });
-
-            // Mobile sidebar menu overlay toggle
-            const mainNav = document.getElementById('mainNav');
-            const overlay = document.getElementById('mobileMenuOverlay');
-            const sidebarCloseBtn = document.querySelector('.sidebar-close-btn');
-
-            if (mainNav && overlay) {
-                // Show overlay when menu opens
-                mainNav.addEventListener('show.bs.collapse', function() {
-                    overlay.classList.add('show');
-                    document.body.style.overflow = 'hidden';
-                });
-
-                // Hide overlay when menu closes
-                mainNav.addEventListener('hide.bs.collapse', function() {
-                    overlay.classList.remove('show');
-                    document.body.style.overflow = '';
-                });
-
-                // Close menu when clicking overlay
-                overlay.addEventListener('click', function() {
-                    const bsCollapse = new bootstrap.Collapse(mainNav, {
-                        toggle: false
-                    });
-                    bsCollapse.hide();
-                });
-            }
-        });
-    </script>
+    <!-- Navigation JavaScript -->
+    <script src="js/navigation.js"></script>
 </body>
 </html>
