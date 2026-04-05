@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .breadcrumb-nav, .breadcrumb-nav-v2 {
   display: flex;
   align-items: center;
@@ -2052,6 +2051,7 @@
   justify-content: center;
   flex-shrink: 0;
   padding-right: 0.75rem;
+  display: none;
 }
 @media (max-width: 575px) {
   .cart-item-checkbox {
@@ -2095,7 +2095,7 @@
   position: relative;
 }
 .checkbox-label::after {
-  content: "";
+  content: "\f26b";
   font-family: "bootstrap-icons";
   font-size: 0.75rem;
   color: #FFFFFF;
