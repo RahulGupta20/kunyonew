@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Catalog - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Global CSS (Navbar, Footer, Common) -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/games-listing.css?v=66">
+
+    <style>
+        /* Cart Drawer Actions - Two Button Layout */
+        .cart-drawer-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .btn-view-cart {
+            flex: 1;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+            text-decoration: none;
+        }
+
+        .btn-view-cart:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-view-cart i {
+            font-size: 0.875rem;
+        }
+
+        .btn-checkout-drawer {
+            flex: 1;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #003893, #DC143C);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+            text-decoration: none;
+        }
+
+        .btn-checkout-drawer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.5);
+            color: white;
+        }
+
+        .btn-checkout-drawer i {
+            font-size: 0.875rem;
+        }
+
+        .cart-summary-mini .summary-row.total {
+            padding: 0.75rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 575px) {
+            .cart-drawer-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .btn-view-cart,
+            .btn-checkout-drawer {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="gift-cards-listing.html" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn" type="button">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    Browse All
+                </button>
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                <div class="dropdown-menu mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-phone"></i> Mobile Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>FreeFire</strong>
+                                    <small>Top-up diamonds instantly</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PUBG Mobile</strong>
+                                    <small>UC & Royale Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Mobile Legends</strong>
+                                    <small>Diamonds & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Call of Duty Mobile</strong>
+                                    <small>CP & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Genshin Impact</strong>
+                                    <small>Genesis Crystals</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-pc-display"></i> PC Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam Games</strong>
+                                    <small>Browse all Steam titles</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Epic Games</strong>
+                                    <small>Exclusive PC games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>EA Games</strong>
+                                    <small>FIFA, Apex & more</small>
+                                </div>
+                            </a>
+
+                            <h4 style="margin-top: 1.5rem;"><i class="bi bi-collection-play"></i> Console</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-playstation"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PlayStation</strong>
+                                    <small>PS4 & PS5 games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-xbox"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Xbox</strong>
+                                    <small>Xbox games & passes</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-currency-dollar"></i> By Platform</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-google-play"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Google Play</strong>
+                                    <small>Android games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-apple"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>App Store</strong>
+                                    <small>iOS games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam</strong>
+                                    <small>PC gaming platform</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-nintendo-switch"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Nintendo eShop</strong>
+                                    <small>Switch games</small>
+                                </div>
+                            </a>
+
+                            <div class="mega-menu-featured">
+                                <h5><i class="bi bi-fire"></i> Trending Now</h5>
+                                <p>Check out the most popular games this week!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="#" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <!-- Top Up Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Top Up</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Game Top-Ups</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FreeFire Diamonds</strong>
+                                            <small>Instant delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PUBG Mobile UC</strong>
+                                            <small>Global & India version</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Mobile Legends</strong>
+                                            <small>Diamonds & Weekly Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Genshin Impact</strong>
+                                            <small>Genesis Crystals & Welkin</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Valorant</strong>
+                                            <small>VP & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-broadcast"></i> Social Media</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-tiktok"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>TikTok Coins</strong>
+                                            <small>Support your favorite creators</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-instagram"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Instagram Boost</strong>
+                                            <small>Followers & engagement</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Ad-free experience</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-facebook"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Facebook Gaming</strong>
+                                            <small>Stars & support</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-wallet2"></i> Quick Recharge</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Recent Purchases</strong>
+                                            <small>Reorder in one click</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-star"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Favorites</strong>
+                                            <small>Your saved items</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-lightning-charge-fill"></i> Flash Sale</h5>
+                                        <p>Get 20% off on all mobile game top-ups this weekend!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Gift Cards Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-gift"></i>
+                            <span>Gift Cards</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Gaming Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-google-play"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Google Play Gift Card</strong>
+                                            <small>$10, $25, $50, $100</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam Wallet Code</strong>
+                                            <small>Digital delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-playstation"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PlayStation Store</strong>
+                                            <small>PSN cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-xbox"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Xbox Gift Card</strong>
+                                            <small>Games & Gold</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-nintendo-switch"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Nintendo eShop</strong>
+                                            <small>Switch cards</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-film"></i> Entertainment</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-netflix"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Netflix</strong>
+                                            <small>Subscription cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-spotify"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Spotify</strong>
+                                            <small>Premium codes</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-apple"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>iTunes & App Store</strong>
+                                            <small>Apple gift cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Gift subscriptions</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-bag"></i> Retail Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-amazon"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Amazon Gift Card</strong>
+                                            <small>Shop anything</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-cart"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Visa Prepaid Card</strong>
+                                            <small>Use anywhere</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-gift-fill"></i> Perfect Gift</h5>
+                                        <p>Not sure what to buy? Send a gift card!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Subscriptions -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Subscriptions</a>
+                    </li>
+
+                    <!-- Gaming Gears -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-headset"></i> Gaming Gears</a>
+                    </li>
+
+                    <!-- Hot Deals -->
+                    <li class="nav-item">
+                        <a href="hot-deals.html" class="nav-link" style="color: #DC143C; font-weight: 600;">
+                            <i class="bi bi-fire"></i> Hot Deals
+                        </a>
+                    </li>
+
+                    <!-- Support Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-question-circle"></i>
+                            <span>Support</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><a class="dropdown-item" href="#">Track Order</a></li>
+                            <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Mobile Special Offers -->
+                    <li class="mobile-special-offers">
+                        <a href="special-offers.html" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="special-offers.html" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>
+                    <i class="bi bi-cart3"></i>
+                    Your Cart
+                    <span class="cart-count-badge" id="cartCountBadge">0</span>
+                </h3>
+                <button class="cart-drawer-close" id="cartDrawerClose">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="cart-drawer-body" id="cartDrawerBody">
+                <!-- Empty State -->
+                <div class="cart-empty-state" id="cartEmptyState">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-cart-x"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some gaming items to get started!</p>
+                    <button class="btn-continue-shopping" id="btnContinueShopping">
+                        <i class="bi bi-arrow-left"></i>
+                        Continue Shopping
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="cart-items-list" id="cartItemsListDrawer" style="display: none;">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+                <div class="cart-summary-mini">
+                    <div class="summary-row total">
+                        <span>Total (<span id="cartItemCount">0</span> items):</span>
+                        <strong class="total-amount" id="cartTotalDrawer">Rs. 0.00</strong>
+                    </div>
+                </div>
+                <div class="cart-drawer-actions">
+                    <a href="cart.html" class="btn-view-cart">
+                        <i class="bi bi-cart3"></i>
+                        <span>View Cart</span>
+                    </a>
+                    <a href="checkout.html" class="btn-checkout-drawer" id="btnCheckoutDrawer">
+                        <i class="bi bi-lightning-fill"></i>
+                        <span>Checkout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div class="modal fade" id="preferencesModal" tabindex="-1" aria-labelledby="preferencesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered preferences-modal-dialog">
+            <div class="modal-content preferences-modal-content">
+                <div class="modal-header preferences-modal-header">
+                    <h5 class="modal-title" id="preferencesModalLabel">Preferences</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body preferences-modal-body">
+                    <!-- Language Selection -->
+                    <div class="preference-section">
+                        <h6 class="preference-title">
+                            <i class="bi bi-translate"></i>
+                            Language
+                        </h6>
+                        <select class="form-select preference-select" id="languageSelect">
+                            <option value="en" selected>English</option>
+                            <option value="ne">Nepali (नेपाली)</option>
+                        </select>
+                    </div>
+
+                    <!-- Currency Selection -->
+                    <div class="preference-section">
+                        <h6 class="preference-title">
+                            <i class="bi bi-cash-coin"></i>
+                            Currency
+                        </h6>
+                        <select class="form-select preference-select" id="currencySelect">
+                            <option value="NPR">NPR (Rs.) - Nepalese Rupee</option>
+                            <option value="USD" selected>USD ($) - US Dollar</option>
+                            <option value="EUR">EUR (€) - Euro</option>
+                            <option value="GBP">GBP (£) - British Pound</option>
+                            <option value="INR">INR (₹) - Indian Rupee</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer preferences-modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="savePreferences">Save Preferences</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catalog Page -->
+    <div class="catalog-page">
+        <!-- Page Header (Breadcrumb + Hero) -->
+        <header class="page-header">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb-nav" aria-label="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">Games</span>
+                </nav>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="catalog-hero">
+                <div class="container-fluid">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">Game Direct Top-Up</h1>
+                            <p class="hero-subtitle">Browse and purchase top-ups instantly</p>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Secure</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+
+        <!-- Main Content -->
+        <section class="catalog-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Sidebar Filters -->
+                    <div class="col-lg-3 col-md-4">
+                        <div class="filters-sidebar">
+                            <!-- Mobile Filter Toggle & View Switcher -->
+                            <div class="mobile-toolbar d-lg-none">
+                                <button class="btn-filter-toggle" id="btnFilterToggle">
+                                    <i class="bi bi-funnel"></i>
+                                    <span>Filters</span>
+                                </button>
+                                <select class="form-select sort-select" id="sortSelectMobile">
+                                    <option value="popular">Most Popular • 24</option>
+                                    <option value="newest">Newest First • 24</option>
+                                    <option value="name-asc">Name (A-Z) • 24</option>
+                                    <option value="name-desc">Name (Z-A) • 24</option>
+                                    <option value="price-low">Price: Low to High • 24</option>
+                                    <option value="price-high">Price: High to Low • 24</option>
+                                </select>
+                            </div>
+
+                            <div class="filters-container" id="filtersContainer">
+                                <!-- Close Button (Mobile) -->
+                                <button class="btn-close-filters d-lg-none" id="btnCloseFilters">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+
+                                <div class="filters-header">
+                                    <h5>Filters</h5>
+                                    <button class="btn-clear-filters" id="btnClearFilters">Clear All</button>
+                                </div>
+
+                                <!-- Search Filter -->
+                                <div class="filter-group">
+                                    <label class="filter-label">
+                                        <i class="bi bi-search"></i>
+                                        Search Games
+                                    </label>
+                                    <input type="text" class="form-control filter-search" id="searchInput" placeholder="Search by name...">
+                                </div>
+
+                                <!-- Category Filter -->
+                                <div class="filter-group">
+                                    <label class="filter-label">
+                                        <i class="bi bi-grid-3x3-gap"></i>
+                                        Category
+                                    </label>
+                                    <div class="filter-options">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="category" value="all" checked>
+                                            <span>All</span>
+                                            <span class="filter-count">(24)</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="category" value="mobile-games">
+                                            <span>Mobile Game Cards</span>
+                                            <span class="filter-count">(12)</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="category" value="game-cards">
+                                            <span>Game Cards</span>
+                                            <span class="filter-count">(6)</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="category" value="gift-cards">
+                                            <span>Gift Cards</span>
+                                            <span class="filter-count">(4)</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="category" value="streaming">
+                                            <span>Video Streaming</span>
+                                            <span class="filter-count">(2)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Platform Filter -->
+                                <div class="filter-group">
+                                    <label class="filter-label">
+                                        <i class="bi bi-phone"></i>
+                                        Platform
+                                    </label>
+                                    <div class="filter-options">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="platform" value="mobile">
+                                            <span>Mobile</span>
+                                            <span class="filter-count">(12)</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="platform" value="pc">
+                                            <span>PC</span>
+                                            <span class="filter-count">(8)</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="platform" value="console">
+                                            <span>Console</span>
+                                            <span class="filter-count">(4)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Price Range Filter -->
+                                <div class="filter-group">
+                                    <label class="filter-label">
+                                        <i class="bi bi-cash-stack"></i>
+                                        Price Range
+                                    </label>
+                                    <div class="price-range-inputs">
+                                        <input type="number" class="form-control" id="minPrice" placeholder="Min" min="0" value="0">
+                                        <span class="price-separator">-</span>
+                                        <input type="number" class="form-control" id="maxPrice" placeholder="Max" min="0" value="500">
+                                    </div>
+                                    <input type="range" class="price-slider" id="priceSlider" min="0" max="500" value="500">
+                                    <div class="price-range-display">
+                                        <span>$<span id="priceMin">0</span></span>
+                                        <span>$<span id="priceMax">500</span></span>
+                                    </div>
+                                </div>
+
+                                <!-- Popularity Filter -->
+                                <div class="filter-group">
+                                    <label class="filter-label">
+                                        <i class="bi bi-star"></i>
+                                        Popularity
+                                    </label>
+                                    <div class="filter-options">
+                                        <label class="filter-radio">
+                                            <input type="radio" name="popularity" value="all" checked>
+                                            <span>All</span>
+                                        </label>
+                                        <label class="filter-radio">
+                                            <input type="radio" name="popularity" value="trending">
+                                            <span>🔥 Trending</span>
+                                        </label>
+                                        <label class="filter-radio">
+                                            <input type="radio" name="popularity" value="popular">
+                                            <span>⭐ Most Popular</span>
+                                        </label>
+                                        <label class="filter-radio">
+                                            <input type="radio" name="popularity" value="new">
+                                            <span>✨ New Arrivals</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Delivery Time Filter -->
+                                <div class="filter-group">
+                                    <label class="filter-label">
+                                        <i class="bi bi-lightning-charge"></i>
+                                        Delivery Time
+                                    </label>
+                                    <div class="filter-options">
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="delivery" value="instant">
+                                            <span>⚡ Instant</span>
+                                        </label>
+                                        <label class="filter-checkbox">
+                                            <input type="checkbox" name="delivery" value="fast">
+                                            <span>🚀 Within 5 mins</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="col-lg-9 col-md-8">
+                        <!-- Active Filters Display -->
+                        <div class="active-filters-section" id="activeFiltersSection" style="display: none;">
+                            <div class="active-filters-header">
+                                <h6>Active Filters</h6>
+                                <button class="btn-clear-all" onclick="clearAllFilters()">
+                                    <i class="bi bi-x-circle"></i> Clear All
+                                </button>
+                            </div>
+                            <div class="active-filters-tags" id="activeFiltersTags">
+                                <!-- Active filter tags will be dynamically inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Toolbar -->
+                        <div class="catalog-toolbar">
+                            <div class="toolbar-left">
+                                <p class="results-count"><span id="selectedCategory">All Categories</span></p>
+                            </div>
+                            <div class="toolbar-right d-none d-lg-flex">
+                                <select class="form-select sort-select" id="sortSelect">
+                                    <option value="popular">Most Popular • 24</option>
+                                    <option value="newest">Newest First • 24</option>
+                                    <option value="name-asc">Name (A-Z) • 24</option>
+                                    <option value="name-desc">Name (Z-A) • 24</option>
+                                    <option value="price-low">Price: Low to High • 24</option>
+                                    <option value="price-high">Price: High to Low • 24</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- SVG for clip-path with rounded corners -->
+                        <svg width="0" height="0" style="position: absolute;">
+                            <defs>
+                                <clipPath id="diagonalClip" clipPathUnits="objectBoundingBox">
+                                    <path d="M 0.05,0.25 Q 0,0.25 0,0.3 L 0,0.92 Q 0,1 0.05,1 L 0.95,1 Q 1,1 1,0.92 L 1,0.08 Q 1,0 0.95,0 L 0.05,0.25 Z" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <!-- Products Grid -->
+                        <div class="products-grid" id="productsGrid">
+                            <!-- Product Card 1 -->
+                            <a href="steam-gift-card.html" class="angled-box" data-category="moba" data-platform="mobile" data-price="50" data-popularity="trending" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-trending d-none">🔥 Trending</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="assets/images/steam1.jpeg" alt="Steam Wallet">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Steam</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 2 -->
+                            <a href="product-detail-2.html" class="angled-box" data-category="rpg" data-platform="mobile,pc" data-price="100" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular d-none">⭐ Popular</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2Ff42becd96eef3c3e995158a8bcce9489_kunyo%20gears%20gift%20naruto.jpg&w=1080&q=75" alt="Nintendo Eshop Card">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Nintendo Eshop Card</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 3 -->
+                            <a href="product-detail-3.html" class="angled-box" data-category="battle-royale" data-platform="mobile" data-price="25" data-popularity="trending" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-trending d-none">🔥 Trending</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F87d4a65a4fa085ea2f01595296a27c63_itune%20gift.jpg&w=1080&q=75" alt="PUBG Mobile">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">iTunes Gift Card</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 4 -->
+                            <a href="product-detail.html" class="angled-box" data-category="battle-royale" data-platform="mobile" data-price="30" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular d-none">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F44e945d2fe95eb8cc10e132a2e0b6abb_KUNYO%20GIFT%20CARD%20PLAYSTATION.jpg&w=1080&q=75" alt="Free Fire">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">PlayStation Gift Card</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 5 -->
+                            <a href="product-detail.html" class="angled-box" data-category="fps" data-platform="mobile,pc" data-price="50" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular d-none">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F842b356d2f4cec199ee25bb44fa308af_GOOGLE%20only.png&w=1080&q=75" alt="Valorant">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Google Gift Card</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 6 -->
+                            <a href="product-detail.html" class="angled-box" data-category="rpg" data-platform="mobile" data-price="75" data-popularity="new" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-new d-none">✨ New</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F91503b1189452726957e1b5381eacede_xbox%20final%20design.jpg&w=1080&q=75" alt="Honkai Star Rail">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Xbox Live Gift Card</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 7 -->
+                            <a href="product-detail.html" class="angled-box" data-category="moba" data-platform="mobile" data-price="40" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://kunyo.co/_next/image?url=https%3A%2F%2Fapi.kunyo.co%2Foptimized%2Fimages%2Fcategory%2F5fc5cfe0b4d83ecf1f6023227f50db1c_zing%20code%20only.png&w=1080&q=75" alt="League of Legends Wild Rift">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">ZING CODE (GLOBAL)</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 8 -->
+                            <a href="product-detail.html" class="angled-box" data-category="rpg" data-platform="mobile" data-price="60" data-popularity="trending" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-trending">🔥 Trending</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&h=300&fit=crop" alt="Clash of Clans">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Clash of Clans</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 9 -->
+                            <a href="product-detail.html" class="angled-box" data-category="battle-royale" data-platform="mobile" data-price="45" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop" alt="Call of Duty Mobile">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Call of Duty Mobile</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 10 -->
+                            <a href="product-detail.html" class="angled-box" data-category="sports" data-platform="mobile,console" data-price="70" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=300&fit=crop" alt="FIFA Mobile">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">FIFA Mobile</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 11 -->
+                            <a href="product-detail.html" class="angled-box" data-category="rpg" data-platform="mobile" data-price="35" data-popularity="trending" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-trending">🔥 Trending</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?w=400&h=300&fit=crop" alt="Roblox">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Roblox</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 12 -->
+                            <a href="product-detail.html" class="angled-box" data-category="mmorpg" data-platform="pc,mobile" data-price="55" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=300&fit=crop" alt="Ragnarok Mobile">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Ragnarok Mobile</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 13 -->
+                            <a href="product-detail.html" class="angled-box" data-category="card" data-platform="mobile,pc" data-price="50" data-popularity="new" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-new">✨ New</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1611915387288-fd8d2f5f928b?w=400&h=300&fit=crop" alt="Hearthstone">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Hearthstone</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 14 -->
+                            <a href="product-detail.html" class="angled-box" data-category="racing" data-platform="mobile" data-price="40" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400&h=300&fit=crop" alt="Asphalt 9">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Asphalt 9</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 15 -->
+                            <a href="product-detail.html" class="angled-box" data-category="moba" data-platform="mobile" data-price="45" data-popularity="trending" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-trending">🔥 Trending</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&h=300&fit=crop" alt="Arena of Valor">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Arena of Valor</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 16 -->
+                            <a href="product-detail.html" class="angled-box" data-category="rpg" data-platform="pc,console" data-price="80" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1591154669695-5f2a8d20c089?w=400&h=300&fit=crop" alt="Steam Wallet">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Steam Wallet</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 17 -->
+                            <a href="product-detail.html" class="angled-box" data-category="sandbox" data-platform="mobile,pc" data-price="50" data-popularity="trending" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-trending">🔥 Trending</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop" alt="Minecraft">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Minecraft</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 18 -->
+                            <a href="product-detail.html" class="angled-box" data-category="fps" data-platform="pc" data-price="60" data-popularity="popular" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-popular">⭐ Popular</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=300&fit=crop" alt="Counter Strike 2">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Counter Strike 2</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 19 -->
+                            <a href="product-detail.html" class="angled-box" data-category="rpg" data-platform="mobile" data-price="55" data-popularity="new" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-new">✨ New</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400&h=300&fit=crop" alt="Tower of Fantasy">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Tower of Fantasy</h3>
+                                    </footer>
+                                </div>
+                            </a>
+
+                            <!-- Product Card 20 -->
+                            <a href="product-detail.html" class="angled-box" data-category="battle-royale" data-platform="mobile" data-price="35" data-popularity="trending" data-delivery="instant">
+                                <div class="product-badges">
+                                    <span class="badge badge-trending">🔥 Trending</span>
+                                    <span class="badge badge-instant d-none">⚡ Instant</span>
+                                </div>
+                                <div class="angled-box-content">
+                                    <div class="image-wrap">
+                                        <figure class="promo-figure">
+                                            <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?w=400&h=300&fit=crop" alt="Apex Legends Mobile">
+                                        </figure>
+                                    </div>
+                                    <footer class="pack-footer">
+                                        <h3 class="product-title">Apex Legends Mobile</h3>
+                                    </footer>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav class="pagination-wrapper" aria-label="Game catalog pagination">
+                            <div class="pagination-controls">
+                                <!-- Items Per Page Selector -->
+                                <div class="items-per-page">
+                                    <label for="itemsPerPage">Items per page:</label>
+                                    <select id="itemsPerPage" class="form-select">
+                                        <option value="5" selected>5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                </div>
+
+                                <!-- Pagination Buttons -->
+                                <ul class="pagination" id="pagination">
+                                    <li class="page-item disabled" id="prevPage">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                            <i class="bi bi-chevron-left"></i>
+                                            <span>Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active" data-page="1">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item" data-page="2">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item" data-page="3">
+                                        <a class="page-link" href="#">3</a>
+                                    </li>
+                                    <li class="page-item" data-page="4">
+                                        <a class="page-link" href="#">4</a>
+                                    </li>
+                                    <li class="page-item" id="nextPage">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span>Next</span>
+                                            <i class="bi bi-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pagination-info">
+                                <span>Showing <strong id="showingStart">1</strong>-<strong id="showingEnd">5</strong> of <strong id="totalItems">20</strong> games</span>
+                            </div>
+                        </nav>
+
+                        <!-- No Results -->
+                        <div class="no-results" id="noResults" style="display: none;">
+                            <i class="bi bi-search"></i>
+                            <h3>No games found</h3>
+                            <p>Try adjusting your filters or search terms</p>
+                            <button class="btn btn-primary" id="btnResetFilters">Reset Filters</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick View Modal -->
+        <div class="quick-view-modal" id="quickViewModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <button class="btn-close-modal" id="btnCloseModal">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="modal-image">
+                                <img src="" alt="Game" id="modalImage">
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="modal-info">
+                                <h2 class="modal-title" id="modalTitle">Game Title</h2>
+                            <div class="modal-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <span id="modalRating">4.8</span>
+                                <span class="rating-count">(<span id="modalReviewCount">2.3k</span> reviews)</span>
+                            </div>
+                            <div class="modal-meta">
+                                <span class="meta-item"><i class="bi bi-phone"></i> <span id="modalPlatform">Mobile</span></span>
+                                <span class="meta-item"><i class="bi bi-lightning-charge"></i> Instant Delivery</span>
+                                <span class="meta-item"><i class="bi bi-shield-check"></i> Secure Payment</span>
+                            </div>
+                            <p class="modal-description" id="modalDescription">
+                                Quick top-up description goes here...
+                            </p>
+                            <div class="modal-features">
+                                <h6>Features:</h6>
+                                <ul>
+                                    <li><i class="bi bi-check-circle-fill"></i> Instant delivery to your account</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> 100% safe and secure</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> 24/7 customer support</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Multiple payment methods</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="modal-price">
+                                    <span class="price-label">Starting from</span>
+                                    <span class="price-amount" id="modalPrice">$0.99</span>
+                                </div>
+                                <a href="#" class="btn btn-primary btn-lg" id="modalBuyButton">
+                                    <i class="bi bi-cart-plus"></i>
+                                    Top Up Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="gift-cards-listing.html">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Navigation JS -->
+    <script src="js/navigation.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/catalog.js"></script>
+
+    <script>
+// Close button functionality for category dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const closeBtn = document.querySelector('.close-menu');
+            const dropdownElement = document.getElementById('categoryDropdownBtn');
+
+            if (closeBtn && dropdownElement) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const dropdown = bootstrap.Dropdown.getInstance(dropdownElement);
+                    if (dropdown) {
+                        dropdown.hide();
+                    }
+                });
+            }
+
+            // Close when clicking category items and update button text
+            const categoryItems = document.querySelectorAll('.category-item');
+            categoryItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const selectedText = this.textContent.trim();
+
+                    // Update the button text
+                    const buttonText = dropdownElement.childNodes[0];
+                    if (buttonText) {
+                        buttonText.textContent = selectedText + ' ';
+                    }
+
+                    const dropdown = bootstrap.Dropdown.getInstance(dropdownElement);
+                    if (dropdown) {
+                        dropdown.hide();
+                    }
+                });
+            });
+
+            // Scroll to Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+
+            if (scrollToTopBtn) {
+                // Show/hide button based on scroll position
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 500) {
+                        scrollToTopBtn.classList.add('show');
+                    } else {
+                        scrollToTopBtn.classList.remove('show');
+                    }
+                });
+
+                // Smooth scroll to top
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
