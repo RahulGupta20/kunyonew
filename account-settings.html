@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/my-account.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Form Styles */
+        .setting-form-group { margin-bottom: 1.5rem; }
+        .setting-form-label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: rgba(255, 255, 255, 0.8); }
+        .setting-form-input { width: 100%; padding: 0.75rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #fff; font-size: 0.9375rem; transition: all 0.2s; }
+        .setting-form-input:focus { outline: none; border-color: #DC143C; background: rgba(255, 255, 255, 0.08); }
+        .setting-form-help { color: rgba(255, 255, 255, 0.5); font-size: 0.8125rem; margin-top: 0.375rem; }
+
+        /* Toggle Switch */
+        .setting-toggle { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; margin-bottom: 1rem; transition: all 0.2s; }
+        .setting-toggle:hover { background: rgba(255, 255, 255, 0.04); }
+        .setting-toggle-info { flex: 1; }
+        .setting-toggle-title { font-weight: 600; margin-bottom: 0.25rem; font-size: 0.9375rem; }
+        .setting-toggle-desc { color: rgba(255, 255, 255, 0.6); font-size: 0.8125rem; }
+        .toggle-switch { position: relative; width: 52px; height: 28px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.2); border-radius: 28px; transition: 0.3s; }
+        .toggle-slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background: #fff; border-radius: 50%; transition: 0.3s; }
+        input:checked + .toggle-slider { background: #DC143C; }
+        input:checked + .toggle-slider:before { transform: translateX(24px); }
+
+        /* Checkbox */
+        .setting-checkbox { display: flex; align-items: start; gap: 0.75rem; padding: 1rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; margin-bottom: 0.75rem; cursor: pointer; transition: all 0.2s; }
+        .setting-checkbox:hover { background: rgba(255, 255, 255, 0.04); }
+        .setting-checkbox input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; margin-top: 0.125rem; }
+        .setting-checkbox-label { flex: 1; cursor: pointer; }
+        .setting-checkbox-title { font-weight: 600; margin-bottom: 0.25rem; font-size: 0.9375rem; }
+        .setting-checkbox-desc { color: rgba(255, 255, 255, 0.6); font-size: 0.8125rem; }
+
+        /* Buttons */
+        .btn-save { padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #DC143C, #C8123C); border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-save:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220, 20, 60, 0.3); }
+        .btn-cancel { padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-cancel:hover { background: rgba(255, 255, 255, 0.08); }
+
+        /* Danger Zone */
+        .danger-zone { background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 2rem; }
+        .danger-zone-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: #ef4444; display: flex; align-items: center; gap: 0.5rem; }
+        .danger-zone-desc { color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; font-size: 0.9375rem; }
+        .btn-danger { padding: 0.75rem 1.5rem; background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #ef4444; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-danger:hover { background: rgba(239, 68, 68, 0.3); border-color: #ef4444; }
+
+        @media (max-width: 991px) {
+            .panel-sidebar { position: relative; top: 0; margin-bottom: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skeleton Loader -->
+    <div class="skeleton-loader" id="skeletonLoader">
+        <div class="skeleton-content">
+            <div class="skeleton-box" style="height: 60px; width: 40%;"></div>
+            <div class="skeleton-box" style="height: 200px; margin-top: 2rem;"></div>
+            <div class="skeleton-box" style="height: 120px; margin-top: 1rem;"></div>
+            <div class="skeleton-box" style="height: 150px; margin-top: 1rem;"></div>
+        </div>
+    </div>
+
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="gift-cards-listing.html" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <!-- User Profile Dropdown (Logged In) -->
+                        <div class="user-profile-dropdown dropdown">
+                            <button class="user-profile-btn dropdown-toggle" type="button" id="userProfileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=003893&color=fff&size=128" alt="User Avatar" class="user-avatar">
+                                <div class="user-info">
+                                    <span class="user-name">John Doe</span>
+                                    <span class="user-email">john.doe@email.com</span>
+                                </div>
+                                <i class="bi bi-chevron-down dropdown-chevron"></i>
+                            </button>
+
+                            <div class="dropdown-menu user-dropdown-menu" aria-labelledby="userProfileDropdown">
+                                <!-- Wallet Info -->
+                                <div class="user-wallet-info">
+                                    <div class="wallet-label">
+                                        <i class="bi bi-wallet2"></i>
+                                        <span>Balance</span>
+                                    </div>
+                                    <div class="wallet-balance">Rs. 2,450</div>
+                                </div>
+
+                                <!-- Menu Items -->
+                                <a href="my-profile.html" class="user-dropdown-item">
+                                    <i class="bi bi-person-circle"></i>
+                                    <span>My Profile</span>
+                                </a>
+                                <a href="my-orders.html" class="user-dropdown-item">
+                                    <i class="bi bi-box-seam"></i>
+                                    <span>My Orders</span>
+                                    <span class="item-badge">3</span>
+                                </a>
+                                <a href="wishlist.html" class="user-dropdown-item">
+                                    <i class="bi bi-heart"></i>
+                                    <span>Wishlist</span>
+                                    <span class="item-badge">5</span>
+                                </a>
+                                <a href="my-wallet.html" class="user-dropdown-item">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>My Wallet</span>
+                                </a>
+                                <a href="notifications.html" class="user-dropdown-item">
+                                    <i class="bi bi-bell"></i>
+                                    <span>Notifications</span>
+                                    <span class="item-badge">12</span>
+                                </a>
+                                <a href="account-settings.html" class="user-dropdown-item">
+                                    <i class="bi bi-gear"></i>
+                                    <span>Settings</span>
+                                </a>
+
+                                <!-- Logout -->
+                                <a href="signin.html" class="user-dropdown-item logout-item">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <a href="cart.html" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn" type="button">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    Browse All
+                </button>
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                <div class="dropdown-menu mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-phone"></i> Mobile Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>FreeFire</strong>
+                                    <small>Top-up diamonds instantly</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PUBG Mobile</strong>
+                                    <small>UC & Royale Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Mobile Legends</strong>
+                                    <small>Diamonds & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Call of Duty Mobile</strong>
+                                    <small>CP & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Genshin Impact</strong>
+                                    <small>Genesis Crystals</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-pc-display"></i> PC Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam Games</strong>
+                                    <small>Browse all Steam titles</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Epic Games</strong>
+                                    <small>Exclusive PC games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>EA Games</strong>
+                                    <small>FIFA, Apex & more</small>
+                                </div>
+                            </a>
+
+                            <h4 style="margin-top: 1.5rem;"><i class="bi bi-collection-play"></i> Console</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-playstation"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PlayStation</strong>
+                                    <small>PS4 & PS5 games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-xbox"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Xbox</strong>
+                                    <small>Xbox games & passes</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-currency-dollar"></i> By Platform</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-google-play"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Google Play</strong>
+                                    <small>Android games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-apple"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>App Store</strong>
+                                    <small>iOS games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam</strong>
+                                    <small>PC gaming platform</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-nintendo-switch"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Nintendo eShop</strong>
+                                    <small>Switch games</small>
+                                </div>
+                            </a>
+
+                            <div class="mega-menu-featured">
+                                <h5><i class="bi bi-fire"></i> Trending Now</h5>
+                                <p>Check out the most popular games this week!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="#" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <!-- Top Up Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Top Up</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Game Top-Ups</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FreeFire Diamonds</strong>
+                                            <small>Instant delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PUBG Mobile UC</strong>
+                                            <small>Global & India version</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Mobile Legends</strong>
+                                            <small>Diamonds & Weekly Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Genshin Impact</strong>
+                                            <small>Genesis Crystals & Welkin</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Valorant</strong>
+                                            <small>VP & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-broadcast"></i> Social Media</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-tiktok"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>TikTok Coins</strong>
+                                            <small>Support your favorite creators</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-instagram"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Instagram Boost</strong>
+                                            <small>Followers & engagement</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Ad-free experience</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-facebook"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Facebook Gaming</strong>
+                                            <small>Stars & support</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-wallet2"></i> Quick Recharge</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Recent Purchases</strong>
+                                            <small>Reorder in one click</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-star"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Favorites</strong>
+                                            <small>Your saved items</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-lightning-charge-fill"></i> Flash Sale</h5>
+                                        <p>Get 20% off on all mobile game top-ups this weekend!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Gift Cards Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-gift"></i>
+                            <span>Gift Cards</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Gaming Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-google-play"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Google Play Gift Card</strong>
+                                            <small>$10, $25, $50, $100</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam Wallet Code</strong>
+                                            <small>Digital delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-playstation"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PlayStation Store</strong>
+                                            <small>PSN cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-xbox"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Xbox Gift Card</strong>
+                                            <small>Games & Gold</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-nintendo-switch"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Nintendo eShop</strong>
+                                            <small>Switch cards</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-film"></i> Entertainment</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-netflix"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Netflix</strong>
+                                            <small>Subscription cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-spotify"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Spotify</strong>
+                                            <small>Premium codes</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-apple"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>iTunes & App Store</strong>
+                                            <small>Apple gift cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Gift subscriptions</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-bag"></i> Retail Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-amazon"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Amazon Gift Card</strong>
+                                            <small>Shop anything</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-cart"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Visa Prepaid Card</strong>
+                                            <small>Use anywhere</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-gift-fill"></i> Perfect Gift</h5>
+                                        <p>Not sure what to buy? Send a gift card!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Subscriptions -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Subscriptions</a>
+                    </li>
+
+                    <!-- Gaming Gears -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-headset"></i> Gaming Gears</a>
+                    </li>
+
+                    <!-- Hot Deals -->
+                    <li class="nav-item">
+                        <a href="hot-deals.html" class="nav-link" style="color: #DC143C; font-weight: 600;">
+                            <i class="bi bi-fire"></i> Hot Deals
+                        </a>
+                    </li>
+
+                    <!-- Support Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-question-circle"></i>
+                            <span>Support</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><a class="dropdown-item" href="#">Track Order</a></li>
+                            <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Mobile Special Offers -->
+                    <li class="mobile-special-offers">
+                        <a href="special-offers.html" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="special-offers.html" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>
+                    <i class="bi bi-cart3"></i>
+                    Your Cart
+                    <span class="cart-count-badge" id="cartCountBadge">0</span>
+                </h3>
+                <button class="cart-drawer-close" id="cartDrawerClose">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="cart-drawer-body" id="cartDrawerBody">
+                <!-- Empty State -->
+                <div class="cart-empty-state" id="cartEmptyState">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-cart-x"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some gaming items to get started!</p>
+                    <button class="btn-continue-shopping" id="btnContinueShopping">
+                        <i class="bi bi-arrow-left"></i>
+                        Continue Shopping
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="cart-items-list" id="cartItemsListDrawer" style="display: none;">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+                <div class="cart-summary-mini">
+                    <div class="summary-row total">
+                        <span>Total (<span id="cartItemCount">0</span> items):</span>
+                        <strong class="total-amount" id="cartTotalDrawer">Rs. 0.00</strong>
+                    </div>
+                </div>
+                <div class="cart-drawer-actions">
+                    <a href="cart.html" class="btn-view-cart">
+                        <i class="bi bi-cart3"></i>
+                        <span>View Cart</span>
+                    </a>
+                    <a href="checkout.html" class="btn-checkout-drawer" id="btnCheckoutDrawer">
+                        <i class="bi bi-lightning-fill"></i>
+                        <span>Checkout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div class="modal fade" id="preferencesModal" tabindex="-1" aria-labelledby="preferencesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered preferences-modal-dialog">
+            <div class="modal-content preferences-modal-content">
+                <div class="modal-header preferences-modal-header">
+                    <h5 class="modal-title" id="preferencesModalLabel">Preferences</h5>
+                    <button type="button" class="btn-close preferences-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body preferences-modal-body">
+                    <!-- Country Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Country</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#countryCollapse">
+                            <img src="https://flagcdn.com/w20/us.png" alt="USA Flag" class="preference-flag">
+                            <span class="preference-text">USA</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="countryCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-country="us" data-flag="https://flagcdn.com/w20/us.png">
+                                    <img src="https://flagcdn.com/w20/us.png" alt="USA Flag">
+                                    <span>USA</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="ca" data-flag="https://flagcdn.com/w20/ca.png">
+                                    <img src="https://flagcdn.com/w20/ca.png" alt="Canada Flag">
+                                    <span>Canada</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="gb" data-flag="https://flagcdn.com/w20/gb.png">
+                                    <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag">
+                                    <span>United Kingdom</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="np" data-flag="https://flagcdn.com/w20/np.png">
+                                    <img src="https://flagcdn.com/w20/np.png" alt="Nepal Flag">
+                                    <span>Nepal</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Language</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#languageCollapse">
+                            <span class="preference-text">English</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="languageCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-language="en" data-language-name="English">
+                                    <span>English</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="es" data-language-name="Spanish">
+                                    <span>Spanish</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="fr" data-language-name="French">
+                                    <span>French</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="ne" data-language-name="Nepali">
+                                    <span>Nepali</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Currency Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Payment currency</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#currencyCollapse">
+                            <span class="preference-icon">$</span>
+                            <span class="preference-text">USD - US Dollar</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="currencyCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-currency="USD" data-currency-name="USD - US Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>USD - US Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="CAD" data-currency-name="CAD - Canadian Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>CAD - Canadian Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="GBP" data-currency-name="GBP - British Pound" data-currency-symbol="£">
+                                    <span class="preference-icon">£</span>
+                                    <span>GBP - British Pound</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="EUR" data-currency-name="EUR - Euro" data-currency-symbol="€">
+                                    <span class="preference-icon">€</span>
+                                    <span>EUR - Euro</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="NPR" data-currency-name="NPR - Nepali Rupee" data-currency-symbol="₨">
+                                    <span class="preference-icon">₨</span>
+                                    <span>NPR - Nepali Rupee</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer preferences-modal-footer">
+                    <button type="button" class="btn preferences-save-btn" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer-panel-page">
+        <!-- Page Header (Breadcrumb + Hero) -->
+        <header class="page-header">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb-nav" aria-label="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <a href="my-profile.html" class="breadcrumb-link">
+                        <span>My Account</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">Settings</span>
+                </nav>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="catalog-hero">
+                <div class="container-fluid">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">Account Settings</h1>
+                            <p class="hero-subtitle">Manage your account preferences and details</p>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Secure</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <div class="container-fluid">
+            <header class="page-header">
+                <nav class="breadcrumb-nav" aria-label="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <a href="my-profile.html" class="breadcrumb-link">
+                        <span>My Account</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">Settings</span>
+                </nav>
+                <h1 class="page-title">Account Settings</h1>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <aside class="panel-sidebar">
+                        <ul class="sidebar-menu">
+                            <li class="sidebar-menu-item">
+                                <a href="my-profile.html" class="sidebar-menu-link">
+                                    <i class="bi bi-person-circle"></i>
+                                    <span>My Profile</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="my-orders.html" class="sidebar-menu-link">
+                                    <i class="bi bi-box-seam"></i>
+                                    <span>My Orders</span>
+                                    <span class="sidebar-menu-badge">3</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="my-wallet.html" class="sidebar-menu-link">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>My Wallet</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="wishlist.html" class="sidebar-menu-link">
+                                    <i class="bi bi-heart"></i>
+                                    <span>Wishlist</span>
+                                    <span class="sidebar-menu-badge">5</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="notifications.html" class="sidebar-menu-link">
+                                    <i class="bi bi-bell"></i>
+                                    <span>Notifications</span>
+                                    <span class="sidebar-menu-badge">12</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="account-settings.html" class="sidebar-menu-link active">
+                                    <i class="bi bi-gear"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <a href="signin.html" class="sidebar-menu-link" style="color: rgba(220, 20, 60, 0.8);">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+
+                <div class="col-lg-9">
+                    <!-- Change Password -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-lock"></i>
+                            <span>Change Password</span>
+                        </h3>
+                        <form>
+                            <div class="setting-form-group">
+                                <label class="setting-form-label">Current Password</label>
+                                <input type="password" class="setting-form-input" placeholder="Enter current password">
+                            </div>
+                            <div class="setting-form-group">
+                                <label class="setting-form-label">New Password</label>
+                                <input type="password" class="setting-form-input" placeholder="Enter new password">
+                                <div class="setting-form-help">Password must be at least 8 characters long</div>
+                            </div>
+                            <div class="setting-form-group">
+                                <label class="setting-form-label">Confirm New Password</label>
+                                <input type="password" class="setting-form-input" placeholder="Confirm new password">
+                            </div>
+                            <div style="display: flex; gap: 1rem;">
+                                <button type="submit" class="btn-save">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Update Password</span>
+                                </button>
+                                <button type="button" class="btn-cancel">
+                                    <span>Cancel</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Email Preferences -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-envelope"></i>
+                            <span>Email Preferences</span>
+                        </h3>
+                        <label class="setting-checkbox">
+                            <input type="checkbox" checked>
+                            <div class="setting-checkbox-label">
+                                <div class="setting-checkbox-title">Order Updates</div>
+                                <div class="setting-checkbox-desc">Receive emails about your order status and delivery updates</div>
+                            </div>
+                        </label>
+                        <label class="setting-checkbox">
+                            <input type="checkbox" checked>
+                            <div class="setting-checkbox-label">
+                                <div class="setting-checkbox-title">Promotional Emails</div>
+                                <div class="setting-checkbox-desc">Get exclusive deals, offers, and new product announcements</div>
+                            </div>
+                        </label>
+                        <label class="setting-checkbox">
+                            <input type="checkbox">
+                            <div class="setting-checkbox-label">
+                                <div class="setting-checkbox-title">Price Alerts</div>
+                                <div class="setting-checkbox-desc">Notifications when items in your wishlist go on sale</div>
+                            </div>
+                        </label>
+                        <label class="setting-checkbox">
+                            <input type="checkbox" checked>
+                            <div class="setting-checkbox-label">
+                                <div class="setting-checkbox-title">Newsletter</div>
+                                <div class="setting-checkbox-desc">Weekly gaming news, tips, and KUNYO updates</div>
+                            </div>
+                        </label>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn-save">
+                                <i class="bi bi-check-circle"></i>
+                                <span>Save Preferences</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Settings -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-shield-lock"></i>
+                            <span>Privacy Settings</span>
+                        </h3>
+                        <div class="setting-toggle">
+                            <div class="setting-toggle-info">
+                                <div class="setting-toggle-title">Profile Visibility</div>
+                                <div class="setting-toggle-desc">Allow others to view your profile and gaming activity</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-toggle">
+                            <div class="setting-toggle-info">
+                                <div class="setting-toggle-title">Show Purchase History</div>
+                                <div class="setting-toggle-desc">Display your recent purchases to friends</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-toggle">
+                            <div class="setting-toggle-info">
+                                <div class="setting-toggle-title">Activity Status</div>
+                                <div class="setting-toggle-desc">Show when you're active on KUNYO</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Security Settings</span>
+                        </h3>
+                        <div class="setting-toggle">
+                            <div class="setting-toggle-info">
+                                <div class="setting-toggle-title">Two-Factor Authentication</div>
+                                <div class="setting-toggle-desc">Add an extra layer of security to your account</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-toggle">
+                            <div class="setting-toggle-info">
+                                <div class="setting-toggle-title">Login Alerts</div>
+                                <div class="setting-toggle-desc">Get notified when someone logs into your account</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-toggle">
+                            <div class="setting-toggle-info">
+                                <div class="setting-toggle-title">Save Payment Methods</div>
+                                <div class="setting-toggle-desc">Securely save your payment methods for faster checkout</div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="panel-content-card">
+                        <div class="danger-zone">
+                            <div class="danger-zone-title">
+                                <i class="bi bi-exclamation-triangle"></i>
+                                <span>Danger Zone</span>
+                            </div>
+                            <div class="danger-zone-desc">
+                                Once you delete your account, there is no going back. Please be certain. All your data including orders, wallet balance, and wishlist will be permanently deleted.
+                            </div>
+                            <button class="btn-danger">
+                                <i class="bi bi-trash"></i>
+                                <span>Delete Account</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for Account Settings -->
+    <script>
+        // Toast Notification System
+        function showToast(message, type = 'success') {
+            const toastContainer = document.getElementById('toastContainer') || createToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast-notification toast-${type}`;
+            toast.innerHTML = `
+                <i class="bi bi-${type === 'success' ? 'check-circle-fill' : type === 'error' ? 'x-circle-fill' : 'info-circle-fill'}"></i>
+                <span>${message}</span>
+            `;
+            toastContainer.appendChild(toast);
+
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function createToastContainer() {
+            const container = document.createElement('div');
+            container.id = 'toastContainer';
+            container.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999;';
+            document.body.appendChild(container);
+
+            const style = document.createElement('style');
+            style.textContent = `
+                .toast-notification {
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 1rem 1.25rem;
+                    border-radius: 8px;
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    transform: translateX(400px);
+                    transition: transform 0.3s ease;
+                    min-width: 280px;
+                }
+                .toast-notification.show { transform: translateX(0); }
+                .toast-notification i { font-size: 1.25rem; }
+                .toast-success { color: #166534; background: #dcfce7; border-left: 4px solid #22c55e; }
+                .toast-error { color: #991b1b; background: #fee2e2; border-left: 4px solid #ef4444; }
+                .toast-info { color: #1e40af; background: #dbeafe; border-left: 4px solid #3b82f6; }
+            `;
+            document.head.appendChild(style);
+            return container;
+        }
+
+        // Change Password Form Validation
+        const passwordForm = document.querySelector('.panel-content-card form');
+        const currentPassword = passwordForm.querySelector('input[placeholder*="current"]');
+        const newPassword = passwordForm.querySelector('input[placeholder*="new password"]:not([placeholder*="Confirm"])');
+        const confirmPassword = passwordForm.querySelector('input[placeholder*="Confirm"]');
+
+        // Password Strength Meter
+        function addPasswordStrengthMeter() {
+            const strengthMeter = document.createElement('div');
+            strengthMeter.style.cssText = 'margin-top: 0.5rem;';
+            strengthMeter.innerHTML = `
+                <div style="display: flex; gap: 0.25rem; margin-bottom: 0.375rem;">
+                    <div class="strength-bar" style="flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;"></div>
+                    <div class="strength-bar" style="flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;"></div>
+                    <div class="strength-bar" style="flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;"></div>
+                    <div class="strength-bar" style="flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;"></div>
+                </div>
+                <div class="strength-text" style="font-size: 0.75rem; color: rgba(255,255,255,0.5);"></div>
+            `;
+
+            newPassword.parentElement.appendChild(strengthMeter);
+
+            newPassword.addEventListener('input', function() {
+                const strength = calculatePasswordStrength(this.value);
+                const bars = strengthMeter.querySelectorAll('.strength-bar');
+                const text = strengthMeter.querySelector('.strength-text');
+
+                // Reset bars
+                bars.forEach(bar => bar.style.background = 'rgba(255,255,255,0.1)');
+
+                if (strength.score > 0) {
+                    bars[0].style.background = strength.color;
+                }
+                if (strength.score > 1) {
+                    bars[1].style.background = strength.color;
+                }
+                if (strength.score > 2) {
+                    bars[2].style.background = strength.color;
+                }
+                if (strength.score > 3) {
+                    bars[3].style.background = strength.color;
+                }
+
+                text.textContent = strength.text;
+                text.style.color = strength.color;
+            });
+        }
+
+        function calculatePasswordStrength(password) {
+            let score = 0;
+            if (!password) return { score: 0, text: '', color: 'rgba(255,255,255,0.5)' };
+
+            // Length
+            if (password.length >= 8) score++;
+            if (password.length >= 12) score++;
+
+            // Character types
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
+            if (/\d/.test(password)) score++;
+            if (/[^a-zA-Z\d]/.test(password)) score++;
+
+            const levels = [
+                { text: 'Weak', color: '#ef4444' },
+                { text: 'Fair', color: '#f59e0b' },
+                { text: 'Good', color: '#eab308' },
+                { text: 'Strong', color: '#22c55e' },
+                { text: 'Very Strong', color: '#22c55e' }
+            ];
+
+            const level = Math.min(score, 4);
+            return { score: level, ...levels[level] };
+        }
+
+        // Password Form Submission
+        passwordForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validation
+            if (!currentPassword.value) {
+                showToast('Please enter your current password', 'error');
+                currentPassword.focus();
+                return;
+            }
+
+            if (!newPassword.value) {
+                showToast('Please enter a new password', 'error');
+                newPassword.focus();
+                return;
+            }
+
+            if (newPassword.value.length < 8) {
+                showToast('Password must be at least 8 characters long', 'error');
+                newPassword.focus();
+                return;
+            }
+
+            if (newPassword.value === currentPassword.value) {
+                showToast('New password must be different from current password', 'error');
+                newPassword.focus();
+                return;
+            }
+
+            if (newPassword.value !== confirmPassword.value) {
+                showToast('Passwords do not match', 'error');
+                confirmPassword.focus();
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = this.querySelector('.btn-save');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="bi bi-arrow-repeat spinning"></i><span>Updating...</span>';
+
+            // Add spinning animation
+            if (!document.querySelector('#spinAnimation')) {
+                const style = document.createElement('style');
+                style.id = 'spinAnimation';
+                style.textContent = '.spinning { animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } }';
+                document.head.appendChild(style);
+            }
+
+            // Simulate API call
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                showToast('Password updated successfully!', 'success');
+
+                // Clear form
+                this.reset();
+            }, 1500);
+        });
+
+        // Email Preferences - Save to localStorage
+        const emailPrefsCard = document.querySelectorAll('.panel-content-card')[1];
+        const emailCheckboxes = emailPrefsCard.querySelectorAll('input[type="checkbox"]');
+        const savePrefsBtn = emailPrefsCard.querySelector('.btn-save');
+
+        // Load email preferences
+        function loadEmailPreferences() {
+            const prefs = JSON.parse(localStorage.getItem('emailPreferences') || '{}');
+            emailCheckboxes.forEach((checkbox, index) => {
+                if (prefs[index] !== undefined) {
+                    checkbox.checked = prefs[index];
+                }
+            });
+        }
+
+        // Save email preferences
+        savePrefsBtn.addEventListener('click', function() {
+            const prefs = {};
+            emailCheckboxes.forEach((checkbox, index) => {
+                prefs[index] = checkbox.checked;
+            });
+
+            localStorage.setItem('emailPreferences', JSON.stringify(prefs));
+            showToast('Email preferences saved!', 'success');
+        });
+
+        // Privacy Settings - Save to localStorage
+        const privacyToggles = document.querySelectorAll('.panel-content-card')[2].querySelectorAll('.toggle-switch input');
+
+        privacyToggles.forEach((toggle, index) => {
+            // Load from localStorage
+            const saved = localStorage.getItem(`privacySetting_${index}`);
+            if (saved !== null) {
+                toggle.checked = saved === 'true';
+            }
+
+            // Save on change
+            toggle.addEventListener('change', function() {
+                localStorage.setItem(`privacySetting_${index}`, this.checked);
+                showToast('Privacy setting updated', 'success');
+            });
+        });
+
+        // Security Settings - Save to localStorage and handle 2FA
+        const securityToggles = document.querySelectorAll('.panel-content-card')[3].querySelectorAll('.toggle-switch input');
+
+        securityToggles.forEach((toggle, index) => {
+            // Load from localStorage
+            const saved = localStorage.getItem(`securitySetting_${index}`);
+            if (saved !== null) {
+                toggle.checked = saved === 'true';
+            }
+
+            // Save on change
+            toggle.addEventListener('change', function() {
+                // Special handling for 2FA (first toggle)
+                if (index === 0) {
+                    if (this.checked) {
+                        show2FAModal();
+                        // Revert the toggle until modal is completed
+                        this.checked = false;
+                    } else {
+                        localStorage.setItem(`securitySetting_${index}`, this.checked);
+                        showToast('Two-Factor Authentication disabled', 'info');
+                    }
+                } else {
+                    localStorage.setItem(`securitySetting_${index}`, this.checked);
+                    showToast('Security setting updated', 'success');
+                }
+            });
+        });
+
+        // 2FA Setup Modal
+        function show2FAModal() {
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; transition: opacity 0.3s;';
+
+            modal.innerHTML = `
+                <div style="background: linear-gradient(135deg, #1a0308, #0a0003); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; max-width: 500px; width: 90%; transform: scale(0.9); transition: transform 0.3s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3 style="margin: 0; color: #fff; font-size: 1.5rem;">
+                            <i class="bi bi-shield-lock" style="color: #DC143C; margin-right: 0.5rem;"></i>
+                            Two-Factor Authentication
+                        </h3>
+                        <button class="close-modal" style="background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.5rem; cursor: pointer;">&times;</button>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.8); line-height: 1.6;">
+                        <p>Two-Factor Authentication adds an extra layer of security to your account.</p>
+                        <div style="background: rgba(220, 20, 60, 0.1); border: 1px solid rgba(220, 20, 60, 0.3); border-radius: 10px; padding: 1rem; margin: 1.5rem 0;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                                <i class="bi bi-info-circle" style="color: #DC143C; font-size: 1.5rem;"></i>
+                                <strong>Coming Soon!</strong>
+                            </div>
+                            <p style="margin: 0; font-size: 0.9375rem;">2FA setup will be available in the next update. Stay tuned for enhanced security features!</p>
+                        </div>
+                    </div>
+                    <button class="close-modal" style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #DC143C, #C8123C); border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer;">Got it</button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modal.querySelector('div').style.transform = 'scale(1)';
+            }, 10);
+
+            modal.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                });
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                }
+            });
+        }
+
+        // Delete Account Button
+        const deleteAccountBtn = document.querySelector('.btn-danger');
+
+        deleteAccountBtn.addEventListener('click', function() {
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; transition: opacity 0.3s;';
+
+            modal.innerHTML = `
+                <div style="background: linear-gradient(135deg, #1a0308, #0a0003); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 16px; padding: 2rem; max-width: 500px; width: 90%; transform: scale(0.9); transition: transform 0.3s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3 style="margin: 0; color: #ef4444; font-size: 1.5rem;">
+                            <i class="bi bi-exclamation-triangle" style="margin-right: 0.5rem;"></i>
+                            Delete Account
+                        </h3>
+                        <button class="close-modal" style="background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.5rem; cursor: pointer;">&times;</button>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 1.5rem;">
+                        <p>This action cannot be undone. All your data will be permanently deleted including:</p>
+                        <ul style="margin: 1rem 0;">
+                            <li>Order history</li>
+                            <li>Wallet balance</li>
+                            <li>Wishlist items</li>
+                            <li>Personal information</li>
+                        </ul>
+                        <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 1rem; margin-top: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem;">Type <strong>DELETE</strong> to confirm:</label>
+                            <input type="text" id="deleteConfirmInput" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 1rem;">
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="close-modal" style="flex: 1; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer;">Cancel</button>
+                        <button id="confirmDelete" style="flex: 1; padding: 0.75rem; background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #ef4444; font-weight: 600; cursor: pointer; opacity: 0.5;" disabled>Delete Account</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modal.querySelector('div').style.transform = 'scale(1)';
+            }, 10);
+
+            // Enable delete button when typing DELETE
+            const confirmInput = modal.querySelector('#deleteConfirmInput');
+            const confirmBtn = modal.querySelector('#confirmDelete');
+
+            confirmInput.addEventListener('input', function() {
+                if (this.value === 'DELETE') {
+                    confirmBtn.disabled = false;
+                    confirmBtn.style.opacity = '1';
+                } else {
+                    confirmBtn.disabled = true;
+                    confirmBtn.style.opacity = '0.5';
+                }
+            });
+
+            confirmBtn.addEventListener('click', function() {
+                if (confirmInput.value === 'DELETE') {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                    showToast('Account deletion process has been initiated. You will receive a confirmation email.', 'info');
+                }
+            });
+
+            modal.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                });
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                }
+            });
+        });
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            addPasswordStrengthMeter();
+            loadEmailPreferences();
+            setTimeout(() => { document.getElementById('skeletonLoader').style.opacity = '0'; setTimeout(() => document.getElementById('skeletonLoader').remove(), 500); }, 800);
+            addTabbedNavigation(); addActiveSessionsTable(); addDataExportSection();
+        });
+
+        // PAGE-SPECIFIC: Account Settings Enhancements
+        function addTabbedNavigation() {
+            const mainContent = document.querySelector('.col-lg-9');
+            const tabNav = document.createElement('div');
+            tabNav.style.cssText = 'display:flex;gap:0.5rem;margin-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1);overflow-x:auto;';
+            tabNav.innerHTML = `
+                <button class="settings-tab active" data-tab="security" style="padding:0.75rem 1.25rem;background:transparent;border:none;border-bottom:2px solid #DC143C;color:#DC143C;cursor:pointer;font-weight:600;white-space:nowrap;"><i class="bi bi-shield-lock"></i> Security</button>
+                <button class="settings-tab" data-tab="privacy" style="padding:0.75rem 1.25rem;background:transparent;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,0.6);cursor:pointer;font-weight:600;white-space:nowrap;"><i class="bi bi-shield-check"></i> Privacy</button>
+                <button class="settings-tab" data-tab="notifications" style="padding:0.75rem 1.25rem;background:transparent;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,0.6);cursor:pointer;font-weight:600;white-space:nowrap;"><i class="bi bi-bell"></i> Notifications</button>
+                <button class="settings-tab" data-tab="advanced" style="padding:0.75rem 1.25rem;background:transparent;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,0.6);cursor:pointer;font-weight:600;white-space:nowrap;"><i class="bi bi-gear"></i> Advanced</button>
+            `;
+            mainContent.insertBefore(tabNav, mainContent.firstChild);
+
+            tabNav.querySelectorAll('.settings-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabNav.querySelectorAll('.settings-tab').forEach(t => {
+                        t.style.borderBottomColor = 'transparent';
+                        t.style.color = 'rgba(255,255,255,0.6)';
+                        t.classList.remove('active');
+                    });
+                    this.style.borderBottomColor = '#DC143C';
+                    this.style.color = '#DC143C';
+                    this.classList.add('active');
+                    showToast(`Switched to ${this.dataset.tab} settings`, 'info');
+                });
+            });
+        }
+
+        function addActiveSessionsTable() {
+            const securityCard = document.querySelectorAll('.panel-content-card')[3];
+            const sessionsSection = document.createElement('div');
+            sessionsSection.style.cssText = 'margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);';
+            sessionsSection.innerHTML = `
+                <h4 style="font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;"><i class="bi bi-laptop" style="color:#DC143C;"></i> Active Sessions</h4>
+                <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;">
+                    <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:1rem;padding:1rem;border-bottom:1px solid rgba(255,255,255,0.08);align-items:center;">
+                        <i class="bi bi-laptop" style="font-size:1.5rem;color:#3b82f6;"></i>
+                        <div>
+                            <div style="font-weight:600;font-size:0.875rem;">Windows • Chrome</div>
+                            <div style="color:rgba(255,255,255,0.5);font-size:0.75rem;">Kathmandu, Nepal • Current session</div>
+                        </div>
+                        <span style="color:#22c55e;font-size:0.75rem;font-weight:600;">Active now</span>
+                        <button disabled style="padding:0.375rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:rgba(255,255,255,0.4);font-size:0.75rem;cursor:not-allowed;">Current</button>
+                    </div>
+                    <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:1rem;padding:1rem;border-bottom:1px solid rgba(255,255,255,0.08);align-items:center;">
+                        <i class="bi bi-phone" style="font-size:1.5rem;color:#22c55e;"></i>
+                        <div>
+                            <div style="font-weight:600;font-size:0.875rem;">Android • Chrome Mobile</div>
+                            <div style="color:rgba(255,255,255,0.5);font-size:0.75rem;">Kathmandu, Nepal • 2 hours ago</div>
+                        </div>
+                        <span style="color:rgba(255,255,255,0.5);font-size:0.75rem;">2h ago</span>
+                        <button onclick="revokeSession(this)" style="padding:0.375rem 0.75rem;background:rgba(239,68,68,0.2);border:1px solid rgba(239,68,68,0.3);border-radius:6px;color:#ef4444;font-size:0.75rem;cursor:pointer;font-weight:600;">Revoke</button>
+                    </div>
+                    <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:1rem;padding:1rem;align-items:center;">
+                        <i class="bi bi-tablet" style="font-size:1.5rem;color:#fbbf24;"></i>
+                        <div>
+                            <div style="font-weight:600;font-size:0.875rem;">iPad • Safari</div>
+                            <div style="color:rgba(255,255,255,0.5);font-size:0.75rem;">Pokhara, Nepal • 1 day ago</div>
+                        </div>
+                        <span style="color:rgba(255,255,255,0.5);font-size:0.75rem;">1d ago</span>
+                        <button onclick="revokeSession(this)" style="padding:0.375rem 0.75rem;background:rgba(239,68,68,0.2);border:1px solid rgba(239,68,68,0.3);border-radius:6px;color:#ef4444;font-size:0.75rem;cursor:pointer;font-weight:600;">Revoke</button>
+                    </div>
+                </div>
+            `;
+            securityCard.appendChild(sessionsSection);
+        }
+
+        function revokeSession(btn) {
+            const session = btn.closest('div[style*="grid-template-columns"]');
+            const deviceName = session.querySelector('div[style*="font-weight:600"]').textContent;
+            if (confirm(`Revoke session for ${deviceName}?`)) {
+                session.style.opacity = '0';
+                session.style.transition = 'opacity 0.3s';
+                setTimeout(() => {
+                    session.remove();
+                    showToast('Session revoked successfully', 'success');
+                }, 300);
+            }
+        }
+
+        function addDataExportSection() {
+            const dangerZoneCard = document.querySelectorAll('.panel-content-card')[4];
+            const dataExportSection = document.createElement('div');
+            dataExportSection.className = 'panel-content-card';
+            dataExportSection.innerHTML = `
+                <h3 class="panel-card-title"><i class="bi bi-download"></i><span>Data Export</span></h3>
+                <div style="background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.2);border-radius:10px;padding:1.5rem;">
+                    <div style="display:flex;align-items:start;gap:1rem;margin-bottom:1.5rem;">
+                        <i class="bi bi-info-circle" style="color:#3b82f6;font-size:1.5rem;"></i>
+                        <div>
+                            <h4 style="margin:0 0 0.5rem;font-weight:600;">Download Your Data</h4>
+                            <p style="color:rgba(255,255,255,0.7);font-size:0.875rem;margin:0;">Request a copy of your personal data including profile information, orders, and transaction history. This process may take up to 48 hours.</p>
+                        </div>
+                    </div>
+                    <button onclick="requestDataExport()" class="btn-save" style="display:flex;align-items:center;gap:0.5rem;"><i class="bi bi-file-earmark-arrow-down"></i><span>Request Data Export</span></button>
+                </div>
+            `;
+            dangerZoneCard.parentElement.insertBefore(dataExportSection, dangerZoneCard);
+        }
+
+        function requestDataExport() {
+            showToast('Data export request submitted. You will receive an email when ready.', 'success');
+        }
+    </script>
+
+    <!-- Scroll to Top, Modal, Styles -->
+    <button id="scrollToTop" style="position:fixed;bottom:2rem;right:2rem;width:50px;height:50px;background:linear-gradient(135deg,#DC143C,#C8123C);border:none;border-radius:50%;color:#fff;font-size:1.25rem;cursor:pointer;opacity:0;visibility:hidden;transition:all 0.3s;z-index:1000;box-shadow:0 4px 12px rgba(220,20,60,0.3);"><i class="bi bi-arrow-up"></i></button>
+    <div id="customModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:10000;opacity:0;transition:opacity 0.3s;"><div style="background:linear-gradient(135deg,#1a0308,#0a0003);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;max-width:500px;width:90%;transform:scale(0.9);transition:transform 0.3s;"><h3 id="modalTitle" style="margin:0 0 1rem;color:#fff;font-size:1.5rem;"></h3><p id="modalMessage" style="color:rgba(255,255,255,0.8);margin-bottom:1.5rem;line-height:1.6;"></p><div style="display:flex;gap:1rem;"><button class="btn-modal-confirm" style="flex:1;padding:0.75rem;border:none;border-radius:8px;font-weight:600;cursor:pointer;background:linear-gradient(135deg,#DC143C,#C8123C);color:#fff;">Confirm</button><button class="btn-modal-cancel" style="flex:1;padding:0.75rem;border:1px solid rgba(255,255,255,0.2);border-radius:8px;font-weight:600;cursor:pointer;background:rgba(255,255,255,0.05);color:#fff;">Cancel</button></div></div></div>
+    <style>@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}#scrollToTop.show{opacity:1;visibility:visible}#scrollToTop:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(220,20,60,0.5)}</style>
+    <script>const scrollTopBtn=document.getElementById('scrollToTop');window.addEventListener('scroll',()=>{scrollTopBtn.style.opacity=window.pageYOffset>300?'1':'0';scrollTopBtn.style.visibility=window.pageYOffset>300?'visible':'hidden'});scrollTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));</script>
+</body>
+</html>

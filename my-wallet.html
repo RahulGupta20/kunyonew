@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wallet - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/my-account.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Wallet Balance Card */
+        .wallet-balance-card { background: linear-gradient(135deg, #DC143C, #C8123C); border: none; border-radius: 16px; padding: 2.5rem; color: #fff; position: relative; overflow: hidden; }
+        .wallet-balance-card::before { content: ''; position: absolute; top: -50%; right: -20%; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; }
+        .wallet-balance-card::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.08); border-radius: 50%; }
+        .wallet-balance-content { position: relative; z-index: 1; }
+        .wallet-label { font-size: 0.9375rem; opacity: 0.9; margin-bottom: 0.5rem; }
+        .wallet-balance { font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .wallet-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-wallet-action { padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .btn-wallet-action:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-2px); color: #fff; }
+
+        /* Add Money Section */
+        .add-money-section { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 1.5rem; }
+        .amount-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+        .amount-option { padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.2s; font-weight: 600; font-size: 1.125rem; }
+        .amount-option:hover { border-color: rgba(220, 20, 60, 0.5); background: rgba(255, 255, 255, 0.08); }
+        .amount-option.selected { border-color: #DC143C; background: rgba(220, 20, 60, 0.15); color: #DC143C; }
+        .custom-amount-input { width: 100%; padding: 0.875rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: #fff; font-size: 1rem; margin-bottom: 1rem; }
+        .custom-amount-input:focus { outline: none; border-color: #DC143C; background: rgba(255, 255, 255, 0.08); }
+        .btn-add-money { width: 100%; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, #DC143C, #C8123C); border: none; border-radius: 8px; color: #fff; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-add-money:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220, 20, 60, 0.3); }
+
+        /* Transaction List */
+        .transaction-item { display: flex; align-items: center; gap: 1rem; padding: 1.25rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; margin-bottom: 0.75rem; transition: all 0.2s; }
+        .transaction-item:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.15); }
+        .transaction-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.25rem; }
+        .transaction-icon.credit { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+        .transaction-icon.debit { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .transaction-details { flex: 1; }
+        .transaction-title { font-weight: 600; margin-bottom: 0.25rem; font-size: 0.9375rem; }
+        .transaction-meta { color: rgba(255, 255, 255, 0.5); font-size: 0.8125rem; }
+        .transaction-amount { font-size: 1.125rem; font-weight: 700; white-space: nowrap; }
+        .transaction-amount.credit { color: #22c55e; }
+        .transaction-amount.debit { color: #ef4444; }
+
+        /* Wallet Stats */
+        .wallet-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .stat-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 1.25rem; text-align: center; }
+        .stat-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(200, 18, 60, 0.1)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .stat-icon i { font-size: 1.5rem; color: #DC143C; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .stat-label { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; }
+
+        @media (max-width: 991px) {
+            .panel-sidebar { position: relative; top: 0; margin-bottom: 1.5rem; }
+            .wallet-balance { font-size: 2.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skeleton Loader -->
+    <div id="skeletonLoader" class="skeleton-loader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1a0308,#0a0003);z-index:99999;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity 0.5s ease;">
+        <div class="skeleton-content" style="width:90%;max-width:1200px;">
+            <div style="height:60px;background:linear-gradient(90deg,rgba(255,255,255,0.05) 25%,rgba(255,255,255,0.1) 50%,rgba(255,255,255,0.05) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px;margin-bottom:2rem;"></div>
+            <div style="height:300px;background:linear-gradient(90deg,rgba(255,255,255,0.05) 25%,rgba(255,255,255,0.1) 50%,rgba(255,255,255,0.05) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px;margin-bottom:2rem;"></div>
+            <div style="height:400px;background:linear-gradient(90deg,rgba(255,255,255,0.05) 25%,rgba(255,255,255,0.1) 50%,rgba(255,255,255,0.05) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px;"></div>
+        </div>
+    </div>
+
+    
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="gift-cards-listing.html" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <!-- User Profile Dropdown (Logged In) -->
+                        <div class="user-profile-dropdown dropdown">
+                            <button class="user-profile-btn dropdown-toggle" type="button" id="userProfileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe&background=003893&color=fff&size=128" alt="User Avatar" class="user-avatar">
+                                <div class="user-info">
+                                    <span class="user-name">John Doe</span>
+                                    <span class="user-email">john.doe@email.com</span>
+                                </div>
+                                <i class="bi bi-chevron-down dropdown-chevron"></i>
+                            </button>
+
+                            <div class="dropdown-menu user-dropdown-menu" aria-labelledby="userProfileDropdown">
+                                <!-- Wallet Info -->
+                                <div class="user-wallet-info">
+                                    <div class="wallet-label">
+                                        <i class="bi bi-wallet2"></i>
+                                        <span>Balance</span>
+                                    </div>
+                                    <div class="wallet-balance">Rs. 2,450</div>
+                                </div>
+
+                                <!-- Menu Items -->
+                                <a href="my-profile.html" class="user-dropdown-item">
+                                    <i class="bi bi-person-circle"></i>
+                                    <span>My Profile</span>
+                                </a>
+                                <a href="my-orders.html" class="user-dropdown-item">
+                                    <i class="bi bi-box-seam"></i>
+                                    <span>My Orders</span>
+                                    <span class="item-badge">3</span>
+                                </a>
+                                <a href="wishlist.html" class="user-dropdown-item">
+                                    <i class="bi bi-heart"></i>
+                                    <span>Wishlist</span>
+                                    <span class="item-badge">5</span>
+                                </a>
+                                <a href="my-wallet.html" class="user-dropdown-item">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>My Wallet</span>
+                                </a>
+                                <a href="notifications.html" class="user-dropdown-item">
+                                    <i class="bi bi-bell"></i>
+                                    <span>Notifications</span>
+                                    <span class="item-badge">12</span>
+                                </a>
+                                <a href="account-settings.html" class="user-dropdown-item">
+                                    <i class="bi bi-gear"></i>
+                                    <span>Settings</span>
+                                </a>
+
+                                <!-- Logout -->
+                                <a href="signin.html" class="user-dropdown-item logout-item">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <a href="cart.html" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn" type="button">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    Browse All
+                </button>
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                <div class="dropdown-menu mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-phone"></i> Mobile Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>FreeFire</strong>
+                                    <small>Top-up diamonds instantly</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PUBG Mobile</strong>
+                                    <small>UC & Royale Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Mobile Legends</strong>
+                                    <small>Diamonds & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Call of Duty Mobile</strong>
+                                    <small>CP & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Genshin Impact</strong>
+                                    <small>Genesis Crystals</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-pc-display"></i> PC Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam Games</strong>
+                                    <small>Browse all Steam titles</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Epic Games</strong>
+                                    <small>Exclusive PC games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>EA Games</strong>
+                                    <small>FIFA, Apex & more</small>
+                                </div>
+                            </a>
+
+                            <h4 style="margin-top: 1.5rem;"><i class="bi bi-collection-play"></i> Console</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-playstation"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PlayStation</strong>
+                                    <small>PS4 & PS5 games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-xbox"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Xbox</strong>
+                                    <small>Xbox games & passes</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-currency-dollar"></i> By Platform</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-google-play"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Google Play</strong>
+                                    <small>Android games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-apple"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>App Store</strong>
+                                    <small>iOS games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam</strong>
+                                    <small>PC gaming platform</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-nintendo-switch"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Nintendo eShop</strong>
+                                    <small>Switch games</small>
+                                </div>
+                            </a>
+
+                            <div class="mega-menu-featured">
+                                <h5><i class="bi bi-fire"></i> Trending Now</h5>
+                                <p>Check out the most popular games this week!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="#" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <!-- Top Up Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Top Up</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Game Top-Ups</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FreeFire Diamonds</strong>
+                                            <small>Instant delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PUBG Mobile UC</strong>
+                                            <small>Global & India version</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Mobile Legends</strong>
+                                            <small>Diamonds & Weekly Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Genshin Impact</strong>
+                                            <small>Genesis Crystals & Welkin</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Valorant</strong>
+                                            <small>VP & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-broadcast"></i> Social Media</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-tiktok"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>TikTok Coins</strong>
+                                            <small>Support your favorite creators</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-instagram"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Instagram Boost</strong>
+                                            <small>Followers & engagement</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Ad-free experience</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-facebook"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Facebook Gaming</strong>
+                                            <small>Stars & support</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-wallet2"></i> Quick Recharge</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Recent Purchases</strong>
+                                            <small>Reorder in one click</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-star"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Favorites</strong>
+                                            <small>Your saved items</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-lightning-charge-fill"></i> Flash Sale</h5>
+                                        <p>Get 20% off on all mobile game top-ups this weekend!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Gift Cards Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-gift"></i>
+                            <span>Gift Cards</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Gaming Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-google-play"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Google Play Gift Card</strong>
+                                            <small>$10, $25, $50, $100</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam Wallet Code</strong>
+                                            <small>Digital delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-playstation"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PlayStation Store</strong>
+                                            <small>PSN cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-xbox"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Xbox Gift Card</strong>
+                                            <small>Games & Gold</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-nintendo-switch"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Nintendo eShop</strong>
+                                            <small>Switch cards</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-film"></i> Entertainment</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-netflix"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Netflix</strong>
+                                            <small>Subscription cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-spotify"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Spotify</strong>
+                                            <small>Premium codes</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-apple"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>iTunes & App Store</strong>
+                                            <small>Apple gift cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Gift subscriptions</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-bag"></i> Retail Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-amazon"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Amazon Gift Card</strong>
+                                            <small>Shop anything</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-cart"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Visa Prepaid Card</strong>
+                                            <small>Use anywhere</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-gift-fill"></i> Perfect Gift</h5>
+                                        <p>Not sure what to buy? Send a gift card!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Subscriptions -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Subscriptions</a>
+                    </li>
+
+                    <!-- Gaming Gears -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-headset"></i> Gaming Gears</a>
+                    </li>
+
+                    <!-- Hot Deals -->
+                    <li class="nav-item">
+                        <a href="hot-deals.html" class="nav-link" style="color: #DC143C; font-weight: 600;">
+                            <i class="bi bi-fire"></i> Hot Deals
+                        </a>
+                    </li>
+
+                    <!-- Support Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-question-circle"></i>
+                            <span>Support</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><a class="dropdown-item" href="#">Track Order</a></li>
+                            <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Mobile Special Offers -->
+                    <li class="mobile-special-offers">
+                        <a href="special-offers.html" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="special-offers.html" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>
+                    <i class="bi bi-cart3"></i>
+                    Your Cart
+                    <span class="cart-count-badge" id="cartCountBadge">0</span>
+                </h3>
+                <button class="cart-drawer-close" id="cartDrawerClose">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="cart-drawer-body" id="cartDrawerBody">
+                <!-- Empty State -->
+                <div class="cart-empty-state" id="cartEmptyState">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-cart-x"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some gaming items to get started!</p>
+                    <button class="btn-continue-shopping" id="btnContinueShopping">
+                        <i class="bi bi-arrow-left"></i>
+                        Continue Shopping
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="cart-items-list" id="cartItemsListDrawer" style="display: none;">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+                <div class="cart-summary-mini">
+                    <div class="summary-row total">
+                        <span>Total (<span id="cartItemCount">0</span> items):</span>
+                        <strong class="total-amount" id="cartTotalDrawer">Rs. 0.00</strong>
+                    </div>
+                </div>
+                <div class="cart-drawer-actions">
+                    <a href="cart.html" class="btn-view-cart">
+                        <i class="bi bi-cart3"></i>
+                        <span>View Cart</span>
+                    </a>
+                    <a href="checkout.html" class="btn-checkout-drawer" id="btnCheckoutDrawer">
+                        <i class="bi bi-lightning-fill"></i>
+                        <span>Checkout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div class="modal fade" id="preferencesModal" tabindex="-1" aria-labelledby="preferencesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered preferences-modal-dialog">
+            <div class="modal-content preferences-modal-content">
+                <div class="modal-header preferences-modal-header">
+                    <h5 class="modal-title" id="preferencesModalLabel">Preferences</h5>
+                    <button type="button" class="btn-close preferences-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body preferences-modal-body">
+                    <!-- Country Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Country</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#countryCollapse">
+                            <img src="https://flagcdn.com/w20/us.png" alt="USA Flag" class="preference-flag">
+                            <span class="preference-text">USA</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="countryCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-country="us" data-flag="https://flagcdn.com/w20/us.png">
+                                    <img src="https://flagcdn.com/w20/us.png" alt="USA Flag">
+                                    <span>USA</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="ca" data-flag="https://flagcdn.com/w20/ca.png">
+                                    <img src="https://flagcdn.com/w20/ca.png" alt="Canada Flag">
+                                    <span>Canada</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="gb" data-flag="https://flagcdn.com/w20/gb.png">
+                                    <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag">
+                                    <span>United Kingdom</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="np" data-flag="https://flagcdn.com/w20/np.png">
+                                    <img src="https://flagcdn.com/w20/np.png" alt="Nepal Flag">
+                                    <span>Nepal</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Language</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#languageCollapse">
+                            <span class="preference-text">English</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="languageCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-language="en" data-language-name="English">
+                                    <span>English</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="es" data-language-name="Spanish">
+                                    <span>Spanish</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="fr" data-language-name="French">
+                                    <span>French</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="ne" data-language-name="Nepali">
+                                    <span>Nepali</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Currency Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Payment currency</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#currencyCollapse">
+                            <span class="preference-icon">$</span>
+                            <span class="preference-text">USD - US Dollar</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="currencyCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-currency="USD" data-currency-name="USD - US Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>USD - US Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="CAD" data-currency-name="CAD - Canadian Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>CAD - Canadian Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="GBP" data-currency-name="GBP - British Pound" data-currency-symbol="£">
+                                    <span class="preference-icon">£</span>
+                                    <span>GBP - British Pound</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="EUR" data-currency-name="EUR - Euro" data-currency-symbol="€">
+                                    <span class="preference-icon">€</span>
+                                    <span>EUR - Euro</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="NPR" data-currency-name="NPR - Nepali Rupee" data-currency-symbol="₨">
+                                    <span class="preference-icon">₨</span>
+                                    <span>NPR - Nepali Rupee</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer preferences-modal-footer">
+                    <button type="button" class="btn preferences-save-btn" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>
+                    <i class="bi bi-cart3"></i>
+                    Your Cart
+                    <span class="cart-count-badge" id="cartCountBadge">0</span>
+                </h3>
+                <button class="cart-drawer-close" id="cartDrawerClose">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="cart-drawer-body" id="cartDrawerBody">
+                <!-- Empty State -->
+                <div class="cart-empty-state" id="cartEmptyState">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-cart-x"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some gaming items to get started!</p>
+                    <button class="btn-continue-shopping" id="btnContinueShopping">
+                        <i class="bi bi-arrow-left"></i>
+                        Continue Shopping
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="cart-items-list" id="cartItemsListDrawer" style="display: none;">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+                <div class="cart-summary-mini">
+                    <div class="summary-row total">
+                        <span>Total (<span id="cartItemCount">0</span> items):</span>
+                        <strong class="total-amount" id="cartTotalDrawer">Rs. 0.00</strong>
+                    </div>
+                </div>
+                <div class="cart-drawer-actions">
+                    <a href="cart.html" class="btn-view-cart">
+                        <i class="bi bi-cart3"></i>
+                        <span>View Cart</span>
+                    </a>
+                    <a href="checkout.html" class="btn-checkout-drawer" id="btnCheckoutDrawer">
+                        <i class="bi bi-lightning-fill"></i>
+                        <span>Checkout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div class="modal fade" id="preferencesModal" tabindex="-1" aria-labelledby="preferencesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered preferences-modal-dialog">
+            <div class="modal-content preferences-modal-content">
+                <div class="modal-header preferences-modal-header">
+                    <h5 class="modal-title" id="preferencesModalLabel">Preferences</h5>
+                    <button type="button" class="btn-close preferences-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body preferences-modal-body">
+                    <!-- Country Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Country</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#countryCollapse">
+                            <img src="https://flagcdn.com/w20/us.png" alt="USA Flag" class="preference-flag">
+                            <span class="preference-text">USA</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="countryCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-country="us" data-flag="https://flagcdn.com/w20/us.png">
+                                    <img src="https://flagcdn.com/w20/us.png" alt="USA Flag">
+                                    <span>USA</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="ca" data-flag="https://flagcdn.com/w20/ca.png">
+                                    <img src="https://flagcdn.com/w20/ca.png" alt="Canada Flag">
+                                    <span>Canada</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="gb" data-flag="https://flagcdn.com/w20/gb.png">
+                                    <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag">
+                                    <span>United Kingdom</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="np" data-flag="https://flagcdn.com/w20/np.png">
+                                    <img src="https://flagcdn.com/w20/np.png" alt="Nepal Flag">
+                                    <span>Nepal</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Language</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#languageCollapse">
+                            <span class="preference-text">English</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="languageCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-language="en" data-language-name="English">
+                                    <span>English</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="es" data-language-name="Spanish">
+                                    <span>Spanish</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="fr" data-language-name="French">
+                                    <span>French</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="ne" data-language-name="Nepali">
+                                    <span>Nepali</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Currency Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Payment currency</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#currencyCollapse">
+                            <span class="preference-icon">$</span>
+                            <span class="preference-text">USD - US Dollar</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="currencyCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-currency="USD" data-currency-name="USD - US Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>USD - US Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="CAD" data-currency-name="CAD - Canadian Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>CAD - Canadian Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="GBP" data-currency-name="GBP - British Pound" data-currency-symbol="£">
+                                    <span class="preference-icon">£</span>
+                                    <span>GBP - British Pound</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="EUR" data-currency-name="EUR - Euro" data-currency-symbol="€">
+                                    <span class="preference-icon">€</span>
+                                    <span>EUR - Euro</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="NPR" data-currency-name="NPR - Nepali Rupee" data-currency-symbol="₨">
+                                    <span class="preference-icon">₨</span>
+                                    <span>NPR - Nepali Rupee</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer preferences-modal-footer">
+                    <button type="button" class="btn preferences-save-btn" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer-panel-page">
+        <!-- Page Header (Breadcrumb + Hero) -->
+        <header class="page-header">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb-nav" aria-label="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <a href="my-profile.html" class="breadcrumb-link">
+                        <span>My Account</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">My Wallet</span>
+                </nav>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="catalog-hero">
+                <div class="container-fluid">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">My Wallet</h1>
+                            <p class="hero-subtitle">Manage your wallet balance and transaction history</p>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Instant</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Secure</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="bi bi-headset"></i>
+                                <span>24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <aside class="panel-sidebar">
+                        <ul class="sidebar-menu">
+                            <li class="sidebar-menu-item">
+                                <a href="my-profile.html" class="sidebar-menu-link">
+                                    <i class="bi bi-person-circle"></i>
+                                    <span>My Profile</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="my-orders.html" class="sidebar-menu-link">
+                                    <i class="bi bi-box-seam"></i>
+                                    <span>My Orders</span>
+                                    <span class="sidebar-menu-badge">3</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="my-wallet.html" class="sidebar-menu-link active">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>My Wallet</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="wishlist.html" class="sidebar-menu-link">
+                                    <i class="bi bi-heart"></i>
+                                    <span>Wishlist</span>
+                                    <span class="sidebar-menu-badge">5</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="notifications.html" class="sidebar-menu-link">
+                                    <i class="bi bi-bell"></i>
+                                    <span>Notifications</span>
+                                    <span class="sidebar-menu-badge">12</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="account-settings.html" class="sidebar-menu-link">
+                                    <i class="bi bi-gear"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <a href="signin.html" class="sidebar-menu-link" style="color: rgba(220, 20, 60, 0.8);">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+
+                <div class="col-lg-9">
+                    <!-- Wallet Balance Card -->
+                    <div class="wallet-balance-card panel-content-card">
+                        <div class="wallet-balance-content">
+                            <div class="wallet-label">Available Balance</div>
+                            <div class="wallet-balance">Rs. 2,450.00</div>
+                            <div class="wallet-actions">
+                                <a href="#addMoney" class="btn-wallet-action">
+                                    <i class="bi bi-plus-circle"></i>
+                                    <span>Add Money</span>
+                                </a>
+                                <a href="transactions.html" class="btn-wallet-action">
+                                    <i class="bi bi-clock-history"></i>
+                                    <span>Transaction History</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wallet Stats -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Wallet Statistics</span>
+                        </h3>
+                        <div class="wallet-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="bi bi-arrow-up-circle"></i>
+                                </div>
+                                <div class="stat-value">Rs. 12,500</div>
+                                <div class="stat-label">Total Added</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="bi bi-arrow-down-circle"></i>
+                                </div>
+                                <div class="stat-value">Rs. 10,050</div>
+                                <div class="stat-label">Total Spent</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="bi bi-receipt"></i>
+                                </div>
+                                <div class="stat-value">47</div>
+                                <div class="stat-label">Transactions</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Money Section -->
+                    <div class="panel-content-card" id="addMoney">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-plus-circle"></i>
+                            <span>Add Money to Wallet</span>
+                        </h3>
+                        <div class="add-money-section">
+                            <div class="amount-options">
+                                <div class="amount-option">Rs. 500</div>
+                                <div class="amount-option">Rs. 1,000</div>
+                                <div class="amount-option">Rs. 2,000</div>
+                                <div class="amount-option">Rs. 5,000</div>
+                            </div>
+                            <input type="number" class="custom-amount-input" placeholder="Or enter custom amount" min="100">
+                            <button class="btn-add-money">
+                                <i class="bi bi-plus-circle"></i>
+                                <span>Add Money</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Recent Transactions</span>
+                        </h3>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon debit">
+                                <i class="bi bi-bag-check"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Order Payment - #KUN-45231</div>
+                                <div class="transaction-meta">Mobile Legends 500 Diamonds • April 4, 2026</div>
+                            </div>
+                            <div class="transaction-amount debit">- Rs. 900.00</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon credit">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Wallet Top-up</div>
+                                <div class="transaction-meta">eSewa Payment • April 3, 2026</div>
+                            </div>
+                            <div class="transaction-amount credit">+ Rs. 1,000.00</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon debit">
+                                <i class="bi bi-bag-check"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Order Payment - #KUN-45210</div>
+                                <div class="transaction-meta">PUBG Mobile UC • April 2, 2026</div>
+                            </div>
+                            <div class="transaction-amount debit">- Rs. 850.00</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon credit">
+                                <i class="bi bi-gift"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Cashback Reward</div>
+                                <div class="transaction-meta">Order #KUN-45187 • April 1, 2026</div>
+                            </div>
+                            <div class="transaction-amount credit">+ Rs. 50.00</div>
+                        </div>
+
+                        <div class="transaction-item">
+                            <div class="transaction-icon debit">
+                                <i class="bi bi-bag-check"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">Order Payment - #KUN-45187</div>
+                                <div class="transaction-meta">Free Fire Diamonds • March 30, 2026</div>
+                            </div>
+                            <div class="transaction-amount debit">- Rs. 350.00</div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 1.5rem;">
+                            <a href="transactions.html" class="btn-wallet-action" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <span>View All Transactions</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for My Wallet -->
+    <script>
+        // Toast Notification System
+        function showToast(message, type = 'success') {
+            const toastContainer = document.getElementById('toastContainer') || createToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast-notification toast-${type}`;
+            toast.innerHTML = `
+                <i class="bi bi-${type === 'success' ? 'check-circle-fill' : type === 'error' ? 'x-circle-fill' : 'info-circle-fill'}"></i>
+                <span>${message}</span>
+            `;
+            toastContainer.appendChild(toast);
+
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function createToastContainer() {
+            const container = document.createElement('div');
+            container.id = 'toastContainer';
+            container.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999;';
+            document.body.appendChild(container);
+
+            const style = document.createElement('style');
+            style.textContent = `
+                .toast-notification {
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 1rem 1.25rem;
+                    border-radius: 8px;
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    transform: translateX(400px);
+                    transition: transform 0.3s ease;
+                    min-width: 280px;
+                }
+                .toast-notification.show { transform: translateX(0); }
+                .toast-notification i { font-size: 1.25rem; }
+                .toast-success { color: #166534; background: #dcfce7; border-left: 4px solid #22c55e; }
+                .toast-error { color: #991b1b; background: #fee2e2; border-left: 4px solid #ef4444; }
+                .toast-info { color: #1e40af; background: #dbeafe; border-left: 4px solid #3b82f6; }
+            `;
+            document.head.appendChild(style);
+            return container;
+        }
+
+        // Amount option selection
+        document.querySelectorAll('.amount-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.amount-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                document.querySelector('.custom-amount-input').value = this.textContent.replace('Rs. ', '').replace(',', '');
+            });
+        });
+
+        // Custom amount validation
+        const customAmountInput = document.querySelector('.custom-amount-input');
+        customAmountInput.addEventListener('input', function() {
+            // Remove selected state from quick select buttons
+            document.querySelectorAll('.amount-option').forEach(o => o.classList.remove('selected'));
+
+            // Validate input
+            const amount = parseFloat(this.value);
+            if (isNaN(amount) || amount < 100) {
+                this.setCustomValidity('Minimum amount is Rs. 100');
+            } else if (amount > 50000) {
+                this.setCustomValidity('Maximum amount is Rs. 50,000');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // Add Money Button
+        const addMoneyBtn = document.querySelector('.btn-add-money');
+        addMoneyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const amount = parseFloat(customAmountInput.value);
+
+            // Validation
+            if (!customAmountInput.value || isNaN(amount)) {
+                showToast('Please enter an amount', 'error');
+                return;
+            }
+
+            if (amount < 100) {
+                showToast('Minimum amount is Rs. 100', 'error');
+                return;
+            }
+
+            if (amount > 50000) {
+                showToast('Maximum amount is Rs. 50,000', 'error');
+                return;
+            }
+
+            // Show payment method selection modal
+            showPaymentMethodModal(amount);
+        });
+
+        // Payment Method Selection Modal
+        function showPaymentMethodModal(amount) {
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; transition: opacity 0.3s;';
+
+            modal.innerHTML = `
+                <div style="background: linear-gradient(135deg, #1a0308, #0a0003); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; max-width: 500px; width: 90%; transform: scale(0.9); transition: transform 0.3s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3 style="margin: 0; color: #fff; font-size: 1.5rem;">Select Payment Method</h3>
+                        <button class="close-modal" style="background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.5rem; cursor: pointer;">&times;</button>
+                    </div>
+                    <div style="background: rgba(220, 20, 60, 0.1); border: 1px solid rgba(220, 20, 60, 0.3); border-radius: 10px; padding: 1rem; margin-bottom: 1.5rem; text-align: center;">
+                        <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-bottom: 0.25rem;">Amount to Add</div>
+                        <div style="color: #DC143C; font-size: 2rem; font-weight: 700;">Rs. ${amount.toLocaleString()}</div>
+                    </div>
+                    <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                        <button class="payment-method-btn" data-method="eSewa" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; cursor: pointer; transition: all 0.2s;">
+                            <div style="width: 48px; height: 48px; background: #60bb46; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;">eS</div>
+                            <div style="flex: 1; text-align: left;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">eSewa</div>
+                                <div style="font-size: 0.8125rem; color: rgba(255,255,255,0.6);">Digital wallet payment</div>
+                            </div>
+                            <i class="bi bi-chevron-right" style="color: rgba(255,255,255,0.4);"></i>
+                        </button>
+                        <button class="payment-method-btn" data-method="Khalti" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; cursor: pointer; transition: all 0.2s;">
+                            <div style="width: 48px; height: 48px; background: #5C2D91; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff;">K</div>
+                            <div style="flex: 1; text-align: left;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Khalti</div>
+                                <div style="font-size: 0.8125rem; color: rgba(255,255,255,0.6);">Digital wallet payment</div>
+                            </div>
+                            <i class="bi bi-chevron-right" style="color: rgba(255,255,255,0.4);"></i>
+                        </button>
+                        <button class="payment-method-btn" data-method="IME Pay" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; cursor: pointer; transition: all 0.2s;">
+                            <div style="width: 48px; height: 48px; background: #D32F2F; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 0.75rem;">IME</div>
+                            <div style="flex: 1; text-align: left;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">IME Pay</div>
+                                <div style="font-size: 0.8125rem; color: rgba(255,255,255,0.6);">Mobile banking</div>
+                            </div>
+                            <i class="bi bi-chevron-right" style="color: rgba(255,255,255,0.4);"></i>
+                        </button>
+                        <button class="payment-method-btn" data-method="Credit Card" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; cursor: pointer; transition: all 0.2s;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #DC143C, #C8123C); border-radius: 8px; display: flex; align-items: center; justify-content: center;"><i class="bi bi-credit-card" style="font-size: 1.25rem;"></i></div>
+                            <div style="flex: 1; text-align: left;">
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Credit/Debit Card</div>
+                                <div style="font-size: 0.8125rem; color: rgba(255,255,255,0.6);">Visa, Mastercard, etc.</div>
+                            </div>
+                            <i class="bi bi-chevron-right" style="color: rgba(255,255,255,0.4);"></i>
+                        </button>
+                    </div>
+                    <button class="close-modal" style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer;">Cancel</button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Animate in
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modal.querySelector('div').style.transform = 'scale(1)';
+            }, 10);
+
+            // Payment method selection
+            modal.querySelectorAll('.payment-method-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(255,255,255,0.08)';
+                    this.style.borderColor = 'rgba(220, 20, 60, 0.3)';
+                });
+                btn.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(255,255,255,0.05)';
+                    this.style.borderColor = 'rgba(255,255,255,0.1)';
+                });
+                btn.addEventListener('click', function() {
+                    const method = this.dataset.method;
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                    processPayment(amount, method);
+                });
+            });
+
+            // Close modal handlers
+            modal.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                });
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                }
+            });
+        }
+
+        // Process Payment
+        function processPayment(amount, method) {
+            showToast(`Processing payment via ${method}...`, 'info');
+
+            // Show loading state on button
+            addMoneyBtn.disabled = true;
+            const originalText = addMoneyBtn.innerHTML;
+            addMoneyBtn.innerHTML = '<i class="bi bi-arrow-repeat spinning"></i><span>Processing...</span>';
+
+            // Add spinning animation if not exists
+            if (!document.querySelector('#spinAnimation')) {
+                const style = document.createElement('style');
+                style.id = 'spinAnimation';
+                style.textContent = '.spinning { animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } }';
+                document.head.appendChild(style);
+            }
+
+            // Simulate payment processing
+            setTimeout(() => {
+                addMoneyBtn.disabled = false;
+                addMoneyBtn.innerHTML = originalText;
+
+                // Update balance
+                const balanceElement = document.querySelector('.wallet-balance');
+                const currentBalance = parseFloat(balanceElement.textContent.replace('Rs. ', '').replace(',', ''));
+                const newBalance = currentBalance + amount;
+                balanceElement.textContent = `Rs. ${newBalance.toLocaleString()}.00`;
+
+                // Clear input
+                customAmountInput.value = '';
+                document.querySelectorAll('.amount-option').forEach(o => o.classList.remove('selected'));
+
+                showToast(`Rs. ${amount.toLocaleString()} added to your wallet successfully!`, 'success');
+
+                // Add new transaction to the list
+                addTransactionToList(amount, method);
+            }, 2000);
+        }
+
+        // Add Transaction to List
+        function addTransactionToList(amount, method) {
+            const transactionList = document.querySelector('.panel-content-card:last-child');
+            const newTransaction = document.createElement('div');
+            newTransaction.className = 'transaction-item';
+            newTransaction.style.opacity = '0';
+            newTransaction.innerHTML = `
+                <div class="transaction-icon credit">
+                    <i class="bi bi-wallet2"></i>
+                </div>
+                <div class="transaction-details">
+                    <div class="transaction-title">Wallet Top-up</div>
+                    <div class="transaction-meta">${method} Payment • Just now</div>
+                </div>
+                <div class="transaction-amount credit">+ Rs. ${amount.toLocaleString()}.00</div>
+            `;
+
+            // Insert at the beginning
+            const firstTransaction = transactionList.querySelector('.transaction-item');
+            if (firstTransaction) {
+                firstTransaction.parentNode.insertBefore(newTransaction, firstTransaction);
+            }
+
+            // Fade in animation
+            setTimeout(() => {
+                newTransaction.style.transition = 'opacity 0.5s ease';
+                newTransaction.style.opacity = '1';
+            }, 100);
+        }
+
+        // Transaction List Filtering
+        function initTransactionFilter() {
+            const filterContainer = document.createElement('div');
+            filterContainer.style.cssText = 'display: flex; gap: 0.5rem; margin-bottom: 1.5rem;';
+            filterContainer.innerHTML = `
+                <button class="txn-filter active" data-filter="all" style="padding: 0.5rem 1rem; background: linear-gradient(135deg, #DC143C, #C8123C); border: none; border-radius: 6px; color: #fff; font-size: 0.875rem; cursor: pointer;">All</button>
+                <button class="txn-filter" data-filter="credit" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: rgba(255,255,255,0.7); font-size: 0.875rem; cursor: pointer;">Credits</button>
+                <button class="txn-filter" data-filter="debit" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: rgba(255,255,255,0.7); font-size: 0.875rem; cursor: pointer;">Debits</button>
+            `;
+
+            const transactionCard = document.querySelector('.panel-content-card:last-child');
+            const title = transactionCard.querySelector('.panel-card-title');
+            title.parentNode.insertBefore(filterContainer, title.nextSibling);
+
+            // Filter functionality
+            filterContainer.querySelectorAll('.txn-filter').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active state
+                    filterContainer.querySelectorAll('.txn-filter').forEach(b => {
+                        b.style.background = 'rgba(255,255,255,0.05)';
+                        b.style.border = '1px solid rgba(255,255,255,0.1)';
+                        b.style.color = 'rgba(255,255,255,0.7)';
+                        b.classList.remove('active');
+                    });
+                    this.style.background = 'linear-gradient(135deg, #DC143C, #C8123C)';
+                    this.style.border = 'none';
+                    this.style.color = '#fff';
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+                    const transactions = document.querySelectorAll('.transaction-item');
+
+                    transactions.forEach(txn => {
+                        const isCredit = txn.querySelector('.transaction-icon.credit');
+                        const isDebit = txn.querySelector('.transaction-icon.debit');
+
+                        if (filter === 'all') {
+                            txn.style.display = 'flex';
+                        } else if (filter === 'credit' && isCredit) {
+                            txn.style.display = 'flex';
+                        } else if (filter === 'debit' && isDebit) {
+                            txn.style.display = 'flex';
+                        } else {
+                            txn.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            initTransactionFilter();
+
+            // Hide skeleton loader
+            const skeleton = document.getElementById('skeletonLoader');
+            setTimeout(() => {
+                skeleton.style.opacity = '0';
+                skeleton.style.pointerEvents = 'none';
+                setTimeout(() => skeleton.remove(), 500);
+            }, 800);
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" style="position:fixed;bottom:2rem;right:2rem;width:50px;height:50px;background:linear-gradient(135deg,#DC143C,#C8123C);border:none;border-radius:50%;color:#fff;font-size:1.25rem;cursor:pointer;opacity:0;visibility:hidden;transition:all 0.3s ease;z-index:1000;box-shadow:0 4px 12px rgba(220,20,60,0.3);">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Custom Confirmation Modal -->
+    <div id="customModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:10000;opacity:0;transition:opacity 0.3s ease;">
+        <div style="background:linear-gradient(135deg,#1a0308,#0a0003);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;max-width:500px;width:90%;transform:scale(0.9);transition:transform 0.3s ease;">
+            <h3 id="modalTitle" style="margin:0 0 1rem 0;color:#fff;font-size:1.5rem;"></h3>
+            <p id="modalMessage" style="color:rgba(255,255,255,0.8);margin-bottom:1.5rem;line-height:1.6;"></p>
+            <div style="display:flex;gap:1rem;">
+                <button class="btn-modal-confirm" style="flex:1;padding:0.75rem;border:none;border-radius:8px;font-weight:600;cursor:pointer;background:linear-gradient(135deg,#DC143C,#C8123C);color:#fff;">Confirm</button>
+                <button class="btn-modal-cancel" style="flex:1;padding:0.75rem;border:1px solid rgba(255,255,255,0.2);border-radius:8px;font-weight:600;cursor:pointer;background:rgba(255,255,255,0.05);color:#fff;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        #scrollToTop.show { opacity: 1; visibility: visible; }
+        #scrollToTop:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(220,20,60,0.5); }
+        #customModal.show { display: flex; opacity: 1; }
+        #customModal.show > div { transform: scale(1); }
+
+        /* Wallet-specific: Balance Trend Indicator */
+        .balance-trend { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; padding: 0.375rem 0.75rem; border-radius: 6px; margin-left: 1rem; }
+        .balance-trend.positive { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .balance-trend.negative { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+        /* Mini Transaction Chart */
+        .mini-chart { width: 100%; height: 100px; margin: 1rem 0; }
+        .chart-point { fill: #DC143C; }
+        .chart-line { stroke: #DC143C; stroke-width: 2; fill: none; }
+
+        /* Budget Progress Bar */
+        .budget-progress-container { margin-top: 1.5rem; padding: 1.25rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; }
+        .budget-progress-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin: 0.75rem 0; }
+        .budget-progress-fill { height: 100%; background: linear-gradient(90deg, #DC143C, #C8123C); transition: width 0.3s ease; }
+    </style>
+
+    <script>
+        // Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function() {
+            scrollTopBtn.style.opacity = window.pageYOffset > 300 ? '1' : '0';
+            scrollTopBtn.style.visibility = window.pageYOffset > 300 ? 'visible' : 'hidden';
+        });
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Custom Modal
+        function showCustomModal(title, message, onConfirm) {
+            const modal = document.getElementById('customModal');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            modal.style.display = 'flex';
+            setTimeout(() => modal.style.opacity = '1', 10);
+
+            modal.querySelector('.btn-modal-confirm').onclick = () => {
+                if (onConfirm) onConfirm();
+                modal.style.opacity = '0';
+                setTimeout(() => modal.style.display = 'none', 300);
+            };
+            modal.querySelector('.btn-modal-cancel').onclick = () => {
+                modal.style.opacity = '0';
+                setTimeout(() => modal.style.display = 'none', 300);
+            };
+        }
+
+        // PAGE-SPECIFIC: Wallet Enhancements
+        window.addEventListener('load', function() {
+            // Add Balance Trend Indicator
+            const balanceElement = document.querySelector('.wallet-balance');
+            const trend = document.createElement('span');
+            trend.className = 'balance-trend positive';
+            trend.innerHTML = '<i class="bi bi-arrow-up"></i> +12.5%';
+            balanceElement.parentElement.appendChild(trend);
+
+            // Add Mini Transaction Chart (SVG)
+            const statsCard = document.querySelectorAll('.panel-content-card')[1];
+            const chartContainer = document.createElement('div');
+            chartContainer.innerHTML = `
+                <h4 style="font-weight:600;margin:1.5rem 0 1rem 0;display:flex;align-items:center;gap:0.5rem;">
+                    <i class="bi bi-graph-up" style="color:#DC143C;"></i>
+                    Balance Trend (Last 7 Days)
+                </h4>
+                <svg class="mini-chart" viewBox="0 0 300 100" preserveAspectRatio="none">
+                    <polyline class="chart-line" points="0,80 50,60 100,70 150,40 200,50 250,30 300,25"/>
+                    <circle class="chart-point" cx="300" cy="25" r="4"/>
+                </svg>
+            `;
+            statsCard.appendChild(chartContainer);
+
+            // Add Quick Stats Grid Enhancement
+            const walletStats = document.querySelector('.wallet-stats');
+            const avgTransactionCard = document.createElement('div');
+            avgTransactionCard.className = 'stat-card';
+            avgTransactionCard.innerHTML = `
+                <div class="stat-icon"><i class="bi bi-calculator"></i></div>
+                <div class="stat-value">Rs. 530</div>
+                <div class="stat-label">Avg Transaction</div>
+            `;
+            walletStats.appendChild(avgTransactionCard);
+
+            const cashbackCard = document.createElement('div');
+            cashbackCard.className = 'stat-card';
+            cashbackCard.innerHTML = `
+                <div class="stat-icon"><i class="bi bi-gift"></i></div>
+                <div class="stat-value">Rs. 150</div>
+                <div class="stat-label">Total Cashback</div>
+            `;
+            walletStats.appendChild(cashbackCard);
+
+            // Add Budget Progress Bar
+            const addMoneyCard = document.querySelectorAll('.panel-content-card')[2];
+            const budgetSection = document.createElement('div');
+            budgetSection.className = 'budget-progress-container';
+            budgetSection.innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                    <h4 style="margin:0;font-weight:600;font-size:1rem;">Monthly Budget</h4>
+                    <button onclick="setBudget()" style="padding:0.375rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:#fff;font-size:0.75rem;cursor:pointer;">
+                        <i class="bi bi-pencil"></i> Edit
+                    </button>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.875rem;color:rgba(255,255,255,0.6);margin-bottom:0.5rem;">
+                    <span>Spent: Rs. 10,050</span>
+                    <span>Limit: Rs. 15,000</span>
+                </div>
+                <div class="budget-progress-bar">
+                    <div class="budget-progress-fill" style="width:67%;"></div>
+                </div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-align:center;">Rs. 4,950 remaining this month</div>
+            `;
+            addMoneyCard.parentElement.insertBefore(budgetSection, addMoneyCard);
+        });
+
+        function setBudget() {
+            const currentBudget = 15000;
+            showCustomModal('Set Monthly Budget', 'Feature coming soon! You will be able to set custom monthly spending limits.', null);
+        }
+    </script>
+</body>
+</html>

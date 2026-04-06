@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/my-account.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .customer-panel-page { min-height: 100vh; padding: 2rem 0; }
+        .page-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 2rem; }
+        .breadcrumb-nav { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; margin-bottom: 1rem; }
+        .breadcrumb-link { color: rgba(255, 255, 255, 0.6); text-decoration: none; display: flex; align-items: center; gap: 0.375rem; transition: color 0.2s; }
+        .breadcrumb-link:hover { color: #fff; }
+        .breadcrumb-separator { color: rgba(255, 255, 255, 0.3); font-size: 0.75rem; }
+        .breadcrumb-current { color: #fff; }
+        .page-title { font-size: 1.75rem; font-weight: 700; margin: 0; }
+
+        .panel-sidebar { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1.5rem; position: sticky; top: 2rem; }
+        .sidebar-menu { list-style: none; padding: 0; margin: 0; }
+        .sidebar-menu-item { margin-bottom: 0.5rem; }
+        .sidebar-menu-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; color: rgba(255, 255, 255, 0.7); text-decoration: none; border-radius: 8px; transition: all 0.2s; font-size: 0.9375rem; }
+        .sidebar-menu-link i { font-size: 1.125rem; width: 20px; }
+        .sidebar-menu-link:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+        .sidebar-menu-link.active { background: linear-gradient(135deg, #DC143C, #C8123C); color: #fff; }
+        .sidebar-menu-badge { margin-left: auto; background: rgba(220, 20, 60, 0.2); color: #DC143C; font-size: 0.75rem; padding: 0.125rem 0.5rem; border-radius: 12px; font-weight: 600; }
+
+        .panel-content-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; }
+        .panel-card-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .panel-card-title i { color: #DC143C; }
+
+        /* Order Status Header */
+        .order-status-header { background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(200, 18, 60, 0.05)); border: 1px solid rgba(220, 20, 60, 0.2); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        .order-id-large { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .order-date-large { color: rgba(255, 255, 255, 0.6); font-size: 0.9375rem; margin-bottom: 1rem; }
+        .order-status-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 600; font-size: 1rem; }
+        .order-status-badge.completed { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .order-status-badge.processing { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+
+        /* Order Timeline */
+        .order-timeline { position: relative; padding-left: 2rem; }
+        .timeline-item { position: relative; padding-bottom: 2rem; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-item::before { content: ''; position: absolute; left: -2rem; top: 0; width: 2px; height: 100%; background: rgba(255, 255, 255, 0.1); }
+        .timeline-item.completed::before { background: linear-gradient(to bottom, #DC143C, rgba(220, 20, 60, 0.3)); }
+        .timeline-icon { position: absolute; left: -2.5rem; top: 0; width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; }
+        .timeline-item.completed .timeline-icon { background: #DC143C; border-color: #DC143C; color: #fff; }
+        .timeline-item.pending .timeline-icon { background: rgba(255, 255, 255, 0.03); border-color: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.3); }
+        .timeline-content { }
+        .timeline-title { font-weight: 600; margin-bottom: 0.25rem; }
+        .timeline-time { color: rgba(255, 255, 255, 0.5); font-size: 0.8125rem; }
+
+        /* Order Items */
+        .order-detail-item { display: flex; gap: 1.5rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; margin-bottom: 1rem; }
+        .order-detail-item-image { width: 80px; height: 80px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .order-detail-item-info { flex: 1; }
+        .order-detail-item-name { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .order-detail-item-variant { color: rgba(255, 255, 255, 0.6); font-size: 0.9375rem; margin-bottom: 0.75rem; }
+        .account-details { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 1rem; }
+        .account-detail-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .account-detail-row:last-child { border-bottom: none; }
+        .account-detail-label { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; }
+        .account-detail-value { font-weight: 600; font-size: 0.875rem; }
+        .order-detail-item-price { font-size: 1.25rem; font-weight: 700; white-space: nowrap; }
+
+        /* Payment Summary */
+        .payment-summary { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 1.5rem; }
+        .summary-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .summary-row:last-child { border-bottom: none; }
+        .summary-label { color: rgba(255, 255, 255, 0.6); font-size: 0.9375rem; }
+        .summary-value { font-weight: 600; font-size: 0.9375rem; }
+        .summary-total { font-size: 1.25rem; font-weight: 700; padding-top: 1rem; margin-top: 1rem; border-top: 2px solid rgba(220, 20, 60, 0.3); }
+        .summary-total .summary-label { color: #fff; font-size: 1rem; }
+        .summary-total .summary-value { color: #DC143C; font-size: 1.5rem; }
+
+        /* Action Buttons */
+        .action-buttons { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .btn-action-primary { padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #DC143C, #C8123C); border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .btn-action-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220, 20, 60, 0.3); color: #fff; }
+        .btn-action-secondary { padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .btn-action-secondary:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+
+        @media (max-width: 991px) {
+            .panel-sidebar { position: relative; top: 0; margin-bottom: 1.5rem; }
+            .order-detail-item { flex-direction: column; }
+            .order-detail-item-price { align-self: start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skeleton Loader -->
+    <div id="skeletonLoader" class="skeleton-loader">
+        <div class="skeleton-content">
+            <div class="skeleton-header"></div>
+            <div class="skeleton-sidebar"></div>
+            <div class="skeleton-cards"></div>
+        </div>
+    </div>
+
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <a href="my-profile.html" class="header-icon">
+                            <i class="bi bi-person-circle"></i>
+                            <span>Account</span>
+                        </a>
+                        <a href="cart.html" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer-panel-page">
+        <div class="container-fluid">
+            <header class="page-header">
+                <nav class="breadcrumb-nav" aria-label="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <a href="my-profile.html" class="breadcrumb-link">
+                        <span>My Account</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <a href="my-orders.html" class="breadcrumb-link">
+                        <span>My Orders</span>
+                    </a>
+                    <i class="bi bi-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">Order Details</span>
+                </nav>
+                <h1 class="page-title">Order Details</h1>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <aside class="panel-sidebar">
+                        <ul class="sidebar-menu">
+                            <li class="sidebar-menu-item">
+                                <a href="my-profile.html" class="sidebar-menu-link">
+                                    <i class="bi bi-person-circle"></i>
+                                    <span>My Profile</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="my-orders.html" class="sidebar-menu-link active">
+                                    <i class="bi bi-box-seam"></i>
+                                    <span>My Orders</span>
+                                    <span class="sidebar-menu-badge">3</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="my-wallet.html" class="sidebar-menu-link">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>My Wallet</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="wishlist.html" class="sidebar-menu-link">
+                                    <i class="bi bi-heart"></i>
+                                    <span>Wishlist</span>
+                                    <span class="sidebar-menu-badge">5</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="notifications.html" class="sidebar-menu-link">
+                                    <i class="bi bi-bell"></i>
+                                    <span>Notifications</span>
+                                    <span class="sidebar-menu-badge">12</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a href="account-settings.html" class="sidebar-menu-link">
+                                    <i class="bi bi-gear"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <a href="signin.html" class="sidebar-menu-link" style="color: rgba(220, 20, 60, 0.8);">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+
+                <div class="col-lg-9">
+                    <!-- Order Status Header -->
+                    <div class="order-status-header">
+                        <div class="order-id-large">Order #KUN-45231</div>
+                        <div class="order-date-large">Placed on April 4, 2026 at 2:30 PM</div>
+                        <span class="order-status-badge completed">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Order Completed</span>
+                        </span>
+                    </div>
+
+                    <!-- Order Timeline -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Order Timeline</span>
+                        </h3>
+                        <div class="order-timeline">
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">
+                                    <i class="bi bi-check"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Order Delivered</div>
+                                    <div class="timeline-time">April 4, 2026 at 2:35 PM</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">
+                                    <i class="bi bi-truck"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Order Processing</div>
+                                    <div class="timeline-time">April 4, 2026 at 2:32 PM</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">
+                                    <i class="bi bi-credit-card"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Payment Confirmed</div>
+                                    <div class="timeline-time">April 4, 2026 at 2:31 PM</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item completed">
+                                <div class="timeline-icon">
+                                    <i class="bi bi-cart-check"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Order Placed</div>
+                                    <div class="timeline-time">April 4, 2026 at 2:30 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Items -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-box-seam"></i>
+                            <span>Order Items</span>
+                        </h3>
+                        <div class="order-detail-item">
+                            <img src="assets/images/mobile-legends-bang-bang1.webp" alt="Mobile Legends" class="order-detail-item-image">
+                            <div class="order-detail-item-info">
+                                <div class="order-detail-item-name">Mobile Legends: Bang Bang</div>
+                                <div class="order-detail-item-variant">500 Diamonds + 50 Bonus</div>
+                                <div class="account-details">
+                                    <div class="account-detail-row">
+                                        <span class="account-detail-label">User ID:</span>
+                                        <span class="account-detail-value">1234567890</span>
+                                    </div>
+                                    <div class="account-detail-row">
+                                        <span class="account-detail-label">Zone ID:</span>
+                                        <span class="account-detail-value">12345</span>
+                                    </div>
+                                    <div class="account-detail-row">
+                                        <span class="account-detail-label">Status:</span>
+                                        <span class="account-detail-value" style="color: #22c55e;">Delivered</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-detail-item-price">Rs. 900.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div class="panel-content-card">
+                        <h3 class="panel-card-title">
+                            <i class="bi bi-credit-card"></i>
+                            <span>Payment Information</span>
+                        </h3>
+                        <div class="payment-summary">
+                            <div class="summary-row">
+                                <span class="summary-label">Payment Method</span>
+                                <span class="summary-value">
+                                    <i class="bi bi-wallet2"></i> KUNYO Wallet
+                                </span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Transaction ID</span>
+                                <span class="summary-value">TXN-789456123</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Subtotal</span>
+                                <span class="summary-value">Rs. 900.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Discount</span>
+                                <span class="summary-value" style="color: #22c55e;">- Rs. 0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Service Fee</span>
+                                <span class="summary-value">Rs. 0.00</span>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span class="summary-label">Total Paid</span>
+                                <span class="summary-value">Rs. 900.00</span>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <a href="#" class="btn-action-primary">
+                                <i class="bi bi-download"></i>
+                                <span>Download Receipt</span>
+                            </a>
+                            <a href="#" class="btn-action-secondary">
+                                <i class="bi bi-headset"></i>
+                                <span>Contact Support</span>
+                            </a>
+                            <a href="my-orders.html" class="btn-action-secondary">
+                                <i class="bi bi-arrow-left"></i>
+                                <span>Back to Orders</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for Order Details -->
+    <script>
+        // Toast Notification System
+        function showToast(message, type = 'success') {
+            const toastContainer = document.getElementById('toastContainer') || createToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast-notification toast-${type}`;
+            toast.innerHTML = `
+                <i class="bi bi-${type === 'success' ? 'check-circle-fill' : type === 'error' ? 'x-circle-fill' : 'info-circle-fill'}"></i>
+                <span>${message}</span>
+            `;
+            toastContainer.appendChild(toast);
+
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function createToastContainer() {
+            const container = document.createElement('div');
+            container.id = 'toastContainer';
+            container.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999;';
+            document.body.appendChild(container);
+
+            const style = document.createElement('style');
+            style.textContent = `
+                .toast-notification {
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 1rem 1.25rem;
+                    border-radius: 8px;
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    transform: translateX(400px);
+                    transition: transform 0.3s ease;
+                    min-width: 280px;
+                }
+                .toast-notification.show { transform: translateX(0); }
+                .toast-notification i { font-size: 1.25rem; }
+                .toast-success { color: #166534; background: #dcfce7; border-left: 4px solid #22c55e; }
+                .toast-error { color: #991b1b; background: #fee2e2; border-left: 4px solid #ef4444; }
+                .toast-info { color: #1e40af; background: #dbeafe; border-left: 4px solid #3b82f6; }
+            `;
+            document.head.appendChild(style);
+            return container;
+        }
+
+        // Copy Order ID to Clipboard
+        function copyOrderId() {
+            const orderId = document.querySelector('.order-id-large').textContent;
+
+            navigator.clipboard.writeText(orderId).then(() => {
+                showToast('Order ID copied to clipboard!', 'success');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = orderId;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast('Order ID copied to clipboard!', 'success');
+            });
+        }
+
+        // Add copy button to order ID
+        const orderIdElement = document.querySelector('.order-id-large');
+        if (orderIdElement) {
+            orderIdElement.style.cursor = 'pointer';
+            orderIdElement.title = 'Click to copy';
+            orderIdElement.addEventListener('click', copyOrderId);
+
+            const copyIcon = document.createElement('i');
+            copyIcon.className = 'bi bi-copy';
+            copyIcon.style.cssText = 'margin-left: 0.5rem; font-size: 1.25rem; opacity: 0.6; cursor: pointer;';
+            orderIdElement.appendChild(copyIcon);
+        }
+
+        // Download Receipt Button
+        const downloadBtn = document.querySelector('.btn-action-primary');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Show loading state
+                const originalText = this.innerHTML;
+                this.disabled = true;
+                this.innerHTML = '<i class="bi bi-arrow-repeat spinning"></i><span>Generating Receipt...</span>';
+
+                // Add spinning animation if not exists
+                if (!document.querySelector('#spinAnimation')) {
+                    const style = document.createElement('style');
+                    style.id = 'spinAnimation';
+                    style.textContent = '.spinning { animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } }';
+                    document.head.appendChild(style);
+                }
+
+                // Simulate PDF generation
+                setTimeout(() => {
+                    this.disabled = false;
+                    this.innerHTML = originalText;
+
+                    // In production, this would trigger actual PDF download
+                    // For now, show success message
+                    showToast('Receipt downloaded successfully!', 'success');
+
+                    // Simulate download
+                    const orderId = document.querySelector('.order-id-large').textContent.replace('Order #', '');
+                    console.log(`Downloading receipt for ${orderId}`);
+                }, 2000);
+            });
+        }
+
+        // Contact Support Button
+        const supportBtn = document.querySelectorAll('.btn-action-secondary')[0];
+        if (supportBtn && supportBtn.textContent.includes('Contact Support')) {
+            supportBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Create support modal
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; transition: opacity 0.3s;';
+
+                modal.innerHTML = `
+                    <div style="background: linear-gradient(135deg, #1a0308, #0a0003); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem; max-width: 500px; width: 90%; transform: scale(0.9); transition: transform 0.3s;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h3 style="margin: 0; color: #fff; font-size: 1.5rem;">Contact Support</h3>
+                            <button class="close-modal" style="background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.5rem; cursor: pointer;">&times;</button>
+                        </div>
+                        <div style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; line-height: 1.6;">
+                            <p>Need help with this order? Our support team is here to assist you.</p>
+                            <div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                                <strong>Order ID:</strong> ${document.querySelector('.order-id-large').textContent}
+                            </div>
+                            <p><strong>Contact Options:</strong></p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="bi bi-envelope" style="color: #DC143C;"></i>
+                                    <span>Email: support@kunyo.com</span>
+                                </li>
+                                <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="bi bi-telephone" style="color: #DC143C;"></i>
+                                    <span>Phone: +977 9841234567</span>
+                                </li>
+                                <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="bi bi-chat-dots" style="color: #DC143C;"></i>
+                                    <span>Live Chat: Available 24/7</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="close-modal" style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #DC143C, #C8123C); border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer;">Close</button>
+                    </div>
+                `;
+
+                document.body.appendChild(modal);
+
+                // Animate in
+                setTimeout(() => {
+                    modal.style.opacity = '1';
+                    modal.querySelector('div').style.transform = 'scale(1)';
+                }, 10);
+
+                // Close modal handlers
+                modal.querySelectorAll('.close-modal').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        modal.style.opacity = '0';
+                        setTimeout(() => modal.remove(), 300);
+                    });
+                });
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.opacity = '0';
+                        setTimeout(() => modal.remove(), 300);
+                    }
+                });
+            });
+        }
+
+        // Print Order Button
+        function addPrintButton() {
+            const actionButtons = document.querySelector('.action-buttons');
+            const printBtn = document.createElement('a');
+            printBtn.href = '#';
+            printBtn.className = 'btn-action-secondary';
+            printBtn.innerHTML = '<i class="bi bi-printer"></i><span>Print Order</span>';
+
+            printBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showToast('Preparing order for printing...', 'info');
+
+                setTimeout(() => {
+                    window.print();
+                }, 500);
+            });
+
+            actionButtons.appendChild(printBtn);
+        }
+
+        // Track Order Timeline Animation
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 150);
+            });
+        }
+
+        // Copy Transaction ID
+        function copyTransactionId() {
+            const txnId = document.querySelector('.payment-summary .summary-value:nth-child(2)');
+            if (txnId) {
+                const textToCopy = txnId.textContent.trim();
+
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showToast('Transaction ID copied to clipboard!', 'success');
+                }).catch(() => {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    showToast('Transaction ID copied to clipboard!', 'success');
+                });
+            }
+        }
+
+        // Add click to copy for Transaction ID
+        const txnIdElements = document.querySelectorAll('.payment-summary .summary-row');
+        txnIdElements.forEach(row => {
+            const label = row.querySelector('.summary-label');
+            if (label && label.textContent.includes('Transaction ID')) {
+                const value = row.querySelector('.summary-value');
+                value.style.cursor = 'pointer';
+                value.title = 'Click to copy';
+                value.addEventListener('click', copyTransactionId);
+
+                const copyIcon = document.createElement('i');
+                copyIcon.className = 'bi bi-copy';
+                copyIcon.style.cssText = 'margin-left: 0.5rem; font-size: 0.875rem; opacity: 0.6;';
+                value.appendChild(copyIcon);
+            }
+        });
+
+        // Initialize all features on page load
+        window.addEventListener('load', function() {
+            addPrintButton();
+            animateTimeline();
+        });
+
+        // Add print styles
+        const printStyles = document.createElement('style');
+        printStyles.textContent = `
+            @media print {
+                .main-header,
+                .panel-sidebar,
+                .action-buttons,
+                .page-header {
+                    display: none !important;
+                }
+                .customer-panel-page {
+                    padding: 0 !important;
+                }
+                .panel-content-card {
+                    border: none !important;
+                    box-shadow: none !important;
+                }
+            }
+        `;
+        document.head.appendChild(printStyles);
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Custom Confirmation Modal -->
+    <div id="customModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <div class="modal-actions">
+                <button class="btn-modal-confirm">Confirm</button>
+                <button class="btn-modal-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Enhancements CSS & JS -->
+    <style>
+        /* Skeleton Loader */
+        .skeleton-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0308, #0a0003);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .skeleton-loader.hide { opacity: 0; pointer-events: none; }
+        .skeleton-content { width: 90%; max-width: 1200px; }
+        .skeleton-header {
+            height: 60px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .skeleton-sidebar {
+            height: 300px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .skeleton-cards {
+            height: 400px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+        }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #DC143C, #C8123C);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+        }
+        .scroll-to-top.show { opacity: 1; visibility: visible; }
+        .scroll-to-top:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(220, 20, 60, 0.5); }
+
+        /* Custom Modal */
+        .custom-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .custom-modal.show { display: flex; opacity: 1; }
+        .custom-modal-content {
+            background: linear-gradient(135deg, #1a0308, #0a0003);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .custom-modal.show .custom-modal-content { transform: scale(1); }
+        .custom-modal-content h3 {
+            margin: 0 0 1rem 0;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        .custom-modal-content p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn-modal-confirm, .btn-modal-cancel {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-modal-confirm {
+            background: linear-gradient(135deg, #DC143C, #C8123C);
+            color: #fff;
+        }
+        .btn-modal-confirm:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3); }
+        .btn-modal-cancel {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+        }
+        .btn-modal-cancel:hover { background: rgba(255,255,255,0.08); }
+
+        /* Fade-in Animation */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tooltips */
+        [data-tooltip] {
+            position: relative;
+            cursor: help;
+        }
+        [data-tooltip]:before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-5px);
+            padding: 0.5rem 0.75rem;
+            background: rgba(0,0,0,0.9);
+            color: #fff;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        [data-tooltip]:hover:before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        /* PAGE-SPECIFIC: Order Details Enhancements */
+
+        /* Animated Progress Timeline */
+        .timeline-item {
+            animation: slideInLeft 0.5s ease forwards;
+            opacity: 0;
+        }
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Quick Action Buttons */
+        .quick-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .btn-quick-action {
+            padding: 0.625rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-quick-action:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
+        }
+
+        /* Support Contact Card */
+        .support-card {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .support-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+        .support-card-header h4 {
+            margin: 0;
+            color: #3b82f6;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .support-card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .support-card.expanded .support-card-body {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+        .support-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+        .support-contact-item i {
+            color: #3b82f6;
+            font-size: 1.25rem;
+        }
+
+        /* Product Rating Widget */
+        .rating-widget {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .rating-widget-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .star-rating i {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .star-rating i:hover,
+        .star-rating i.active {
+            color: #fbbf24;
+            transform: scale(1.1);
+        }
+        .rating-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: #fff;
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+        .rating-textarea:focus {
+            outline: none;
+            border-color: #DC143C;
+        }
+
+        /* Related Orders */
+        .related-orders {
+            margin-top: 1.5rem;
+        }
+        .related-order-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+        }
+        .related-order-item:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(220, 20, 60, 0.3);
+            transform: translateX(5px);
+        }
+        .related-order-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(220, 20, 60, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #DC143C;
+        }
+        .related-order-info {
+            flex: 1;
+        }
+        .related-order-id {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .related-order-date {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+        }
+    </style>
+
+    <script>
+        // Global Enhancement Scripts
+
+        // Skeleton Loader
+        window.addEventListener('load', function() {
+            const skeleton = document.getElementById('skeletonLoader');
+            setTimeout(() => {
+                skeleton.classList.add('hide');
+                setTimeout(() => skeleton.remove(), 500);
+
+                // Add fade-in to main content
+                document.querySelector('.customer-panel-page').classList.add('fade-in');
+            }, 800);
+        });
+
+        // Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Custom Modal Functions
+        function showCustomModal(title, message, onConfirm) {
+            const modal = document.getElementById('customModal');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+
+            modal.classList.add('show');
+
+            const confirmBtn = modal.querySelector('.btn-modal-confirm');
+            const cancelBtn = modal.querySelector('.btn-modal-cancel');
+
+            const closeModal = () => modal.classList.remove('show');
+
+            confirmBtn.onclick = () => {
+                if (onConfirm) onConfirm();
+                closeModal();
+            };
+
+            cancelBtn.onclick = closeModal;
+            modal.onclick = (e) => {
+                if (e.target === modal) closeModal();
+            };
+        }
+
+        // PAGE-SPECIFIC: Order Details Enhancements
+
+        // Add Quick Action Buttons
+        function addQuickActions() {
+            const orderHeader = document.querySelector('.order-status-header');
+            const quickActions = document.createElement('div');
+            quickActions.className = 'quick-actions';
+            quickActions.innerHTML = `
+                <button class="btn-quick-action" id="btnCopyOrderId" data-tooltip="Copy order ID">
+                    <i class="bi bi-clipboard"></i>
+                    <span>Copy Order ID</span>
+                </button>
+                <button class="btn-quick-action" id="btnPrintOrder" data-tooltip="Print this order">
+                    <i class="bi bi-printer"></i>
+                    <span>Print</span>
+                </button>
+                <button class="btn-quick-action" id="btnShareOrder" data-tooltip="Share order details">
+                    <i class="bi bi-share"></i>
+                    <span>Share</span>
+                </button>
+            `;
+            orderHeader.appendChild(quickActions);
+
+            // Copy Order ID
+            document.getElementById('btnCopyOrderId').addEventListener('click', function() {
+                const orderId = document.querySelector('.order-id-large').textContent;
+                navigator.clipboard.writeText(orderId).then(() => {
+                    showToast('Order ID copied to clipboard!', 'success');
+                });
+            });
+
+            // Print Order
+            document.getElementById('btnPrintOrder').addEventListener('click', function() {
+                window.print();
+            });
+
+            // Share Order
+            document.getElementById('btnShareOrder').addEventListener('click', function() {
+                const orderId = document.querySelector('.order-id-large').textContent;
+                const shareText = `Check out my order ${orderId} on KUNYO!`;
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'KUNYO Order',
+                        text: shareText,
+                        url: window.location.href
+                    });
+                } else {
+                    showToast('Link copied to clipboard!', 'success');
+                    navigator.clipboard.writeText(window.location.href);
+                }
+            });
+        }
+
+        // Add Support Contact Card
+        function addSupportCard() {
+            const paymentCard = document.querySelectorAll('.panel-content-card')[2];
+            const supportCard = document.createElement('div');
+            supportCard.className = 'support-card';
+            supportCard.innerHTML = `
+                <div class="support-card-header">
+                    <h4><i class="bi bi-headset"></i> Need Help?</h4>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="support-card-body">
+                    <div class="support-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.875rem;">Email Support</div>
+                            <div style="color: rgba(255,255,255,0.6); font-size: 0.8125rem;">support@kunyo.com</div>
+                        </div>
+                    </div>
+                    <div class="support-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.875rem;">Phone Support</div>
+                            <div style="color: rgba(255,255,255,0.6); font-size: 0.8125rem;">+977 9841234567</div>
+                        </div>
+                    </div>
+                    <div class="support-contact-item">
+                        <i class="bi bi-chat-dots"></i>
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.875rem;">Live Chat</div>
+                            <div style="color: rgba(255,255,255,0.6); font-size: 0.8125rem;">Available 24/7</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            paymentCard.appendChild(supportCard);
+
+            supportCard.querySelector('.support-card-header').addEventListener('click', function() {
+                supportCard.classList.toggle('expanded');
+                const icon = this.querySelector('i:last-child');
+                icon.className = supportCard.classList.contains('expanded') ? 'bi bi-chevron-up' : 'bi bi-chevron-down';
+            });
+        }
+
+        // Add Product Rating Widget
+        function addRatingWidget() {
+            const orderItemsCard = document.querySelectorAll('.panel-content-card')[1];
+            const ratingWidget = document.createElement('div');
+            ratingWidget.className = 'rating-widget';
+            ratingWidget.innerHTML = `
+                <div class="rating-widget-title">
+                    <i class="bi bi-star" style="color: #fbbf24;"></i>
+                    Rate this product
+                </div>
+                <div class="star-rating" id="starRating">
+                    <i class="bi bi-star" data-rating="1"></i>
+                    <i class="bi bi-star" data-rating="2"></i>
+                    <i class="bi bi-star" data-rating="3"></i>
+                    <i class="bi bi-star" data-rating="4"></i>
+                    <i class="bi bi-star" data-rating="5"></i>
+                </div>
+                <textarea class="rating-textarea" placeholder="Share your experience with this product..."></textarea>
+                <button class="btn-save" style="margin-top: 1rem;">
+                    <i class="bi bi-check-circle"></i>
+                    Submit Review
+                </button>
+            `;
+            orderItemsCard.appendChild(ratingWidget);
+
+            // Star rating functionality
+            const stars = ratingWidget.querySelectorAll('.star-rating i');
+            let selectedRating = 0;
+
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    selectedRating = this.dataset.rating;
+                    stars.forEach((s, index) => {
+                        if (index < selectedRating) {
+                            s.classList.add('active');
+                            s.className = 'bi bi-star-fill active';
+                        } else {
+                            s.classList.remove('active');
+                            s.className = 'bi bi-star';
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseenter', function() {
+                    const rating = this.dataset.rating;
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.className = 'bi bi-star-fill';
+                        } else {
+                            s.className = 'bi bi-star';
+                        }
+                    });
+                });
+            });
+
+            ratingWidget.querySelector('.star-rating').addEventListener('mouseleave', function() {
+                stars.forEach((s, index) => {
+                    if (index < selectedRating) {
+                        s.className = 'bi bi-star-fill active';
+                    } else {
+                        s.className = 'bi bi-star';
+                    }
+                });
+            });
+
+            // Submit review
+            ratingWidget.querySelector('.btn-save').addEventListener('click', function() {
+                const textarea = ratingWidget.querySelector('textarea');
+                if (selectedRating === 0) {
+                    showToast('Please select a star rating', 'error');
+                    return;
+                }
+                showToast('Thank you for your review!', 'success');
+                textarea.value = '';
+                selectedRating = 0;
+                stars.forEach(s => {
+                    s.classList.remove('active');
+                    s.className = 'bi bi-star';
+                });
+            });
+        }
+
+        // Add Related Orders Section
+        function addRelatedOrders() {
+            const mainContent = document.querySelector('.col-lg-9');
+            const relatedOrdersCard = document.createElement('div');
+            relatedOrdersCard.className = 'panel-content-card';
+            relatedOrdersCard.innerHTML = `
+                <h3 class="panel-card-title">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Recent Orders</span>
+                </h3>
+                <div class="related-orders">
+                    <a href="order-details.html" class="related-order-item">
+                        <div class="related-order-icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="related-order-info">
+                            <div class="related-order-id">Order #KUN-45210</div>
+                            <div class="related-order-date">PUBG Mobile UC • April 2, 2026</div>
+                        </div>
+                        <div style="color: #22c55e; font-size: 0.875rem; font-weight: 600;">Rs. 850.00</div>
+                    </a>
+                    <a href="order-details.html" class="related-order-item">
+                        <div class="related-order-icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="related-order-info">
+                            <div class="related-order-id">Order #KUN-45187</div>
+                            <div class="related-order-date">Free Fire Diamonds • March 30, 2026</div>
+                        </div>
+                        <div style="color: #22c55e; font-size: 0.875rem; font-weight: 600;">Rs. 350.00</div>
+                    </a>
+                    <a href="order-details.html" class="related-order-item">
+                        <div class="related-order-icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="related-order-info">
+                            <div class="related-order-id">Order #KUN-45160</div>
+                            <div class="related-order-date">Steam Gift Card • March 27, 2026</div>
+                        </div>
+                        <div style="color: #22c55e; font-size: 0.875rem; font-weight: 600;">Rs. 2,500.00</div>
+                    </a>
+                </div>
+            `;
+            mainContent.appendChild(relatedOrdersCard);
+        }
+
+        // Initialize all order-specific features
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                addQuickActions();
+                addSupportCard();
+                addRatingWidget();
+                addRelatedOrders();
+            }, 100);
+        });
+    </script>
+</body>
+</html>

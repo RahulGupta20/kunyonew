@@ -27,252 +27,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Fix z-index stacking context */
-        .main-header {
-            z-index: 1000 !important;
-        }
-
-        .header-icons {
-            position: relative;
-            z-index: 10000;
-        }
-
-        /* User Profile Dropdown Styles */
-        .user-profile-dropdown {
-            position: relative;
-            z-index: 10001;
-        }
-
-        .user-profile-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.375rem 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .user-profile-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
-        }
-
-        .user-profile-btn.dropdown-toggle::after {
-            display: none;
-        }
-
-        .user-avatar {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 2px solid rgba(0, 56, 147, 0.5);
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-        }
-
-        .user-name {
-            font-weight: 600;
-            color: #fff;
-            font-size: 0.8125rem;
-        }
-
-        .user-email {
-            font-size: 0.625rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .dropdown-chevron {
-            font-size: 0.6875rem;
-            color: rgba(255, 255, 255, 0.6);
-            transition: transform 0.3s ease;
-            margin-left: 0.125rem;
-        }
-
-        .user-profile-btn[aria-expanded="true"] .dropdown-chevron {
-            transform: rotate(180deg);
-        }
-
-        .user-dropdown-menu {
-            position: absolute;
-            top: calc(100% + 0.5rem);
-            right: 0;
-            min-width: 240px;
-            background: rgba(13, 17, 23, 0.98) !important;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-radius: 8px;
-            padding: 0.25rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
-            z-index: 10002 !important;
-            overflow: hidden;
-        }
-
-        /* Ensure bottom nav stays below dropdown */
-        .bottom-nav {
-            z-index: 999 !important;
-        }
-
-        .user-dropdown-header {
-            padding: 0.625rem 0.75rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 6px;
-            margin-bottom: 0.375rem;
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-        }
-
-        .user-dropdown-header .user-avatar {
-            width: 36px;
-            height: 36px;
-        }
-
-        .user-dropdown-header .user-info {
-            flex: 1;
-        }
-
-        .user-dropdown-header .user-name {
-            font-size: 0.875rem;
-            font-weight: 700;
-        }
-
-        .user-dropdown-header .user-email {
-            font-size: 0.6875rem;
-        }
-
-        .user-wallet-info {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.4rem 0.625rem;
-            background: linear-gradient(135deg, rgba(0, 56, 147, 0.15), rgba(220, 20, 60, 0.15));
-            border: 1px solid rgba(0, 56, 147, 0.3);
-            border-radius: 5px;
-            margin-bottom: 0.25rem;
-        }
-
-        .wallet-label {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.6875rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .wallet-label i {
-            font-size: 0.8125rem;
-            color: #003893;
-        }
-
-        .wallet-balance {
-            font-size: 0.8125rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .user-dropdown-divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.08);
-            margin: 0.5rem 0;
-        }
-
-        .user-dropdown-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 0.625rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            transition: all 0.3s ease;
-        }
-
-        .user-dropdown-item:hover {
-            background: rgba(220, 20, 60, 0.1);
-            color: #DC143C;
-            padding-left: 0.875rem;
-        }
-
-        .user-dropdown-item i {
-            font-size: 0.9375rem;
-            color: rgba(255, 255, 255, 0.6);
-            width: 16px;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .user-dropdown-item:hover i {
-            color: #DC143C;
-        }
-
-        .user-dropdown-item.logout-item {
-            color: #DC143C;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            margin-top: 0.25rem;
-            padding-top: 0.5rem;
-        }
-
-        .user-dropdown-item.logout-item i {
-            color: #DC143C;
-        }
-
-        .user-dropdown-item.logout-item:hover {
-            background: rgba(220, 20, 60, 0.1);
-        }
-
-        .item-badge {
-            margin-left: auto;
-            padding: 0.0625rem 0.3rem;
-            background: rgba(220, 20, 60, 0.2);
-            border: 1px solid rgba(220, 20, 60, 0.3);
-            border-radius: 8px;
-            font-size: 0.5625rem;
-            font-weight: 700;
-            color: #DC143C;
-            line-height: 1;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 991px) {
-            .user-info {
-                display: none;
-            }
-
-            .dropdown-chevron {
-                display: none;
-            }
-
-            .user-profile-btn {
-                padding: 0.375rem;
-            }
-
-            .user-dropdown-menu {
-                min-width: 220px;
-            }
-        }
-
-        @media (max-width: 575px) {
-            .user-dropdown-menu {
-                right: -20px;
-                min-width: 200px;
-            }
-        }
+        
     </style>
 </head>
 <body>
@@ -367,30 +122,30 @@
                                 </div>
 
                                 <!-- Menu Items -->
-                                <a href="#" class="user-dropdown-item">
+                                <a href="my-profile.html" class="user-dropdown-item">
                                     <i class="bi bi-person-circle"></i>
                                     <span>My Profile</span>
                                 </a>
-                                <a href="#" class="user-dropdown-item">
+                                <a href="my-orders.html" class="user-dropdown-item">
                                     <i class="bi bi-box-seam"></i>
                                     <span>My Orders</span>
-                                    <span class="item-badge">2</span>
-                                </a>
-                                <a href="#" class="user-dropdown-item">
-                                    <i class="bi bi-heart"></i>
-                                    <span>Wishlist</span>
                                     <span class="item-badge">3</span>
                                 </a>
-                                <a href="#" class="user-dropdown-item">
+                                <a href="wishlist.html" class="user-dropdown-item">
+                                    <i class="bi bi-heart"></i>
+                                    <span>Wishlist</span>
+                                    <span class="item-badge">5</span>
+                                </a>
+                                <a href="my-wallet.html" class="user-dropdown-item">
                                     <i class="bi bi-wallet2"></i>
                                     <span>My Wallet</span>
                                 </a>
-                                <a href="#" class="user-dropdown-item">
+                                <a href="notifications.html" class="user-dropdown-item">
                                     <i class="bi bi-bell"></i>
                                     <span>Notifications</span>
-                                    <span class="item-badge">5</span>
+                                    <span class="item-badge">12</span>
                                 </a>
-                                <a href="#" class="user-dropdown-item">
+                                <a href="account-settings.html" class="user-dropdown-item">
                                     <i class="bi bi-gear"></i>
                                     <span>Settings</span>
                                 </a>
