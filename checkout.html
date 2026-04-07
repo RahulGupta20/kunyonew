@@ -166,99 +166,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Delivery Time Estimate -->
-                            <div class="delivery-estimate">
-                                <div class="estimate-icon">
-                                    <i class="bi bi-lightning-charge-fill"></i>
-                                </div>
-                                <div class="estimate-text">
-                                    <strong>Instant Delivery</strong>
-                                    <p>Your digital codes will be delivered within 5 minutes after payment confirmation</p>
-                                </div>
-                            </div>
-
-                            <!-- Recipient Information (Optional) -->
-                            <div class="recipient-section">
-                                <div class="section-toggle" id="recipientToggle">
-                                    <i class="bi bi-gift-fill"></i>
-                                    <span>Send as a gift to someone else?</span>
-                                    <i class="bi bi-chevron-down toggle-chevron"></i>
-                                </div>
-                                <div class="recipient-form" id="recipientForm" style="display: none;">
-                                    <div class="form-row">
-                                        <div class="form-group-modern">
-                                            <label for="recipientName">Recipient Name</label>
-                                            <input type="text" id="recipientName" class="input-modern" placeholder="John Doe">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group-modern">
-                                            <label for="recipientEmail">Recipient Email</label>
-                                            <div class="input-with-icon">
-                                                <i class="bi bi-envelope"></i>
-                                                <input type="email" id="recipientEmail" class="input-modern" placeholder="recipient@example.com">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group-modern">
-                                            <label for="giftMessage">Gift Message (Optional)</label>
-                                            <textarea id="giftMessage" class="input-modern" rows="3" placeholder="Write a personal message..."></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-
-                    <!-- Game Account Details (if required) -->
-                    <div class="checkout-card">
-                        <div class="card-header-checkout">
-                            <div class="header-icon">
-                                <i class="bi bi-controller"></i>
-                            </div>
-                            <div class="header-text">
-                                <h3>Game Account Details</h3>
-                                <p>Required for direct top-up items</p>
-                            </div>
-                        </div>
-                        <div class="card-body-checkout">
-                            <div class="info-notice">
-                                <i class="bi bi-info-circle-fill"></i>
-                                <div class="notice-text">
-                                    <strong>For Gift Cards & Codes:</strong>
-                                    <p>No game account needed. Codes will be sent to your email.</p>
-                                </div>
-                            </div>
-
-                            <div class="game-account-inputs" style="display: none;">
-                                <div class="form-row">
-                                    <div class="form-group-modern">
-                                        <label for="gameUserId">Player ID / User ID</label>
-                                        <div class="input-with-icon">
-                                            <i class="bi bi-person-badge"></i>
-                                            <input type="text" id="gameUserId" class="input-modern" placeholder="Enter your Player ID">
-                                        </div>
-                                        <small class="input-hint">Required for PUBG, Free Fire, Mobile Legends top-ups</small>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group-modern">
-                                        <label for="gameServer">Server / Zone</label>
-                                        <select id="gameServer" class="input-modern">
-                                            <option value="">Select Server</option>
-                                            <option value="asia">Asia</option>
-                                            <option value="sea">Southeast Asia</option>
-                                            <option value="india">India</option>
-                                            <option value="global">Global</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Payment Method -->
                     <div class="checkout-card">
                         <div class="card-header-checkout">
@@ -323,6 +232,110 @@
                                         </div>
                                     </div>
                                 </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Details Form Section -->
+                    <div class="checkout-card" id="cardFormSection" style="display: none;">
+                        <div class="card-header-checkout">
+                            <div class="header-icon">
+                                <i class="bi bi-credit-card-fill"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Card Details</h3>
+                                <p>Enter your card information</p>
+                            </div>
+                        </div>
+                        <div class="card-body-checkout">
+                            <div class="form-group-modern">
+                                <label for="checkoutCardNumber">Card Number</label>
+                                <div class="input-with-icon">
+                                    <i class="bi bi-credit-card"></i>
+                                    <input type="text" id="checkoutCardNumber" class="input-modern" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                            </div>
+
+                            <div class="form-group-modern">
+                                <label for="checkoutCardName">Cardholder Name</label>
+                                <div class="input-with-icon">
+                                    <i class="bi bi-person"></i>
+                                    <input type="text" id="checkoutCardName" class="input-modern" placeholder="JOHN DOE" style="text-transform: uppercase;">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group-modern">
+                                        <label for="checkoutCardExpiry">Expiry Date</label>
+                                        <div class="input-with-icon">
+                                            <i class="bi bi-calendar"></i>
+                                            <input type="text" id="checkoutCardExpiry" class="input-modern" placeholder="MM/YY" maxlength="5">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group-modern">
+                                        <label for="checkoutCardCvv">CVV
+                                            <i class="bi bi-question-circle" title="3-digit security code on back of card" style="cursor: help; font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                                        </label>
+                                        <div class="input-with-icon">
+                                            <i class="bi bi-shield-check"></i>
+                                            <input type="password" id="checkoutCardCvv" class="input-modern" placeholder="123" maxlength="3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="security-notice" style="margin-top: 1rem; padding: 0.75rem; background: #f0f4f8; border-left: 3px solid #007bff; border-radius: 4px;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #495057;">
+                                    <i class="bi bi-shield-exclamation"></i>
+                                    <span>Your card details are encrypted and secure. We never store your full card information.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wallet Redirect Section -->
+                    <div class="checkout-card" id="walletRedirectSection" style="display: none;">
+                        <div class="card-header-checkout">
+                            <div class="header-icon">
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Complete Payment</h3>
+                                <p>You'll be redirected to <span id="walletNameText">your wallet</span></p>
+                            </div>
+                        </div>
+                        <div class="card-body-checkout">
+                            <div style="text-align: center; padding: 1rem 0;">
+                                <div style="margin-bottom: 1rem;">
+                                    <i class="bi bi-check-circle" style="font-size: 3rem; color: #28a745;"></i>
+                                </div>
+                                <h4>Follow these steps:</h4>
+                                <div style="text-align: left; margin-top: 1.5rem;">
+                                    <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+                                        <div style="min-width: 2rem; width: 2rem; height: 2rem; border-radius: 50%; background: #007bff; color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">1</div>
+                                        <div>
+                                            <strong>Login to your <span id="walletNameStep1">wallet</span> account</strong>
+                                            <p style="margin: 0.25rem 0 0 0; color: #6c757d; font-size: 0.9rem;">Enter your credentials securely</p>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+                                        <div style="min-width: 2rem; width: 2rem; height: 2rem; border-radius: 50%; background: #007bff; color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">2</div>
+                                        <div>
+                                            <strong>Confirm payment details</strong>
+                                            <p style="margin: 0.25rem 0 0 0; color: #6c757d; font-size: 0.9rem;">Review and approve the transaction</p>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: start; gap: 1rem;">
+                                        <div style="min-width: 2rem; width: 2rem; height: 2rem; border-radius: 50%; background: #007bff; color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">3</div>
+                                        <div>
+                                            <strong>Return to checkout</strong>
+                                            <p style="margin: 0.25rem 0 0 0; color: #6c757d; font-size: 0.9rem;">You'll be redirected back automatically</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
