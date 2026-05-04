@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - KUNYO | Nepal's #1 Gaming Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!-- About Us Page CSS -->
+    <link rel="stylesheet" href="css/about-us.css">
+
+    <!-- Custom SCSS Compiled CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="about-us-page">
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-6">
+                    <div class="d-flex align-items-end gap-3">
+                        <button class="navbar-toggler mobile-menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 order-lg-2 order-3">
+                    <div class="search-wrapper">
+                        <div class="dropdown">
+                            <button class="category-dropdown dropdown-toggle" type="button" id="categoryDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                All Categories
+                            </button>
+                            <div class="dropdown-menu category-dropdown-menu" aria-labelledby="categoryDropdownBtn">
+                                <div class="category-menu-content-dropdown">
+                                    <div class="category-menu-left">
+                                        <h5>
+                                            Select Categories
+                                            <span class="close-menu">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        </h5>
+                                        <div class="category-columns">
+                                            <div class="category-column">
+                                                <a href="#" class="category-item" style="font-weight: 600; color: #fff;">All Categories</a>
+                                                <a href="#" class="category-item">Mobile Games</a>
+                                                <a href="#" class="category-item">PC Games</a>
+                                                <a href="#" class="category-item">Console Games</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">Gaming eCards</a>
+                                                <a href="gift-cards-listing.html" class="category-item">Gift Cards</a>
+                                                <a href="#" class="category-item">Game Top-Ups</a>
+                                                <a href="#" class="category-item">Streaming Services</a>
+                                            </div>
+                                            <div class="category-column">
+                                                <a href="#" class="category-item">PlayStation Store</a>
+                                                <a href="#" class="category-item">Xbox Store</a>
+                                                <a href="#" class="category-item">Steam Wallet</a>
+                                                <a href="#" class="category-item">Nintendo eShop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Search for games, top-ups and more">
+                        <button class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-6 order-lg-3 order-2">
+                    <div class="header-icons justify-content-end">
+                        <button class="preferences-btn" type="button" data-bs-toggle="modal" data-bs-target="#preferencesModal">
+                            <img src="https://flagcdn.com/w20/us.png" alt="US Flag" id="selectedFlag">
+                            <span id="selectedLanguage">EN</span>
+                            <span class="separator">/</span>
+                            <span id="selectedCurrency">USD</span>
+                        </button>
+                        <a href="#" class="header-icon favorite-icon-btn" style="display: none;">
+                            <i class="bi bi-heart"></i>
+                            <span class="favorite-badge">0</span>
+                        </a>
+                        <a href="signin.html" class="header-icon login-register-btn">
+                            <i class="bi bi-person"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="#" class="header-icon cart-icon-btn">
+                            <i class="bi bi-cart3"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar navbar-expand-lg bottom-nav">
+        <div class="container-fluid">
+            <div class="dropdown browse-category-dropdown">
+                <button class="browse-category-btn" type="button">
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="14" height="1" fill="white"></rect><rect y="8" width="14" height="1" fill="white"></rect><rect y="4" width="10" height="1" fill="white"></rect></svg>
+                    Browse All
+                </button>
+                <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                    <i class="bi bi-chevron-down"></i>
+                </span>
+                <div class="dropdown-menu mega-menu">
+                    <div class="mega-menu-grid">
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-phone"></i> Mobile Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>FreeFire</strong>
+                                    <small>Top-up diamonds instantly</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PUBG Mobile</strong>
+                                    <small>UC & Royale Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Mobile Legends</strong>
+                                    <small>Diamonds & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Call of Duty Mobile</strong>
+                                    <small>CP & Battle Pass</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Genshin Impact</strong>
+                                    <small>Genesis Crystals</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-pc-display"></i> PC Games</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam Games</strong>
+                                    <small>Browse all Steam titles</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Epic Games</strong>
+                                    <small>Exclusive PC games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-controller"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>EA Games</strong>
+                                    <small>FIFA, Apex & more</small>
+                                </div>
+                            </a>
+
+                            <h4 style="margin-top: 1.5rem;"><i class="bi bi-collection-play"></i> Console</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-playstation"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>PlayStation</strong>
+                                    <small>PS4 & PS5 games</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-xbox"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Xbox</strong>
+                                    <small>Xbox games & passes</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mega-menu-column">
+                            <h4><i class="bi bi-currency-dollar"></i> By Platform</h4>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-google-play"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Google Play</strong>
+                                    <small>Android games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-apple"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>App Store</strong>
+                                    <small>iOS games & apps</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-steam"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Steam</strong>
+                                    <small>PC gaming platform</small>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <i class="bi bi-nintendo-switch"></i>
+                                <div class="mega-menu-item-text">
+                                    <strong>Nintendo eShop</strong>
+                                    <small>Switch games</small>
+                                </div>
+                            </a>
+
+                            <div class="mega-menu-featured">
+                                <h5><i class="bi bi-fire"></i> Trending Now</h5>
+                                <p>Check out the most popular games this week!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="mobile-menu-logo">
+                        <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo">
+                    </a>
+                    <button class="sidebar-close-btn" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <ul class="main-nav ms-4">
+                    <!-- Top Up Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="topups-list.html" class="nav-link">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Top Up</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Game Top-Ups</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>FreeFire Diamonds</strong>
+                                            <small>Instant delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PUBG Mobile UC</strong>
+                                            <small>Global & India version</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Mobile Legends</strong>
+                                            <small>Diamonds & Weekly Pass</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Genshin Impact</strong>
+                                            <small>Genesis Crystals & Welkin</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-gem"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Valorant</strong>
+                                            <small>VP & Battle Pass</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-broadcast"></i> Social Media</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-tiktok"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>TikTok Coins</strong>
+                                            <small>Support your favorite creators</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-instagram"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Instagram Boost</strong>
+                                            <small>Followers & engagement</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Ad-free experience</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-facebook"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Facebook Gaming</strong>
+                                            <small>Stars & support</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-wallet2"></i> Quick Recharge</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Recent Purchases</strong>
+                                            <small>Reorder in one click</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-star"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Favorites</strong>
+                                            <small>Your saved items</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-lightning-charge-fill"></i> Flash Sale</h5>
+                                        <p>Get 20% off on all mobile game top-ups this weekend!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Gift Cards Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="gift-cards-listing.html" class="nav-link">
+                            <i class="bi bi-gift"></i>
+                            <span>Gift Cards</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-controller"></i> Gaming Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-google-play"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Google Play Gift Card</strong>
+                                            <small>$10, $25, $50, $100</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-steam"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Steam Wallet Code</strong>
+                                            <small>Digital delivery</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-playstation"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>PlayStation Store</strong>
+                                            <small>PSN cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-xbox"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Xbox Gift Card</strong>
+                                            <small>Games & Gold</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-nintendo-switch"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Nintendo eShop</strong>
+                                            <small>Switch cards</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-film"></i> Entertainment</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-netflix"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Netflix</strong>
+                                            <small>Subscription cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-spotify"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Spotify</strong>
+                                            <small>Premium codes</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-apple"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>iTunes & App Store</strong>
+                                            <small>Apple gift cards</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-youtube"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>YouTube Premium</strong>
+                                            <small>Gift subscriptions</small>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h4><i class="bi bi-bag"></i> Retail Cards</h4>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-amazon"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Amazon Gift Card</strong>
+                                            <small>Shop anything</small>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="mega-menu-item">
+                                        <i class="bi bi-cart"></i>
+                                        <div class="mega-menu-item-text">
+                                            <strong>Visa Prepaid Card</strong>
+                                            <small>Use anywhere</small>
+                                        </div>
+                                    </a>
+
+                                    <div class="mega-menu-featured">
+                                        <h5><i class="bi bi-gift-fill"></i> Perfect Gift</h5>
+                                        <p>Not sure what to buy? Send a gift card!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Subscriptions -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-calendar-check"></i> Subscriptions</a>
+                    </li>
+
+                    <!-- Gaming Gears -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="bi bi-headset"></i> Gaming Gears</a>
+                    </li>
+
+                    <!-- Hot Deals -->
+                    <li class="nav-item">
+                        <a href="hot-deals.html" class="nav-link" style="color: #DC143C; font-weight: 600;">
+                            <i class="bi bi-fire"></i> Hot Deals
+                        </a>
+                    </li>
+
+                    <!-- Support Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-question-circle"></i>
+                            <span>Support</span>
+                        </a>
+                        <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                        <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><a class="dropdown-item" href="#">Track Order</a></li>
+                            <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="all-stores.html"><i class="bi bi-shop"></i> Our Stores</a></li>
+                            <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Mobile Special Offers -->
+                    <li class="mobile-special-offers">
+                        <a href="special-offers.html" class="special-offers-mobile">
+                            <i class="bi bi-megaphone"></i>
+                            Special Offers!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="special-offers.html" class="special-offers ms-auto desktop-special-offers">
+                <i class="bi bi-megaphone"></i>
+                Special Offers!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header">
+                <h3>
+                    <i class="bi bi-cart3"></i>
+                    Your Cart
+                    <span class="cart-count-badge" id="cartCountBadge">0</span>
+                </h3>
+                <button class="cart-drawer-close" id="cartDrawerClose">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <div class="cart-drawer-body" id="cartDrawerBody">
+                <!-- Empty State -->
+                <div class="cart-empty-state" id="cartEmptyState">
+                    <div class="empty-state-icon">
+                        <i class="bi bi-cart-x"></i>
+                    </div>
+                    <h4>Your cart is empty</h4>
+                    <p>Add some gaming items to get started!</p>
+                    <button class="btn-continue-shopping" id="btnContinueShopping">
+                        <i class="bi bi-arrow-left"></i>
+                        Continue Shopping
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="cart-items-list" id="cartItemsListDrawer" style="display: none;">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+                <div class="cart-summary-mini">
+                    <div class="summary-row total">
+                        <span>Total (<span id="cartItemCount">0</span> items):</span>
+                        <strong class="total-amount" id="cartTotalDrawer">Rs. 0.00</strong>
+                    </div>
+                </div>
+                <div class="cart-drawer-actions">
+                    <a href="cart.html" class="btn-view-cart">
+                        <i class="bi bi-cart3"></i>
+                        <span>View Cart</span>
+                    </a>
+                    <a href="checkout.html" class="btn-checkout-drawer" id="btnCheckoutDrawer">
+                        <i class="bi bi-lightning-fill"></i>
+                        <span>Checkout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div class="modal fade" id="preferencesModal" tabindex="-1" aria-labelledby="preferencesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered preferences-modal-dialog">
+            <div class="modal-content preferences-modal-content">
+                <div class="modal-header preferences-modal-header">
+                    <h5 class="modal-title" id="preferencesModalLabel">Preferences</h5>
+                    <button type="button" class="btn-close preferences-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body preferences-modal-body">
+                    <!-- Country Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Country</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#countryCollapse">
+                            <img src="https://flagcdn.com/w20/us.png" alt="USA Flag" class="preference-flag">
+                            <span class="preference-text">USA</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="countryCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-country="us" data-flag="https://flagcdn.com/w20/us.png">
+                                    <img src="https://flagcdn.com/w20/us.png" alt="USA Flag">
+                                    <span>USA</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="ca" data-flag="https://flagcdn.com/w20/ca.png">
+                                    <img src="https://flagcdn.com/w20/ca.png" alt="Canada Flag">
+                                    <span>Canada</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="gb" data-flag="https://flagcdn.com/w20/gb.png">
+                                    <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag">
+                                    <span>United Kingdom</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-country="np" data-flag="https://flagcdn.com/w20/np.png">
+                                    <img src="https://flagcdn.com/w20/np.png" alt="Nepal Flag">
+                                    <span>Nepal</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Language</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#languageCollapse">
+                            <span class="preference-text">English</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="languageCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-language="en" data-language-name="English">
+                                    <span>English</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="es" data-language-name="Spanish">
+                                    <span>Spanish</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="fr" data-language-name="French">
+                                    <span>French</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-language="ne" data-language-name="Nepali">
+                                    <span>Nepali</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Currency Selection -->
+                    <div class="preference-section">
+                        <label class="preference-label">Payment currency</label>
+                        <button class="preference-option" type="button" data-bs-toggle="collapse" data-bs-target="#currencyCollapse">
+                            <span class="preference-icon">$</span>
+                            <span class="preference-text">USD - US Dollar</span>
+                            <i class="bi bi-chevron-right preference-arrow"></i>
+                        </button>
+                        <div class="collapse" id="currencyCollapse">
+                            <div class="preference-dropdown">
+                                <button class="preference-dropdown-item" data-currency="USD" data-currency-name="USD - US Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>USD - US Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="CAD" data-currency-name="CAD - Canadian Dollar" data-currency-symbol="$">
+                                    <span class="preference-icon">$</span>
+                                    <span>CAD - Canadian Dollar</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="GBP" data-currency-name="GBP - British Pound" data-currency-symbol="£">
+                                    <span class="preference-icon">£</span>
+                                    <span>GBP - British Pound</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="EUR" data-currency-name="EUR - Euro" data-currency-symbol="€">
+                                    <span class="preference-icon">€</span>
+                                    <span>EUR - Euro</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                                <button class="preference-dropdown-item" data-currency="NPR" data-currency-name="NPR - Nepali Rupee" data-currency-symbol="₨">
+                                    <span class="preference-icon">₨</span>
+                                    <span>NPR - Nepali Rupee</span>
+                                    <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer preferences-modal-footer">
+                    <button type="button" class="btn preferences-save-btn" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <span class="about-badge">About Us</span>
+                <h1 class="about-title">Nepal's #1 Gaming Destination</h1>
+                <p class="about-subtitle">Empowering gamers across Nepal with instant top-ups, digital cards, and exceptional service since 2020</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=600&fit=crop&q=80" alt="Our Story">
+                        <div class="story-image-overlay"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="story-content">
+                        <span class="section-badge">Our Story</span>
+                        <h2 class="section-title">From Passion to Platform</h2>
+                        <p class="section-text">Founded in 2020, KUNYO started with a simple mission: make gaming more accessible for everyone in Nepal. What began as a small gaming store in Kathmandu has grown into Nepal's most trusted platform for game top-ups and digital cards.</p>
+                        <p class="section-text">Today, we serve thousands of gamers across the country, offering instant top-ups for popular games, gift cards for major platforms, and unmatched customer support.</p>
+                        <div class="story-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">50K+</div>
+                                <div class="stat-label">Happy Customers</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">6</div>
+                                <div class="stat-label">Store Locations</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Support Available</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="mv-card">
+                        <div class="mv-icon">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <h3 class="mv-title">Our Mission</h3>
+                        <p class="mv-text">To provide gamers in Nepal with fast, reliable, and affordable access to gaming credits, gift cards, and digital content, making every gaming experience seamless and enjoyable.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mv-card">
+                        <div class="mv-icon">
+                            <i class="bi bi-eye"></i>
+                        </div>
+                        <h3 class="mv-title">Our Vision</h3>
+                        <p class="mv-text">To become South Asia's leading gaming commerce platform, connecting millions of gamers with the digital content they love while fostering a vibrant gaming community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-badge">Our Values</span>
+                <h2 class="section-title">What We Stand For</h2>
+                <p class="section-description">The principles that guide everything we do</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <h4 class="value-title">Speed</h4>
+                    <p class="value-text">Instant delivery of all digital products within seconds</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="bi bi-shield-fill-check"></i>
+                    </div>
+                    <h4 class="value-title">Trust</h4>
+                    <p class="value-text">100% authentic products with secure transactions</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h4 class="value-title">Community</h4>
+                    <p class="value-text">Building a strong gaming community across Nepal</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="bi bi-heart-fill"></i>
+                    </div>
+                    <h4 class="value-title">Customer First</h4>
+                    <p class="value-text">Your satisfaction is our top priority, always</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h4 class="value-title">Innovation</h4>
+                    <p class="value-text">Constantly improving our platform and services</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="bi bi-cash-coin"></i>
+                    </div>
+                    <h4 class="value-title">Value</h4>
+                    <p class="value-text">Best prices with exclusive deals and offers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-badge">Why Choose KUNYO</span>
+                <h2 class="section-title">Your Trusted Gaming Partner</h2>
+                <p class="section-description">Experience the difference with Nepal's leading gaming platform</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-highlight-card">
+                        <div class="feature-number">01</div>
+                        <div class="feature-icon-lg">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <h3 class="feature-highlight-title">Instant Delivery</h3>
+                        <p class="feature-highlight-text">Get your gaming credits, top-ups, and gift cards delivered instantly. No waiting, no delays - start playing immediately.</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Automated delivery system</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 24/7 availability</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Instant email confirmation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-highlight-card">
+                        <div class="feature-number">02</div>
+                        <div class="feature-icon-lg">
+                            <i class="bi bi-shield-fill-check"></i>
+                        </div>
+                        <h3 class="feature-highlight-title">100% Secure</h3>
+                        <p class="feature-highlight-text">Your transactions are protected with bank-level encryption. Shop with confidence knowing your data is safe.</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> SSL encrypted checkout</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Secure payment gateways</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Privacy guaranteed</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-highlight-card">
+                        <div class="feature-number">03</div>
+                        <div class="feature-icon-lg">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h3 class="feature-highlight-title">Expert Support</h3>
+                        <p class="feature-highlight-text">Our gaming experts are here to help 24/7. Get assistance whenever you need it via chat, email, or phone.</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Live chat support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Dedicated help center</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Quick response time</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Milestones Section -->
+    <section class="milestones-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="milestones-content">
+                        <span class="section-badge">Our Journey</span>
+                        <h2 class="section-title">Milestones & Achievements</h2>
+                        <p class="section-text">From a small startup to Nepal's leading gaming platform, our journey has been remarkable. Here are some key milestones that shaped our success.</p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">2020</div>
+                                <div class="timeline-content">
+                                    <h4>KUNYO Founded</h4>
+                                    <p>Started with a vision to revolutionize gaming commerce in Nepal</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2021</div>
+                                <div class="timeline-content">
+                                    <h4>First 10K Customers</h4>
+                                    <p>Reached our first major milestone with 10,000 happy gamers</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-content">
+                                    <h4>Multi-City Expansion</h4>
+                                    <p>Opened stores in 6 major cities across Nepal</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-content">
+                                    <h4>50K+ Active Users</h4>
+                                    <p>Became Nepal's #1 trusted gaming platform</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="milestones-stats-grid">
+                        <div class="milestone-stat-card">
+                            <i class="bi bi-trophy-fill"></i>
+                            <div class="milestone-stat-number">50K+</div>
+                            <div class="milestone-stat-label">Happy Customers</div>
+                        </div>
+                        <div class="milestone-stat-card">
+                            <i class="bi bi-shop"></i>
+                            <div class="milestone-stat-number">6</div>
+                            <div class="milestone-stat-label">Store Locations</div>
+                        </div>
+                        <div class="milestone-stat-card">
+                            <i class="bi bi-star-fill"></i>
+                            <div class="milestone-stat-number">4.9</div>
+                            <div class="milestone-stat-label">Customer Rating</div>
+                        </div>
+                        <div class="milestone-stat-card">
+                            <i class="bi bi-clock-fill"></i>
+                            <div class="milestone-stat-number">24/7</div>
+                            <div class="milestone-stat-label">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners & Platforms Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-badge">Trusted Partnerships</span>
+                <h2 class="section-title">Official Partners & Platforms</h2>
+                <p class="section-description">We work with leading gaming platforms to bring you authentic products</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <i class="bi bi-steam"></i>
+                    <h4>Steam</h4>
+                </div>
+                <div class="partner-card">
+                    <i class="bi bi-playstation"></i>
+                    <h4>PlayStation</h4>
+                </div>
+                <div class="partner-card">
+                    <i class="bi bi-xbox"></i>
+                    <h4>Xbox</h4>
+                </div>
+                <div class="partner-card">
+                    <i class="bi bi-google-play"></i>
+                    <h4>Google Play</h4>
+                </div>
+                <div class="partner-card">
+                    <i class="bi bi-apple"></i>
+                    <h4>App Store</h4>
+                </div>
+                <div class="partner-card">
+                    <i class="bi bi-nintendo-switch"></i>
+                    <h4>Nintendo</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-badge">Testimonials</span>
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-description">Don't just take our word for it - hear from our satisfied gamers</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"KUNYO is my go-to platform for all gaming needs. Instant delivery and great prices. Highly recommend to all gamers in Nepal!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Customer">
+                            </div>
+                            <div class="author-info">
+                                <h5>Aashish Thapa</h5>
+                                <p>PUBG Mobile Player</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"Best customer service ever! They helped me instantly when I had issues. Super fast delivery and genuine products."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://i.pravatar.cc/150?img=5" alt="Customer">
+                            </div>
+                            <div class="author-info">
+                                <h5>Priyanka Sharma</h5>
+                                <p>Genshin Impact Player</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">"I've been using KUNYO for over a year now. Never had any issues. Trustworthy platform with competitive prices!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://i.pravatar.cc/150?img=33" alt="Customer">
+                            </div>
+                            <div class="author-info">
+                                <h5>Rohan Basnet</h5>
+                                <p>Free Fire Player</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header-center">
+                <span class="section-badge">Our Team</span>
+                <h2 class="section-title">Meet the People Behind KUNYO</h2>
+                <p class="section-description">Passionate gamers serving gamers</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80" alt="Team Member">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="member-name">Raj Kumar</h4>
+                    <p class="member-role">CEO & Founder</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&q=80" alt="Team Member">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="member-name">Priya Sharma</h4>
+                    <p class="member-role">Head of Operations</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&q=80" alt="Team Member">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="member-name">Sanjay Thapa</h4>
+                    <p class="member-role">Tech Lead</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&q=80" alt="Team Member">
+                        <div class="member-overlay">
+                            <div class="member-social">
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="member-name">Anita Rai</h4>
+                    <p class="member-role">Customer Success Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Level Up Your Gaming?</h2>
+                <p class="cta-text">Join thousands of gamers who trust KUNYO for their gaming needs</p>
+                <div class="cta-buttons">
+                    <a href="index.html" class="btn-cta-primary">
+                        <span>Start Shopping</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="contact.html" class="btn-cta-secondary">
+                        <span>Contact Us</span>
+                        <i class="bi bi-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <div class="footer-row">
+                    <!-- Brand Column -->
+                    <div class="footer-brand-col">
+                        <div class="footer-logo">
+                            <img src="assets/images/kunyo-logo.png" alt="KUNYO Logo" class="footer-logo-img">
+                        </div>
+                        <p class="footer-description">Nepal's #1 platform for instant game top-ups, digital gift cards, and gaming rewards. Fast, secure, and trusted by thousands of gamers.</p>
+
+
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Top Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Mobile Games</a></li>
+                            <li><a href="#">PC Games</a></li>
+                            <li><a href="gift-cards-listing.html">Gift Cards</a></li>
+                            <li><a href="#">Game Credits</a></li>
+                            <li><a href="#">Streaming Services</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">How to Order</a></li>
+                            <li><a href="#">Payment Methods</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Company -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Social Section -->
+            <div class="footer-secondary">
+                <div class="footer-payment">
+                    <h5 class="footer-secondary-heading">We Accept</h5>
+                    <div class="payment-icons">
+                        <div class="payment-icon">eSewa</div>
+                        <div class="payment-icon">Khalti</div>
+                        <div class="payment-icon">IME Pay</div>
+                        <div class="payment-icon">Visa</div>
+                        <div class="payment-icon">Mastercard</div>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h5 class="footer-secondary-heading">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Discord">
+                            <i class="bi bi-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 KUNYO. All rights reserved.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <p>🇳🇵 Proudly serving gamers in Nepal</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
